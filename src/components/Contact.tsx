@@ -432,8 +432,8 @@ const Contact = () => {
               );
             })}
 
-            {/* Business Hours */}
-            <Card className="border-0 shadow-md bg-gradient-to-br from-hispaltech-navy/5 to-hispaltech-green/5">
+            {/* Business Hours - Removed */}
+            {/* <Card className="border-0 shadow-md bg-gradient-to-br from-hispaltech-navy/5 to-hispaltech-green/5">
               <CardContent className="p-4">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-hispaltech-green/10 rounded-lg flex items-center justify-center">
@@ -451,7 +451,7 @@ const Contact = () => {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* Location */}
             <Card className="border-0 shadow-md">
@@ -465,7 +465,7 @@ const Contact = () => {
                       {t("contact.directContact.location.title")}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      {t("contact.directContact.location.address")}
+                      España
                       <br />
                       <span className="text-xs">
                         {t("contact.directContact.location.service")}
