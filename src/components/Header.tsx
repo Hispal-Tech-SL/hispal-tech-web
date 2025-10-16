@@ -20,7 +20,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img src="/logoHispalTech.jpg" alt="Hispal Tech Logo" className="h-8 w-8 object-contain" />
+            <img
+              src="/logoHispalTech.png"
+              alt="Hispal Tech Logo"
+              className="h-8 w-8 object-contain"
+            />
             <span className="text-xl font-bold text-primary">Hispal Tech</span>
           </div>
 

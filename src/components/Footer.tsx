@@ -84,7 +84,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <img src="/logoHispalTech.jpg" alt="Hispal Tech Logo" className="h-8 w-8 object-contain" />
+              <img
+                src="/logoHispalTech.png"
+                alt="Hispal Tech Logo"
+                className="h-8 w-8 object-contain brightness-150 contrast-150 drop-shadow-lg"
+              />
               <span className="text-2xl font-bold">Hispal Tech</span>
             </div>
 
