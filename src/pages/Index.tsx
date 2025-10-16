@@ -4,7 +4,7 @@ import Services from '@/components/Services';
 import Portfolio from '@/components/Portfolio';
 import Team from '@/components/Team';
 import PriceComparison from '@/components/PriceComparison';
-import Testimonials from '@/components/Testimonials';
+// import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -16,7 +16,7 @@ const Index = () => {
         <Hero />
         <Services />
         <Portfolio />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Team />
         <PriceComparison />
         <Contact />
