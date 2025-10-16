@@ -1,6 +1,6 @@
 // Contact Information
 export const CONTACT_INFO = {
-  email: "hola@hispaltech.dev",
+  email: "contact.hispal.tech@gmail.com",
   // phone: "+34 600 000 000", // Commented out as requested
-  location: "Madrid, España",
+  location: "España",
 };
