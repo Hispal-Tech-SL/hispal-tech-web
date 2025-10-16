@@ -44,12 +44,12 @@ const Header = () => {
             >
               {t("nav.portfolio")}
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection("equipo")}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               {t("nav.team")}
-            </button>
+            </button> */}
             <button
               onClick={() => scrollToSection("precios")}
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -107,12 +107,12 @@ const Header = () => {
               >
                 {t("nav.portfolio")}
               </button>
-              <button
+              {/* <button
                 onClick={() => scrollToSection("equipo")}
                 className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
               >
                 {t("nav.team")}
-              </button>
+              </button> */}
               <button
                 onClick={() => scrollToSection("precios")}
                 className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
