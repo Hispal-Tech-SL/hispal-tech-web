@@ -339,7 +339,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="flex items-center space-x-2">
+                  {/* Newsletter checkbox - Hidden */}
+                  {/* <div className="flex items-center space-x-2">
                     <Checkbox
                       id="newsletter"
                       checked={formData.newsletter}
@@ -350,7 +351,7 @@ const Contact = () => {
                     <Label htmlFor="newsletter" className="text-sm">
                       {t("contact.form.newsletter")}
                     </Label>
-                  </div>
+                  </div> */}
 
                   <Button
                     type="submit"

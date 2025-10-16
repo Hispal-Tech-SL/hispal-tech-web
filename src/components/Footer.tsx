@@ -51,8 +51,8 @@ const Footer = () => {
   return (
     <footer className="bg-hispaltech-navy text-white">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Newsletter Section */}
-        <div className="py-12 border-b border-white/10">
+        {/* Newsletter Section - Hidden */}
+        {/* <div className="py-12 border-b border-white/10">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               {t("footer.newsletter.title")}
@@ -77,7 +77,7 @@ const Footer = () => {
               {t("footer.newsletter.subscribers")}
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Footer Content */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
