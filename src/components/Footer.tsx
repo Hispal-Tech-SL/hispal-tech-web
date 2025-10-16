@@ -80,7 +80,7 @@ const Footer = () => {
         </div> */}
 
         {/* Main Footer Content */}
-        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -147,8 +147,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal & Social */}
-          <div>
+          {/* Legal & Social - removed */}
+          {/* <div>
             <h4 className="text-lg font-semibold mb-4">
               {t("footer.links.legal")}
             </h4>
@@ -165,7 +165,6 @@ const Footer = () => {
               ))}
             </ul>
 
-            {/* Social Media */}
             <div>
               <h5 className="font-medium mb-3">{t("footer.links.follow")}</h5>
               <div className="flex gap-3">
@@ -192,19 +191,15 @@ const Footer = () => {
                 </Button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <Separator className="bg-white/10" />
 
         {/* Bottom Footer */}
-        <div className="py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="py-6 flex justify-center items-center text-center">
           <div className="text-sm text-white/80">
             © {currentYear} Hispal Tech. {t("footer.bottom.copyright")}
-          </div>
-
-          <div className="flex items-center gap-4 text-sm text-white/80">
-            <span>{t("footer.bottom.madeWith")}</span>
           </div>
         </div>
       </div>
