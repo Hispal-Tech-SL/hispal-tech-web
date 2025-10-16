@@ -1,0 +1,266 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "team": "Team",
+    "prices": "Prices",
+    "contact": "Contact",
+    "requestQuote": "Request Quote"
+  },
+  "hero": {
+    "badge": "Best Price Guaranteed",
+    "title": "Custom Programming",
+    "subtitle": "at the Best Price",
+    "description": "We develop custom websites and applications with cutting-edge technology. We guarantee the best price against any competitor.",
+    "benefits": {
+      "custom": "100% Custom",
+      "fast": "Fast Delivery",
+      "support": "24/7 Support"
+    },
+    "cta": {
+      "primary": "Request Free Quote",
+      "secondary": "Consult via WhatsApp"
+    },
+    "stats": {
+      "projects": "Successful Projects",
+      "clients": "Satisfied Clients",
+      "response": "Response Time"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete Technology Solutions",
+    "description": "We offer custom web development and application services with the best guaranteed price in the market.",
+    "cta": {
+      "title": "Can't find what you're looking for?",
+      "description": "We have custom solutions for any technological need. Tell us about your project and we'll give you the best proposal.",
+      "primary": "Personalized Consultation",
+      "secondary": "View Completed Projects"
+    },
+    "items": {
+      "web": {
+        "title": "Websites",
+        "description": "Design and development of modern, responsive and SEO-optimized websites."
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Complete online stores with payment gateways, inventory management and analytics."
+      },
+      "mobile": {
+        "title": "Mobile Apps",
+        "description": "Native and hybrid applications for iOS and Android with the latest technologies."
+      },
+      "systems": {
+        "title": "Enterprise Systems",
+        "description": "Custom software to automate processes and improve productivity."
+      },
+      "integration": {
+        "title": "API Integrations",
+        "description": "We connect your systems with external services and third-party APIs."
+      },
+      "consulting": {
+        "title": "Tech Consulting",
+        "description": "Strategic advice on technology and digital transformation."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "Projects That Speak for Themselves",
+    "description": "Discover some of our most outstanding work and the quality we offer.",
+    "cta": {
+      "title": "Ready for your next project?",
+      "description": "Let's work together to create something amazing. Every project is unique and deserves the best attention.",
+      "primary": "Start Project",
+      "secondary": "View More Services"
+    },
+    "projects": {
+      "dashboard": {
+        "title": "Business Dashboard",
+        "description": "Complete control panel with real-time metrics and advanced analytics."
+      },
+      "ecommerce": {
+        "title": "Online Store",
+        "description": "Complete e-commerce with inventory management and multiple payment gateways."
+      },
+      "mobile": {
+        "title": "Mobile App",
+        "description": "Native mobile application with advanced features and intuitive design."
+      }
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Technology Experts",
+    "description": "Meet the professionals who make our successful projects possible.",
+    "cta": {
+      "title": "Want to join our team?",
+      "description": "We're always looking for exceptional talent. If you have a passion for technology, contact us.",
+      "primary": "View Openings",
+      "secondary": "View Projects"
+    },
+    "members": {
+      "maria": {
+        "name": "María García",
+        "role": "CEO & Full-Stack Developer",
+        "description": "Specialist in React, Node.js and scalable architectures with more than 8 years of experience."
+      },
+      "carlos": {
+        "name": "Carlos Rodríguez",
+        "role": "CTO & Backend Developer",
+        "description": "Expert in Python, Django and microservices. Passionate about optimization and performance."
+      },
+      "juan": {
+        "name": "Juan Martínez",
+        "role": "UX/UI Designer & Frontend",
+        "description": "Specialist in user-centered design and frontend development with React and Vue.js."
+      }
+    }
+  },
+  "prices": {
+    "title": "Price Comparison",
+    "subtitle": "Best Price Guaranteed",
+    "description": "Compare our prices with the competition. We guarantee to be more economical or match the price.",
+    "guarantee": "Best Price Guarantee",
+    "guaranteeDescription": "If you find a lower price, we match it and give you an additional 10% discount.",
+    "cta": {
+      "title": "Need a custom quote?",
+      "description": "Every project is unique. Contact us for a quote tailored to your specific needs.",
+      "primary": "Request Quote",
+      "secondary": "View Services"
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Real Testimonials",
+    "description": "Our clients' satisfaction is our best business card."
+  },
+  "contact": {
+    "title": "Let's Start Your Project",
+    "subtitle": "Today",
+    "description": "Tell us your idea and we'll send you a personalized proposal with the best guaranteed price in less than 24 hours.",
+    "form": {
+      "title": "Request Free Quote",
+      "description": "Complete the form and receive a personalized quote in 24 hours",
+      "fields": {
+        "name": "Full name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company",
+        "project": "Project type",
+        "budget": "Approximate budget",
+        "timeline": "When do you need the project?",
+        "description": "Project description"
+      },
+      "projectTypes": {
+        "web": "Website",
+        "ecommerce": "E-commerce",
+        "app": "Mobile App",
+        "system": "Enterprise System",
+        "integration": "API Integration",
+        "other": "Other"
+      },
+      "budgetRanges": {
+        "500-1000": "€500 - €1,000",
+        "1000-2500": "€1,000 - €2,500",
+        "2500-5000": "€2,500 - €5,000",
+        "5000+": "More than €5,000",
+        "undefined": "I'm not sure"
+      },
+      "timelineOptions": {
+        "urgent": "As soon as possible",
+        "month": "In a month",
+        "quarter": "In 2-3 months",
+        "flexible": "No rush"
+      },
+      "newsletter": "I want to receive tips and special offers by email",
+      "submit": "Request Free Quote",
+      "submitting": "Sending...",
+      "guarantee": "Guaranteed response in 24 hours"
+    },
+    "directContact": {
+      "title": "Direct Contact",
+      "description": "Do you prefer to talk directly? Choose the option that suits you best.",
+      "whatsapp": {
+        "title": "WhatsApp",
+        "description": "Immediate response",
+        "action": "Write now"
+      },
+      "email": {
+        "title": "Email",
+        "description": "Response in 2-4 hours",
+        "action": "Send email"
+      },
+      "phone": {
+        "title": "Phone",
+        "description": "Mon-Fri 9:00-18:00",
+        "action": "Call now"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekdays": "Mon - Fri: 9:00 - 18:00",
+        "saturday": "Saturdays: 10:00 - 14:00",
+        "sunday": "Sundays: Closed",
+        "whatsapp24": "⚡ WhatsApp available 24/7 for emergencies"
+      },
+      "location": {
+        "title": "Location",
+        "address": "Madrid, Spain",
+        "service": "Service throughout Spain and LATAM"
+      }
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Stay Up to Date with the Latest Tech Trends",
+      "description": "Receive tips, special offers and news about web development and technology. No spam, just valuable content.",
+      "placeholder": "your@email.com",
+      "subscribe": "Subscribe",
+      "subscribers": "More than 500 professionals already receive our newsletter"
+    },
+    "links": {
+      "quick": "Quick Links",
+      "services": "Services",
+      "legal": "Legal & Social",
+      "follow": "Follow Us"
+    },
+    "services": {
+      "web": "Websites",
+      "mobile": "Mobile Applications",
+      "systems": "Enterprise Systems",
+      "integrations": "API Integrations",
+      "consulting": "Tech Consulting",
+      "support": "24/7 Support"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms and Conditions",
+      "cookies": "Cookie Policy",
+      "gdpr": "GDPR"
+    },
+    "company": {
+      "description": "Specialists in web development and custom applications. We transform ideas into successful digital solutions with the best guaranteed price.",
+      "location": "Madrid, Spain",
+      "phone": "+34 600 000 000",
+      "email": "hola@hispaltech.dev"
+    },
+    "bottom": {
+      "copyright": "All rights reserved.",
+      "madeWith": "Made with ❤️ in Spain"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "more": "More",
+    "less": "Less"
+  }
+}

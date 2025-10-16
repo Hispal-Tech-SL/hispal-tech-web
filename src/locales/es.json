@@ -1,0 +1,266 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "team": "Equipo",
+    "prices": "Precios",
+    "contact": "Contacto",
+    "requestQuote": "Solicitar Presupuesto"
+  },
+  "hero": {
+    "badge": "Mejor Precio Garantizado",
+    "title": "Programación a Medida",
+    "subtitle": "al Mejor Precio",
+    "description": "Desarrollamos páginas web y aplicaciones personalizadas con tecnología de vanguardia. Garantizamos el mejor precio frente a cualquier competidor.",
+    "benefits": {
+      "custom": "100% Personalizado",
+      "fast": "Entrega Rápida",
+      "support": "Soporte 24/7"
+    },
+    "cta": {
+      "primary": "Solicitar Presupuesto Gratis",
+      "secondary": "Consultar por WhatsApp"
+    },
+    "stats": {
+      "projects": "Proyectos Exitosos",
+      "clients": "Clientes Satisfechos",
+      "response": "Tiempo de Respuesta"
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones Tecnológicas Completas",
+    "description": "Ofrecemos servicios de desarrollo web y aplicaciones personalizadas con el mejor precio garantizado del mercado.",
+    "cta": {
+      "title": "¿No encuentras lo que buscas?",
+      "description": "Contamos con soluciones personalizadas para cualquier necesidad tecnológica. Cuéntanos tu proyecto y te daremos la mejor propuesta.",
+      "primary": "Consulta Personalizada",
+      "secondary": "Ver Proyectos Realizados"
+    },
+    "items": {
+      "web": {
+        "title": "Páginas Web",
+        "description": "Diseño y desarrollo de sitios web modernos, responsivos y optimizados para SEO."
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Tiendas online completas con pasarelas de pago, gestión de inventario y análisis."
+      },
+      "mobile": {
+        "title": "Apps Móviles",
+        "description": "Aplicaciones nativas e híbridas para iOS y Android con las últimas tecnologías."
+      },
+      "systems": {
+        "title": "Sistemas Empresariales",
+        "description": "Software personalizado para automatizar procesos y mejorar la productividad."
+      },
+      "integration": {
+        "title": "Integraciones API",
+        "description": "Conectamos tus sistemas con servicios externos y APIs de terceros."
+      },
+      "consulting": {
+        "title": "Consultoría Tech",
+        "description": "Asesoramiento estratégico en tecnología y transformación digital."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Nuestro Portafolio",
+    "subtitle": "Proyectos que Hablan por Sí Solos",
+    "description": "Descubre algunos de nuestros trabajos más destacados y la calidad que ofrecemos.",
+    "cta": {
+      "title": "¿Listo para tu próximo proyecto?",
+      "description": "Trabajemos juntos para crear algo increíble. Cada proyecto es único y merece la mejor atención.",
+      "primary": "Iniciar Proyecto",
+      "secondary": "Ver Más Servicios"
+    },
+    "projects": {
+      "dashboard": {
+        "title": "Dashboard Empresarial",
+        "description": "Panel de control completo con métricas en tiempo real y análisis avanzados."
+      },
+      "ecommerce": {
+        "title": "Tienda Online",
+        "description": "E-commerce completo con gestión de inventario y múltiples pasarelas de pago."
+      },
+      "mobile": {
+        "title": "App Móvil",
+        "description": "Aplicación móvil nativa con funcionalidades avanzadas y diseño intuitivo."
+      }
+    }
+  },
+  "team": {
+    "title": "Nuestro Equipo",
+    "subtitle": "Expertos en Tecnología",
+    "description": "Conoce a los profesionales que hacen posible nuestros proyectos exitosos.",
+    "cta": {
+      "title": "¿Quieres formar parte de nuestro equipo?",
+      "description": "Estamos siempre buscando talento excepcional. Si tienes pasión por la tecnología, contáctanos.",
+      "primary": "Ver Vacantes",
+      "secondary": "Ver Proyectos"
+    },
+    "members": {
+      "maria": {
+        "name": "María García",
+        "role": "CEO & Desarrolladora Full-Stack",
+        "description": "Especialista en React, Node.js y arquitecturas escalables con más de 8 años de experiencia."
+      },
+      "carlos": {
+        "name": "Carlos Rodríguez",
+        "role": "CTO & Desarrollador Backend",
+        "description": "Experto en Python, Django y microservicios. Apasionado por la optimización y rendimiento."
+      },
+      "juan": {
+        "name": "Juan Martínez",
+        "role": "Diseñador UX/UI & Frontend",
+        "description": "Especialista en diseño centrado en el usuario y desarrollo frontend con React y Vue.js."
+      }
+    }
+  },
+  "prices": {
+    "title": "Comparación de Precios",
+    "subtitle": "El Mejor Precio Garantizado",
+    "description": "Compara nuestros precios con la competencia. Garantizamos ser más económicos o igualamos el precio.",
+    "guarantee": "Garantía de Mejor Precio",
+    "guaranteeDescription": "Si encuentras un precio más bajo, lo igualamos y te damos un 10% de descuento adicional.",
+    "cta": {
+      "title": "¿Necesitas un presupuesto personalizado?",
+      "description": "Cada proyecto es único. Contáctanos para una cotización adaptada a tus necesidades específicas.",
+      "primary": "Solicitar Presupuesto",
+      "secondary": "Ver Servicios"
+    }
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Testimonios Reales",
+    "description": "La satisfacción de nuestros clientes es nuestra mejor carta de presentación."
+  },
+  "contact": {
+    "title": "Empecemos Tu Proyecto",
+    "subtitle": "Hoy Mismo",
+    "description": "Cuéntanos tu idea y te enviaremos una propuesta personalizada con el mejor precio garantizado en menos de 24 horas.",
+    "form": {
+      "title": "Solicitar Presupuesto Gratuito",
+      "description": "Completa el formulario y recibe una cotización personalizada en 24 horas",
+      "fields": {
+        "name": "Nombre completo",
+        "email": "Email",
+        "phone": "Teléfono",
+        "company": "Empresa",
+        "project": "Tipo de proyecto",
+        "budget": "Presupuesto aproximado",
+        "timeline": "¿Cuándo necesitas el proyecto?",
+        "description": "Descripción del proyecto"
+      },
+      "projectTypes": {
+        "web": "Página Web",
+        "ecommerce": "E-commerce",
+        "app": "Aplicación Móvil",
+        "system": "Sistema Empresarial",
+        "integration": "Integración/API",
+        "other": "Otro"
+      },
+      "budgetRanges": {
+        "500-1000": "€500 - €1,000",
+        "1000-2500": "€1,000 - €2,500",
+        "2500-5000": "€2,500 - €5,000",
+        "5000+": "Más de €5,000",
+        "undefined": "No estoy seguro"
+      },
+      "timelineOptions": {
+        "urgent": "Lo antes posible",
+        "month": "En un mes",
+        "quarter": "En 2-3 meses",
+        "flexible": "Sin prisa"
+      },
+      "newsletter": "Quiero recibir consejos y ofertas especiales por email",
+      "submit": "Solicitar Presupuesto Gratuito",
+      "submitting": "Enviando...",
+      "guarantee": "Respuesta garantizada en 24 horas"
+    },
+    "directContact": {
+      "title": "Contacto Directo",
+      "description": "¿Prefieres hablar directamente? Elige la opción que más te convenga.",
+      "whatsapp": {
+        "title": "WhatsApp",
+        "description": "Respuesta inmediata",
+        "action": "Escribir ahora"
+      },
+      "email": {
+        "title": "Email",
+        "description": "Respuesta en 2-4 horas",
+        "action": "Enviar email"
+      },
+      "phone": {
+        "title": "Teléfono",
+        "description": "Lun-Vie 9:00-18:00",
+        "action": "Llamar ahora"
+      },
+      "hours": {
+        "title": "Horarios de Atención",
+        "weekdays": "Lun - Vie: 9:00 - 18:00",
+        "saturday": "Sábados: 10:00 - 14:00",
+        "sunday": "Domingos: Cerrado",
+        "whatsapp24": "⚡ WhatsApp disponible 24/7 para urgencias"
+      },
+      "location": {
+        "title": "Ubicación",
+        "address": "Madrid, España",
+        "service": "Servicio a toda España y LATAM"
+      }
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Mantente al Día con las Últimas Tendencias Tech",
+      "description": "Recibe consejos, ofertas especiales y novedades sobre desarrollo web y tecnología. Sin spam, solo contenido valioso.",
+      "placeholder": "tu@email.com",
+      "subscribe": "Suscribirme",
+      "subscribers": "Más de 500 profesionales ya reciben nuestro newsletter"
+    },
+    "links": {
+      "quick": "Enlaces Rápidos",
+      "services": "Servicios",
+      "legal": "Legal & Social",
+      "follow": "Síguenos"
+    },
+    "services": {
+      "web": "Páginas Web",
+      "mobile": "Aplicaciones Móviles",
+      "systems": "Sistemas Empresariales",
+      "integrations": "Integraciones API",
+      "consulting": "Consultoría Tech",
+      "support": "Soporte 24/7"
+    },
+    "legal": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos y Condiciones",
+      "cookies": "Política de Cookies",
+      "gdpr": "GDPR"
+    },
+    "company": {
+      "description": "Especialistas en desarrollo web y aplicaciones personalizadas. Transformamos ideas en soluciones digitales exitosas con el mejor precio garantizado.",
+      "location": "Madrid, España",
+      "phone": "+34 600 000 000",
+      "email": "hola@hispaltech.dev"
+    },
+    "bottom": {
+      "copyright": "Todos los derechos reservados.",
+      "madeWith": "Hecho con ❤️ en España"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "close": "Cerrar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "view": "Ver",
+    "more": "Más",
+    "less": "Menos"
+  }
+}

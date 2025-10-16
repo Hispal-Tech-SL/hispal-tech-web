@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hispal Tech Design System - Professional & Tech-focused */
+
+@layer base {
+  :root {
+    /* Hispal Tech Brand Colors */
+    --hispaltech-navy: 210 93% 16%;           /* #0A2540 */
+    --hispaltech-green: 134 100% 39%;         /* #00C853 */
+    --hispaltech-light-green: 134 100% 45%;   /* Lighter green variant */
+    --hispaltech-dark-navy: 210 95% 12%;      /* Darker navy */
+    
+    /* Core Design System */
+    --background: 0 0% 100%;
+    --foreground: 210 93% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 93% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 93% 16%;
+
+    --primary: 210 93% 16%;                   /* Hispal Tech navy */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 98%;
+    --secondary-foreground: 210 93% 16%;
+
+    --accent: 134 100% 39%;                   /* Hispal Tech green */
+    --accent-foreground: 0 0% 100%;
+
+    --success: 134 100% 39%;                  /* Green for success states */
+    --success-foreground: 0 0% 100%;
+
+    --muted: 210 20% 98%;
+    --muted-foreground: 210 30% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 92%;
+    --input: 210 20% 96%;
+    --ring: 134 100% 39%;
+
+    --radius: 0.5rem;
+
+    /* Hispal Tech Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--hispaltech-navy)), hsl(var(--hispaltech-dark-navy)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--hispaltech-green)), hsl(var(--hispaltech-light-green)));
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(var(--hispaltech-navy)) 100%);
+
+    /* Shadows */
+    --shadow-hispaltech: 0 10px 30px -10px hsl(var(--hispaltech-navy) / 0.3);
+    --shadow-green: 0 0 40px hsl(var(--hispaltech-green) / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark mode maintains brand colors */
+    --background: 210 93% 16%;
+    --foreground: 0 0% 100%;
+    --card: 210 95% 12%;
+    --card-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  /* Hispal Tech Hero Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .success-gradient {
+    background: var(--gradient-success);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-success);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Custom animations */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@layer utilities {
+  .shadow-hispaltech {
+    box-shadow: var(--shadow-hispaltech);
+  }
+  
+  .shadow-green {
+    box-shadow: var(--shadow-green);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px hsl(var(--hispaltech-green) / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(var(--hispaltech-green) / 0.6); }
+}
