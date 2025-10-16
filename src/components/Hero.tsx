@@ -75,35 +75,23 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-white/20">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2">
-                50+
-              </div>
-              <div className="text-white/80">{t("hero.stats.projects")}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2">
-                98%
-              </div>
-              <div className="text-white/80">{t("hero.stats.clients")}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2">
+          <div className="flex justify-center mt-16 pt-16 border-t border-white/20">
+            <div className="text-center cursor-default no-tooltip relative z-10">
+              <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2 relative z-20">
                 24h
               </div>
-              <div className="text-white/80">{t("hero.stats.response")}</div>
+              <div className="text-white/80 relative z-20">{t("hero.stats.response")}</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* Scroll Indicator - Removed */}
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

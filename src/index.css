@@ -115,6 +115,49 @@
   .shadow-green {
     box-shadow: var(--shadow-green);
   }
+  
+  /* Remove any tooltip or hover effects */
+  .no-tooltip {
+    pointer-events: none;
+    cursor: default !important;
+  }
+  
+  .no-tooltip * {
+    pointer-events: none;
+    cursor: default !important;
+  }
+  
+  /* Hide any pseudo-elements that might show mouse icons */
+  .no-tooltip::before,
+  .no-tooltip::after {
+    display: none !important;
+    content: none !important;
+  }
+  
+  .no-tooltip *::before,
+  .no-tooltip *::after {
+    display: none !important;
+    content: none !important;
+  }
+  
+  /* Force remove any overlapping elements */
+  .no-tooltip {
+    position: relative;
+    z-index: 9999;
+  }
+  
+  .no-tooltip * {
+    position: relative;
+    z-index: 10000;
+  }
+  
+  /* Hide any potential mouse cursor overlays */
+  .no-tooltip:hover::before,
+  .no-tooltip:hover::after {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
 }
 
 @keyframes float {
