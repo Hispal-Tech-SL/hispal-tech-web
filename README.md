@@ -1,4 +1,4 @@
-# Hispal Tech - Programación a Medida
+# Hispal Tech S.L - Programación a Medida
 
 Sitio web de Hispal Tech, especialistas en desarrollo web y aplicaciones personalizadas.
 
