@@ -468,9 +468,6 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">
                       España
                       <br />
-                      <span className="text-xs">
-                        {t("contact.directContact.location.service")}
-                      </span>
                     </p>
                   </div>
                 </div>
