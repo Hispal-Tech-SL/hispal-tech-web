@@ -39,9 +39,13 @@
       "secondary": "Ver Proyectos Realizados"
     },
     "items": {
+      "static-web": {
+        "title": "Página web",
+        "description": "Páginas web estáticas profesionales: landing pages, sitios corporativos responsive y optimizados para SEO."
+      },
       "web": {
-        "title": "Páginas Web",
-        "description": "Diseño y desarrollo de sitios web modernos, responsivos y optimizados para SEO."
+        "title": "Aplicación web",
+        "description": "Desarrollo completo de aplicaciones web dinámicas con funcionalidades avanzadas y base de datos."
       },
       "ecommerce": {
         "title": "E-commerce",
@@ -154,7 +158,8 @@
         "description": "Descripción del proyecto"
       },
       "projectTypes": {
-        "web": "Página Web",
+        "static-web": "Página web",
+        "web": "Aplicación web",
         "ecommerce": "E-commerce",
         "app": "Aplicación Móvil",
         "system": "Sistema Empresarial",
@@ -225,7 +230,8 @@
       "follow": "Síguenos"
     },
     "services": {
-      "web": "Páginas Web",
+      "static-web": "Página web",
+      "web": "Aplicación web",
       "mobile": "Aplicaciones Móviles",
       "systems": "Sistemas Empresariales",
       "integrations": "Integraciones API",

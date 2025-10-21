@@ -236,6 +236,9 @@ const Contact = () => {
                           />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="static-web">
+                            {t("contact.form.projectTypes.static-web")}
+                          </SelectItem>
                           <SelectItem value="web">
                             {t("contact.form.projectTypes.web")}
                           </SelectItem>

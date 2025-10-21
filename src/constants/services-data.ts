@@ -1,16 +1,30 @@
 // Services Data
 export const SERVICES_DATA = [
   {
+    id: "static-web",
+    icon: "Globe",
+    title: "Página web",
+    description:
+      "Páginas web estáticas profesionales: landing pages, sitios corporativos responsive y optimizados para SEO. Perfectas para mostrar tu negocio online.",
+    features: [
+      "Diseño responsive",
+      "Optimización SEO",
+      "Landing pages",
+      "Hosting incluido",
+    ],
+    price: "Desde €50",
+  },
+  {
     id: "web",
     icon: "Globe",
-    title: "Páginas Web Personalizadas",
+    title: "Aplicación web",
     description:
-      "Desarrollo completo de sitios web responsive y optimizados para SEO. Desde landing pages hasta e-commerce complejos.",
+      "Desarrollo completo de aplicaciones web dinámicas con funcionalidades avanzadas. Desde dashboards hasta sistemas complejos con base de datos.",
     features: [
       "Diseño responsive",
       "Optimización SEO",
       "Panel de administración",
-      "Hosting incluido",
+      "Base de datos incluida",
     ],
     price: "Desde €499",
   },

@@ -28,6 +28,7 @@ const Footer = () => {
   ];
 
   const services = [
+    { name: t("footer.services.static-web"), href: "#servicios" },
     { name: t("footer.services.web"), href: "#servicios" },
     { name: t("footer.services.mobile"), href: "#servicios" },
     { name: t("footer.services.systems"), href: "#servicios" },

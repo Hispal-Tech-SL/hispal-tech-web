@@ -39,9 +39,13 @@
       "secondary": "View Completed Projects"
     },
     "items": {
+      "static-web": {
+        "title": "Website",
+        "description": "Professional static websites: landing pages, responsive corporate sites and SEO-optimized. Perfect for showcasing your business online."
+      },
       "web": {
-        "title": "Websites",
-        "description": "Design and development of modern, responsive and SEO-optimized websites."
+        "title": "Web Application",
+        "description": "Complete development of dynamic web applications with advanced functionalities and database integration."
       },
       "ecommerce": {
         "title": "E-commerce",
@@ -154,7 +158,8 @@
         "description": "Project description"
       },
       "projectTypes": {
-        "web": "Website",
+        "static-web": "Website",
+        "web": "Web Application",
         "ecommerce": "E-commerce",
         "app": "Mobile App",
         "system": "Enterprise System",
@@ -226,7 +231,8 @@
       "follow": "Follow Us"
     },
     "services": {
-      "web": "Websites",
+      "static-web": "Website",
+      "web": "Web Application",
       "mobile": "Mobile Applications",
       "systems": "Enterprise Systems",
       "integrations": "API Integrations",
