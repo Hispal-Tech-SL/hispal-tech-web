@@ -275,6 +275,9 @@ const Contact = () => {
                           />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="50-500">
+                            {t("contact.form.budgetRanges.50-500")}
+                          </SelectItem>
                           <SelectItem value="500-1000">
                             {t("contact.form.budgetRanges.500-1000")}
                           </SelectItem>
