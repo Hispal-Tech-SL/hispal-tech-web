@@ -10,17 +10,17 @@
   },
   "hero": {
     "badge": "Mejor Precio Garantizado",
-    "title": "Programación a Medida",
-    "subtitle": "al Mejor Precio",
-    "description": "Desarrollamos páginas web y aplicaciones personalizadas con tecnología de vanguardia. Garantizamos el mejor precio frente a cualquier competidor.",
+    "title": "Software que Vende",
+    "subtitle": "Desarrollo que Convierte",
+    "description": "🚀 Transformamos tu idea en software que genera resultados: páginas web que venden, apps que enganchan, sistemas que automatizan tu negocio. Construimos soluciones robustas y escalables con tecnología de vanguardia. ¡Garantizamos el mejor precio!",
     "benefits": {
       "custom": "100% Personalizado",
-      "fast": "Entrega Rápida",
+      "fast": "Entrega rápida",
       "support": "Soporte 24/7"
     },
     "cta": {
-      "primary": "Solicitar Presupuesto Gratis",
-      "secondary": "Consultar por WhatsApp"
+      "primary": "¡Quiero Mi Software YA!",
+      "secondary": "WhatsApp Directo"
     },
     "stats": {
       "projects": "Proyectos Exitosos",
