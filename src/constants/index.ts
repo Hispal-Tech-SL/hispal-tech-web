@@ -18,3 +18,4 @@ export { SERVICES_DATA } from "./services-data";
 export { PORTFOLIO_DATA } from "./portfolio-data";
 export { TEAM_DATA } from "./team-data";
 export { PRICING_COMPARISON_DATA, PRICING_FEATURES } from "./pricing-data";
+export { PROJECTS_DATA } from "./projects-data";
