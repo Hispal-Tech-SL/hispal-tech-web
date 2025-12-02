@@ -19,7 +19,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="proyectos" className="py-20 bg-background">
+    <section id="proyectos" className="py-20 bg-background pt-10">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -86,7 +86,7 @@ const Projects = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-hispaltech-green/10 to-hispaltech-green/5 border border-hispaltech-green/20 rounded-lg p-8 md:p-12 text-center">
+        <div className="bg-gradient-to-r from-hispaltech-green/10 to-hispaltech-green/5 border border-hispaltech-green/20 rounded-lg p-8 md:p-12 text-center -mb-10">
           <h3 className="text-2xl md:text-3xl font-bold mb-4 text-primary">
             {language === "en"
               ? "Want a Project Like These?"
@@ -97,14 +97,6 @@ const Projects = () => {
               ? "We transform your ideas into reality. Contact us today to discuss your next project and get a personalized quote."
               : "Transformamos tus ideas en realidad. Contacta con nosotros hoy para discutir tu próximo proyecto y obtener una cotización personalizada."}
           </p>
-          <Button
-            size="lg"
-            className="gap-2 bg-hispaltech-green hover:bg-hispaltech-green/90"
-            onClick={() => scrollToSection("contact")}
-          >
-            {language === "en" ? "Start Your Project" : "Inicia Tu Proyecto"}
-            <ArrowRight className="h-4 w-4" />
-          </Button>
         </div>
       </div>
     </section>

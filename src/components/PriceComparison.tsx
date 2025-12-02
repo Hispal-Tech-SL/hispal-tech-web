@@ -25,7 +25,7 @@ const PriceComparison = () => {
   };
 
   return (
-    <section id="precios" className="py-20 bg-muted/30">
+    <section id="precios" className="py-20 bg-muted/30 pt-10">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -147,7 +147,7 @@ const PriceComparison = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center">
+        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-green/10 rounded-2xl p-8 md:p-12 -mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
             ¿Necesitas un presupuesto personalizado?
           </h3>
@@ -164,13 +164,6 @@ const PriceComparison = () => {
             >
               Solicitar Presupuesto
               <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => scrollToSection("servicios")}
-            >
-              Ver Servicios
             </Button>
           </div>
         </div>

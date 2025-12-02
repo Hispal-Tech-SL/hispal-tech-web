@@ -118,7 +118,7 @@ const Services = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-green/10 rounded-2xl p-8 md:p-12">
+        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-green/10 rounded-2xl p-8 md:p-12 -mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
             {t("services.cta.title")}
           </h3>
@@ -138,7 +138,7 @@ const Services = () => {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => scrollToSection("portafolio")}
+              onClick={() => scrollToSection("proyectos")}
             >
               {t("services.cta.secondary")}
             </Button>
