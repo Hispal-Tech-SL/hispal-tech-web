@@ -57,6 +57,12 @@ const Services = () => {
             <span className="text-gradient">{t("services.subtitle")}</span>
           </h2>
 
+          <div className="inline-flex items-center gap-2 bg-red-500/10 text-red-600 rounded-full px-4 py-2 mb-6 border border-red-200">
+            <span className="text-sm font-semibold">
+              🎉 ¡EN PROMOCIÓN! Precios especiales limitados
+            </span>
+          </div>
+
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t("services.description")}
           </p>
@@ -76,9 +82,16 @@ const Services = () => {
                     <div className="w-12 h-12 bg-hispaltech-green/10 rounded-lg flex items-center justify-center group-hover:bg-hispaltech-green group-hover:text-white transition-colors">
                       <IconComponent className="h-6 w-6 text-hispaltech-green group-hover:text-white" />
                     </div>
-                    <span className="text-2xl font-bold text-hispaltech-green">
-                      {service.price}
-                    </span>
+                    <div className="text-right">
+                      {service.originalPrice && (
+                        <span className="text-sm text-muted-foreground line-through mr-2">
+                          {service.originalPrice}
+                        </span>
+                      )}
+                      <span className="text-2xl font-bold text-hispaltech-green">
+                        {service.price}
+                      </span>
+                    </div>
                   </div>
                   <CardTitle className="text-xl text-primary">
                     {service.title}
