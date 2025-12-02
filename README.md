@@ -51,4 +51,4 @@ Este proyecto está construido con:
 
 ## Despliegue
 
-Para desplegar el proyecto, puedes usar cualquier servicio de hosting estático como Vercel, Netlify, o GitHub Pages.
+Para desplegar el proyecto, puedes usar cualquier servicio de hosting estático como Vercel, Netlify o GitHub Pages.
