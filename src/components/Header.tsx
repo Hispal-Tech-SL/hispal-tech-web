@@ -43,10 +43,22 @@ const Header = () => {
               {t("nav.services")}
             </button>
             <button
+              onClick={() => scrollToSection("precios")}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              {t("nav.prices")}
+            </button>
+            <button
               onClick={() => scrollToSection("proyectos")}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               {t("nav.projects")}
+            </button>
+            <button
+              onClick={() => scrollToSection("precios")}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              {t("nav.prices")}
             </button>
             {/* <button
               onClick={() => scrollToSection("portafolio")}
@@ -60,12 +72,6 @@ const Header = () => {
             >
               {t("nav.team")}
             </button> */}
-            <button
-              onClick={() => scrollToSection("precios")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              {t("nav.prices")}
-            </button>
             <button
               onClick={() => scrollToSection("contacto")}
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -112,10 +118,22 @@ const Header = () => {
                 {t("nav.services")}
               </button>
               <button
+                onClick={() => scrollToSection("precios")}
+                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+              >
+                {t("nav.prices")}
+              </button>
+              <button
                 onClick={() => scrollToSection("proyectos")}
                 className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
               >
                 {t("nav.projects")}
+              </button>
+              <button
+                onClick={() => scrollToSection("precios")}
+                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+              >
+                {t("nav.prices")}
               </button>
               {/* <button
                 onClick={() => scrollToSection("portafolio")}
@@ -129,12 +147,6 @@ const Header = () => {
               >
                 {t("nav.team")}
               </button> */}
-              <button
-                onClick={() => scrollToSection("precios")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
-              >
-                {t("nav.prices")}
-              </button>
               <button
                 onClick={() => scrollToSection("contacto")}
                 className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
