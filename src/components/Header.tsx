@@ -54,12 +54,6 @@ const Header = () => {
             >
               {t("nav.projects")}
             </button>
-            <button
-              onClick={() => scrollToSection("precios")}
-              className="text-[#041726] hover:text-primary transition-colors"
-            >
-              {t("nav.prices")}
-            </button>
             {/* <button
               onClick={() => scrollToSection("portafolio")}
               className="text-muted-foreground hover:text-primary transition-colors"
