@@ -14,9 +14,9 @@ export const PROJECTS_DATA: Project[] = [
     titleEn: "Islantilla Real - Vacation Rental",
     titleEs: "Alquiler Vacacional Islantilla Real",
     descriptionEn:
-      "Website for property rental with modern UI/UX design, visual gallery, calendar synchronized with Airbnb, Booking and more. Includes contact form that sends real-time notifications via Telegram, automatic customer storage in Google Contacts and mass marketing/email campaigns. The entire flow is automated from first contact, with interactive map for easy property access.",
+      "Website for property rental with modern UI/UX design, visual gallery, calendar synchronized with Airbnb, Booking and more. Includes contact form that sends real-time notifications via Telegram, automatic customer storage in Google Contacts and mass marketing/email campaigns. The entire flow is automated from first contact, with interactive map for easy property access. Features an AI chatbot that assists clients with inquiries and management, answering questions about availability, amenities, and providing comprehensive property information.",
     descriptionEs:
-      "Página web para alquiler de vivienda con diseño UI/UX moderno, galería visual, calendario sincronizado con Airbnb, Booking y más. Incluye formulario de contacto que envía notificaciones en tiempo real vía Telegram, almacenamiento automático de clientes en Google Contacts y campañas de marketing/email masivo. Todo el flujo está automatizado desde el primer contacto, con mapa interactivo para llegar fácilmente a la propiedad.",
+      "Página web para alquiler de vivienda con diseño UI/UX moderno, galería visual, calendario sincronizado con Airbnb, Booking y más. Incluye formulario de contacto que envía notificaciones en tiempo real vía Telegram, almacenamiento automático de clientes en Google Contacts y campañas de marketing/email masivo. Todo el flujo está automatizado desde el primer contacto, con mapa interactivo para llegar fácilmente a la propiedad. Cuenta con un chatbot de IA que asiste a los clientes con cualquier gestión e información, respondiendo dudas sobre disponibilidades, comodidades y proporcionando información completa de la propiedad.",
     image:
       "/projects/Carátula Web - Proyecto Alquiler Casa Islantilla Real.png",
     url: "https://alquiler-islantilla-real.netlify.app/",
