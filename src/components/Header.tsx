@@ -32,31 +32,31 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("inicio")}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors"
             >
               {t("nav.home")}
             </button>
             <button
               onClick={() => scrollToSection("servicios")}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors"
             >
               {t("nav.services")}
             </button>
             <button
               onClick={() => scrollToSection("precios")}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors"
             >
               {t("nav.prices")}
             </button>
             <button
               onClick={() => scrollToSection("proyectos")}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors"
             >
               {t("nav.projects")}
             </button>
             <button
               onClick={() => scrollToSection("precios")}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors"
             >
               {t("nav.prices")}
             </button>
@@ -74,7 +74,7 @@ const Header = () => {
             </button> */}
             <button
               onClick={() => scrollToSection("contacto")}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors"
             >
               {t("nav.contact")}
             </button>
@@ -107,31 +107,31 @@ const Header = () => {
             <div className="container mx-auto px-4 py-4 space-y-4">
               <button
                 onClick={() => scrollToSection("inicio")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+                className="block w-full text-left py-2 text-[#041726] hover:text-primary"
               >
                 {t("nav.home")}
               </button>
               <button
                 onClick={() => scrollToSection("servicios")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+                className="block w-full text-left py-2 text-[#041726] hover:text-primary"
               >
                 {t("nav.services")}
               </button>
               <button
                 onClick={() => scrollToSection("precios")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+                className="block w-full text-left py-2 text-[#041726] hover:text-primary"
               >
                 {t("nav.prices")}
               </button>
               <button
                 onClick={() => scrollToSection("proyectos")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+                className="block w-full text-left py-2 text-[#041726] hover:text-primary"
               >
                 {t("nav.projects")}
               </button>
               <button
                 onClick={() => scrollToSection("precios")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+                className="block w-full text-left py-2 text-[#041726] hover:text-primary"
               >
                 {t("nav.prices")}
               </button>
@@ -149,7 +149,7 @@ const Header = () => {
               </button> */}
               <button
                 onClick={() => scrollToSection("contacto")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
+                className="block w-full text-left py-2 text-[#041726] hover:text-primary"
               >
                 {t("nav.contact")}
               </button>
