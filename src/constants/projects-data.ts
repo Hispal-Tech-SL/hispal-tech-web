@@ -54,4 +54,15 @@ export const PROJECTS_DATA: Project[] = [
     image: "/projects/Carátula Web - Proyecto Urbanización Islantilla Real.png",
     url: "https://urbanizacion-islantilla-real.netlify.app/",
   },
+  {
+    id: "neonkyo",
+    titleEn: "Neonkyo Agencia Marketing",
+    titleEs: "Neonkyo Agencia Marketing",
+    descriptionEn:
+      "Custom-designed website featuring exceptional UX/UI crafted to the client's specific requirements. This project showcases sophisticated web design with a high-level user experience, combining aesthetic appeal with intuitive navigation. Every detail has been carefully tailored to create a unique digital presence.",
+    descriptionEs:
+      "Página web diseñada especialmente a medida según los requisitos del cliente. Este proyecto destaca por su diseño sofisticado con UX/UI de gran nivel, combinando atractivo estético con navegación intuitiva. Cada detalle ha sido cuidadosamente personalizado para crear una presencia digital única.",
+    image: "/projects/Carátula Web - Proyecto Neonkyo.png",
+    url: "https://neonkyo.netlify.app/",
+  },
 ];
