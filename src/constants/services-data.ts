@@ -27,7 +27,7 @@ export const SERVICES_DATA = [
       "Panel de administración",
       "Base de datos incluida",
     ],
-    price: "Desde 499€",
+    price: "Desde 500€",
     originalPrice: "1.500€",
   },
   {
@@ -42,7 +42,7 @@ export const SERVICES_DATA = [
       "Notificaciones push",
       "Sincronización offline",
     ],
-    price: "Desde 1.299€",
+    price: "Desde 1.300€",
     originalPrice: "2.000€",
   },
   {
@@ -57,7 +57,7 @@ export const SERVICES_DATA = [
       "Integración APIs",
       "Base de datos segura",
     ],
-    price: "Desde 2.499€",
+    price: "Desde 2.500€",
     originalPrice: "4.000€",
   },
   {
