@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -5,13 +6,27 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PROJECTS_DATA } from "@/constants";
-import { ExternalLink, ArrowRight, Briefcase } from "lucide-react";
+import { PROJECTS_DATA, Project } from "@/constants";
+import {
+  ExternalLink,
+  ArrowRight,
+  Briefcase,
+  ChevronDown,
+  X,
+} from "lucide-react";
 
 const Projects = () => {
   const { language } = useLanguage();
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -59,7 +74,10 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Button
                     className="gap-2 bg-hispaltech-green hover:bg-hispaltech-green/90"
-                    onClick={() => window.open(project.url, "_blank")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(project.url, "_blank");
+                    }}
                   >
                     <ExternalLink className="h-4 w-4" />
                     {language === "en" ? "View Project" : "Ver Proyecto"}
@@ -74,16 +92,78 @@ const Projects = () => {
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground text-sm">
+              <CardContent className="flex-grow flex flex-col">
+                <p className="text-muted-foreground text-sm line-clamp-3">
                   {language === "en"
                     ? project.descriptionEn
                     : project.descriptionEs}
                 </p>
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="text-hispaltech-green hover:text-hispaltech-green/80 text-sm font-semibold mt-3 flex items-center gap-1 transition-colors"
+                >
+                  {language === "en" ? "Read More" : "Leer más"}
+                  <ChevronDown className="h-4 w-4" />
+                </button>
               </CardContent>
             </Card>
           ))}
         </div>
+
+        {/* Project Modal */}
+        <Dialog
+          open={!!selectedProject}
+          onOpenChange={() => setSelectedProject(null)}
+        >
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+            {selectedProject && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="text-2xl">
+                    {language === "en"
+                      ? selectedProject.titleEn
+                      : selectedProject.titleEs}
+                  </DialogTitle>
+                  <DialogClose />
+                </DialogHeader>
+
+                <div className="space-y-6">
+                  {/* Project Image */}
+                  <img
+                    src={selectedProject.image}
+                    alt={
+                      language === "en"
+                        ? selectedProject.titleEn
+                        : selectedProject.titleEs
+                    }
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+
+                  {/* Project Description */}
+                  <div className="space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">
+                      {language === "en"
+                        ? selectedProject.descriptionEn
+                        : selectedProject.descriptionEs}
+                    </p>
+                  </div>
+
+                  {/* CTA Button */}
+                  <Button
+                    className="w-full gap-2 bg-hispaltech-green hover:bg-hispaltech-green/90 text-white"
+                    onClick={() => {
+                      window.open(selectedProject.url, "_blank");
+                      setSelectedProject(null);
+                    }}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    {language === "en" ? "View Project" : "Ver Proyecto"}
+                  </Button>
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-hispaltech-green/10 to-hispaltech-green/5 border border-hispaltech-green/20 rounded-lg p-8 md:p-12 text-center -mb-10">
