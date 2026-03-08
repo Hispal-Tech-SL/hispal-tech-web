@@ -52,7 +52,7 @@ const Services = () => {
   };
 
   return (
-    <section id="servicios" className="py-20 bg-muted/30">
+    <section id="servicios" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -78,7 +78,7 @@ const Services = () => {
             return (
               <Card
                 key={index}
-                className="group hover:shadow-hispaltech transition-all duration-300 border-0 shadow-md hover:scale-105"
+                className="group bg-white border border-hispaltech-blue/10 shadow-lg hover:shadow-hispaltech transition-all duration-300 hover:scale-105"
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-4">
