@@ -57,8 +57,8 @@ const Services = () => {
             <span className="text-gradient">{t("services.subtitle")}</span>
           </h2>
 
-          <div className="inline-flex items-center gap-2 bg-red-500/10 rounded-full px-4 py-2 mb-6 border border-red-200">
-            <span className="text-sm font-semibold text-red-600">
+          <div className="inline-flex items-center gap-2 bg-muted rounded-full px-4 py-2 mb-6 border border-border">
+            <span className="text-sm font-semibold text-muted-foreground">
               🎉 ¡EN PROMOCIÓN! Precios especiales limitados
             </span>
           </div>
@@ -84,7 +84,7 @@ const Services = () => {
                     </div>
                     <div className="text-right">
                       {service.originalPrice && (
-                        <span className="text-sm text-red-600 line-through mr-2">
+                        <span className="text-sm text-muted-foreground line-through mr-2">
                           {service.originalPrice}
                         </span>
                       )}
