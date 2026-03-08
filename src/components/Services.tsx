@@ -92,7 +92,16 @@ const Services = () => {
                         </span>
                       )}
                       <span className="text-2xl font-bold text-hispaltech-blue">
-                        {service.price}
+                        {service.price.includes(" ") ? (
+                          <>
+                            <span className="text-sm font-medium text-muted-foreground mr-1">
+                              {service.price.split(" ")[0]}
+                            </span>
+                            {service.price.split(" ").slice(1).join(" ")}
+                          </>
+                        ) : (
+                          service.price
+                        )}
                       </span>
                     </div>
                   </div>
