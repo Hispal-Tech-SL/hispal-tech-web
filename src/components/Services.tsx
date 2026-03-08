@@ -44,12 +44,7 @@ const Services = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
-            <Zap className="h-4 w-4" />
-            <span className="text-sm font-semibold">
-              {t("nav.services").toUpperCase()}
-            </span>
-          </div>
+
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
             {t("services.title")}
@@ -57,11 +52,7 @@ const Services = () => {
             <span className="text-gradient">{t("services.subtitle")}</span>
           </h2>
 
-          <div className="inline-flex items-center gap-2 bg-muted rounded-full px-4 py-2 mb-6 border border-border">
-            <span className="text-sm font-semibold text-muted-foreground">
-              🎉 ¡EN PROMOCIÓN! Precios especiales limitados
-            </span>
-          </div>
+
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t("services.description")}

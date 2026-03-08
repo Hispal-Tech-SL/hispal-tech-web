@@ -38,12 +38,7 @@ const Projects = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
-            <Briefcase className="h-4 w-4" />
-            <span className="text-sm font-semibold">
-              {language === "en" ? "PROJECTS" : "PROYECTOS"}
-            </span>
-          </div>
+
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
             {language === "en" ? "Projects" : "Proyectos Realizados"}

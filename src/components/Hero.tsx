@@ -27,11 +27,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-12 animate-float">
-            <CheckCircle className="h-5 w-5 text-hispaltech-blue" />
-            <span className="text-sm font-medium">{t("hero.badge")}</span>
-          </div>
+
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-12">

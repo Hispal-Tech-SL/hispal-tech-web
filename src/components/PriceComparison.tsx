@@ -29,12 +29,7 @@ const PriceComparison = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
-            <DollarSign className="h-4 w-4" />
-            <span className="text-sm font-semibold">
-              {t("nav.prices").toUpperCase()}
-            </span>
-          </div>
+
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-hispaltech-navy mb-6">
             Mejor precio garantizado
@@ -84,11 +79,7 @@ const PriceComparison = () => {
                           <span className="font-medium text-primary">
                             {provider.name}
                           </span>
-                          {provider.badge && (
-                            <span className="bg-hispaltech-blue text-white text-xs px-2 py-1 rounded-full font-semibold">
-                              {provider.badge}
-                            </span>
-                          )}
+
                         </div>
                       </td>
                       <td className="px-6 py-4">
