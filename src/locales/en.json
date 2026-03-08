@@ -42,31 +42,87 @@
     "items": {
       "static-web": {
         "title": "Website",
-        "description": "Professional static websites: landing pages, responsive corporate sites and SEO-optimized. Perfect for showcasing your business online."
+        "description": "Professional static websites: landing pages, responsive corporate sites and SEO-optimized. Perfect for showcasing your business online.",
+        "features": [
+          "Responsive design",
+          "SEO Optimization",
+          "Landing pages",
+          "Hosting included"
+        ],
+        "price": "From €50",
+        "originalPrice": "€500"
       },
       "web": {
         "title": "Web Application",
-        "description": "Complete development of dynamic web applications with advanced functionalities and database integration."
+        "description": "Complete development of dynamic web applications with advanced functionalities. From dashboards to complex database systems.",
+        "features": [
+          "Responsive design",
+          "SEO Optimization",
+          "Admin panel",
+          "Database included"
+        ],
+        "price": "From €500",
+        "originalPrice": "€1,500"
       },
       "ecommerce": {
         "title": "E-commerce",
-        "description": "Complete online stores with payment gateways, inventory management and analytics."
+        "description": "Full online stores with payment gateways, inventory management and analytics.",
+        "features": [
+          "Payment gateway",
+          "Inventory management",
+          "Order panel",
+          "Multi-language"
+        ],
+        "price": "From €800",
+        "originalPrice": "€1,200"
       },
       "mobile": {
         "title": "Mobile Apps",
-        "description": "Native and hybrid applications for iOS and Android with the latest technologies."
+        "description": "Native and hybrid apps for iOS and Android. Exceptional user experiences with modern technology.",
+        "features": [
+          "iOS & Android",
+          "Intuitive design",
+          "Push notifications",
+          "Offline sync"
+        ],
+        "price": "From €1,300",
+        "originalPrice": "€2,000"
       },
       "systems": {
         "title": "Enterprise Systems",
-        "description": "Custom software to automate processes and improve productivity."
+        "description": "Custom management software to optimize business processes. CRM, ERP and integrated systems.",
+        "features": [
+          "User management",
+          "Advanced reporting",
+          "API Integration",
+          "Secure database"
+        ],
+        "price": "From €2,500",
+        "originalPrice": "€4,000"
       },
       "integration": {
-        "title": "API Integrations",
-        "description": "We connect your systems with external services and third-party APIs."
+        "title": "Integrations & APIs",
+        "description": "We connect your existing systems with new technologies. Data automation and synchronization.",
+        "features": [
+          "REST APIs",
+          "Webhooks",
+          "Auto sync",
+          "Full documentation"
+        ],
+        "price": "From €350",
+        "originalPrice": "€800"
       },
-      "consulting": {
-        "title": "Tech Consulting",
-        "description": "Strategic advice on technology and digital transformation."
+      "custom": {
+        "title": "Custom Solutions",
+        "description": "Can't find what you're looking for? We develop custom technological solutions for any specific business need.",
+        "features": [
+          "Tech consulting",
+          "Scalable architecture",
+          "Custom R&D",
+          "Priority support"
+        ],
+        "price": "Quote",
+        "originalPrice": ""
       }
     }
   },

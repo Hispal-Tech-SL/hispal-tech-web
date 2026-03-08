@@ -42,31 +42,87 @@
     "items": {
       "static-web": {
         "title": "Página web",
-        "description": "Páginas web estáticas profesionales: landing pages, sitios corporativos responsive y optimizados para SEO."
+        "description": "Páginas web estáticas profesionales: landing pages, sitios corporativos responsive y optimizados para SEO. Perfectas para mostrar tu negocio online.",
+        "features": [
+          "Diseño responsive",
+          "Optimización SEO",
+          "Landing pages",
+          "Hosting incluido"
+        ],
+        "price": "Desde 50€",
+        "originalPrice": "500€"
       },
       "web": {
         "title": "Aplicación web",
-        "description": "Desarrollo completo de aplicaciones web dinámicas con funcionalidades avanzadas y base de datos."
+        "description": "Desarrollo completo de aplicaciones web dinámicas con funcionalidades avanzadas. Desde dashboards hasta sistemas complejos con base de datos.",
+        "features": [
+          "Diseño responsive",
+          "Optimización SEO",
+          "Panel de administración",
+          "Base de datos incluida"
+        ],
+        "price": "Desde 500€",
+        "originalPrice": "1.500€"
       },
       "ecommerce": {
         "title": "E-commerce",
-        "description": "Tiendas online completas con pasarelas de pago, gestión de inventario y análisis."
+        "description": "Tiendas online completas con pasarelas de pago, gestión de inventario y análisis.",
+        "features": [
+          "Pasarela de pagos",
+          "Gestión de stock",
+          "Panel de pedidos",
+          "Multi-idioma"
+        ],
+        "price": "Desde 800€",
+        "originalPrice": "1.200€"
       },
       "mobile": {
-        "title": "Apps Móviles",
-        "description": "Aplicaciones nativas e híbridas para iOS y Android con las últimas tecnologías."
+        "title": "Aplicaciones Móviles",
+        "description": "Apps nativas y híbridas para iOS y Android. Experiencias de usuario excepcionales con tecnología moderna.",
+        "features": [
+          "iOS y Android",
+          "Diseño intuitivo",
+          "Notificaciones push",
+          "Sincronización offline"
+        ],
+        "price": "Desde 1.300€",
+        "originalPrice": "2.000€"
       },
       "systems": {
         "title": "Sistemas Empresariales",
-        "description": "Software personalizado para automatizar procesos y mejorar la productividad."
+        "description": "Software de gestión a medida para optimizar procesos empresariales. CRM, ERP y sistemas integrados.",
+        "features": [
+          "Gestión de usuarios",
+          "Reportes avanzados",
+          "Integración APIs",
+          "Base de datos segura"
+        ],
+        "price": "Desde 2.500€",
+        "originalPrice": "4.000€"
       },
       "integration": {
-        "title": "Integraciones API",
-        "description": "Conectamos tus sistemas con servicios externos y APIs de terceros."
+        "title": "Integraciones y APIs",
+        "description": "Conectamos tus sistemas existentes con nuevas tecnologías. Automatización y sincronización de datos.",
+        "features": [
+          "APIs REST",
+          "Webhooks",
+          "Sincronización automática",
+          "Documentación completa"
+        ],
+        "price": "Desde 350€",
+        "originalPrice": "800€"
       },
-      "consulting": {
-        "title": "Consultoría Tech",
-        "description": "Asesoramiento estratégico en tecnología y transformación digital."
+      "custom": {
+        "title": "Soluciones a Medida",
+        "description": "¿No encuentras lo que buscas? Desarrollamos soluciones tecnológicas personalizadas para cualquier necesidad específica de tu negocio.",
+        "features": [
+          "Consultoría técnica",
+          "Arquitectura escalable",
+          "I+D personalizado",
+          "Soporte prioritario"
+        ],
+        "price": "Consultar",
+        "originalPrice": ""
       }
     }
   },

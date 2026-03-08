@@ -33,6 +33,11 @@ const Services = () => {
 
   const services = SERVICES_DATA.map((service) => ({
     ...service,
+    title: t(`services.items.${service.id}.title`),
+    description: t(`services.items.${service.id}.description`),
+    features: (t(`services.items.${service.id}.features`) as unknown as string[]) || service.features,
+    price: t(`services.items.${service.id}.price`),
+    originalPrice: t(`services.items.${service.id}.originalPrice`),
     icon: iconMap[service.icon as keyof typeof iconMap],
   }));
 
@@ -44,6 +49,7 @@ const Services = () => {
         "mobile": "app",
         "systems": "system",
         "integration": "integration",
+        "custom": "other",
       };
       setSelectedProject(projectMapping[serviceId] || "");
     }

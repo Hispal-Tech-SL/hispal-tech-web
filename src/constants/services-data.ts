@@ -75,4 +75,19 @@ export const SERVICES_DATA = [
     price: "Desde 350€",
     originalPrice: "800€",
   },
+  {
+    id: "custom",
+    icon: "Settings",
+    title: "Soluciones a Medida",
+    description:
+      "¿No encuentras lo que buscas? Desarrollamos soluciones tecnológicas personalizadas para cualquier necesidad específica de tu negocio.",
+    features: [
+      "Consultoría técnica",
+      "Arquitectura escalable",
+      "I+D personalizado",
+      "Soporte prioritario",
+    ],
+    price: "Consultar",
+    originalPrice: "",
+  },
 ];
