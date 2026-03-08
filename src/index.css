@@ -10,9 +10,9 @@
   :root {
     /* Hispal Tech Brand Colors */
     --hispaltech-navy: 210 93% 16%;           /* #0A2540 */
-    --hispaltech-green: 134 100% 39%;         /* #00C853 */
-    --hispaltech-light-green: 134 100% 45%;   /* Lighter green variant */
-    --hispaltech-dark-navy: 210 95% 12%;      /* Darker navy */
+    --hispaltech-blue: 210 100% 45%;         /* #0080ff - Corporate blue from logo */
+    --hispaltech-light-blue: 210 100% 60%;   /* Lighter blue variant for highlights */
+    --hispaltech-dark-navy: 210 95% 8%;      /* Deep dark navy for professional look */
     
     /* Core Design System */
     --background: 0 0% 100%;
@@ -30,10 +30,10 @@
     --secondary: 210 20% 98%;
     --secondary-foreground: 210 93% 16%;
 
-    --accent: 134 100% 39%;                   /* Hispal Tech green */
+    --accent: 210 100% 45%;                   /* Hispal Tech blue */
     --accent-foreground: 0 0% 100%;
 
-    --success: 134 100% 39%;                  /* Green for success states */
+    --success: 210 100% 45%;                  /* Replacing green with corporate blue */
     --success-foreground: 0 0% 100%;
 
     --muted: 210 20% 98%;
@@ -44,18 +44,18 @@
 
     --border: 210 20% 92%;
     --input: 210 20% 96%;
-    --ring: 134 100% 39%;
+    --ring: 210 100% 45%;
 
     --radius: 0.5rem;
 
     /* Hispal Tech Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--hispaltech-navy)), hsl(var(--hispaltech-dark-navy)));
-    --gradient-success: linear-gradient(135deg, hsl(var(--hispaltech-green)), hsl(var(--hispaltech-light-green)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--hispaltech-blue)), hsl(var(--hispaltech-light-blue)));
     --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(var(--hispaltech-navy)) 100%);
 
     /* Shadows */
     --shadow-hispaltech: 0 10px 30px -10px hsl(var(--hispaltech-navy) / 0.3);
-    --shadow-green: 0 0 40px hsl(var(--hispaltech-green) / 0.4);
+    --shadow-blue: 0 0 40px hsl(var(--hispaltech-blue) / 0.4);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -109,11 +109,11 @@
 
 @layer utilities {
   .shadow-hispaltech {
-    box-shadow: var(--shadow-hispaltech);
+    @apply shadow-[var(--shadow-hispaltech)];
   }
   
-  .shadow-green {
-    box-shadow: var(--shadow-green);
+  .shadow-blue {
+    @apply shadow-[var(--shadow-blue)];
   }
   
   /* Remove any tooltip or hover effects */
@@ -166,6 +166,6 @@
 }
 
 @keyframes glow {
-  0% { box-shadow: 0 0 20px hsl(var(--hispaltech-green) / 0.3); }
-  100% { box-shadow: 0 0 40px hsl(var(--hispaltech-green) / 0.6); }
+  0% { box-shadow: 0 0 20px hsl(var(--hispaltech-blue) / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(var(--hispaltech-blue) / 0.6); }
 }

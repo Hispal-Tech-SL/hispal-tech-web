@@ -44,7 +44,7 @@ const Services = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-green/10 text-hispaltech-green rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
             <Zap className="h-4 w-4" />
             <span className="text-sm font-semibold">
               {t("nav.services").toUpperCase()}
@@ -79,8 +79,8 @@ const Services = () => {
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-hispaltech-green/10 rounded-lg flex items-center justify-center group-hover:bg-hispaltech-green group-hover:text-white transition-colors">
-                      <IconComponent className="h-6 w-6 text-hispaltech-green group-hover:text-white" />
+                    <div className="w-12 h-12 bg-hispaltech-blue/10 rounded-lg flex items-center justify-center group-hover:bg-hispaltech-blue group-hover:text-white transition-colors">
+                      <IconComponent className="h-6 w-6 text-hispaltech-blue group-hover:text-white" />
                     </div>
                     <div className="text-right">
                       {service.originalPrice && (
@@ -88,7 +88,7 @@ const Services = () => {
                           {service.originalPrice}
                         </span>
                       )}
-                      <span className="text-2xl font-bold text-hispaltech-green">
+                      <span className="text-2xl font-bold text-hispaltech-blue">
                         {service.price}
                       </span>
                     </div>
@@ -108,7 +108,7 @@ const Services = () => {
                         key={featureIndex}
                         className="flex items-center gap-3"
                       >
-                        <Shield className="h-4 w-4 text-hispaltech-green flex-shrink-0" />
+                        <Shield className="h-4 w-4 text-hispaltech-blue flex-shrink-0" />
                         <span className="text-sm text-muted-foreground">
                           {feature}
                         </span>
@@ -118,7 +118,7 @@ const Services = () => {
 
                   <Button
                     variant="outline"
-                    className="w-full group border-hispaltech-green text-hispaltech-green hover:bg-hispaltech-green hover:text-white"
+                    className="w-full group border-hispaltech-blue text-hispaltech-blue hover:bg-hispaltech-blue hover:text-white"
                     onClick={() => scrollToSection("contacto")}
                   >
                     {t("nav.requestQuote")}
@@ -131,7 +131,7 @@ const Services = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-green/10 rounded-2xl p-8 md:p-12 -mb-10">
+        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-blue/10 rounded-2xl p-8 md:p-12 -mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
             {t("services.cta.title")}
           </h3>

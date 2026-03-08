@@ -20,8 +20,8 @@ export default {
       colors: {
         /* Hispal Tech Brand Colors */
         'hispaltech-navy': "hsl(var(--hispaltech-navy))",
-        'hispaltech-green': "hsl(var(--hispaltech-green))",
-        'hispaltech-light-green': "hsl(var(--hispaltech-light-green))",
+        'hispaltech-blue': "hsl(var(--hispaltech-blue))",
+        'hispaltech-light-blue': "hsl(var(--hispaltech-light-blue))",
         'hispaltech-dark-navy': "hsl(var(--hispaltech-dark-navy))",
         
         /* Core Design System */
@@ -70,7 +70,7 @@ export default {
       },
       boxShadow: {
         'hispaltech': 'var(--shadow-hispaltech)',
-        'green': 'var(--shadow-green)',
+        'blue': 'var(--shadow-blue)',
       },
       keyframes: {
         "accordion-down": {
@@ -94,8 +94,8 @@ export default {
           "50%": { transform: "translateY(-10px)" },
         },
         "glow": {
-          "0%": { boxShadow: "0 0 20px hsl(var(--hispaltech-green) / 0.3)" },
-          "100%": { boxShadow: "0 0 40px hsl(var(--hispaltech-green) / 0.6)" },
+          "0%": { boxShadow: "0 0 20px hsl(var(--hispaltech-blue) / 0.3)" },
+          "100%": { boxShadow: "0 0 40px hsl(var(--hispaltech-blue) / 0.6)" },
         },
       },
       animation: {

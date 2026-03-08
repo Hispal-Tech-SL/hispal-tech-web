@@ -100,16 +100,16 @@ const Footer = () => {
 
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2 text-white/80">
-                <MapPin className="h-4 w-4 text-hispaltech-green" />
+                <MapPin className="h-4 w-4 text-hispaltech-blue" />
                 <span>{CONTACT_INFO.location}</span>
               </div>
               {/* Phone contact commented out as requested */}
               {/* <div className="flex items-center gap-2 text-white/80">
-                  <Phone className="h-4 w-4 text-hispaltech-green" />
+                  <Phone className="h-4 w-4 text-hispaltech-blue" />
                   <span>{CONTACT_INFO.phone}</span>
                 </div> */}
               <div className="flex items-center gap-2 text-white/80">
-                <Mail className="h-4 w-4 text-hispaltech-green" />
+                <Mail className="h-4 w-4 text-hispaltech-blue" />
                 <span>{CONTACT_INFO.email}</span>
               </div>
             </div>
@@ -125,7 +125,7 @@ const Footer = () => {
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-white/80 hover:text-hispaltech-green transition-colors text-sm"
+                    className="text-white/80 hover:text-hispaltech-blue transition-colors text-sm"
                   >
                     {link.name}
                   </button>
@@ -144,7 +144,7 @@ const Footer = () => {
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(service.href)}
-                    className="text-white/80 hover:text-hispaltech-green transition-colors text-sm"
+                    className="text-white/80 hover:text-hispaltech-blue transition-colors text-sm"
                   >
                     {service.name}
                   </button>
@@ -163,7 +163,7 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={item.href}
-                    className="text-white/80 hover:text-hispaltech-green transition-colors text-sm"
+                    className="text-white/80 hover:text-hispaltech-blue transition-colors text-sm"
                   >
                     {item.name}
                   </a>
@@ -177,21 +177,21 @@ const Footer = () => {
                 <Button
                   size="sm"
                   variant="outline"
-                  className="border-white/20 text-white hover:bg-hispaltech-green hover:border-hispaltech-green"
+                  className="border-white/20 text-white hover:bg-hispaltech-blue hover:border-hispaltech-blue"
                 >
                   <Linkedin className="h-4 w-4" />
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
-                  className="border-white/20 text-white hover:bg-hispaltech-green hover:border-hispaltech-green"
+                  className="border-white/20 text-white hover:bg-hispaltech-blue hover:border-hispaltech-blue"
                 >
                   <Twitter className="h-4 w-4" />
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
-                  className="border-white/20 text-white hover:bg-hispaltech-green hover:border-hispaltech-green"
+                  className="border-white/20 text-white hover:bg-hispaltech-blue hover:border-hispaltech-blue"
                 >
                   <Github className="h-4 w-4" />
                 </Button>

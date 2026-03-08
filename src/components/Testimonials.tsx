@@ -80,7 +80,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-green/10 text-hispaltech-green rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
             <Quote className="h-4 w-4" />
             <span className="text-sm font-semibold">TESTIMONIOS</span>
           </div>
@@ -106,8 +106,8 @@ const Testimonials = () => {
             >
               <CardContent className="p-6 space-y-4">
                 {/* Quote Icon */}
-                <div className="w-10 h-10 bg-hispaltech-green/10 rounded-full flex items-center justify-center mb-4">
-                  <Quote className="h-5 w-5 text-hispaltech-green" />
+                <div className="w-10 h-10 bg-hispaltech-blue/10 rounded-full flex items-center justify-center mb-4">
+                  <Quote className="h-5 w-5 text-hispaltech-blue" />
                 </div>
 
                 {/* Rating */}
@@ -123,18 +123,18 @@ const Testimonials = () => {
                 {/* Project Details */}
                 <div className="space-y-2 pt-2 border-t border-border">
                   <div className="flex items-center justify-between">
-                    <Badge variant="outline" className="text-xs border-hispaltech-green/30 text-hispaltech-green">
+                    <Badge variant="outline" className="text-xs border-hispaltech-blue/30 text-hispaltech-blue">
                       {testimonial.project}
                     </Badge>
                   </div>
                   
                   <div className="grid grid-cols-1 gap-1 text-xs text-muted-foreground">
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-hispaltech-green rounded-full"></div>
+                      <div className="w-2 h-2 bg-hispaltech-blue rounded-full"></div>
                       <span>{testimonial.savings}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-hispaltech-green rounded-full"></div>
+                      <div className="w-2 h-2 bg-hispaltech-blue rounded-full"></div>
                       <span>{testimonial.timeline}</span>
                     </div>
                   </div>
@@ -144,7 +144,7 @@ const Testimonials = () => {
                 <div className="pt-4 border-t border-border">
                   <div className="font-semibold text-primary text-sm">{testimonial.name}</div>
                   <div className="text-xs text-muted-foreground">{testimonial.role}</div>
-                  <div className="text-xs font-medium text-hispaltech-green">{testimonial.company}</div>
+                  <div className="text-xs font-medium text-hispaltech-blue">{testimonial.company}</div>
                 </div>
               </CardContent>
             </Card>
@@ -152,21 +152,21 @@ const Testimonials = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-green/10 rounded-2xl p-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-blue/10 rounded-2xl p-8">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2">98%</div>
+            <div className="text-3xl md:text-4xl font-bold text-hispaltech-blue mb-2">98%</div>
             <div className="text-muted-foreground text-sm">Clientes Satisfechos</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2">4.9</div>
+            <div className="text-3xl md:text-4xl font-bold text-hispaltech-blue mb-2">4.9</div>
             <div className="text-muted-foreground text-sm">Rating Promedio</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2">85%</div>
+            <div className="text-3xl md:text-4xl font-bold text-hispaltech-blue mb-2">85%</div>
             <div className="text-muted-foreground text-sm">Clientes Recurrentes</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2">€45K</div>
+            <div className="text-3xl md:text-4xl font-bold text-hispaltech-blue mb-2">€45K</div>
             <div className="text-muted-foreground text-sm">Ahorros Generados</div>
           </div>
         </div>

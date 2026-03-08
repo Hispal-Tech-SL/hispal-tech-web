@@ -36,7 +36,7 @@ const LanguageSwitcher = () => {
             <span>{lang.flag}</span>
             <span>{lang.name}</span>
             {language === lang.code && (
-              <span className="ml-auto text-hispaltech-green">✓</span>
+              <span className="ml-auto text-hispaltech-blue">✓</span>
             )}
           </DropdownMenuItem>
         ))}

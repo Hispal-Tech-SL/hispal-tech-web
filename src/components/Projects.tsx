@@ -38,7 +38,7 @@ const Projects = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-green/10 text-hispaltech-green rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
             <Briefcase className="h-4 w-4" />
             <span className="text-sm font-semibold">
               {language === "en" ? "PROJECTS" : "PROYECTOS"}
@@ -73,7 +73,7 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Button
-                    className="gap-2 bg-hispaltech-green hover:bg-hispaltech-green/90"
+                    className="gap-2 bg-hispaltech-blue hover:bg-hispaltech-blue/90"
                     onClick={(e) => {
                       e.stopPropagation();
                       window.open(project.url, "_blank");
@@ -100,7 +100,7 @@ const Projects = () => {
                 </p>
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="text-hispaltech-green hover:text-hispaltech-green/80 text-sm font-semibold mt-3 flex items-center gap-1 transition-colors"
+                  className="text-hispaltech-blue hover:text-hispaltech-blue/80 text-sm font-semibold mt-3 flex items-center gap-1 transition-colors"
                 >
                   {language === "en" ? "Read More" : "Leer más"}
                   <ChevronDown className="h-4 w-4" />
@@ -150,7 +150,7 @@ const Projects = () => {
 
                   {/* CTA Button */}
                   <Button
-                    className="w-full gap-2 bg-hispaltech-green hover:bg-hispaltech-green/90 text-white"
+                    className="w-full gap-2 bg-hispaltech-blue hover:bg-hispaltech-blue/90 text-white"
                     onClick={() => {
                       window.open(selectedProject.url, "_blank");
                       setSelectedProject(null);
@@ -166,7 +166,7 @@ const Projects = () => {
         </Dialog>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-hispaltech-green/10 to-hispaltech-green/5 border border-hispaltech-green/20 rounded-lg p-8 md:p-12 text-center -mb-10">
+        <div className="bg-gradient-to-r from-hispaltech-blue/10 to-hispaltech-blue/5 border border-hispaltech-blue/20 rounded-lg p-8 md:p-12 text-center -mb-10">
           <h3 className="text-2xl md:text-3xl font-bold mb-4 text-primary">
             {language === "en"
               ? "Want a Project Like These?"

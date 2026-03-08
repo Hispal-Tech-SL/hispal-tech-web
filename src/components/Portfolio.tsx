@@ -23,7 +23,7 @@ const Portfolio = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-green/10 text-hispaltech-green rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
             <Code className="h-4 w-4" />
             <span className="text-sm font-semibold">
               {t("nav.portfolio").toUpperCase()}
@@ -79,7 +79,7 @@ const Portfolio = () => {
 
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs bg-hispaltech-green/10 text-hispaltech-green px-2 py-1 rounded-full">
+                  <span className="text-xs bg-hispaltech-blue/10 text-hispaltech-blue px-2 py-1 rounded-full">
                     {project.category}
                   </span>
                 </div>
@@ -108,7 +108,7 @@ const Portfolio = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-green/10 rounded-2xl p-8 md:p-12">
+        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-blue/10 rounded-2xl p-8 md:p-12">
           <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
             {t("portfolio.cta.title")}
           </h3>

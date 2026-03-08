@@ -23,7 +23,7 @@ const Team = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-green/10 text-hispaltech-green rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
             <Users className="h-4 w-4" />
             <span className="text-sm font-semibold">
               {t("nav.team").toUpperCase()}
@@ -53,13 +53,13 @@ const Team = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover rounded-full border-4 border-hispaltech-green/20 group-hover:border-hispaltech-green transition-colors duration-300"
+                    className="w-full h-full object-cover rounded-full border-4 border-hispaltech-blue/20 group-hover:border-hispaltech-blue transition-colors duration-300"
                   />
                 </div>
                 <CardTitle className="text-xl text-primary">
                   {member.name}
                 </CardTitle>
-                <CardDescription className="text-hispaltech-green font-semibold">
+                <CardDescription className="text-hispaltech-blue font-semibold">
                   {member.role}
                 </CardDescription>
               </CardHeader>
@@ -73,7 +73,7 @@ const Team = () => {
                   {member.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="text-xs bg-hispaltech-green/10 text-hispaltech-green px-2 py-1 rounded"
+                      className="text-xs bg-hispaltech-blue/10 text-hispaltech-blue px-2 py-1 rounded"
                     >
                       {skill}
                     </span>
@@ -84,7 +84,7 @@ const Team = () => {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-hispaltech-green text-hispaltech-green hover:bg-hispaltech-green hover:text-white"
+                    className="border-hispaltech-blue text-hispaltech-blue hover:bg-hispaltech-blue hover:text-white"
                     asChild
                   >
                     <a
@@ -99,7 +99,7 @@ const Team = () => {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-hispaltech-green text-hispaltech-green hover:bg-hispaltech-green hover:text-white"
+                    className="border-hispaltech-blue text-hispaltech-blue hover:bg-hispaltech-blue hover:text-white"
                     asChild
                   >
                     <a
@@ -118,7 +118,7 @@ const Team = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-green/10 rounded-2xl p-8 md:p-12">
+        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-blue/10 rounded-2xl p-8 md:p-12">
           <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
             {t("team.cta.title")}
           </h3>

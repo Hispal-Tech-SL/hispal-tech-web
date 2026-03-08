@@ -29,7 +29,7 @@ const PriceComparison = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-green/10 text-hispaltech-green rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
             <DollarSign className="h-4 w-4" />
             <span className="text-sm font-semibold">
               {t("nav.prices").toUpperCase()}
@@ -56,7 +56,7 @@ const PriceComparison = () => {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-green-600 text-white">
+                  <tr className="bg-hispaltech-blue text-white">
                     <th className="px-6 py-4 text-left font-semibold">
                       Proveedor
                     </th>
@@ -76,7 +76,7 @@ const PriceComparison = () => {
                     <tr
                       key={provider.id}
                       className={`border-b border-gray-200 ${
-                        provider.isHispaltech ? "bg-green-50" : ""
+                        provider.isHispaltech ? "bg-hispaltech-blue/10" : ""
                       }`}
                     >
                       <td className="px-6 py-4">
@@ -85,7 +85,7 @@ const PriceComparison = () => {
                             {provider.name}
                           </span>
                           {provider.badge && (
-                            <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                            <span className="bg-hispaltech-blue text-white text-xs px-2 py-1 rounded-full font-semibold">
                               {provider.badge}
                             </span>
                           )}
@@ -147,7 +147,7 @@ const PriceComparison = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-green/10 rounded-2xl p-8 md:p-12 -mb-10">
+        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-blue/10 rounded-2xl p-8 md:p-12 -mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
             ¿Necesitas un presupuesto personalizado?
           </h3>

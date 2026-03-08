@@ -29,7 +29,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-12 animate-float">
-            <CheckCircle className="h-5 w-5 text-hispaltech-green" />
+            <CheckCircle className="h-5 w-5 text-hispaltech-blue" />
             <span className="text-sm font-medium">{t("hero.badge")}</span>
           </div>
 
@@ -48,15 +48,15 @@ const Hero = () => {
           {/* Benefits */}
           <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm md:text-base">
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-hispaltech-green" />
+              <CheckCircle className="h-5 w-5 text-hispaltech-blue" />
               <span>{t("hero.benefits.custom")}</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-hispaltech-green" />
+              <CheckCircle className="h-5 w-5 text-hispaltech-blue" />
               <span>{t("hero.benefits.fast")}</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-hispaltech-green" />
+              <CheckCircle className="h-5 w-5 text-hispaltech-blue" />
               <span>{t("hero.benefits.support")}</span>
             </div>
           </div>
@@ -78,7 +78,7 @@ const Hero = () => {
           <div className="flex justify-center mt-8 pt-8 pb-8 border-t border-white/20 w-full">
             <div className="flex justify-center items-center">
               <div className="text-center px-4">
-                <div className="text-3xl md:text-4xl font-bold text-hispaltech-green mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-hispaltech-blue mb-2">
                   24h
                 </div>
                 <div className="text-white/80 text-sm md:text-base whitespace-normal">

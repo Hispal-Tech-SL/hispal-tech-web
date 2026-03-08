@@ -123,7 +123,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-hispaltech-green/10 text-hispaltech-green rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
             <Mail className="h-4 w-4" />
             <span className="text-sm font-semibold">
               {t("nav.contact").toUpperCase()}
@@ -147,7 +147,7 @@ const Contact = () => {
             <Card className="border-0 shadow-hispaltech">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Calculator className="h-5 w-5 text-hispaltech-green" />
+                  <Calculator className="h-5 w-5 text-hispaltech-blue" />
                   {t("contact.form.title")}
                 </CardTitle>
                 <CardDescription>
@@ -377,7 +377,7 @@ const Contact = () => {
                   </Button>
 
                   <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-                    <CheckCircle className="h-3 w-3 text-hispaltech-green" />
+                    <CheckCircle className="h-3 w-3 text-hispaltech-blue" />
                     <span>{t("contact.form.guarantee")}</span>
                   </div>
                 </form>
@@ -405,8 +405,8 @@ const Contact = () => {
                 >
                   <CardContent className="p-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-hispaltech-green/10 rounded-lg flex items-center justify-center group-hover:bg-hispaltech-green group-hover:text-white transition-colors">
-                        <IconComponent className="h-5 w-5 text-hispaltech-green group-hover:text-white" />
+                      <div className="w-10 h-10 bg-hispaltech-blue/10 rounded-lg flex items-center justify-center group-hover:bg-hispaltech-blue group-hover:text-white transition-colors">
+                        <IconComponent className="h-5 w-5 text-hispaltech-blue group-hover:text-white" />
                       </div>
                       <div className="flex-1">
                         <h4 className="font-semibold text-primary">
@@ -422,7 +422,7 @@ const Contact = () => {
                           size="sm"
                           variant="outline"
                           asChild
-                          className="text-xs border-hispaltech-green text-hispaltech-green hover:bg-hispaltech-green hover:text-white"
+                          className="text-xs border-hispaltech-blue text-hispaltech-blue hover:bg-hispaltech-blue hover:text-white"
                         >
                           <a
                             href={contact.link}
@@ -440,11 +440,11 @@ const Contact = () => {
             })}
 
             {/* Business Hours - Removed */}
-            {/* <Card className="border-0 shadow-md bg-gradient-to-br from-hispaltech-navy/5 to-hispaltech-green/5">
+            {/* <Card className="border-0 shadow-md bg-gradient-to-br from-hispaltech-navy/5 to-hispaltech-blue/5">
               <CardContent className="p-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-hispaltech-green/10 rounded-lg flex items-center justify-center">
-                    <Clock className="h-5 w-5 text-hispaltech-green" />
+                  <div className="w-10 h-10 bg-hispaltech-blue/10 rounded-lg flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-hispaltech-blue" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-primary mb-2">
@@ -464,8 +464,8 @@ const Contact = () => {
             <Card className="border-0 shadow-md">
               <CardContent className="p-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-hispaltech-green/10 rounded-lg flex items-center justify-center">
-                    <MapPin className="h-5 w-5 text-hispaltech-green" />
+                  <div className="w-10 h-10 bg-hispaltech-blue/10 rounded-lg flex items-center justify-center">
+                    <MapPin className="h-5 w-5 text-hispaltech-blue" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-primary mb-1">

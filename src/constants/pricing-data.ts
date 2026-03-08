@@ -31,7 +31,7 @@ export const PRICING_COMPARISON_DATA = [
     id: "hispaltech",
     name: "Hispal Tech",
     price: "€1,950",
-    priceColor: "text-green-600",
+    priceColor: "text-hispaltech-blue",
     quality: "Premium",
     support: "24/7 dedicado",
     isHispaltech: true,
