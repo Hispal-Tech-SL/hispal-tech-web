@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,6 +20,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useBooking } from "@/contexts/BookingContext";
 import { CONTACT_INFO } from "@/constants";
 import { sendEmailAlternative } from "@/services/emailService";
 import {
@@ -35,6 +36,7 @@ import {
 const Contact = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
+  const { selectedProject } = useBooking();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -47,6 +49,12 @@ const Contact = () => {
     timeline: "",
     newsletter: false,
   });
+
+  useEffect(() => {
+    if (selectedProject) {
+      setFormData((prev) => ({ ...prev, project: selectedProject }));
+    }
+  }, [selectedProject]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -221,6 +229,7 @@ const Contact = () => {
                         {t("contact.form.fields.project")} *
                       </Label>
                       <Select
+                        value={formData.project}
                         onValueChange={(value) =>
                           handleInputChange("project", value)
                         }
@@ -260,6 +269,7 @@ const Contact = () => {
                         {t("contact.form.fields.budget")}
                       </Label>
                       <Select
+                        value={formData.budget}
                         onValueChange={(value) =>
                           handleInputChange("budget", value)
                         }
@@ -298,6 +308,7 @@ const Contact = () => {
                       {t("contact.form.fields.timeline")}
                     </Label>
                     <Select
+                      value={formData.timeline}
                       onValueChange={(value) =>
                         handleInputChange("timeline", value)
                       }

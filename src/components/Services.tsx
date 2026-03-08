@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useBooking } from "@/contexts/BookingContext";
 import { SERVICES_DATA } from "@/constants";
 import {
   Globe,
@@ -20,6 +21,7 @@ import {
 
 const Services = () => {
   const { t } = useLanguage();
+  const { setSelectedProject } = useBooking();
 
   // Map icon names to actual components
   const iconMap = {
@@ -34,7 +36,17 @@ const Services = () => {
     icon: iconMap[service.icon as keyof typeof iconMap],
   }));
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string, serviceId?: string) => {
+    if (serviceId) {
+      const projectMapping: Record<string, string> = {
+        "static-web": "static-web",
+        "web": "web",
+        "mobile": "app",
+        "systems": "system",
+        "integration": "integration",
+      };
+      setSelectedProject(projectMapping[serviceId] || "");
+    }
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
   };
@@ -110,7 +122,7 @@ const Services = () => {
                   <Button
                     variant="outline"
                     className="w-full group border-hispaltech-blue text-hispaltech-blue hover:bg-hispaltech-blue hover:text-white"
-                    onClick={() => scrollToSection("contacto")}
+                    onClick={() => scrollToSection("contacto", service.id)}
                   >
                     {t("nav.requestQuote")}
                     <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
