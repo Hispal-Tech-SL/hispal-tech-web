@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,10 +21,10 @@ const LanguageSwitcher = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="cta" size="sm" className="flex items-center gap-2">
-          <span>{currentLanguage?.flag}</span>
-          <span className="text-sm">{currentLanguage?.code.toUpperCase()}</span>
-        </Button>
+        <button className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary border border-border hover:border-hispaltech-blue/50 rounded-md px-2.5 py-1.5 cursor-pointer transition-colors bg-transparent hover:bg-hispaltech-blue/5">
+          <Globe className="h-3.5 w-3.5" />
+          <span>{currentLanguage?.code.toUpperCase()}</span>
+        </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-48">
         {languages.map((lang) => (
