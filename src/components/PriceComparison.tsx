@@ -1,15 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PRICING_COMPARISON_DATA } from "@/constants";
-import { ArrowRight } from "lucide-react";
 
 const PriceComparison = () => {
   const { t } = useLanguage();
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="precios" className="py-20 bg-muted/30 pt-10">
@@ -92,27 +85,7 @@ const PriceComparison = () => {
 
 
 
-        {/* Bottom CTA */}
-        <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-blue/10 rounded-2xl p-8 md:p-12 -mb-10">
-          <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-            ¿Necesitas un presupuesto personalizado?
-          </h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Cada proyecto es único. Contáctanos para una cotización adaptada a
-            tus necesidades específicas.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              variant="cta"
-              size="lg"
-              onClick={() => scrollToSection("contacto")}
-              className="group"
-            >
-              Solicitar Presupuesto
-              <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-        </div>
+
       </div>
     </section>
   );
