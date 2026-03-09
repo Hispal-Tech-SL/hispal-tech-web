@@ -1,20 +1,7 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PRICING_COMPARISON_DATA, PRICING_FEATURES } from "@/constants";
-import {
-  ArrowRight,
-  DollarSign,
-  TrendingDown,
-  Shield,
-  Award,
-} from "lucide-react";
+import { PRICING_COMPARISON_DATA } from "@/constants";
+import { ArrowRight } from "lucide-react";
 
 const PriceComparison = () => {
   const { t } = useLanguage();
@@ -103,39 +90,7 @@ const PriceComparison = () => {
           </div>
         </div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {PRICING_FEATURES.map((feature) => {
-            const getIcon = () => {
-              switch (feature.icon) {
-                case "chart":
-                  return <TrendingDown className="h-8 w-8 text-white" />;
-                case "shield":
-                  return <Shield className="h-8 w-8 text-white" />;
-                case "award":
-                  return <Award className="h-8 w-8 text-white" />;
-                default:
-                  return null;
-              }
-            };
 
-            return (
-              <Card key={feature.id} className="bg-white border-0 shadow-md">
-                <CardContent className="p-6 text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="bg-gradient-to-br from-hispaltech-navy to-hispaltech-navy/80 rounded-lg p-3 shadow-sm">
-                      {getIcon()}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-hispaltech-navy mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
 
         {/* Bottom CTA */}
         <div className="text-center bg-gradient-to-r from-hispaltech-navy/10 to-hispaltech-blue/10 rounded-2xl p-8 md:p-12 -mb-10">
