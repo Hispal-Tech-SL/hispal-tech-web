@@ -7,7 +7,6 @@ import {
   Code,
   Mail,
   Phone,
-  MapPin,
   Linkedin,
   Twitter,
   Github,
@@ -99,10 +98,6 @@ const Footer = () => {
             </p>
 
             <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2 text-white/80">
-                <MapPin className="h-4 w-4 text-hispaltech-blue" />
-                <span>{CONTACT_INFO.location}</span>
-              </div>
               {/* Phone contact commented out as requested */}
               {/* <div className="flex items-center gap-2 text-white/80">
                   <Phone className="h-4 w-4 text-hispaltech-blue" />
