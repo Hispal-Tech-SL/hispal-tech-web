@@ -200,10 +200,10 @@
   "contact": {
     "title": "Empecemos Tu Proyecto",
     "subtitle": "Hoy Mismo",
-    "description": "Cuéntanos tu idea y te enviaremos una propuesta personalizada con el mejor precio garantizado en menos de 24 horas.",
+    "description": "Cuéntanos tu idea y te enviaremos una propuesta personalizada con el mejor precio garantizado en menos de 2 horas.",
     "form": {
       "title": "Solicitar Presupuesto Gratuito",
-      "description": "Completa el formulario y recibe una cotización personalizada en 24 horas",
+      "description": "Completa el formulario y recibe una cotización personalizada en menos de 2 horas",
       "fields": {
         "name": "Nombre completo",
         "email": "Email",
@@ -240,7 +240,7 @@
       "newsletter": "Quiero recibir consejos y ofertas especiales por email",
       "submit": "Solicitar Presupuesto Gratuito",
       "submitting": "Enviando...",
-      "guarantee": "Respuesta garantizada en 24 horas"
+      "guarantee": "Respuesta garantizada en menos de 2 horas"
     },
     "directContact": {
       "title": "Contacto Directo",
@@ -252,7 +252,7 @@
       },
       "email": {
         "title": "Email",
-        "description": "Respuesta en 2-4 horas",
+        "description": "Respuesta en menos de 24 horas",
         "action": "Enviar email"
       },
       "phone": {
