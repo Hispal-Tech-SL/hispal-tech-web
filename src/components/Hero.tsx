@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden pt-20 sm:pt-0"
     >
       {/* Background Image with Overlay */}
       <div
@@ -30,29 +30,29 @@ const Hero = () => {
 
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 sm:mb-12">
             {t("hero.title")}
             <br />
             <span className="text-gradient">{t("hero.subtitle")}</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
             {t("hero.description")}
           </p>
 
           {/* Benefits */}
-          <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm md:text-base">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-start sm:items-center gap-3 sm:gap-6 mb-8 sm:mb-12 text-sm md:text-base">
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-hispaltech-blue" />
+              <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.custom")}</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-hispaltech-blue" />
+              <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.fast")}</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-hispaltech-blue" />
+              <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.support")}</span>
             </div>
           </div>
@@ -71,10 +71,10 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="flex justify-center mt-8 pt-8 pb-8 border-t border-white/20 w-full">
+          <div className="flex justify-center mt-6 sm:mt-8 pt-6 sm:pt-8 pb-6 sm:pb-8 border-t border-white/20 w-full">
             <div className="flex justify-center items-center">
               <div className="text-center px-4">
-                <div className="text-3xl md:text-4xl font-bold text-hispaltech-blue mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-hispaltech-blue mb-1 sm:mb-2">
                   24h
                 </div>
                 <div className="text-white/80 text-sm md:text-base whitespace-normal">
