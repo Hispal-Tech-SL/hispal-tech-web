@@ -88,7 +88,7 @@ const Footer = () => {
               <img
                 src="/logoHispalTech.png"
                 alt="Hispal Tech Logo"
-                className="h-8 w-8 object-contain brightness-150 contrast-150 drop-shadow-lg"
+                className="h-8 w-8 object-contain brightness-0 invert"
               />
               <span className="text-2xl font-bold">Hispal Tech</span>
             </div>
