@@ -104,7 +104,7 @@ const Footer = () => {
                   <span>{CONTACT_INFO.phone}</span>
                 </div> */}
               <div className="flex items-center gap-2 text-white/80">
-                <Mail className="h-4 w-4 text-hispaltech-blue" />
+                <Mail className="h-4 w-4 text-white" />
                 <span>{CONTACT_INFO.email}</span>
               </div>
             </div>

@@ -49,7 +49,7 @@
           "Landing pages",
           "Hosting incluido"
         ],
-        "price": "Desde 50€",
+        "price": "50€",
         "originalPrice": "500€"
       },
       "web": {
@@ -61,7 +61,7 @@
           "Panel de administración",
           "Base de datos incluida"
         ],
-        "price": "Desde 500€",
+        "price": "500€",
         "originalPrice": "1.500€"
       },
       "ecommerce": {
@@ -73,7 +73,7 @@
           "Panel de pedidos",
           "Multi-idioma"
         ],
-        "price": "Desde 800€",
+        "price": "800€",
         "originalPrice": "1.200€"
       },
       "mobile": {
@@ -85,7 +85,7 @@
           "Notificaciones push",
           "Sincronización offline"
         ],
-        "price": "Desde 1.300€",
+        "price": "1.300€",
         "originalPrice": "2.000€"
       },
       "systems": {
@@ -97,7 +97,7 @@
           "Integración APIs",
           "Base de datos segura"
         ],
-        "price": "Desde 2.500€",
+        "price": "2.500€",
         "originalPrice": "4.000€"
       },
       "integration": {
@@ -109,7 +109,7 @@
           "Sincronización automática",
           "Documentación completa"
         ],
-        "price": "Desde 350€",
+        "price": "350€",
         "originalPrice": "800€"
       },
       "custom": {
@@ -190,6 +190,44 @@
       "description": "Cada proyecto es único. Contáctanos para una cotización adaptada a tus necesidades específicas.",
       "primary": "Solicitar Presupuesto",
       "secondary": "Ver Servicios"
+    },
+    "comparison": {
+      "title": "Mejor precio,",
+      "subtitle": "calidad superior",
+      "description": "Comparamos nuestros precios y calidad con cualquier competidor. El resultado siempre es el mismo: Hispal Tech gana.",
+      "competitor": {
+        "badge": "La competencia",
+        "title": "Freelance y agencias",
+        "subtitle": "Lo que suele pasar con otros proveedores",
+        "startingAt": "Desde €2.500+",
+        "priceSubtext": "precio inicial típico",
+        "items": [
+          "Precios desde €2.500",
+          "Calidad variable o sin garantía",
+          "Soporte limitado en horario comercial",
+          "Plazos largos e imprecisos",
+          "Comunicación escasa durante el proyecto",
+          "Sin garantía de devolución"
+        ]
+      },
+      "hispaltech": {
+        "badge": "Hispal Tech",
+        "title": "Equipo Tech Experto",
+        "subtitle": "Lo que obtienes trabajando con nosotros",
+        "startingAt": "Desde €50",
+        "priceSubtext": "precio más bajo garantizado",
+        "items": [
+          "Precios desde €50 — los más bajos del mercado",
+          "Calidad premium garantizada en cada entrega",
+          "Soporte 24/7 dedicado siempre disponible",
+          "Entregas rápidas con plazos claros",
+          "Comunicación constante y transparente",
+          "Garantía de devolución en 30 días"
+        ],
+        "cta": "Quiero este precio →",
+        "ctaSubtext": "Sin compromiso · Presupuesto en menos de 2h"
+      },
+      "footer": "💡 Si encuentras una propuesta similar más barata, igualamos el precio + 10% de descuento adicional."
     }
   },
   "testimonials": {
@@ -314,6 +352,7 @@
     }
   },
   "common": {
+    "from": "Desde",
     "loading": "Cargando...",
     "error": "Error",
     "success": "Éxito",

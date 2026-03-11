@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden pt-20 sm:pt-0"
+      className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-12"
     >
       {/* Background Image with Overlay */}
       <div
@@ -30,14 +30,13 @@ const Hero = () => {
 
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 sm:mb-12">
-            {t("hero.title")}
-            <br />
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-none mb-6 sm:mb-12 flex flex-col gap-1 sm:gap-2">
+            <span>{t("hero.title")}</span>
             <span className="text-gradient">{t("hero.subtitle")}</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0 break-words">
             {t("hero.description")}
           </p>
 
@@ -58,15 +57,15 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
             <Button
               variant="hero"
               size="xl"
               onClick={() => scrollToSection("contacto")}
-              className="group"
+              className="group w-full sm:w-auto"
             >
               {t("hero.cta.primary")}
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-5 w-5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
 

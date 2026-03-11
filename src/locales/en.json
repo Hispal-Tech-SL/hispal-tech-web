@@ -49,7 +49,7 @@
           "Landing pages",
           "Hosting included"
         ],
-        "price": "From €50",
+        "price": "€50",
         "originalPrice": "€500"
       },
       "web": {
@@ -61,7 +61,7 @@
           "Admin panel",
           "Database included"
         ],
-        "price": "From €500",
+        "price": "€500",
         "originalPrice": "€1,500"
       },
       "ecommerce": {
@@ -73,7 +73,7 @@
           "Order panel",
           "Multi-language"
         ],
-        "price": "From €800",
+        "price": "€800",
         "originalPrice": "€1,200"
       },
       "mobile": {
@@ -85,7 +85,7 @@
           "Push notifications",
           "Offline sync"
         ],
-        "price": "From €1,300",
+        "price": "€1,300",
         "originalPrice": "€2,000"
       },
       "systems": {
@@ -97,7 +97,7 @@
           "API Integration",
           "Secure database"
         ],
-        "price": "From €2,500",
+        "price": "€2,500",
         "originalPrice": "€4,000"
       },
       "integration": {
@@ -109,7 +109,7 @@
           "Auto sync",
           "Full documentation"
         ],
-        "price": "From €350",
+        "price": "€350",
         "originalPrice": "€800"
       },
       "custom": {
@@ -190,6 +190,44 @@
       "description": "Every project is unique. Contact us for a quote tailored to your specific needs.",
       "primary": "Request Quote",
       "secondary": "View Services"
+    },
+    "comparison": {
+      "title": "Better Price,",
+      "subtitle": "Superior Quality",
+      "description": "We compare our prices and quality with any competitor. The result is always the same: Hispal Tech wins.",
+      "competitor": {
+        "badge": "The Competition",
+        "title": "Freelance & Agency",
+        "subtitle": "What usually happens with other providers",
+        "startingAt": "From €2,500+",
+        "priceSubtext": "typical starting price",
+        "items": [
+          "Starting at €2,500",
+          "Variable quality or no guarantee",
+          "Limited business hours support",
+          "Long and imprecise deadlines",
+          "Scarce communication during project",
+          "No refund guarantee"
+        ]
+      },
+      "hispaltech": {
+        "badge": "Hispal Tech",
+        "title": "Expert Tech Team",
+        "subtitle": "What you get working with us",
+        "startingAt": "From €50",
+        "priceSubtext": "lowest price guaranteed",
+        "items": [
+          "Starting at €50 — lowest in the market",
+          "Premium quality guaranteed in every delivery",
+          "Dedicated 24/7 support always available",
+          "Fast deliveries with clear deadlines",
+          "Constant and transparent communication",
+          "30-day money back guarantee"
+        ],
+        "cta": "I want this price →",
+        "ctaSubtext": "No commitment · Quote in less than 2h"
+      },
+      "footer": "💡 If you find a similar proposal for less, we match the price + an additional 10% discount."
     }
   },
   "testimonials": {
@@ -200,10 +238,10 @@
   "contact": {
     "title": "Let's Start Your Project",
     "subtitle": "Today",
-    "description": "Tell us your idea and we'll send you a personalized proposal with the best guaranteed price in less than 24 hours.",
+    "description": "Tell us your idea and we'll send you a personalized proposal with the best guaranteed price in less than 2 hours.",
     "form": {
       "title": "Request Free Quote",
-      "description": "Complete the form and receive a personalized quote in 24 hours",
+      "description": "Complete the form and receive a personalized quote in less than 2 hours",
       "fields": {
         "name": "Full name",
         "email": "Email",
@@ -240,7 +278,7 @@
       "newsletter": "I want to receive tips and special offers by email",
       "submit": "Request Free Quote",
       "submitting": "Sending...",
-      "guarantee": "Guaranteed response in 24 hours"
+      "guarantee": "Guaranteed response in less than 2 hours"
     },
     "directContact": {
       "title": "Direct Contact",
@@ -252,7 +290,7 @@
       },
       "email": {
         "title": "Email",
-        "description": "Response in 2-4 hours",
+        "description": "Response in less than 24 hours",
         "action": "Send email"
       },
       "phone": {
@@ -315,6 +353,7 @@
     }
   },
   "common": {
+    "from": "From",
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",

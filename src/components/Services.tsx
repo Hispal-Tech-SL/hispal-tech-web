@@ -64,9 +64,8 @@ const Services = () => {
         <div className="text-center mb-16">
 
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
-            {t("services.title")}
-            <br />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 flex flex-col gap-1">
+            <span>{t("services.title")}</span>
             <span className="text-gradient">{t("services.subtitle")}</span>
           </h2>
 
@@ -87,28 +86,28 @@ const Services = () => {
                 className="group bg-white border border-hispaltech-blue/10 shadow-lg hover:shadow-hispaltech transition-all duration-300 hover:scale-105"
               >
                 <CardHeader className="pb-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-hispaltech-blue/10 rounded-lg flex items-center justify-center group-hover:bg-hispaltech-blue group-hover:text-white transition-colors">
+                  <div className="flex items-start justify-between gap-2 mb-4 flex-wrap">
+                    <div className="w-12 h-12 flex-shrink-0 bg-hispaltech-blue/10 rounded-lg flex items-center justify-center group-hover:bg-hispaltech-blue group-hover:text-white transition-colors">
                       <IconComponent className="h-6 w-6 text-hispaltech-blue group-hover:text-white" />
                     </div>
-                    <div className="text-right">
-                      {service.originalPrice && (
-                        <span className="text-sm text-muted-foreground line-through mr-2">
-                          {service.originalPrice}
-                        </span>
-                      )}
-                      <span className="text-2xl font-bold text-hispaltech-blue">
-                        {service.price.includes(" ") ? (
-                          <>
-                            <span className="text-sm font-medium text-muted-foreground mr-1">
-                              {service.price.split(" ")[0]}
-                            </span>
-                            {service.price.split(" ").slice(1).join(" ")}
-                          </>
-                        ) : (
-                          service.price
+                    <div className="text-right min-w-0 overflow-hidden">
+                      <div className="flex flex-wrap items-baseline justify-end gap-2">
+                        {service.originalPrice && service.id !== 'custom' && (
+                          <span className="text-sm text-muted-foreground line-through">
+                            {service.originalPrice}
+                          </span>
                         )}
-                      </span>
+                        <div className="flex items-baseline gap-1">
+                          {service.id !== 'custom' && (
+                            <span className="text-sm font-bold text-hispaltech-blue">
+                              {t("common.from")}
+                            </span>
+                          )}
+                          <span className="text-2xl font-bold text-hispaltech-blue">
+                            {service.price}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <CardTitle className="text-xl text-primary">
