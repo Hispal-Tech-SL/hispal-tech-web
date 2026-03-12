@@ -9,11 +9,11 @@ const features = [
       "Si encuentras una propuesta similar más barata, igualamos el precio + 10% de descuento adicional.",
   },
   {
-    id: "satisfaction",
+    id: "support",
     icon: Shield,
-    title: "Garantía de satisfacción",
+    title: "Soporte dedicado 24/7",
     description:
-      "Si no quedas 100% satisfecho en los primeros 30 días, te devolvemos tu dinero.",
+      "Comunicación constante y soporte técnico para resolver cualquier duda o incidencia al instante.",
   },
   {
     id: "premium-quality",

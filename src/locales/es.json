@@ -11,8 +11,8 @@
   },
   "hero": {
     "badge": "Mejor Precio Garantizado",
-    "title": "Software que Vende",
-    "subtitle": "Desarrollo que Convierte",
+    "title": "Software que impulsa",
+    "subtitle": "negocios reales",
     "description": "🚀 Transformamos tu idea en software que genera resultados: páginas web que venden, apps que enganchan, sistemas que automatizan tu negocio. Construimos soluciones robustas y escalables con tecnología de vanguardia. ¡Garantizamos el mejor precio!",
     "benefits": {
       "custom": "100% Personalizado",
@@ -206,8 +206,7 @@
           "Calidad variable o sin garantía",
           "Soporte limitado en horario comercial",
           "Plazos largos e imprecisos",
-          "Comunicación escasa durante el proyecto",
-          "Sin garantía de devolución"
+          "Comunicación escasa durante el proyecto"
         ]
       },
       "hispaltech": {
@@ -221,8 +220,7 @@
           "Calidad premium garantizada en cada entrega",
           "Soporte 24/7 dedicado siempre disponible",
           "Entregas rápidas con plazos claros",
-          "Comunicación constante y transparente",
-          "Garantía de devolución en 30 días"
+          "Comunicación constante y transparente"
         ],
         "cta": "Quiero este precio →",
         "ctaSubtext": "Sin compromiso · Presupuesto en menos de 2h"

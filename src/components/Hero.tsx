@@ -26,61 +26,46 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center text-white">
-        <div className="max-w-4xl mx-auto">
-
+        <div className="max-w-4xl lg:max-w-5xl mx-auto flex flex-col justify-center items-center gap-8 sm:gap-12">
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-none mb-6 sm:mb-12 flex flex-col gap-1 sm:gap-2">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight flex flex-col gap-2">
             <span>{t("hero.title")}</span>
-            <span className="text-gradient">{t("hero.subtitle")}</span>
+            <span className="text-hispaltech-blue">{t("hero.subtitle")}</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0 break-words">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed px-2 font-medium">
             {t("hero.description")}
           </p>
 
           {/* Benefits */}
-          <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-start sm:items-center gap-3 sm:gap-6 mb-8 sm:mb-12 text-sm md:text-base">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm md:text-base lg:text-lg">
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
               <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.custom")}</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
               <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.fast")}</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
               <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.support")}</span>
             </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+          <div className="w-full flex justify-center mt-2 sm:mt-4">
             <Button
               variant="hero"
               size="xl"
               onClick={() => scrollToSection("contacto")}
-              className="group w-full sm:w-auto"
+              className="group w-full max-w-sm sm:max-w-md sm:w-auto text-lg sm:text-xl px-8 py-6 sm:py-8 h-auto font-bold rounded-2xl shadow-xl shadow-hispaltech-blue/20"
             >
               {t("hero.cta.primary")}
-              <ArrowRight className="h-5 w-5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-6 w-6 ml-2 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
             </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="flex justify-center mt-6 sm:mt-8 pt-6 sm:pt-8 pb-6 sm:pb-8 border-t border-white/20 w-full">
-            <div className="flex justify-center items-center">
-              <div className="text-center px-4">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-hispaltech-blue mb-1 sm:mb-2">
-                  24h
-                </div>
-                <div className="text-white/80 text-sm md:text-base whitespace-normal">
-                  {t("hero.stats.response")}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

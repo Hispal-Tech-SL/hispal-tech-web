@@ -11,8 +11,8 @@
   },
   "hero": {
     "badge": "Best Price Guaranteed",
-    "title": "Software That Sells",
-    "subtitle": "Development That Converts",
+    "title": "Software that drives",
+    "subtitle": "real businesses",
     "description": "🚀 We transform your idea into software that delivers results: websites that sell, apps that engage, systems that automate your business. We build robust and scalable solutions with cutting-edge technology. We guarantee the best price!",
     "benefits": {
       "custom": "100% Custom",
@@ -206,8 +206,7 @@
           "Variable quality or no guarantee",
           "Limited business hours support",
           "Long and imprecise deadlines",
-          "Scarce communication during project",
-          "No refund guarantee"
+          "Scarce communication during project"
         ]
       },
       "hispaltech": {
@@ -221,8 +220,7 @@
           "Premium quality guaranteed in every delivery",
           "Dedicated 24/7 support always available",
           "Fast deliveries with clear deadlines",
-          "Constant and transparent communication",
-          "30-day money back guarantee"
+          "Constant and transparent communication"
         ],
         "cta": "I want this price →",
         "ctaSubtext": "No commitment · Quote in less than 2h"

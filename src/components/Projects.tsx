@@ -59,12 +59,12 @@ const Projects = () => {
               className="group overflow-hidden hover:shadow-hispaltech transition-all duration-300 border-0 shadow-md hover:scale-105 flex flex-col h-full"
             >
               {/* Project Image */}
-              <div className="relative h-64 overflow-hidden bg-muted">
+              <div className="relative h-64 overflow-hidden bg-white">
                 <div className="absolute inset-0 top-0 h-12 bg-gradient-to-b from-black/20 to-transparent z-10 pointer-events-none"></div>
                 <img
                   src={project.image}
                   alt={language === "en" ? project.titleEn : project.titleEs}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-contain p-2 md:p-4 transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Button
@@ -131,7 +131,7 @@ const Projects = () => {
                         ? selectedProject.titleEn
                         : selectedProject.titleEs
                     }
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="w-full h-64 object-contain p-2 md:p-4 rounded-lg bg-white"
                   />
 
                   {/* Project Description */}

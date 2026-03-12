@@ -25,65 +25,53 @@ const Header = () => {
               alt="Hispal Tech Logo"
               className="h-8 w-8 object-contain"
             />
-            <span className="text-xl font-bold text-primary">Hispal Tech</span>
+            <span className="text-xl xl:text-2xl font-bold text-primary">Hispal Tech</span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
             <button
               onClick={() => scrollToSection("inicio")}
-              className="text-[#041726] hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors lg:text-sm xl:text-base font-medium"
             >
               {t("nav.home")}
             </button>
             <button
               onClick={() => scrollToSection("servicios")}
-              className="text-[#041726] hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors lg:text-sm xl:text-base font-medium"
             >
               {t("nav.services")}
             </button>
             <button
               onClick={() => scrollToSection("precios")}
-              className="text-[#041726] hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors lg:text-sm xl:text-base font-medium"
             >
               {t("nav.prices")}
             </button>
             <button
               onClick={() => scrollToSection("proyectos")}
-              className="text-[#041726] hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors lg:text-sm xl:text-base font-medium"
             >
               {t("nav.projects")}
             </button>
-            {/* <button
-              onClick={() => scrollToSection("portafolio")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              {t("nav.portfolio")}
-            </button> */}
-            {/* <button
-              onClick={() => scrollToSection("equipo")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              {t("nav.team")}
-            </button> */}
             <button
               onClick={() => scrollToSection("contacto")}
-              className="text-[#041726] hover:text-primary transition-colors"
+              className="text-[#041726] hover:text-primary transition-colors lg:text-sm xl:text-base font-medium"
             >
               {t("nav.contact")}
             </button>
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="cta" onClick={() => scrollToSection("contacto")}>
+          <div className="hidden lg:flex items-center space-x-4">
+            <Button variant="cta" onClick={() => scrollToSection("contacto")} className="lg:text-sm xl:text-base lg:px-3 xl:px-4">
               {t("nav.requestQuote")}
             </Button>
             <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button and Language Switcher */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             <LanguageSwitcher />
             <button className="p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? (
@@ -97,7 +85,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-background border-b border-border shadow-lg">
+          <div className="lg:hidden absolute top-16 left-0 right-0 bg-background border-b border-border shadow-lg">
             <div className="container mx-auto px-4 py-4 space-y-4">
               <button
                 onClick={() => scrollToSection("inicio")}
@@ -124,33 +112,16 @@ const Header = () => {
                 {t("nav.projects")}
               </button>
               <button
-                onClick={() => scrollToSection("precios")}
-                className="block w-full text-left py-2 text-[#041726] hover:text-primary"
-              >
-                {t("nav.prices")}
-              </button>
-              {/* <button
-                onClick={() => scrollToSection("portafolio")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
-              >
-                {t("nav.portfolio")}
-              </button> */}
-              {/* <button
-                onClick={() => scrollToSection("equipo")}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary"
-              >
-                {t("nav.team")}
-              </button> */}
-              <button
                 onClick={() => scrollToSection("contacto")}
                 className="block w-full text-left py-2 text-[#041726] hover:text-primary"
               >
                 {t("nav.contact")}
               </button>
-              <div className="flex flex-col space-y-2 pt-4">
+              <div className="flex flex-col space-y-2 pt-4 border-t border-border">
                 <Button
                   variant="cta"
                   onClick={() => scrollToSection("contacto")}
+                  className="w-full"
                 >
                   {t("nav.requestQuote")}
                 </Button>
