@@ -35,7 +35,9 @@ const Services = () => {
     ...service,
     title: t(`services.items.${service.id}.title`),
     description: t(`services.items.${service.id}.description`),
-    features: (t(`services.items.${service.id}.features`) as unknown as string[]) || service.features,
+    features:
+      (t(`services.items.${service.id}.features`) as unknown as string[]) ||
+      service.features,
     price: t(`services.items.${service.id}.price`),
     originalPrice: t(`services.items.${service.id}.originalPrice`),
     icon: iconMap[service.icon as keyof typeof iconMap],
@@ -45,11 +47,11 @@ const Services = () => {
     if (serviceId) {
       const projectMapping: Record<string, string> = {
         "static-web": "static-web",
-        "web": "web",
-        "mobile": "app",
-        "systems": "system",
-        "integration": "integration",
-        "custom": "other",
+        web: "web",
+        mobile: "app",
+        systems: "system",
+        integration: "integration",
+        custom: "other",
       };
       setSelectedProject(projectMapping[serviceId] || "");
     }
@@ -58,18 +60,14 @@ const Services = () => {
   };
 
   return (
-    <section id="servicios" className="py-20 bg-muted/50">
+    <section id="servicios" className="pt-20 pb-8 bg-muted/50">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-
-
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 flex flex-col gap-1">
             <span>{t("services.title")}</span>
             <span className="text-gradient">{t("services.subtitle")}</span>
           </h2>
-
-
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t("services.description")}
@@ -92,13 +90,13 @@ const Services = () => {
                     </div>
                     <div className="text-right min-w-0 overflow-hidden">
                       <div className="flex flex-wrap items-baseline justify-end gap-2">
-                        {service.originalPrice && service.id !== 'custom' && (
+                        {service.originalPrice && service.id !== "custom" && (
                           <span className="text-sm text-muted-foreground line-through">
                             {service.originalPrice}
                           </span>
                         )}
                         <div className="flex items-baseline gap-1">
-                          {service.id !== 'custom' && (
+                          {service.id !== "custom" && (
                             <span className="text-sm font-bold text-hispaltech-blue">
                               {t("common.from")}
                             </span>
@@ -146,8 +144,6 @@ const Services = () => {
             );
           })}
         </div>
-
-
       </div>
     </section>
   );

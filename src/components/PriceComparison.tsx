@@ -19,7 +19,7 @@ const PriceComparison = () => {
   }));
 
   return (
-    <section id="precios" className="py-24 bg-white relative">
+    <section id="precios" className="pt-8 pb-0 bg-white relative">
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -153,16 +153,6 @@ const PriceComparison = () => {
                 {t("prices.comparison.hispaltech.ctaSubtext")}
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Trust Footer */}
-        <div className="mt-20 max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 px-6 md:px-8 py-3 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div className="w-2 h-2 rounded-full bg-hispaltech-blue animate-pulse" />
-            <p className="text-slate-600 text-xs md:text-sm lg:text-base font-medium">
-              {t("prices.comparison.footer")}
-            </p>
           </div>
         </div>
       </div>
