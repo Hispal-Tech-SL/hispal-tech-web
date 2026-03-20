@@ -12,7 +12,7 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: "alquiler-casa-islantilla",
     titleEn: "Islantilla Real - Vacation Rental",
-    titleEs: "Alquiler Vacacional Islantilla Real",
+    titleEs: "Alquiler vacacional Islantilla Real",
     descriptionEn:
       "Website for property rental with modern UI/UX design, visual gallery, calendar synchronized with Airbnb, Booking and more. Includes contact form that sends real-time notifications via Telegram, automatic customer storage in Google Contacts and mass marketing/email campaigns. The entire flow is automated from first contact, with interactive map for easy property access. Features an AI chatbot that assists clients with inquiries and management, answering questions about availability, amenities, and providing comprehensive property information.",
     descriptionEs:
@@ -23,7 +23,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "barberia-erostarbe",
-    titleEn: "Barber Shop Erostarbe",
+    titleEn: "Barber shop Erostarbe",
     titleEs: "Barbería Erostarbe",
     descriptionEn:
       "Website for barber shop with modern and functional design. Includes service list with clear pricing, visual gallery, reviews section and contact. Integrated with Booksy appointment system, allowing customers to book directly from the website easily and quickly.",
@@ -34,7 +34,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "gas-compare",
-    titleEn: "Gas Compare Platform",
+    titleEn: "Gas Compare platform",
     titleEs: "Plataforma Gas Compare",
     descriptionEn:
       "Mobile app that allows comparing gas station prices by fuel type and brand. Includes trip planning feature to optimize routes based on cost and availability. The project is complemented with an informative website that redirects directly to Play Store for download. Currently available on Android.",
@@ -56,8 +56,8 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "neonkyo",
-    titleEn: "Neonkyo Agencia Marketing",
-    titleEs: "Neonkyo Agencia Marketing",
+    titleEn: "Neonkyo agencia marketing",
+    titleEs: "Neonkyo agencia marketing",
     descriptionEn:
       "Custom-designed website featuring exceptional UX/UI crafted to the client's specific requirements. This project showcases sophisticated web design with a high-level user experience, combining aesthetic appeal with intuitive navigation. Every detail has been carefully tailored to create a unique digital presence.",
     descriptionEs:

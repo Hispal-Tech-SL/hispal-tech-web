@@ -33,7 +33,7 @@ export const SERVICES_DATA = [
   {
     id: "mobile",
     icon: "Smartphone",
-    title: "Aplicaciones Móviles",
+    title: "Aplicaciones móviles",
     description:
       "Apps nativas y híbridas para iOS y Android. Experiencias de usuario excepcionales con tecnología moderna.",
     features: [
@@ -48,13 +48,13 @@ export const SERVICES_DATA = [
   {
     id: "systems",
     icon: "Database",
-    title: "Sistemas Empresariales",
+    title: "Sistemas empresariales",
     description:
       "Software de gestión a medida para optimizar procesos empresariales. CRM, ERP y sistemas integrados.",
     features: [
       "Gestión de usuarios",
       "Reportes avanzados",
-      "Integración APIs",
+      "Integración de APIs",
       "Base de datos segura",
     ],
     price: "Desde 2.500€",
@@ -78,7 +78,7 @@ export const SERVICES_DATA = [
   {
     id: "custom",
     icon: "Settings",
-    title: "Soluciones a Medida",
+    title: "Soluciones a medida",
     description:
       "¿No encuentras lo que buscas? Desarrollamos soluciones tecnológicas personalizadas para cualquier necesidad específica de tu negocio.",
     features: [

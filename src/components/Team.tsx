@@ -25,9 +25,7 @@ const Team = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-hispaltech-blue/10 text-hispaltech-blue rounded-full px-4 py-2 mb-6">
             <Users className="h-4 w-4" />
-            <span className="text-sm font-semibold">
-              {t("nav.team").toUpperCase()}
-            </span>
+            <span className="text-sm font-semibold">{t("nav.team")}</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">

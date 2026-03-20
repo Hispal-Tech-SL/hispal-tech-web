@@ -7,37 +7,37 @@
     "team": "Team",
     "prices": "Prices",
     "contact": "Contact",
-    "requestQuote": "Request Quote"
+    "requestQuote": "Request quote"
   },
   "hero": {
-    "badge": "Best Price Guaranteed",
+    "badge": "Best price guaranteed",
     "title": "Software that drives",
     "subtitle": "real businesses",
     "description": "🚀 We transform your idea into software that delivers results: websites that sell, apps that engage, systems that automate your business. We build robust and scalable solutions with cutting-edge technology. We guarantee the best price!",
     "benefits": {
       "custom": "100% Custom",
-      "fast": "Fast Delivery",
-      "support": "24/7 Support"
+      "fast": "Fast delivery",
+      "support": "24/7 support"
     },
     "cta": {
-      "primary": "I Want My Software NOW!",
+      "primary": "I want my software NOW!",
       "secondary": "Direct WhatsApp"
     },
     "stats": {
-      "projects": "Successful Projects",
-      "clients": "Satisfied Clients",
-      "response": "Response Time"
+      "projects": "Successful projects",
+      "clients": "Satisfied clients",
+      "response": "Response time"
     }
   },
   "services": {
-    "title": "Our Services",
-    "subtitle": "Complete Technology Solutions",
+    "title": "Our services",
+    "subtitle": "Complete technology solutions",
     "description": "We offer custom web development and application services with the best guaranteed price in the market.",
     "cta": {
       "title": "Can't find what you're looking for?",
       "description": "We have custom solutions for any technological need. Tell us about your project and we'll give you the best proposal.",
-      "primary": "Personalized Consultation",
-      "secondary": "View Completed Projects"
+      "primary": "Personalized consultation",
+      "secondary": "View completed projects"
     },
     "items": {
       "static-web": {
@@ -45,7 +45,7 @@
         "description": "Professional static websites: landing pages, responsive corporate sites and SEO-optimized. Perfect for showcasing your business online.",
         "features": [
           "Responsive design",
-          "SEO Optimization",
+          "SEO optimization",
           "Landing pages",
           "Hosting included"
         ],
@@ -53,11 +53,11 @@
         "originalPrice": "€500"
       },
       "web": {
-        "title": "Web Application",
+        "title": "Web application",
         "description": "Complete development of dynamic web applications with advanced functionalities. From dashboards to complex database systems.",
         "features": [
           "Responsive design",
-          "SEO Optimization",
+          "SEO optimization",
           "Admin panel",
           "Database included"
         ],
@@ -77,7 +77,7 @@
         "originalPrice": "€1,200"
       },
       "mobile": {
-        "title": "Mobile Apps",
+        "title": "Mobile apps",
         "description": "Native and hybrid apps for iOS and Android. Exceptional user experiences with modern technology.",
         "features": [
           "iOS & Android",
@@ -89,12 +89,12 @@
         "originalPrice": "€2,000"
       },
       "systems": {
-        "title": "Enterprise Systems",
+        "title": "Enterprise systems",
         "description": "Custom management software to optimize business processes. CRM, ERP and integrated systems.",
         "features": [
           "User management",
           "Advanced reporting",
-          "API Integration",
+          "API integration",
           "Secure database"
         ],
         "price": "€2,500",
@@ -113,7 +113,7 @@
         "originalPrice": "€800"
       },
       "custom": {
-        "title": "Custom Solutions",
+        "title": "Custom solutions",
         "description": "Can't find what you're looking for? We develop custom technological solutions for any specific business need.",
         "features": [
           "Tech consulting",
@@ -127,77 +127,77 @@
     }
   },
   "portfolio": {
-    "title": "Our Portfolio",
-    "subtitle": "Projects That Speak for Themselves",
+    "title": "Our portfolio",
+    "subtitle": "Projects that speak for themselves",
     "description": "Discover some of our most outstanding work and the quality we offer.",
     "cta": {
       "title": "Ready for your next project?",
       "description": "Let's work together to create something amazing. Every project is unique and deserves the best attention.",
-      "primary": "Start Project",
-      "secondary": "View More Services"
+      "primary": "Start project",
+      "secondary": "View more services"
     },
     "projects": {
       "dashboard": {
-        "title": "Business Dashboard",
+        "title": "Business dashboard",
         "description": "Complete control panel with real-time metrics and advanced analytics."
       },
       "ecommerce": {
-        "title": "Online Store",
+        "title": "Online store",
         "description": "Complete e-commerce with inventory management and multiple payment gateways."
       },
       "mobile": {
-        "title": "Mobile App",
+        "title": "Mobile app",
         "description": "Native mobile application with advanced features and intuitive design."
       }
     }
   },
   "team": {
-    "title": "Our Team",
-    "subtitle": "Technology Experts",
+    "title": "Our team",
+    "subtitle": "Technology experts",
     "description": "Meet the professionals who make our successful projects possible.",
     "cta": {
       "title": "Want to join our team?",
       "description": "We're always looking for exceptional talent. If you have a passion for technology, contact us.",
-      "primary": "View Openings",
-      "secondary": "View Projects"
+      "primary": "View openings",
+      "secondary": "View projects"
     },
     "members": {
       "maria": {
         "name": "María García",
-        "role": "CEO & Full-Stack Developer",
+        "role": "CEO & full-stack developer",
         "description": "Specialist in React, Node.js and scalable architectures with more than 8 years of experience."
       },
       "carlos": {
         "name": "Carlos Rodríguez",
-        "role": "CTO & Backend Developer",
+        "role": "CTO & backend developer",
         "description": "Expert in Python, Django and microservices. Passionate about optimization and performance."
       },
       "juan": {
         "name": "Juan Martínez",
-        "role": "UX/UI Designer & Frontend",
+        "role": "UX/UI designer & frontend",
         "description": "Specialist in user-centered design and frontend development with React and Vue.js."
       }
     }
   },
   "prices": {
-    "title": "Price Comparison",
-    "subtitle": "Best Price Guaranteed",
+    "title": "Price comparison",
+    "subtitle": "Best price guaranteed",
     "description": "Compare our prices with the competition. We guarantee to be more economical or match the price.",
-    "guarantee": "Best Price Guarantee",
+    "guarantee": "Best price guarantee",
     "guaranteeDescription": "If you find a lower price, we match it and give you an additional 10% discount.",
     "cta": {
       "title": "Need a custom quote?",
       "description": "Every project is unique. Contact us for a quote tailored to your specific needs.",
-      "primary": "Request Quote",
-      "secondary": "View Services"
+      "primary": "Request quote",
+      "secondary": "View services"
     },
     "comparison": {
-      "title": "Better Price,",
-      "subtitle": "Superior Quality",
+      "title": "Better price,",
+      "subtitle": "Superior quality",
       "description": "We compare our prices and quality with any competitor. The result is always the same: Hispal Tech wins.",
       "competitor": {
-        "badge": "The Competition",
-        "title": "Freelance & Agency",
+        "badge": "The competition",
+        "title": "Freelance & agency",
         "subtitle": "What usually happens with other providers",
         "startingAt": "From €2,500+",
         "priceSubtext": "typical starting price",
@@ -211,7 +211,7 @@
       },
       "hispaltech": {
         "badge": "Hispal Tech",
-        "title": "Expert Tech Team",
+        "title": "Expert tech team",
         "subtitle": "What you get working with us",
         "startingAt": "From €50",
         "priceSubtext": "lowest price guaranteed",
@@ -229,16 +229,16 @@
     }
   },
   "testimonials": {
-    "title": "What Our Clients Say",
-    "subtitle": "Real Testimonials",
+    "title": "What our clients say",
+    "subtitle": "Real testimonials",
     "description": "Our clients' satisfaction is our best business card."
   },
   "contact": {
-    "title": "Let's Start Your Project",
+    "title": "Let's start your project",
     "subtitle": "Today",
     "description": "Tell us your idea and we'll send you a personalized proposal with the best guaranteed price in less than 2 hours.",
     "form": {
-      "title": "Request Free Quote",
+      "title": "Request free quote",
       "description": "Complete the form and receive a personalized quote in less than 2 hours",
       "fields": {
         "name": "Full name",
@@ -252,16 +252,16 @@
       },
       "projectTypes": {
         "static-web": "Website",
-        "web": "Web Application",
+        "web": "Web application",
         "ecommerce": "E-commerce",
-        "app": "Mobile App",
-        "system": "Enterprise System",
-        "integration": "API Integration",
+        "app": "Mobile app",
+        "system": "Enterprise system",
+        "integration": "API integration",
         "other": "Other"
       },
       "budgetRanges": {
         "50-500": "€50 - €500",
-        "500-1000": "€500 - €1,000",
+        "legal": "Legal & social",
         "1000-2500": "€1,000 - €2,500",
         "2500-5000": "€2,500 - €5,000",
         "5000+": "More than €5,000",
@@ -274,12 +274,12 @@
         "flexible": "No rush"
       },
       "newsletter": "I want to receive tips and special offers by email",
-      "submit": "Request Free Quote",
+      "submit": "Request free quote",
       "submitting": "Sending...",
       "guarantee": "Guaranteed response in less than 2 hours"
     },
     "directContact": {
-      "title": "Direct Contact",
+      "title": "Direct contact",
       "description": "Do you prefer to talk directly? Choose the option that suits you best.",
       "whatsapp": {
         "title": "WhatsApp",
@@ -297,7 +297,7 @@
         "action": "Call now"
       },
       "hours": {
-        "title": "Business Hours",
+        "title": "Business hours",
         "weekdays": "Mon - Fri: 9:00 - 18:00",
         "saturday": "Saturdays: 10:00 - 14:00",
         "sunday": "Sundays: Closed",
@@ -312,31 +312,31 @@
   },
   "footer": {
     "newsletter": {
-      "title": "Stay Up to Date with the Latest Tech Trends",
+      "title": "Stay up to date with the latest tech trends",
       "description": "Receive tips, special offers and news about web development and technology. No spam, just valuable content.",
       "placeholder": "your@email.com",
       "subscribe": "Subscribe",
       "subscribers": "More than 500 professionals already receive our newsletter"
     },
     "links": {
-      "quick": "Quick Links",
+      "quick": "Quick links",
       "services": "Services",
-      "legal": "Legal & Social",
-      "follow": "Follow Us"
+      "legal": "Legal & social",
+      "follow": "Follow us"
     },
     "services": {
       "static-web": "Website",
-      "web": "Web Application",
-      "mobile": "Mobile Applications",
-      "systems": "Enterprise Systems",
-      "integrations": "API Integrations",
-      "consulting": "Tech Consulting",
-      "support": "24/7 Support"
+      "web": "Web application",
+      "mobile": "Mobile applications",
+      "systems": "Enterprise systems",
+      "integrations": "API integrations",
+      "consulting": "Tech consulting",
+      "support": "24/7 support"
     },
     "legal": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms and Conditions",
-      "cookies": "Cookie Policy",
+      "privacy": "Privacy policy",
+      "terms": "Terms and conditions",
+      "cookies": "Cookie policy",
       "gdpr": "GDPR"
     },
     "company": {

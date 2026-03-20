@@ -3,7 +3,7 @@ export const TEAM_DATA = [
   {
     id: "maria",
     name: "María García",
-    role: "CEO & Desarrolladora Full-Stack",
+    role: "CEO & desarrolladora full-stack",
     description:
       "Especialista en React, Node.js y arquitecturas escalables con más de 8 años de experiencia.",
     image: "/team-maria.jpg",
@@ -14,7 +14,7 @@ export const TEAM_DATA = [
   {
     id: "carlos",
     name: "Carlos Rodríguez",
-    role: "CTO & Desarrollador Backend",
+    role: "CTO & desarrollador backend",
     description:
       "Experto en Python, Django y microservicios. Apasionado por la optimización y rendimiento.",
     image: "/team-carlos.jpg",
@@ -25,7 +25,7 @@ export const TEAM_DATA = [
   {
     id: "juan",
     name: "Juan Martínez",
-    role: "Diseñador UX/UI & Frontend",
+    role: "Diseñador UX/UI & frontend",
     description:
       "Especialista en diseño centrado en el usuario y desarrollo frontend con React y Vue.js.",
     image: "/team-juan.jpg",
