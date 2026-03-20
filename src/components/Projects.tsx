@@ -34,14 +34,12 @@ const Projects = () => {
   };
 
   return (
-    <section id="proyectos" className="py-20 bg-background pt-10">
+    <section id="proyectos" className="pt-32 pb-20 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-
-
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
-            {language === "en" ? "Projects" : "Proyectos Realizados"}
+            {language === "en" ? "Projects" : "Proyectos realizados"}
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -164,8 +162,8 @@ const Projects = () => {
         <div className="bg-gradient-to-r from-hispaltech-blue/10 to-hispaltech-blue/5 border border-hispaltech-blue/20 rounded-lg p-8 md:p-12 text-center -mb-10">
           <h3 className="text-2xl md:text-3xl font-bold mb-4 text-primary">
             {language === "en"
-              ? "Want a Project Like These?"
-              : "¿Quieres un Proyecto Como Estos?"}
+              ? "Want a project like these?"
+              : "¿Quieres un proyecto como estos?"}
           </h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             {language === "en"
