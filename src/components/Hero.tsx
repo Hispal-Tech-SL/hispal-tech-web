@@ -1,10 +1,60 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect } from "react";
 // Hero background image is now in public folder
 
 const Hero = () => {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    let rafId = 0;
+
+    const updateViewportHeight = () => {
+      if (rafId) {
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(() => {
+        const visualViewportHeight = window.visualViewport?.height;
+        const viewportHeight = visualViewportHeight ?? window.innerHeight;
+        document.documentElement.style.setProperty(
+          "--hero-vh",
+          `${viewportHeight * 0.01}px`,
+        );
+        rafId = 0;
+      });
+    };
+
+    updateViewportHeight();
+
+    window.addEventListener("resize", updateViewportHeight);
+    window.addEventListener("orientationchange", updateViewportHeight);
+    window.addEventListener("scroll", updateViewportHeight, { passive: true });
+    window.visualViewport?.addEventListener("resize", updateViewportHeight);
+    window.visualViewport?.addEventListener("scroll", updateViewportHeight);
+
+    return () => {
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
+      window.removeEventListener("resize", updateViewportHeight);
+      window.removeEventListener("orientationchange", updateViewportHeight);
+      window.removeEventListener("scroll", updateViewportHeight);
+      window.visualViewport?.removeEventListener(
+        "resize",
+        updateViewportHeight,
+      );
+      window.visualViewport?.removeEventListener(
+        "scroll",
+        updateViewportHeight,
+      );
+    };
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -14,7 +64,7 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-12"
+      className="relative min-h-screen min-h-[100svh] min-h-[calc(var(--hero-vh,1vh)*100)] min-h-[100dvh] flex items-center overflow-hidden pt-[calc(8rem+env(safe-area-inset-top))] pb-12"
     >
       {/* Background Image with Overlay */}
       <div
@@ -27,7 +77,6 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center text-white">
         <div className="max-w-4xl lg:max-w-5xl mx-auto flex flex-col justify-center items-center gap-8 sm:gap-12">
-
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight flex flex-col gap-2">
             <span>{t("hero.title")}</span>
