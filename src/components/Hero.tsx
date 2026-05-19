@@ -105,15 +105,15 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="w-full flex justify-center mt-1 sm:mt-4">
+          <div className="w-full flex justify-center mt-8 sm:mt-12">
             <Button
-              variant="hero"
-              size="xl"
               onClick={() => scrollToSection("contacto")}
-              className="group w-full max-w-sm sm:max-w-md sm:w-auto text-base sm:text-xl px-6 sm:px-8 py-4 sm:py-8 h-auto font-bold rounded-2xl shadow-xl shadow-hispaltech-blue/20"
+              className="group bg-white/5 backdrop-blur-md border border-white/20 hover:border-white/50 text-white hover:bg-white/10 transition-all duration-300 font-semibold text-base sm:text-lg px-8 py-4 sm:px-12 sm:py-5 rounded-full h-auto shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
             >
-              {t("hero.cta.primary")}
-              <ArrowRight className="h-6 w-6 ml-2 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+              <span className="flex items-center">
+                {t("hero.cta.primary")}
+                <ArrowRight className="h-5 w-5 ml-3 flex-shrink-0 opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+              </span>
             </Button>
           </div>
         </div>
