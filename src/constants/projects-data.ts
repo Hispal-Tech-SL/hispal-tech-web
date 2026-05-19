@@ -76,4 +76,15 @@ export const PROJECTS_DATA: Project[] = [
     image: "/projects/Carátula Web - Proyecto Neonkyo.png",
     url: "https://neonkyo.netlify.app/",
   },
+  {
+    id: "oscar-hellboy",
+    titleEn: "Oscar Hellboy Professional Boxer",
+    titleEs: "Oscar Hellboy Boxeador Profesional",
+    descriptionEn:
+      "Website for Oscar Hellboy, professional boxer in Dos Hermanas (Seville). Features a modern web design focused on his personal brand. It includes sections about his career, image gallery of his matches, and links to his social networks. A project designed to highlight his athletic career and connect with his followers.",
+    descriptionEs:
+      "Página web para Oscar Hellboy, boxeador profesional en Dos Hermanas (Sevilla). Cuenta con un diseño moderno y enfocado en su marca personal. Incluye secciones sobre su trayectoria deportiva, galería de imágenes de sus combates, y enlaces a sus redes sociales. Un proyecto diseñado a medida para destacar su carrera como atleta y conectar con sus seguidores y patrocinadores.",
+    image: "/projects/Carátula Web - Proyecto Oscar Hellboy.png",
+    url: "https://oscar-hellboy.netlify.app/",
+  },
 ];

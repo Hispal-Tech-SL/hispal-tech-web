@@ -48,6 +48,7 @@ const Contact = () => {
     description: "",
     timeline: "",
     newsletter: false,
+    privacyPolicy: false,
   });
 
   useEffect(() => {
@@ -80,6 +81,7 @@ const Contact = () => {
           description: "",
           timeline: "",
           newsletter: false,
+          privacyPolicy: false,
         });
       } else {
         toast({
@@ -364,6 +366,21 @@ const Contact = () => {
                       {t("contact.form.newsletter")}
                     </Label>
                   </div> */}
+
+                  <div className="flex items-start space-x-2">
+                    <Checkbox
+                      id="privacyPolicy"
+                      checked={formData.privacyPolicy}
+                      onCheckedChange={(checked) =>
+                        handleInputChange("privacyPolicy", checked as boolean)
+                      }
+                      required
+                      className="mt-1"
+                    />
+                    <Label htmlFor="privacyPolicy" className="text-sm font-normal leading-relaxed text-muted-foreground">
+                      {t("contact.form.privacyPolicy")} *
+                    </Label>
+                  </div>
 
                   <Button
                     type="submit"
