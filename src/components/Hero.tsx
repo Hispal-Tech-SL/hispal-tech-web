@@ -90,15 +90,15 @@ const Hero = () => {
 
           {/* Benefits */}
           <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-8 text-sm md:text-base lg:text-lg">
-            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/10">
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-hispaltech-blue/50">
               <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.custom")}</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/10">
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-hispaltech-blue/50">
               <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.fast")}</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/10">
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-hispaltech-blue/50">
               <CheckCircle className="h-5 w-5 flex-shrink-0 text-hispaltech-blue" />
               <span>{t("hero.benefits.support")}</span>
             </div>
