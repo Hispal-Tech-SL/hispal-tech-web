@@ -10,6 +10,17 @@ export interface Project {
 
 export const PROJECTS_DATA: Project[] = [
   {
+    id: "premium-gym",
+    titleEn: "Premium Gym Health & Beauty",
+    titleEs: "Premium Gym Health & Beauty",
+    descriptionEn:
+      "Website for a premium gym with a modern and high-impact visual UI/UX design. It includes a showcase of facilities, equipment catalog, and trainer profiles. It features a dynamic contact form with email integration to facilitate direct communication with clients, as well as social media integration and an interactive map to easily locate the center. The entire flow is optimized to offer an immersive, top-tier user experience.",
+    descriptionEs:
+      "Página web para gimnasio premium con diseño UI/UX moderno y de alto impacto visual. Incluye presentación de instalaciones, catálogo de equipamiento y perfiles de entrenadores. Dispone de un formulario de contacto dinámico con integración de email para facilitar la comunicación directa con los clientes, además de integración con redes sociales y un mapa interactivo para localizar fácilmente el centro. Todo el flujo está optimizado para ofrecer una experiencia de usuario inmersiva y de primer nivel.",
+    image: "/projects/Carátula Web - Proyecto Premium Gym.png",
+    url: "https://premium-gym-health-beauty.netlify.app/",
+  },
+  {
     id: "alquiler-casa-islantilla",
     titleEn: "Islantilla Real - Vacation Rental",
     titleEs: "Alquiler vacacional Islantilla Real",
