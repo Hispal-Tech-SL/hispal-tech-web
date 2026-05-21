@@ -88,7 +88,7 @@ export const sendEmailAlternative = async (
       timeline: data.timeline || "",
       message: data.description,
       newsletter: data.newsletter ? "Yes" : "No",
-      subject: `Nueva solicitud de presupuesto de ${data.name}`,
+      subject: `Nuevo contacto de ${data.name}`,
       to: EMAIL_CONFIG.to,
       from_name: data.name,
       reply_to: data.email,
