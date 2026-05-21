@@ -2,7 +2,7 @@
 
 ## ✅ Estado Actual
 
-El formulario de contacto está configurado para usar **Web3Forms** (API real). Los emails se envían directamente a `hola@hispaltech.dev`.
+El formulario de contacto está configurado para usar **Web3Forms** (API real). Los emails se envían directamente a `contacthispaltech@gmail.com`.
 
 ## 🚀 Configuración para Desarrolladores
 
@@ -31,7 +31,7 @@ npm run dev
 ## 📧 Cómo Funciona
 
 - **API Real**: Usa Web3Forms para envío real de emails
-- **Destino**: Todos los emails van a `hola@hispaltech.dev`
+- **Destino**: Todos los emails van a `contacthispaltech@gmail.com`
 - **Datos**: Incluye nombre, email, teléfono, empresa, proyecto, presupuesto, timeline y descripción
 - **Notificaciones**: El usuario recibe confirmación de envío exitoso
 
@@ -68,7 +68,7 @@ const response = await fetch("https://formspree.io/f/TU_ENDPOINT", {
 
 1. Completa el formulario de contacto
 2. Haz clic en "Solicitar Presupuesto Gratuito"
-3. Verifica que recibes el email en `hola@hispaltech.dev`
+3. Verifica que recibes el email en `contacthispaltech@gmail.com`
 4. Revisa la consola del navegador (F12) para logs de depuración
 
 ## 🔒 Seguridad

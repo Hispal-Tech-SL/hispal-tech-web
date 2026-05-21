@@ -7,9 +7,9 @@ export const API_CONFIG = {
 
 // Email Configuration
 export const EMAIL_CONFIG = {
-  to: "hola@hispaltech.dev",
+  to: "contacthispaltech@gmail.com",
   from: "noreply@hispaltech.dev",
-  replyTo: "hola@hispaltech.dev",
+  replyTo: "contacthispaltech@gmail.com",
 };
 
 // Re-export all constants for backward compatibility
