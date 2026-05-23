@@ -1,30 +1,30 @@
 import { TrendingDown, Shield, Award } from "lucide-react";
-
-const features = [
-  {
-    id: "best-price",
-    icon: TrendingDown,
-    title: "Mejor precio garantizado",
-    description:
-      "Si encuentras una propuesta similar más barata, igualamos el precio + 10% de descuento adicional.",
-  },
-  {
-    id: "support",
-    icon: Shield,
-    title: "Soporte dedicado 24/7",
-    description:
-      "Comunicación constante y soporte técnico para resolver cualquier duda o incidencia al instante.",
-  },
-  {
-    id: "premium-quality",
-    icon: Award,
-    title: "Calidad premium",
-    description:
-      "Código limpio, documentado y escalable. Cumplimos estándares de calidad enterprise.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ValueProps = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      id: "best-price",
+      icon: TrendingDown,
+      title: t("valueProps.bestPrice.title"),
+      description: t("valueProps.bestPrice.description"),
+    },
+    {
+      id: "support",
+      icon: Shield,
+      title: t("valueProps.support.title"),
+      description: t("valueProps.support.description"),
+    },
+    {
+      id: "premium-quality",
+      icon: Award,
+      title: t("valueProps.premiumQuality.title"),
+      description: t("valueProps.premiumQuality.description"),
+    },
+  ];
+
   return (
     <section className="py-12 bg-muted/50">
       <div className="container mx-auto px-4 lg:px-8">

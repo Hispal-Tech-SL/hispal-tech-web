@@ -29,6 +29,20 @@
       "response": "Response time"
     }
   },
+  "valueProps": {
+    "bestPrice": {
+      "title": "Best price guaranteed",
+      "description": "If you find a similar cheaper proposal, we match the price + 10% additional discount."
+    },
+    "support": {
+      "title": "24/7 dedicated support",
+      "description": "Constant communication and technical support to resolve any doubt or incident instantly."
+    },
+    "premiumQuality": {
+      "title": "Premium quality",
+      "description": "Clean, documented, and scalable code. We meet enterprise quality standards."
+    }
+  },
   "services": {
     "title": "Our services",
     "subtitle": "Complete technology solutions",
