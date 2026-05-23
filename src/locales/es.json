@@ -29,6 +29,20 @@
       "response": "Tiempo de respuesta"
     }
   },
+  "valueProps": {
+    "bestPrice": {
+      "title": "Mejor precio garantizado",
+      "description": "Si encuentras una propuesta similar más barata, igualamos el precio + 10% de descuento adicional."
+    },
+    "support": {
+      "title": "Soporte dedicado 24/7",
+      "description": "Comunicación constante y soporte técnico para resolver cualquier duda o incidencia al instante."
+    },
+    "premiumQuality": {
+      "title": "Calidad premium",
+      "description": "Código limpio, documentado y escalable. Cumplimos estándares de calidad enterprise."
+    }
+  },
   "services": {
     "title": "Nuestros servicios",
     "subtitle": "Soluciones tecnológicas completas",
