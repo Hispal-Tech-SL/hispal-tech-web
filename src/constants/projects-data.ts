@@ -11,14 +11,14 @@ export interface Project {
 export const PROJECTS_DATA: Project[] = [
   {
     id: "premium-gym",
-    titleEn: "Premium Gym Health & Beauty",
-    titleEs: "Premium Gym Health & Beauty",
+    titleEn: "Premium GYM Health & Beauty",
+    titleEs: "Premium GYM Health & Beauty",
     descriptionEn:
-      "Website for a premium gym with a modern and high-impact visual UI/UX design. It includes a showcase of facilities, equipment catalog, and trainer profiles. It features a dynamic contact form with email integration to facilitate direct communication with clients, as well as social media integration and an interactive map to easily locate the center. The entire flow is optimized to offer an immersive, top-tier user experience.",
+      "Comprehensive management platform for a premium gym, combining a high-impact visual website with a fully functional application for clients and staff. The website showcases facilities, equipment and trainers with a modern UI/UX design, a contact form with email integration, social media and an interactive map. On top of it, each member has a private area where they can securely pay their fees online through a payment gateway, check their status and history, and access their training routines. Access to the center is automated through integration with the Kimaldi access control system: members enter and exit with a personal QR code, without relying on reception staff, and with permissions that are enabled or disabled according to the status of their fee. The gym team has an administration panel to manage clients, payments, promotions, activities and spaces, with full traceability of every payment. The entire flow is designed to deliver a smooth, top-tier experience for both the client and the gym manager.",
     descriptionEs:
-      "Página web para gimnasio premium con diseño UI/UX moderno y de alto impacto visual. Incluye presentación de instalaciones, catálogo de equipamiento y perfiles de entrenadores. Dispone de un formulario de contacto dinámico con integración de email para facilitar la comunicación directa con los clientes, además de integración con redes sociales y un mapa interactivo para localizar fácilmente el centro. Todo el flujo está optimizado para ofrecer una experiencia de usuario inmersiva y de primer nivel.",
+      "Plataforma integral de gestión para gimnasio premium, que combina una web de alto impacto visual con una aplicación totalmente funcional para clientes y personal. La web presenta instalaciones, equipamiento y entrenadores con un diseño UI/UX moderno, formulario de contacto con integración de email, redes sociales y mapa interactivo. Sobre ella, cada socio dispone de un área privada donde puede pagar sus cuotas online de forma segura mediante pasarela de pago, consultar su estado y su historial, y acceder a sus rutinas de entrenamiento. El acceso al centro se automatiza gracias a la integración con el sistema de control de accesos Kimaldi: el socio entra y sale mediante un código QR personal, sin depender de personal en recepción y con permisos que se activan o desactivan según el estado de su cuota. El equipo del gimnasio cuenta con un panel de administración desde el que gestiona clientes, cobros, promociones, actividades y espacios, con trazabilidad completa de cada pago. Todo el flujo está pensado para ofrecer una experiencia fluida y de primer nivel, tanto al cliente como a quien dirige el gimnasio.",
     image: "/projects/Carátula Web - Proyecto Premium Gym.png",
-    url: "https://premium-gym-health-beauty.netlify.app/",
+    url: "https://www.premiumgymgranada.com",
   },
   {
     id: "alquiler-casa-islantilla",
