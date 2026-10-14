@@ -7,7 +7,8 @@
     "team": "Equipo",
     "prices": "Precios",
     "contact": "Contacto",
-    "requestQuote": "Solicitar presupuesto"
+    "requestQuote": "Solicitar presupuesto",
+    "products": "Productos"
   },
   "hero": {
     "badge": "Mejor precio garantizado",
@@ -27,6 +28,12 @@
       "projects": "Proyectos exitosos",
       "clients": "Clientes satisfechos",
       "response": "Tiempo de respuesta"
+    },
+    "teaser": {
+      "badge": "Nuevo",
+      "title": "Conoce Hispal GYM",
+      "subtitle": "nuestro producto estrella",
+      "cta": "Descubrir"
     }
   },
   "valueProps": {
@@ -139,6 +146,38 @@
         "originalPrice": ""
       }
     }
+  },
+  "products": {
+    "eyebrow": "Productos",
+    "title": "Software propio, listo para usar",
+    "subtitle": "Además de proyectos a medida, desarrollamos productos que ya funcionan en negocios reales.",
+    "badge": "Nuevo producto",
+    "viewProduct": "Conocer Hispal GYM",
+    "requestDemo": "Solicitar demo",
+    "items": {
+      "hispalGym": {
+        "title": "Software de gestión para gimnasios y centros deportivos",
+        "description": "Cobros, accesos con QR, rutinas y actividades en un solo sistema. Funciona con recepción o sin ella: tú decides si abres 24 horas.",
+        "chip": "Acceso permitido",
+        "points": [
+          "Alta y pago online desde el móvil, a cualquier hora",
+          "Carnet QR para entrar, con o sin personal en recepción",
+          "Rutinas, clases y reservas con control de aforo",
+          "Panel de gestión con roles y auditoría completa"
+        ],
+        "tags": {
+          "open": "24/7 opcional",
+          "payments": "Cobros online",
+          "access": "Acceso con QR"
+        },
+        "screens": {
+          "qr": "Carnet QR",
+          "routine": "Rutinas",
+          "activities": "Clases"
+        }
+      }
+    },
+    "swipe": "Desliza para ver la app"
   },
   "portfolio": {
     "title": "Nuestro portafolio",

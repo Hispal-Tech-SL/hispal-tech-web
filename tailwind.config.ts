@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],
+        'display': ['Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         /* Hispal Tech Brand Colors */
@@ -24,6 +25,13 @@ export default {
         'hispaltech-light-blue': "hsl(var(--hispaltech-light-blue))",
         'hispaltech-dark-navy': "hsl(var(--hispaltech-dark-navy))",
         
+        /* Hispal GYM landing (values only defined inside .hispalgym) */
+        ink: { DEFAULT: "hsl(var(--gym-ink))", foreground: "hsl(var(--gym-ink-foreground))" },
+        device: "hsl(var(--gym-device))",
+        screen: { DEFAULT: "hsl(var(--gym-screen))", foreground: "hsl(var(--gym-screen-foreground))" },
+        'theme-lime': "hsl(var(--gym-theme-lime))",
+        'theme-sky': "hsl(var(--gym-theme-sky))",
+
         /* Core Design System */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -71,6 +79,13 @@ export default {
       boxShadow: {
         'hispaltech': 'var(--shadow-hispaltech)',
         'blue': 'var(--shadow-blue)',
+        'soft': '0 1px 2px hsl(26 20% 8% / 0.06), 0 12px 32px -12px hsl(26 20% 8% / 0.18)',
+        'device': '0 40px 80px -30px hsl(26 20% 6% / 0.55), 0 0 0 1px hsl(26 10% 20% / 0.3)',
+        'glow': '0 10px 40px -10px hsl(26 100% 50% / 0.55)',
+      },
+      backgroundImage: {
+        'brand-glow': 'radial-gradient(60% 50% at 80% 20%, hsl(210 100% 45% / 0.14), transparent 70%), radial-gradient(40% 40% at 10% 90%, hsl(210 100% 45% / 0.08), transparent 70%)',
+        'hero-glow': 'radial-gradient(60% 50% at 80% 20%, hsl(26 100% 50% / 0.22), transparent 70%), radial-gradient(40% 40% at 10% 90%, hsl(26 100% 50% / 0.10), transparent 70%)',
       },
       keyframes: {
         "accordion-down": {
