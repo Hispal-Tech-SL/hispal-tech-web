@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const navLinks = [
   { id: "inicio", label: "nav.home" },
   { id: "servicios", label: "nav.services" },
+  { id: "productos", label: "nav.products" },
   { id: "precios", label: "nav.prices" },
   { id: "proyectos", label: "nav.projects" },
   { id: "contacto", label: "nav.contact" },

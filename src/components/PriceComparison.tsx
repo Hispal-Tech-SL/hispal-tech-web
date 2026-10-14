@@ -1,8 +1,11 @@
+import { useReveal } from "@/hooks/use-reveal";
+import SectionHeader from "@/components/SectionHeader";
 import { X, Check, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PriceComparison = () => {
   const { t } = useLanguage();
+  const sectionRef = useReveal<HTMLElement>();
 
   const competitorFeatures = (
     t("prices.comparison.competitor.items") as unknown as string[]
@@ -19,23 +22,19 @@ const PriceComparison = () => {
   }));
 
   return (
-    <section id="precios" className="pt-8 pb-0 bg-white relative">
+    <section
+      id="precios"
+      ref={sectionRef}
+      className="relative bg-muted/50 py-16 md:py-24"
+    >
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-hispaltech-navy mb-6 tracking-tight">
-            {t("prices.comparison.title")}{" "}
-            <span className="text-hispaltech-blue">
-              {t("prices.comparison.subtitle")}
-            </span>
-          </h2>
-          <p className="text-base md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">
-            {t("prices.comparison.description")}
-          </p>
-        </div>
+        <SectionHeader
+          title={t("sections.prices")}
+          description={t("prices.comparison.description")}
+        />
 
         {/* Comparison Plates Container */}
-        <div className="relative flex flex-col lg:flex-row items-stretch justify-center gap-6 lg:gap-0 max-w-6xl mx-auto">
+        <div className="reveal relative mx-auto flex max-w-6xl flex-col items-stretch justify-center gap-6 lg:flex-row lg:gap-0">
           {/* Floating VS Badge in a Circle */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-40 hidden lg:flex items-center justify-center">
             <div className="w-16 h-16 xl:w-20 xl:h-20 rounded-full bg-hispaltech-navy border-4 border-white flex items-center justify-center shadow-2xl relative overflow-hidden">

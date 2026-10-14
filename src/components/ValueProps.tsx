@@ -1,44 +1,48 @@
 import { TrendingDown, Shield, Award } from "lucide-react";
-
-const features = [
-  {
-    id: "best-price",
-    icon: TrendingDown,
-    title: "Mejor precio garantizado",
-    description:
-      "Si encuentras una propuesta similar más barata, igualamos el precio + 10% de descuento adicional.",
-  },
-  {
-    id: "support",
-    icon: Shield,
-    title: "Soporte dedicado 24/7",
-    description:
-      "Comunicación constante y soporte técnico para resolver cualquier duda o incidencia al instante.",
-  },
-  {
-    id: "premium-quality",
-    icon: Award,
-    title: "Calidad premium",
-    description:
-      "Código limpio, documentado y escalable. Cumplimos estándares de calidad enterprise.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useReveal } from "@/hooks/use-reveal";
 
 const ValueProps = () => {
+  const { t } = useLanguage();
+  const sectionRef = useReveal<HTMLElement>();
+
+  const features = [
+    {
+      id: "best-price",
+      icon: TrendingDown,
+      title: t("valueProps.bestPrice.title"),
+      description: t("valueProps.bestPrice.description"),
+    },
+    {
+      id: "support",
+      icon: Shield,
+      title: t("valueProps.support.title"),
+      description: t("valueProps.support.description"),
+    },
+    {
+      id: "premium-quality",
+      icon: Award,
+      title: t("valueProps.premiumQuality.title"),
+      description: t("valueProps.premiumQuality.description"),
+    },
+  ];
+
   return (
-    <section className="py-12 bg-muted/50">
+    <section ref={sectionRef} className="bg-background py-10 md:py-16">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
           {features.map(({ id, icon: Icon, title, description }) => (
             <div
               key={id}
-              className="bg-white border border-hispaltech-blue/10 shadow-lg rounded-xl p-6 text-center flex flex-col items-center gap-4 hover:shadow-hispaltech hover:scale-105 transition-all duration-300"
+              className="reveal flex flex-row items-center gap-4 rounded-2xl border border-hispaltech-blue/10 bg-white p-4 text-left shadow-md transition-all duration-300 hover:shadow-hispaltech md:flex-col md:p-6 md:text-center"
             >
-              <div className="w-14 h-14 bg-hispaltech-navy rounded-xl flex items-center justify-center shadow-sm">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-hispaltech-navy shadow-sm md:h-14 md:w-14">
                 <Icon className="h-7 w-7 text-white" />
               </div>
-              <h3 className="text-lg font-bold text-hispaltech-navy">{title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+              <div>
+                <h3 className="text-base font-bold text-hispaltech-navy md:text-lg">{title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+              </div>
             </div>
           ))}
         </div>

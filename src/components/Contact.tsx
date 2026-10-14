@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useReveal } from "@/hooks/use-reveal";
+import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -36,6 +38,7 @@ import {
 const Contact = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
+  const sectionRef = useReveal<HTMLElement>();
   const { selectedProject } = useBooking();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -129,24 +132,18 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contacto" className="py-20 bg-muted/30 pt-10">
+    <section
+      id="contacto"
+      ref={sectionRef}
+      className="bg-muted/50 py-16 md:py-24"
+    >
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
+        <SectionHeader
+          title={t("sections.contact")}
+          description={t("contact.description")}
+        />
 
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
-            {t("contact.title")}
-            <br />
-            <span className="text-gradient">{t("contact.subtitle")}</span>
-          </h2>
-
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("contact.description")}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="reveal grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <Card className="border-0 shadow-hispaltech">

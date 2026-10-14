@@ -7,7 +7,8 @@
     "team": "Equipo",
     "prices": "Precios",
     "contact": "Contacto",
-    "requestQuote": "Solicitar presupuesto"
+    "requestQuote": "Solicitar presupuesto",
+    "products": "Productos"
   },
   "hero": {
     "badge": "Mejor precio garantizado",
@@ -27,11 +28,29 @@
       "projects": "Proyectos exitosos",
       "clients": "Clientes satisfechos",
       "response": "Tiempo de respuesta"
+    },
+    "teaser": {
+      "badge": "Nuevo",
+      "title": "Conoce Hispal GYM",
+      "subtitle": "nuestro producto estrella",
+      "cta": "Descubrir"
+    }
+  },
+  "valueProps": {
+    "bestPrice": {
+      "title": "Mejor precio garantizado",
+      "description": "Si encuentras una propuesta similar más barata, igualamos el precio + 10% de descuento adicional."
+    },
+    "support": {
+      "title": "Soporte dedicado 24/7",
+      "description": "Comunicación constante y soporte técnico para resolver cualquier duda o incidencia al instante."
+    },
+    "premiumQuality": {
+      "title": "Calidad premium",
+      "description": "Código limpio, documentado y escalable. Cumplimos estándares de calidad enterprise."
     }
   },
   "services": {
-    "title": "Nuestros servicios",
-    "subtitle": "Soluciones tecnológicas completas",
     "description": "Ofrecemos servicios de desarrollo web y aplicaciones personalizadas con el mejor precio garantizado del mercado.",
     "cta": {
       "title": "¿No encuentras lo que buscas?",
@@ -126,6 +145,37 @@
       }
     }
   },
+  "products": {
+    "eyebrow": "Productos",
+    "subtitle": "Además de proyectos a medida, desarrollamos productos que ya funcionan en negocios reales.",
+    "badge": "Nuevo producto",
+    "viewProduct": "Conocer Hispal GYM",
+    "requestDemo": "Solicitar demo",
+    "items": {
+      "hispalGym": {
+        "title": "Software de gestión para gimnasios y centros deportivos",
+        "description": "Un único sistema para gestionar socios, membresías, cobros online, accesos y clases. Tus clientes se dan de alta y pagan desde el móvil, entran con su carnet QR y tú lo controlas todo desde un panel. Con control de acceso por QR, puedes abrir sin personal en recepción si lo deseas.",
+        "chip": "Acceso permitido",
+        "points": [
+          "Alta y pago online desde el móvil, a cualquier hora",
+          "Carnet QR para entrar, con o sin personal en recepción",
+          "Rutinas, clases y reservas con control de aforo",
+          "Panel de gestión con roles y auditoría completa"
+        ],
+        "tags": {
+          "open": "24/7 opcional",
+          "payments": "Cobros online",
+          "access": "Acceso con QR"
+        },
+        "screens": {
+          "qr": "Carnet QR",
+          "routine": "Rutinas",
+          "activities": "Clases"
+        }
+      }
+    },
+    "swipe": "Desliza para ver la app"
+  },
   "portfolio": {
     "title": "Nuestro portafolio",
     "subtitle": "Proyectos que hablan por sí solos",
@@ -192,8 +242,6 @@
       "secondary": "Ver servicios"
     },
     "comparison": {
-      "title": "Mejor precio,",
-      "subtitle": "calidad superior",
       "description": "Comparamos nuestros precios y calidad con cualquier competidor. El resultado siempre es el mismo: Hispal Tech gana.",
       "competitor": {
         "badge": "La competencia",
@@ -234,8 +282,6 @@
     "description": "La satisfacción de nuestros clientes es nuestra mejor carta de presentación."
   },
   "contact": {
-    "title": "Empecemos tu proyecto",
-    "subtitle": "Hoy mismo",
     "description": "Cuéntanos tu idea y te enviaremos una propuesta personalizada con el mejor precio garantizado en menos de 2 horas.",
     "form": {
       "title": "Solicitar presupuesto gratuito",
@@ -363,5 +409,11 @@
     "view": "Ver",
     "more": "Más",
     "less": "Menos"
+  },
+  "sections": {
+    "services": "Servicios",
+    "prices": "Precios",
+    "projects": "Proyectos",
+    "contact": "Contacto"
   }
 }
