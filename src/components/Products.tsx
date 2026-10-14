@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Clock, CreditCard, DoorOpen, QrCode } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PRODUCTS_DATA } from "@/constants";
@@ -41,21 +42,16 @@ const Products = () => {
     <section
       id="productos"
       ref={ref}
-      className="relative overflow-hidden bg-background py-16 scroll-mt-20 sm:py-24"
+      className="relative overflow-hidden bg-background py-16 md:py-24"
     >
       <div className="absolute inset-0 bg-brand-glow" aria-hidden />
       <div className="container relative mx-auto px-4 lg:px-8">
-        <div className="reveal mx-auto max-w-2xl text-center">
-          <p className="text-sm font-bold uppercase tracking-widest text-hispaltech-blue">
-            {t("products.eyebrow")}
-          </p>
-          <h2 className="mt-3 text-3xl font-extrabold text-primary md:text-4xl lg:text-5xl">
-            {t("products.title")}
-          </h2>
-          <p className="mt-4 text-muted-foreground">{t("products.subtitle")}</p>
-        </div>
+        <SectionHeader
+          title={t("products.eyebrow")}
+          description={t("products.subtitle")}
+        />
 
-        <div className="reveal mt-10 overflow-hidden sm:mt-14 rounded-3xl border bg-card shadow-hispaltech">
+        <div className="reveal overflow-hidden rounded-3xl border bg-card shadow-hispaltech">
           <div className="grid items-center gap-6 p-4 sm:gap-10 sm:p-6 md:p-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:p-14">
             {/* Mobile: swipeable app screens */}
             <div className="gym-orange relative -mx-4 overflow-hidden rounded-2xl bg-gradient-to-br from-hispaltech-navy to-hispaltech-dark-navy py-6 sm:hidden">
@@ -90,7 +86,7 @@ const Products = () => {
               <p className="mt-2 text-lg font-semibold">
                 {t("products.items.hispalGym.title")}
               </p>
-              <p className="mt-3 hidden text-muted-foreground sm:block">
+              <p className="mt-3 text-muted-foreground">
                 {t("products.items.hispalGym.description")}
               </p>
 

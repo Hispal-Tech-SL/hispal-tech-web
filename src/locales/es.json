@@ -51,8 +51,6 @@
     }
   },
   "services": {
-    "title": "Nuestros servicios",
-    "subtitle": "Soluciones tecnológicas completas",
     "description": "Ofrecemos servicios de desarrollo web y aplicaciones personalizadas con el mejor precio garantizado del mercado.",
     "cta": {
       "title": "¿No encuentras lo que buscas?",
@@ -149,7 +147,6 @@
   },
   "products": {
     "eyebrow": "Productos",
-    "title": "Software propio, listo para usar",
     "subtitle": "Además de proyectos a medida, desarrollamos productos que ya funcionan en negocios reales.",
     "badge": "Nuevo producto",
     "viewProduct": "Conocer Hispal GYM",
@@ -157,7 +154,7 @@
     "items": {
       "hispalGym": {
         "title": "Software de gestión para gimnasios y centros deportivos",
-        "description": "Cobros, accesos con QR, rutinas y actividades en un solo sistema. Funciona con recepción o sin ella: tú decides si abres 24 horas.",
+        "description": "Un único sistema para gestionar socios, membresías, cobros online, accesos y clases. Tus clientes se dan de alta y pagan desde el móvil, entran con su carnet QR y tú lo controlas todo desde un panel. Con control de acceso por QR, puedes abrir sin personal en recepción si lo deseas.",
         "chip": "Acceso permitido",
         "points": [
           "Alta y pago online desde el móvil, a cualquier hora",
@@ -245,8 +242,6 @@
       "secondary": "Ver servicios"
     },
     "comparison": {
-      "title": "Mejor precio,",
-      "subtitle": "calidad superior",
       "description": "Comparamos nuestros precios y calidad con cualquier competidor. El resultado siempre es el mismo: Hispal Tech gana.",
       "competitor": {
         "badge": "La competencia",
@@ -287,8 +282,6 @@
     "description": "La satisfacción de nuestros clientes es nuestra mejor carta de presentación."
   },
   "contact": {
-    "title": "Empecemos tu proyecto",
-    "subtitle": "Hoy mismo",
     "description": "Cuéntanos tu idea y te enviaremos una propuesta personalizada con el mejor precio garantizado en menos de 2 horas.",
     "form": {
       "title": "Solicitar presupuesto gratuito",
@@ -416,5 +409,11 @@
     "view": "Ver",
     "more": "Más",
     "less": "Menos"
+  },
+  "sections": {
+    "services": "Servicios",
+    "prices": "Precios",
+    "projects": "Proyectos",
+    "contact": "Contacto"
   }
 }

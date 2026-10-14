@@ -51,8 +51,6 @@
     }
   },
   "services": {
-    "title": "Our services",
-    "subtitle": "Complete technology solutions",
     "description": "We offer custom web development and application services with the best guaranteed price in the market.",
     "cta": {
       "title": "Can't find what you're looking for?",
@@ -149,7 +147,6 @@
   },
   "products": {
     "eyebrow": "Products",
-    "title": "Our own software, ready to use",
     "subtitle": "Besides custom projects, we build products that already run in real businesses.",
     "badge": "New product",
     "viewProduct": "Discover Hispal GYM",
@@ -157,7 +154,7 @@
     "items": {
       "hispalGym": {
         "title": "Management software for gyms and sports centers",
-        "description": "Payments, QR access, routines and activities in a single system. It works with or without a front desk: you decide whether to open 24 hours.",
+        "description": "A single system to manage members, memberships, online payments, access and classes. Your clients sign up and pay from their phone, get in with their QR card, and you control everything from one dashboard. With QR access control, you can open without front-desk staff if you wish.",
         "chip": "Access granted",
         "points": [
           "Online sign-up and payment from the phone, any time",
@@ -245,8 +242,6 @@
       "secondary": "View services"
     },
     "comparison": {
-      "title": "Better price,",
-      "subtitle": "Superior quality",
       "description": "We compare our prices and quality with any competitor. The result is always the same: Hispal Tech wins.",
       "competitor": {
         "badge": "The competition",
@@ -287,8 +282,6 @@
     "description": "Our clients' satisfaction is our best business card."
   },
   "contact": {
-    "title": "Let's start your project",
-    "subtitle": "Today",
     "description": "Tell us your idea and we'll send you a personalized proposal with the best guaranteed price in less than 2 hours.",
     "form": {
       "title": "Request free quote",
@@ -417,5 +410,11 @@
     "view": "View",
     "more": "More",
     "less": "Less"
+  },
+  "sections": {
+    "services": "Services",
+    "prices": "Prices",
+    "projects": "Projects",
+    "contact": "Contact"
   }
 }
