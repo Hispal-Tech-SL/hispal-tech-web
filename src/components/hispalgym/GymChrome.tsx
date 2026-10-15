@@ -1,18 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Dumbbell, Menu, X } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { GymLogo } from "@/components/hispalgym/Logo";
 
-function Logo() {
-  return (
-    <span className="flex items-center gap-2 font-display text-lg font-extrabold">
-      <span className="grid size-8 place-items-center rounded-lg bg-primary text-primary-foreground">
-        <Dumbbell className="size-4" aria-hidden />
-      </span>
-      Hispal <span className="text-primary">GYM</span>
-    </span>
-  );
-}
+const Logo = GymLogo;
 
 const links = [
   ["Producto", "producto"],
@@ -27,7 +19,7 @@ export function GymHeader() {
   return (
     <header className="sticky top-0 z-50 border-b bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <a href="#producto" aria-label="Hispal GYM, inicio"><Logo /></a>
+        <a href="#producto" aria-label="Hispal GYM, inicio"><Logo className="text-xl" markClassName="size-12" /></a>
         <nav aria-label="Principal" className="hidden items-center gap-6 text-sm md:flex">
           {links.map(([l, id]) => (
             <a key={id} href={`#${id}`} className="text-muted-foreground hover:text-foreground">{l}</a>
@@ -69,7 +61,7 @@ export function GymFooter() {
     <footer className="bg-ink text-ink-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3">
         <div>
-          <Logo />
+          <Logo markClassName="size-11" />
           <p className="mt-3 text-sm opacity-70">Software de gestión integral para gimnasios y centros deportivos.</p>
         </div>
         <div>

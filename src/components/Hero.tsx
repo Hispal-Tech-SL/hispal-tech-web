@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Dumbbell, Headset, Layers, Zap } from "lucide-react";
+import { ArrowRight, Headset, Layers, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Phone, QrScreen } from "@/components/hispalgym/Mockups";
+import { GymMark } from "@/components/hispalgym/Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect } from "react";
 // Hero background image is now in public folder
@@ -137,10 +138,8 @@ const Hero = () => {
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden />
               </p>
             </div>
-            <div className="pointer-events-none absolute right-4 top-5 origin-top-right rotate-6 scale-[0.42] transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-3">
-              <Phone label="App de Hispal GYM">
-                <QrScreen />
-              </Phone>
+            <div className="pointer-events-none absolute right-4 top-5 origin-top-right rotate-6 scale-[0.42] transition-transform duration-500 will-change-transform group-hover:-translate-y-1 group-hover:rotate-3">
+              <Phone label="App de Hispal GYM"><QrScreen /></Phone>
             </div>
           </Link>
         </div>
@@ -153,15 +152,11 @@ const Hero = () => {
         className="gym-orange group absolute right-0 top-1/2 z-20 hidden -translate-y-[45%] xl:block"
       >
         <div className="relative h-[360px] w-[250px]">
-          <div className="pointer-events-none absolute -right-16 top-0 origin-top-right -rotate-6 scale-[0.7] transition-transform duration-500 group-hover:-translate-x-4 group-hover:-rotate-2">
-            <Phone label="App de Hispal GYM">
-              <QrScreen />
-            </Phone>
+          <div className="pointer-events-none absolute -right-16 top-0 origin-top-right -rotate-6 scale-[0.7] transition-transform duration-500 will-change-transform group-hover:-translate-x-4 group-hover:-rotate-2">
+            <Phone label="App de Hispal GYM"><QrScreen /></Phone>
           </div>
           <div className="absolute -left-10 bottom-6 flex items-center gap-3 rounded-2xl border border-white/20 bg-black/40 px-4 py-3 text-left text-white shadow-xl backdrop-blur-md transition-colors group-hover:bg-black/55">
-            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
-              <Dumbbell className="h-5 w-5" aria-hidden />
-            </span>
+            <GymMark className="size-10" />
             <span>
               <span className="block text-[10px] font-bold uppercase tracking-wider text-primary">
                 {t("hero.teaser.badge")}
