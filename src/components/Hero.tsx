@@ -73,7 +73,7 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[100svh] min-h-[calc(var(--hero-vh,1vh)*100)] min-h-[100dvh] items-end overflow-hidden pb-8 pt-[calc(5rem+env(safe-area-inset-top))] sm:items-center sm:pb-12 sm:pt-[calc(8rem+env(safe-area-inset-top))]"
+      className="relative flex items-start overflow-hidden pb-10 pt-[calc(7rem+env(safe-area-inset-top))] sm:min-h-[100svh] sm:min-h-[calc(var(--hero-vh,1vh)*100)] sm:min-h-[100dvh] sm:items-center sm:pb-12 sm:pt-[calc(8rem+env(safe-area-inset-top))] lg:pt-[calc(9rem+env(safe-area-inset-top))]"
     >
       {/* Background Image with Overlay */}
       <div
