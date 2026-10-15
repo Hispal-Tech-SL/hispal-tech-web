@@ -154,23 +154,24 @@
     "items": {
       "hispalGym": {
         "title": "Software de gestión para gimnasios y centros deportivos",
-        "description": "Un único sistema para gestionar socios, membresías, cobros online, accesos y clases. Tus clientes se dan de alta y pagan desde el móvil, entran con su carnet QR y tú lo controlas todo desde un panel. Con control de acceso por QR, puedes abrir sin personal en recepción si lo deseas.",
+        "description": "Un único sistema para gestionar socios, membresías, cobros online, accesos y rutinas. Tus clientes se dan de alta y pagan con tarjeta desde el móvil, entran con su carnet QR y tú controlas clientes, cobros y accesos desde un panel.",
         "chip": "Acceso permitido",
         "points": [
-          "Alta y pago online desde el móvil, a cualquier hora",
-          "Carnet QR para entrar, con o sin personal en recepción",
-          "Rutinas, clases y reservas con control de aforo",
-          "Panel de gestión con roles y auditoría completa"
+          "Alta y pago con tarjeta desde el móvil, a cualquier hora",
+          "Carnet QR antifraude para entrar, integrado con Kimaldi",
+          "Membresías sin cobros automáticos y rutinas con modo guiado",
+          "Panel de gestión con clientes, cobros, accesos y roles"
         ],
         "tags": {
-          "open": "24/7 opcional",
+          "open": "Alta 24/7",
           "payments": "Cobros online",
           "access": "Acceso con QR"
         },
         "screens": {
           "qr": "Carnet QR",
+          "membership": "Membresía",
           "routine": "Rutinas",
-          "activities": "Clases"
+          "panel": "Panel de pagos del propietario"
         }
       }
     },

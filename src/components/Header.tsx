@@ -58,15 +58,15 @@ const Header = () => {
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2 lg:space-x-3 flex-shrink-0">
+          <div className="flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
             <img
               src="/logoHispalTech.png"
               alt="Hispal Tech Logo"
-              className={`h-10 w-10 lg:h-12 lg:w-12 object-contain transition-all duration-300 ${
+              className={`h-9 w-9 sm:h-10 sm:w-10 xl:h-12 xl:w-12 object-contain transition-all duration-300 ${
                 !isScrolled ? "brightness-0 invert" : ""
               }`}
             />
-            <span className={`text-2xl lg:text-3xl font-bold transition-colors duration-300 whitespace-nowrap ${
+            <span className={`text-xl sm:text-2xl 2xl:text-3xl font-bold transition-colors duration-300 whitespace-nowrap ${
               isScrolled ? "text-primary" : "text-white"
             }`}>
               Hispal Tech
@@ -74,12 +74,12 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
+          <div className="hidden xl:flex items-center space-x-6 2xl:space-x-10">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className={`transition-colors duration-300 text-xs xl:text-sm font-semibold uppercase tracking-[0.15em] ${
+                className={`transition-colors duration-300 text-xs 2xl:text-sm font-semibold uppercase tracking-[0.15em] ${
                   isScrolled 
                     ? "text-foreground/70 hover:text-primary" 
                     : "text-white/80 hover:text-white"
@@ -91,11 +91,11 @@ const Header = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-4">
             <Button 
               variant={isScrolled ? "cta" : "outline"} 
               onClick={() => scrollToSection("contacto")} 
-              className={`lg:text-xs xl:text-sm uppercase tracking-wider font-semibold lg:px-4 xl:px-6 transition-all duration-300 ${
+              className={`text-xs 2xl:text-sm uppercase tracking-wider font-semibold px-4 2xl:px-6 transition-all duration-300 ${
                 !isScrolled 
                   ? "border-white text-white hover:bg-white hover:text-hispaltech-navy bg-transparent" 
                   : ""
@@ -107,7 +107,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button and Language Switcher */}
-          <div className="lg:hidden flex items-center gap-2">
+          <div className="xl:hidden flex items-center gap-2">
             <LanguageSwitcher isScrolled={isScrolled} />
             <button 
               className={`p-2 transition-colors duration-300 ${
@@ -126,7 +126,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg">
+          <div className="xl:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg">
             <div className="container mx-auto px-4 py-4 space-y-4">
               {navLinks.map((link) => (
                 <button

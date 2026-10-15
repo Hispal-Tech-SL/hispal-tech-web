@@ -5,7 +5,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PRODUCTS_DATA } from "@/constants";
-import { Phone, QrScreen, RoutineScreen, ActivitiesScreen, Desktop } from "@/components/hispalgym/Mockups";
+import { Phone, PanelFrame, QrScreen, MembershipScreen, RoutinesScreen, PaymentsPanel } from "@/components/hispalgym/Mockups";
 
 const badges = [
   { icon: Clock, key: "open" },
@@ -14,9 +14,9 @@ const badges = [
 ] as const;
 
 const screens = [
-  { key: "qr", node: <QrScreen tone="primary" /> },
-  { key: "routine", node: <RoutineScreen tone="primary" /> },
-  { key: "activities", node: <ActivitiesScreen tone="primary" /> },
+  { key: "qr", node: <QrScreen /> },
+  { key: "membership", node: <MembershipScreen /> },
+  { key: "routine", node: <RoutinesScreen /> },
 ] as const;
 
 const Products = () => {
@@ -54,15 +54,15 @@ const Products = () => {
         <div className="reveal overflow-hidden rounded-3xl border bg-card shadow-hispaltech">
           <div className="grid items-center gap-6 p-4 sm:gap-10 sm:p-6 md:p-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:p-14">
             {/* Mobile: swipeable app screens */}
-            <div className="gym-orange relative -mx-4 overflow-hidden rounded-2xl bg-gradient-to-br from-hispaltech-navy to-hispaltech-dark-navy py-6 sm:hidden">
-              <div className="absolute inset-0 bg-brand-glow" aria-hidden />
+            <div className="gym-orange relative -mx-4 overflow-hidden rounded-2xl bg-gradient-to-br from-[hsl(26_100%_52%)] to-[hsl(14_85%_34%)] py-6 sm:hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_30%_15%,rgba(255,255,255,0.35),transparent_70%)]" aria-hidden />
               <div className="relative flex snap-x snap-mandatory gap-4 overflow-x-auto px-[calc(50%-104px)] pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {screens.map(({ key, node }) => (
                   <div key={key} className="shrink-0 snap-center">
-                    <p className="mb-3 text-center text-xs font-bold uppercase tracking-wider text-white/80">
+                    <p className="mb-3 text-center text-xs font-bold uppercase tracking-wider text-white">
                       {t(`products.items.hispalGym.screens.${key}`)}
                     </p>
-                    <div className="h-[416px] w-[208px]">
+                    <div className="h-[448px] w-[208px]">
                       <div className="origin-top-left scale-[0.8]">
                         <Phone label={t(`products.items.hispalGym.screens.${key}`)}>{node}</Phone>
                       </div>
@@ -70,7 +70,7 @@ const Products = () => {
                   </div>
                 ))}
               </div>
-              <p className="relative mt-3 text-center text-[11px] text-white/60">
+              <p className="relative mt-3 text-center text-[11px] text-white/80">
                 {t("products.swipe")}
               </p>
             </div>
@@ -129,16 +129,14 @@ const Products = () => {
               aria-label={t("products.viewProduct")}
               className="gym-orange group relative mx-auto hidden w-full max-w-md overflow-hidden rounded-[2rem] sm:block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-hispaltech-navy to-hispaltech-dark-navy" aria-hidden />
-              <div className="absolute inset-0 rounded-[2rem] bg-brand-glow" aria-hidden />
-              <div className="relative flex items-center justify-center px-4 py-10">
-                <div className="-mr-24 mt-24 hidden w-[300px] origin-right scale-90 transition-transform duration-500 group-hover:-translate-x-2 sm:block">
-                  <Desktop variant="owner" label="Panel del propietario" />
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[hsl(26_100%_52%)] to-[hsl(14_85%_34%)]" aria-hidden />
+              <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(60%_50%_at_30%_15%,rgba(255,255,255,0.35),transparent_70%)]" aria-hidden />
+              <div className="relative h-[620px]">
+                <div className="absolute left-4 top-28 w-[250px] origin-left transition-transform duration-500 will-change-transform group-hover:-translate-x-1">
+                  <PanelFrame label={t("products.items.hispalGym.screens.panel")}><PaymentsPanel /></PanelFrame>
                 </div>
-                <div className="relative z-10 rotate-2 transition-transform duration-500 group-hover:-translate-y-2 group-hover:rotate-0">
-                  <Phone label="App del socio con carnet QR y membresía activa">
-                    <QrScreen />
-                  </Phone>
+                <div className="absolute right-6 top-10 rotate-2 transition-transform duration-500 will-change-transform group-hover:-translate-y-2 group-hover:rotate-0">
+                  <Phone label={t("products.items.hispalGym.screens.qr")}><QrScreen /></Phone>
                 </div>
                 <span className="absolute left-4 top-6 z-20 flex animate-float items-center gap-2 rounded-xl bg-card px-3 py-2 text-xs font-bold text-card-foreground shadow-soft">
                   <QrCode className="size-4 text-hispaltech-blue" aria-hidden />

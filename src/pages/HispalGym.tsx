@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
-  Clock, CreditCard, DoorOpen, Layers, Smartphone, QrCode, ArrowRight, Dumbbell, CalendarDays,
-  LayoutDashboard, ShoppingBag, Lock, Landmark, FileCheck2, DatabaseBackup, IdCard, CheckCircle2, UserPlus, LogIn,
+  CreditCard, Layers, Smartphone, QrCode, ArrowRight, Dumbbell, CalendarDays, Bell, UserCog,
+  LayoutDashboard, ShoppingBag, Lock, Landmark, DatabaseBackup, IdCard, CheckCircle2, UserPlus, LogIn,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +9,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Phone, QrScreen, RoutineScreen, ActivitiesScreen, Desktop, AccessCard } from "@/components/hispalgym/Mockups";
+import {
+  Phone, PanelFrame, QrScreen, MembershipScreen, RoutinesScreen, RoutineDetailScreen, TariffsScreen,
+  CashPanel, PaymentsPanel, AccessPanel, CustomerPanel,
+} from "@/components/hispalgym/Mockups";
 import { GymHeader, GymFooter } from "@/components/hispalgym/GymChrome";
 import { sendEmailAlternative } from "@/services/emailService";
 
@@ -41,7 +44,14 @@ const HispalGym = () => {
     window.scrollTo(0, 0);
     const prev = document.title;
     document.title = "Hispal GYM, software de gestión para gimnasios con acceso por QR";
-    return () => { document.title = prev; };
+    // Hispal GYM favicon while this page is open (the rest of the site keeps the Hispal Tech one)
+    const icons = Array.from(document.querySelectorAll<HTMLLinkElement>('link[rel="icon"], link[rel="apple-touch-icon"]'));
+    const original = icons.map((l) => [l, l.getAttribute("href")] as const);
+    icons.forEach((l) => l.setAttribute("href", l.rel === "apple-touch-icon" ? "/hispalgym/favicon-180.png" : "/hispalgym/favicon-32.png"));
+    return () => {
+      document.title = prev;
+      original.forEach(([l, href]) => href && l.setAttribute("href", href));
+    };
   }, []);
   return (
     <div className="hispalgym min-h-screen overflow-x-hidden">
@@ -54,7 +64,7 @@ const HispalGym = () => {
         <Profiles />
         <HowItWorks />
         <Spotlights />
-        <Shop />
+        <Roadmap />
         <AllInOne />
         <Trust />
         <Contact />
@@ -73,28 +83,28 @@ function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-[1.15fr_1fr] md:py-24">
         <div>
           <Eyebrow>Software de gestión para gimnasios</Eyebrow>
-          <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] md:text-6xl">Gestiona tu gimnasio y <span className="text-primary">ábrelo las 24 horas</span> si quieres.</h1>
-          <p className="mt-5 max-w-xl text-lg text-muted-foreground">Software de gestión con control de acceso por QR: cobros, membresías, rutinas y actividades en un solo sistema. Con recepción o sin ella, y si quieres abrir 24 horas, tus socios entran solos, pagan desde el móvil y tú lo ves todo desde un panel.</p>
+          <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] md:text-6xl">Gestiona tu gimnasio y da a tus socios <span className="text-primary">acceso autónomo con QR</span>.</h1>
+          <p className="mt-5 max-w-xl text-lg text-muted-foreground">Software de gestión con control de acceso por QR: membresías, cobros, rutinas y accesos en un solo sistema. Tus socios se dan de alta, pagan con tarjeta desde el móvil y entran con su carnet QR; tú controlas clientes, cobros y accesos desde un panel.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="font-semibold shadow-glow"><a href="#contacto">Solicitar demo</a></Button>
             <Button asChild size="lg" variant="secondary" className="font-semibold"><a href="#como-funciona">Ver cómo funciona <ArrowRight /></a></Button>
           </div>
           <ul className="mt-10 grid gap-4 sm:grid-cols-3">
-            {[[Clock, "Abierto 24/7"], [CreditCard, "Cobros online"], [DoorOpen, "Acceso sin recepción"]].map(([I, t]) => {
-              const Icon = I as typeof Clock;
+            {[[CreditCard, "Alta y pago online"], [QrCode, "Carnet QR en el móvil"], [LayoutDashboard, "Panel de gestión"]].map(([I, t]) => {
+              const Icon = I as typeof CreditCard;
               return <li key={t as string} className="flex items-center gap-2.5 text-sm font-semibold"><span className="grid size-9 place-items-center rounded-lg bg-accent text-accent-foreground"><Icon className="size-4" aria-hidden /></span>{t as string}</li>;
             })}
           </ul>
         </div>
         <div className="relative">
-          <Phone label="App del socio con carnet QR y membresía activa con 18 días restantes" className="rotate-2 transition-transform duration-500 hover:rotate-0"><QrScreen /></Phone>
+          <Phone label="App del socio con el carnet QR de acceso al gimnasio" className="rotate-2 transition-transform duration-500 will-change-transform hover:rotate-0"><QrScreen /></Phone>
         </div>
       </div>
     </section>
   );
 }
 
-function IconCard({ icon: Icon, title, text, children }: { icon: typeof Clock; title: string; text: string; children?: ReactNode }) {
+function IconCard({ icon: Icon, title, text, children }: { icon: typeof CreditCard; title: string; text: string; children?: ReactNode }) {
   return (
     <div className="reveal group rounded-2xl border bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/40">
       <span className="grid size-11 place-items-center rounded-xl bg-accent text-accent-foreground transition group-hover:bg-primary group-hover:text-primary-foreground"><Icon className="size-5" aria-hidden /></span>
@@ -108,11 +118,11 @@ function IconCard({ icon: Icon, title, text, children }: { icon: typeof Clock; t
 function Values() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <SectionHead eyebrow="Por qué Hispal GYM" title="Gestión completa, con la opción de abrir sin personal en el local" />
+      <SectionHead eyebrow="Por qué Hispal GYM" title="Gestión completa, con acceso autónomo para tus socios" />
       <div className="mt-12 grid gap-6 md:grid-cols-3">
-        <IconCard icon={Layers} title="Un solo sistema para todo" text="Membresías, pagos, accesos, rutinas y clases sin hojas de cálculo ni programas sueltos." />
-        <IconCard icon={Smartphone} title="Alta y pago a cualquier hora" text="Tus socios se apuntan y pagan desde el móvil, sin pasar por recepción." />
-        <IconCard icon={QrCode} title="Acceso sin personal" text="Carnet QR en el móvil. Quien tiene membresía vigente entra; quien no, queda registrado." />
+        <IconCard icon={Layers} title="Un solo sistema para todo" text="Membresías, pagos, accesos y rutinas sin hojas de cálculo ni programas sueltos." />
+        <IconCard icon={Smartphone} title="Alta y pago a cualquier hora" text="Tus socios se apuntan y pagan con tarjeta desde el móvil, sin pasar por recepción." />
+        <IconCard icon={QrCode} title="Acceso con QR antifraude" text="El código del carnet cambia cada 4 segundos y la membresía se comprueba en el momento de entrar." />
       </div>
     </section>
   );
@@ -122,12 +132,13 @@ function Showcase() {
   return (
     <section className="bg-ink py-20 text-ink-foreground">
       <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="La app del socio" title="Una app instalable, con los colores de tu gimnasio" sub="Se instala desde el navegador, sin pasar por tiendas de apps. Adapta el color al estilo de tu centro." />
+        <SectionHead eyebrow="La app del socio" title="Una app instalable en el móvil de tus socios" sub="Se instala desde el navegador, sin pasar por tiendas de apps. Membresía, carnet QR y rutinas en un mismo sitio." />
         <div className="mt-14 flex snap-x gap-8 overflow-x-auto pb-6 md:justify-center md:overflow-visible">
-          <div className="reveal snap-center shrink-0"><Phone label="Pantalla de membresía con carnet QR en tono naranja"><QrScreen tone="primary" /></Phone></div>
-          <div className="reveal snap-center shrink-0 md:-translate-y-6"><Phone label="Pantalla de rutina de entrenamiento en tono lima"><RoutineScreen tone="lime" /></Phone></div>
-          <div className="reveal snap-center shrink-0"><Phone label="Calendario de actividades en tono azul"><ActivitiesScreen tone="sky" /></Phone></div>
+          <div className="reveal snap-center shrink-0"><Phone label="Pantalla de membresía con tarifa, fechas, días restantes y botón para pagar el siguiente periodo"><MembershipScreen /></Phone></div>
+          <div className="reveal snap-center shrink-0 md:-translate-y-6"><Phone label="Pantalla del carnet QR de acceso al gimnasio"><QrScreen /></Phone></div>
+          <div className="reveal snap-center shrink-0"><Phone label="Lista de rutinas de entrenamiento con sus días y número de ejercicios"><RoutinesScreen /></Phone></div>
         </div>
+        <p className="mx-auto mt-6 max-w-xl text-center text-xs opacity-60">Pantallas de la app con datos ficticios. El nombre, el logo y los colores se adaptan a tu centro bajo proyecto.</p>
       </div>
     </section>
   );
@@ -142,9 +153,9 @@ function Checklist({ items }: { items: string[] }) {
 }
 
 function Profiles() {
-  const socio = ["Alta online 24/7 y pago con tarjeta desde el móvil", "Membresía con inicio, fin, días restantes y estado", "Renovar o encadenar un periodo sin perder días, o pagar hoy y empezar más adelante", "Carnet QR virtual para entrar y salir", "Historial de entradas, salidas, pagos y recibos", "Rutinas, actividades, eventos y espacios con reserva y aforo", "Promociones e invitar a un amigo", "Recordatorio por email antes de que venza la membresía"];
-  const empleado = ["Listado y ficha de clientes con buscador y estado de membresía", "Cobro en mostrador: efectivo, tarjeta u otros", "Registro de fecha de pago, periodo y quién cobró", "Corrección de pagos con traza, sin perder el histórico", "Registro de accesos permitidos y denegados", "Gestión de actividades, eventos, espacios y rutinas"];
-  const propietario = ["Todo lo del empleado", "Cuentas de empleados y roles", "Auditoría completa: quién hizo qué y cuándo", "Ingresos, altas, renovaciones y bajas de membresía", "Archivar clientes duplicados o antiguos conservando su histórico"];
+  const socio = ["Alta online 24/7 y pago con tarjeta desde el móvil", "Membresía con fecha de inicio y fin, días restantes y estado", "Renovar o encadenar un periodo sin perder días, o pagar hoy y empezar más adelante", "Carnet QR virtual para entrar", "Rutinas con ejercicios, series, repeticiones y entrenamiento guiado", "Buzón de avisos y notificaciones push", "Recordatorio por email antes de que venza la membresía"];
+  const empleado = ["Listado y ficha de clientes con buscador y estado de membresía", "Cobro en mostrador: efectivo o tarjeta en datáfono", "Registro de fecha de pago, periodo y quién cobró", "Corrección de pagos con traza, sin perder el histórico", "Registro de entradas con aviso de accesos sospechosos", "Gestión de rutinas y asignación a los socios"];
+  const propietario = ["Todo lo del empleado", "Libro de pagos: ingresos por día, semana, mes o año, con reparto online y presencial", "Roles diferenciados: el empleado no ve los ingresos", "Cada pago muestra quién lo registró", "Archivar clientes duplicados o antiguos conservando su histórico"];
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
       <SectionHead eyebrow="Un sistema, tres perfiles" title="Cada persona ve exactamente lo que necesita" />
@@ -157,19 +168,19 @@ function Profiles() {
         <TabsContent value="socio" className="mt-10 animate-in fade-in-50">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div><h3 className="text-2xl font-bold">App web instalable en el móvil</h3><p className="mb-6 mt-2 text-muted-foreground">Todo lo que el socio necesita, sin llamar ni pasar por recepción.</p><Checklist items={socio} /></div>
-            <Phone label="App del socio con rutina de entrenamiento"><RoutineScreen tone="primary" /></Phone>
+            <Phone label="App del socio con su membresía activa y los días que le quedan"><MembershipScreen /></Phone>
           </div>
         </TabsContent>
         <TabsContent value="empleado" className="mt-10 animate-in fade-in-50">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div><h3 className="text-2xl font-bold">Panel de mostrador</h3><p className="mb-6 mt-2 text-muted-foreground">Clientes, cobros y accesos en una sola pantalla.</p><Checklist items={empleado} /></div>
-            <Desktop variant="staff" label="Panel del empleado con listado de clientes y estado de membresía" />
+            <div><h3 className="text-2xl font-bold">Panel de mostrador</h3><p className="mb-6 mt-2 text-muted-foreground">Clientes, cobros y accesos desde un panel que se adapta al ordenador, la tablet y el móvil.</p><Checklist items={empleado} /></div>
+            <PanelFrame label="Panel del empleado registrando un pago en mostrador, en efectivo o con tarjeta en datáfono"><CashPanel /></PanelFrame>
           </div>
         </TabsContent>
         <TabsContent value="propietario" className="mt-10 animate-in fade-in-50">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div><h3 className="text-2xl font-bold">Visión completa del negocio</h3><p className="mb-6 mt-2 text-muted-foreground">Control total de equipo, configuración y estadísticas.</p><Checklist items={propietario} /></div>
-            <Desktop variant="owner" label="Panel del propietario con ingresos, gráfico y auditoría" />
+            <div><h3 className="text-2xl font-bold">Visión completa del negocio</h3><p className="mb-6 mt-2 text-muted-foreground">Ingresos y control de lo que pasa en el gimnasio.</p><Checklist items={propietario} /></div>
+            <PanelFrame label="Libro de pagos del propietario con total ingresado y reparto entre online y presencial"><PaymentsPanel /></PanelFrame>
           </div>
         </TabsContent>
       </Tabs>
@@ -178,11 +189,11 @@ function Profiles() {
 }
 
 function HowItWorks() {
-  const steps = [[UserPlus, "El socio se da de alta y paga desde el móvil", "A cualquier hora, con pasarela bancaria segura."], [IdCard, "Recibe su carnet QR", "Al instante, en su app. Sin tarjetas físicas."], [LogIn, "Entra y sale solo; tú lo ves todo en el panel", "Cada acceso queda registrado, permitido o denegado."]] as const;
+  const steps = [[UserPlus, "El socio se da de alta y paga desde el móvil", "A cualquier hora, con tarjeta en la pasarela bancaria Redsys."], [IdCard, "Crea su cuenta y recibe su carnet QR", "Tras el pago crea su contraseña y ya lo tiene en el móvil. Sin tarjetas físicas."], [LogIn, "Entra con su QR; tú lo ves en el panel", "Cada entrada concedida queda registrada con fecha y hora."]] as const;
   return (
     <section id="como-funciona" className="bg-muted/60 py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="Cómo funciona" title="Tres pasos y tu gimnasio funciona solo" />
+        <SectionHead eyebrow="Cómo funciona" title="Tres pasos, sin pasar por recepción" />
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {steps.map(([Icon, t, d], i) => (
             <li key={t} className="reveal relative rounded-2xl border bg-card p-6 shadow-soft">
@@ -216,26 +227,33 @@ function Spotlight({ eyebrow, title, text, points, visual, flip, link }: { eyebr
 function Spotlights() {
   return (
     <section id="funcionalidades" className="mx-auto max-w-6xl space-y-24 px-4 py-24">
-      <Spotlight eyebrow="Pagos y membresías" title="Sin sorpresas en el recibo" text="No hay cobros automáticos. El socio paga cuando decide, el gimnasio sabe exactamente quién tiene acceso y hasta cuándo." points={["Cada pago compra un periodo de acceso", "Encadena periodos sin perder días", "Promociones para los primeros ciclos"]} link="Ver pagos en la demo" visual={<Phone label="Membresía activa con días restantes y botón de renovar"><QrScreen /></Phone>} />
-      <Spotlight flip eyebrow="Control de acceso con QR" title="Tu puerta sabe quién puede entrar" text="Integración con lectores QR y torno o puerta. Con membresía vigente se entra; si no, se deniega y queda registrado." points={["Sin recepcionista presente", "Registro de entradas y salidas por hora", "Accesos denegados visibles en el panel"]} link="Consultar hardware compatible" visual={<AccessCard />} />
-      <Spotlight eyebrow="Rutinas y actividades" title="Entrenamiento y clases en el bolsillo" text="Rutinas con ejercicios, series y repeticiones. Clases dirigidas, eventos y espacios con aforo y reservas." points={["Rutinas consultables desde el móvil", "Reservas con control de aforo", "Gestión desde el panel de mostrador"]} link="Ver actividades en la demo" visual={<Phone label="Calendario semanal de clases dirigidas"><ActivitiesScreen tone="primary" /></Phone>} />
-      <Spotlight flip eyebrow="Panel de gestión y auditoría" title="Todo lo que pasa, con nombre y hora" text="Ingresos, altas y renovaciones de un vistazo. Cada acción queda registrada para saber quién hizo qué y cuándo." points={["Roles para empleados y propietario", "Pagos corregidos con traza", "Clientes archivados sin perder historial"]} link="Ver el panel en la demo" visual={<Desktop variant="owner" label="Panel con estadísticas de ingresos y registro de auditoría" />} />
+      <Spotlight eyebrow="Pagos y membresías" title="Sin sorpresas en el recibo" text="No hay cobros automáticos. El socio paga cuando decide, el gimnasio sabe exactamente quién tiene acceso y hasta cuándo." points={["Cada pago compra un periodo de acceso", "Encadena periodos sin perder días, o empieza más adelante", "Paga varios meses de una vez, hasta 12"]} link="Ver pagos en la demo" visual={<Phone label="Pantalla de alta online con la parrilla de tarifas, cada una con su periodo de acceso"><TariffsScreen /></Phone>} />
+      <Spotlight flip eyebrow="Control de acceso con QR" title="Tu puerta sabe quién puede entrar" text="Integrado con lectores y controladoras Kimaldi. Con membresía vigente se entra; si no, se deniega." points={["El QR cambia cada 4 segundos y solo funciona en un dispositivo", "El socio recupera su QR en un móvil nuevo sin pasar por recepción", "Registro de entradas con aviso de accesos sospechosos"]} link="Consultar hardware compatible" visual={<PanelFrame label="Registro de accesos del panel, con entradas agrupadas por día y botón para abrir la puerta"><AccessPanel /></PanelFrame>} />
+      <Spotlight eyebrow="Rutinas de entrenamiento" title="Entrenamiento en el bolsillo" text="Crea rutinas desde el panel y asígnalas a todos tus socios o solo a algunos. El socio las sigue desde el móvil." points={["Ejercicios con series, repeticiones, descanso y superseries", "Entrenamiento guiado con temporizador", "Aviso al socio cuando le asignas una rutina"]} link="Ver rutinas en la demo" visual={<Phone label="Detalle de una rutina con sus días de entrenamiento y los ejercicios de cada uno"><RoutineDetailScreen /></Phone>} />
+      <Spotlight flip eyebrow="Panel de gestión" title="Cobros corregidos, con traza" text="Cada pago muestra quién lo registró y cuándo. Si el mostrador se equivoca, se corrige sin perder el histórico." points={["Roles diferenciados para empleado y propietario", "Pagos corregidos con motivo y posibilidad de restaurar", "Clientes archivados sin perder historial"]} link="Ver el panel en la demo" visual={<PanelFrame label="Ficha de cliente con sus datos, membresía activa y pagos realizados, con quién los registró"><CustomerPanel /></PanelFrame>} />
     </section>
   );
 }
 
-function Shop() {
+function Roadmap() {
+  const items = [[CalendarDays, "Clases, eventos y espacios", "Agenda, reservas y aforo desde la app del socio."], [UserCog, "Gestión de empleados", "Altas, roles y accesos del equipo desde el panel."], [ShoppingBag, "Módulo de tienda", "Productos del gimnasio como nueva fuente de ingresos."]] as const;
   return (
     <section className="mx-auto max-w-6xl px-4 pb-20">
       <div className="reveal relative overflow-hidden rounded-3xl bg-ink p-8 text-ink-foreground md:p-14">
         <div className="absolute inset-0 bg-hero-glow" aria-hidden />
-        <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto]">
-          <div>
-            <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">Próximamente</span>
-            <h2 className="mt-4 text-3xl font-extrabold md:text-4xl">Módulo de tienda</h2>
-            <p className="mt-3 max-w-xl opacity-80">Vende suplementos y productos del gimnasio desde la propia app del socio, con carrito y pago integrado. Ofrece rutinas de pago y productos adicionales como nuevas fuentes de ingreso.</p>
-          </div>
-          <ShoppingBag className="size-24 text-primary md:size-32" aria-hidden />
+        <div className="relative">
+          <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">Próximamente</span>
+          <h2 className="mt-4 text-3xl font-extrabold md:text-4xl">Lo que viene</h2>
+          <p className="mt-3 max-w-xl opacity-80">Estamos construyendo estos módulos. Si alguno te interesa, cuéntanoslo en la llamada de introducción.</p>
+          <ul className="mt-8 grid gap-4 md:grid-cols-3">
+            {items.map(([Icon, t, d]) => (
+              <li key={t} className="rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5">
+                <Icon className="size-6 text-primary" aria-hidden />
+                <h3 className="mt-3 font-bold">{t}</h3>
+                <p className="mt-1 text-sm opacity-75">{d}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -243,7 +261,7 @@ function Shop() {
 }
 
 function AllInOne() {
-  const items = [[CreditCard, "Pagos online", "Pago con tarjeta desde el móvil y cobro en mostrador."], [IdCard, "Membresías", "Estados claros: activa, por vencer, vencida o pendiente."], [QrCode, "Control de acceso", "Lectores QR, torno o puerta, con registro completo."], [Dumbbell, "Rutinas", "Ejercicios, series y repeticiones en la app."], [CalendarDays, "Actividades y eventos", "Clases, eventos y espacios con aforo y reservas."], [LayoutDashboard, "Panel y auditoría", "Estadísticas, roles y trazabilidad de cada acción."]] as const;
+  const items = [[CreditCard, "Pagos online", "Pago con tarjeta desde el móvil y cobro en mostrador, en efectivo o con datáfono."], [IdCard, "Membresías", "Estados claros: activa, sin empezar, vencida o sin pago."], [QrCode, "Control de acceso", "Lectores QR Kimaldi con torno o puerta, y registro de entradas."], [Dumbbell, "Rutinas", "Ejercicios, series y repeticiones en la app, con modo guiado."], [Bell, "Avisos al socio", "Email, buzón y notificaciones push: vencimientos, pagos y rutinas."], [LayoutDashboard, "Panel de gestión", "Clientes, cobros, accesos e ingresos, con roles de empleado y propietario."]] as const;
   return (
     <section className="bg-muted/60 py-20">
       <div className="mx-auto max-w-6xl px-4">
@@ -261,7 +279,7 @@ function AllInOne() {
 }
 
 function Trust() {
-  const items = [[Lock, "Datos protegidos", "Acceso por roles y comunicaciones cifradas."], [Landmark, "Pasarela bancaria certificada", "Los pagos con tarjeta se procesan con una pasarela bancaria segura."], [FileCheck2, "Cumplimiento RGPD", "Tratamiento de datos conforme a la normativa europea."], [DatabaseBackup, "Copias de seguridad", "Copias automáticas para que no pierdas nada."]] as const;
+  const items = [[Lock, "Datos protegidos", "Acceso por roles y conexión cifrada. El socio solo ve sus propios datos."], [Landmark, "Pago con Redsys", "Los pagos con tarjeta se hacen en la pasarela bancaria Redsys: los datos de tu tarjeta no pasan por el gimnasio."], [QrCode, "QR antifraude", "Un solo dispositivo por socio y un código que cambia cada 4 segundos."], [DatabaseBackup, "Copias de seguridad", "Copias automáticas y cifradas cada 6 horas."]] as const;
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
       <SectionHead eyebrow="Confianza" title="Seguro para ti y para tus socios" />
@@ -354,13 +372,16 @@ function Faq() {
   const qa = [
     ["¿Cómo se instala la app del socio?", "Es una app web instalable. El socio abre el enlace de tu gimnasio en el navegador del móvil y la añade a su pantalla de inicio en un par de toques."],
     ["¿Hace falta publicarla en tiendas de apps?", "No. Al ser una app web instalable, no pasa por tiendas de apps ni necesita actualizaciones manuales."],
-    ["¿Qué hardware de acceso es compatible?", "Lectores de código QR conectados a torno o puerta. Revisamos contigo tu instalación actual durante la llamada de introducción."],
+    ["¿Qué hardware de acceso es compatible?", "Hoy trabajamos con controladoras y lectores QR de Kimaldi, con una puerta o torno por instalación. Otros lectores son posibles bajo proyecto. Revisamos contigo tu instalación durante la llamada de introducción."],
     ["¿Se cobra automáticamente a los socios?", "No. No hay cobros automáticos. Cada pago compra un periodo de acceso y termina. El socio renueva cuando quiere, pagando de nuevo."],
-    ["¿Cómo se pagan las membresías?", "Online con tarjeta desde la app, a través de una pasarela bancaria segura, o en el mostrador en efectivo, tarjeta u otros métodos."],
-    ["¿Qué pasa si falla la conexión?", "Lo analizamos contigo según tu instalación de acceso para definir cómo debe comportarse la puerta y que todo quede registrado al recuperar la conexión."],
+    ["¿Cómo se pagan las membresías?", "Online con tarjeta desde la app, en la pasarela bancaria Redsys, o en el mostrador en efectivo o con tarjeta en datáfono."],
+    ["¿Puedo abrir 24 horas sin personal?", "El flujo no necesita a nadie: alta online, pago, carnet QR y torno. Aun así, hoy no hay control de aforo ni de franjas horarias, la salida no se registra y, si cae la conexión, el torno no abre. Lo valoramos contigo según tu centro."],
+    ["¿Qué pasa si falla la conexión?", "Por seguridad, no se valida ninguna entrada sin conexión: el torno no abre y la pantalla indica que pases por recepción. Conviene tener un plan de contingencia para esos casos y lo definimos contigo."],
+    ["¿Se puede personalizar con la marca de mi gimnasio?", "Sí, bajo proyecto. Nombre, logo y colores se adaptan a tu centro durante la puesta en marcha; no es un ajuste que cambies tú mismo desde el panel."],
     ["¿Quién ve los datos de los socios?", "Solo las personas autorizadas de tu gimnasio, según su rol. El socio ve únicamente sus propios datos."],
     ["¿Cuánto tarda la puesta en marcha?", "Depende del tamaño del centro y del hardware de acceso. Te damos un plan concreto tras la llamada de introducción."],
-    ["¿Puedo migrar mi base de clientes actual?", "Sí. Te ayudamos a importar tus clientes para que empieces sin volver a dar de alta a nadie."],
+    ["¿Puedo migrar mi base de clientes actual?", "Sí, como servicio de puesta en marcha: preparamos la migración a medida desde tu sistema actual para que no tengas que dar de alta a nadie a mano."],
+    ["¿Las pantallas que se ven son reales?", "Reproducen fielmente las pantallas de la app que ya usa Premium GYM, el gimnasio sobre el que se ha construido Hispal GYM, con la marca de Hispal GYM y datos ficticios."],
   ];
   return (
     <section id="preguntas" className="mx-auto max-w-3xl px-4 py-20">
