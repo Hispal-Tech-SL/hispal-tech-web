@@ -73,7 +73,7 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative flex items-start overflow-hidden pb-10 pt-[calc(7rem+env(safe-area-inset-top))] sm:min-h-[100svh] sm:min-h-[calc(var(--hero-vh,1vh)*100)] sm:min-h-[100dvh] sm:items-center sm:pb-12 sm:pt-[calc(8rem+env(safe-area-inset-top))] lg:pt-[calc(9rem+env(safe-area-inset-top))]"
+      className="relative flex min-h-[100svh] min-h-[calc(var(--hero-vh,1vh)*100)] min-h-[100dvh] items-stretch overflow-hidden pb-8 pt-[calc(7rem+env(safe-area-inset-top))] sm:items-center sm:pb-12 sm:pt-[calc(8rem+env(safe-area-inset-top))] lg:pt-[calc(9rem+env(safe-area-inset-top))]"
     >
       {/* Background Image with Overlay */}
       <div
@@ -86,8 +86,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-5 text-white sm:px-4 sm:text-center lg:px-8">
-        <div className="mx-auto flex max-w-4xl flex-col items-start gap-5 sm:items-center sm:gap-10 lg:max-w-5xl">
+      <div className="container relative z-10 mx-auto flex px-5 text-white sm:px-4 sm:text-center lg:px-8">
+        <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-start gap-5 sm:items-center sm:gap-10 lg:max-w-5xl">
           {/* Main Headline */}
           <h1 className="flex flex-col text-[2.6rem] font-black leading-[1.05] tracking-tight sm:gap-2 sm:text-5xl sm:leading-tight md:text-6xl lg:text-7xl">
             <span>{t("hero.title")}</span>
@@ -125,7 +125,7 @@ const Hero = () => {
           <Link
             to="/hispalgym"
             aria-label={`${t("hero.teaser.title")} ${t("hero.teaser.subtitle")}`}
-            className="gym-orange group relative flex h-28 w-full max-w-md items-center overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-white/20 to-white/5 text-left backdrop-blur-md transition-colors hover:from-white/25 xl:hidden"
+            className="gym-orange group relative mt-auto flex h-28 w-full max-w-md items-center overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-white/20 to-white/5 text-left backdrop-blur-md transition-colors hover:from-white/25 xl:hidden"
           >
             <div className="absolute -left-10 -top-10 size-36 rounded-full bg-primary/30 blur-2xl" aria-hidden />
             <div className="relative z-10 flex-1 py-4 pl-5 pr-28">
