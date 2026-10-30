@@ -154,12 +154,13 @@
     "items": {
       "hispalGym": {
         "title": "Management software for gyms and sports centers",
-        "description": "A single system to manage members, memberships, online payments, access and routines. Your clients sign up and pay by card from their phone, get in with their QR card, and you control clients, payments and access from one dashboard.",
+        "description": "A single system to manage members, memberships, online payments, a shop, classes, access and routines. Your clients sign up and pay by card from their phone, get in with their QR code, and you control clients, payments and access from one dashboard.",
         "chip": "Access granted",
         "points": [
           "Sign-up and card payment from the phone, any time",
-          "Anti-fraud QR card to get in, integrated with Kimaldi",
-          "Memberships with no automatic charges and guided workout routines",
+          "Anti-fraud QR code to get in, integrated with Kimaldi, plus a people-counting sensor",
+          "Memberships with no automatic charges, guided workout routines and class booking",
+          "Gym shop with card payment and pickup with a QR code",
           "Management dashboard with clients, payments, access and roles"
         ],
         "tags": {
@@ -168,9 +169,11 @@
           "access": "QR access"
         },
         "screens": {
-          "qr": "QR card",
+          "qr": "QR code",
           "membership": "Membership",
           "routine": "Routines",
+          "shop": "Shop",
+          "classes": "Classes",
           "panel": "Owner payments dashboard"
         }
       }

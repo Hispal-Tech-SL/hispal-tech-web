@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import {
   Bell, Menu, Home, QrCode, User, ChevronRight, RefreshCw, Info, X, ArrowLeft, Dumbbell, Euro, SlidersHorizontal, DoorOpen, Pencil, Trash2, Search,
+  ShoppingCart, ShoppingBag, Store, PackageCheck, FileDown, MapPin, UserRound, AlertCircle, ArrowDownToLine,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GymLogo } from "@/components/hispalgym/Logo";
@@ -62,7 +63,7 @@ const PANEL_W = 460;
 
 export function PanelFrame({ children, label, className }: { children: ReactNode; label: string; className?: string }) {
   return (
-    <Fit width={PANEL_W} className={cn("mx-auto w-full max-w-[460px]", className)}>
+    <Fit width={PANEL_W} className={cn("mx-auto w-full min-w-0 max-w-[460px]", className)}>
       <div role="img" aria-label={label} className="overflow-hidden rounded-2xl border border-white/10 bg-screen text-screen-foreground shadow-device">
         <div className="flex items-center gap-1.5 border-b border-white/10 bg-device px-4 py-2.5">
           <span className="size-2.5 rounded-full bg-destructive/70" />
@@ -117,7 +118,7 @@ function AppShell({ active, children }: { active: "inicio" | "qr" | "cuenta"; ch
   return (
     <>
       <AppHeader />
-      <div className="flex-1 pt-4">{children}</div>
+      <div className="relative min-h-0 flex-1 overflow-hidden pt-4">{children}</div>
       <BottomNav active={active} />
     </>
   );
@@ -403,6 +404,214 @@ export function CashPanel() {
       <span className="mt-3.5 inline-flex items-center gap-1.5 rounded border border-dashed border-primary/60 px-2.5 py-1.5 text-[10px] text-primary"><SlidersHorizontal className="size-3" aria-hidden />Ajustar fechas o precio</span>
       <div className="mt-3.5 flex items-center justify-center gap-1.5 rounded bg-primary py-2.5 text-[8px] font-bold uppercase tracking-[0.2em] text-primary-foreground">
         <Euro className="size-3" aria-hidden />Registrar el pago
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------- shop, classes and sensor */
+
+/** Neutral supplement tub, so the mockups show products without using any brand's photos. */
+function Tub({ color, label }: { color: string; label: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className="h-full w-full" aria-hidden>
+      <ellipse cx="50" cy="90" rx="26" ry="4" fill="#000" opacity="0.12" />
+      <rect x="31" y="14" width="38" height="9" rx="3" fill="#1a120b" />
+      <rect x="25" y="23" width="50" height="62" rx="7" fill={color} />
+      <rect x="31" y="38" width="38" height="28" rx="3" fill="#fff" opacity="0.95" />
+      <rect x="35" y="43" width="22" height="4" rx="2" fill={color} />
+      <rect x="35" y="50" width="30" height="2.5" rx="1.25" fill="#1a120b" opacity="0.35" />
+      <rect x="35" y="55" width="26" height="2.5" rx="1.25" fill="#1a120b" opacity="0.35" />
+      <text x="50" y="76" textAnchor="middle" fontSize="7" fontWeight="700" fill="#fff" opacity="0.9">{label}</text>
+    </svg>
+  );
+}
+
+function ProductTile({ color, label, className }: { color: string; label: string; className?: string }) {
+  return (
+    <span className={cn("block overflow-hidden rounded bg-gradient-to-b from-white to-zinc-200", className)}>
+      <Tub color={color} label={label} />
+    </span>
+  );
+}
+
+export function ShopScreen() {
+  const products = [
+    ["Nutrix", "Proteína whey 2 kg Vainilla", "54,90", "#f06800", "2 KG"],
+    ["Nutrix", "Proteína whey 2 kg Chocolate", "54,90", "#7c3f1d", "2 KG"],
+    ["Alpha Labs", "Creatina 300 g Limón", "22,90", "#c9a800", "300 G"],
+    ["Alpha Labs", "Creatina 300 g Cola", "22,90", "#b3261e", "300 G"],
+  ];
+  return (
+    <AppShell active="inicio">
+      <p className={eyebrow}>Tienda</p>
+      <div className="mt-2.5 flex items-center gap-1.5 border-b border-primary/50 pb-1.5 text-[9px] opacity-70"><Search className="size-3" aria-hidden />Nombre o marca…</div>
+      <div className="mt-2 flex items-center justify-between rounded border border-white/20 px-2 py-1 text-[9px]"><span>Todas las categorías</span><ChevronRight className="size-3 rotate-90 opacity-60" aria-hidden /></div>
+      <p className="mt-3 text-[8px] font-bold uppercase tracking-[0.22em] text-primary">Proteína</p>
+      <ul className="mt-1.5 grid grid-cols-2 gap-2">
+        {products.map(([brand, name, price, color, label]) => (
+          <li key={name} className="overflow-hidden rounded-lg border border-white/15 bg-white/[0.03]">
+            <ProductTile color={color} label={label} className="h-[74px] rounded-none" />
+            <div className="p-1.5">
+              <p className="text-[7px] opacity-60">{brand}</p>
+              <p className="mt-0.5 h-[22px] text-[8.5px] font-semibold leading-tight">{name}</p>
+              <div className="mt-1 flex items-center justify-between gap-1">
+                <span className="font-display text-[10px] font-semibold">{price} €</span>
+                <span className="rounded bg-primary px-1.5 py-1 text-[6px] font-bold uppercase tracking-[0.14em] text-primary-foreground">Añadir</span>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <span className="absolute bottom-2 right-0 grid size-11 place-items-center rounded-full bg-primary text-primary-foreground shadow-lg">
+        <ShoppingCart className="size-5" aria-hidden />
+        <span className="absolute -right-0.5 -top-0.5 grid size-4 place-items-center rounded-full border-2 border-screen bg-white text-[8px] font-bold text-black">2</span>
+      </span>
+    </AppShell>
+  );
+}
+
+export function ShopOrderScreen() {
+  const lines = [
+    ["Proteína whey 2 kg Vainilla", "2 × 54,90 €", "109,80", "#f06800", "2 KG"],
+    ["Creatina 300 g Limón", "22,90 €", "22,90", "#c9a800", "300 G"],
+  ];
+  return (
+    <AppShell active="cuenta">
+      <p className={eyebrow}>Pagos</p>
+      <div className="mt-2.5 flex items-baseline justify-between">
+        <p className="font-display text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Octubre 2026</p>
+        <p className="text-[9px] opacity-60">132,70 €</p>
+      </div>
+      <div className="mt-1.5 rounded-lg border border-l-[3px] border-white/15 border-l-primary bg-white/[0.03]">
+        <div className="flex items-start justify-between gap-2 px-2.5 pt-2.5">
+          <span>
+            <span className="inline-flex items-center gap-1 rounded border border-primary/40 bg-primary/10 px-1.5 py-0.5 text-[8px] font-bold text-primary"><ShoppingBag className="size-2.5" aria-hidden />Tienda</span>
+            <span className="mt-1.5 flex items-center gap-1 text-[8px] opacity-80"><Store className="size-2.5 text-primary" aria-hidden />Pagado el 29 oct · web</span>
+          </span>
+          <span className="text-right">
+            <span className="block text-[12px] font-semibold leading-none">132,70<span className="ml-0.5 text-[8px] font-normal opacity-60">€</span></span>
+            <span className="mt-1 flex items-center justify-end gap-1 text-[8px] font-medium text-primary"><PackageCheck className="size-2.5" aria-hidden />Por recoger</span>
+          </span>
+        </div>
+        <ul className="mx-2.5 mt-2 divide-y divide-white/10 overflow-hidden rounded border border-white/10 bg-black/20">
+          {lines.map(([name, qty, total, color, label]) => (
+            <li key={name} className="flex items-center gap-2 px-2 py-1.5">
+              <ProductTile color={color} label={label} className="size-8 shrink-0" />
+              <span className="min-w-0 flex-1">
+                <span className="block text-[9px] leading-tight">{name}</span>
+                <span className="mt-0.5 block text-[8px] opacity-55">{qty}</span>
+              </span>
+              <span className="text-[9px] font-semibold">{total}<span className="ml-0.5 text-[7px] font-normal opacity-60">€</span></span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-2 flex items-center gap-3 border-t border-white/10 px-2.5 py-1.5 text-[8px] text-primary">
+          <span className="flex items-center gap-1 underline"><FileDown className="size-2.5" aria-hidden />Descargar factura</span>
+          <span className="flex items-center gap-1 underline"><QrCode className="size-2.5" aria-hidden />Ocultar QR</span>
+        </div>
+        <div className="border-t border-white/10 px-2.5 pb-2 pt-2.5">
+          <div className="mx-auto w-[46%]"><Qr /></div>
+          <p className="mt-1.5 text-center text-[7.5px] opacity-70">Enseña este código QR en el mostrador. Código <span className="font-bold tracking-wider text-primary">K7M2-9QX4</span></p>
+        </div>
+      </div>
+    </AppShell>
+  );
+}
+
+export function ClassesScreen() {
+  const days = [["JUE", "29"], ["VIE", "30"], ["SÁB", "31"], ["DOM", "1"], ["LUN", "2"]];
+  const sessions: [string, string, string, string, string, "ok" | "booked" | "full"][] = [
+    ["18:00", "19:00", "Spinning", "Sala 1", "Marta", "ok"],
+    ["19:00", "20:00", "Pilates", "Sala 2", "Elena", "booked"],
+    ["20:00", "21:00", "Boxeo", "Sala 1", "Raúl", "full"],
+  ];
+  const badge = {
+    ok: ["Quedan 6 plazas", "border-success text-success bg-success/10"],
+    booked: ["Reservada", "border-primary text-primary bg-primary/10"],
+    full: ["Completa", "border-destructive text-destructive bg-destructive/10"],
+  } as const;
+  return (
+    <AppShell active="inicio">
+      <p className={eyebrow}>Clases</p>
+      <div className="mt-2.5 flex gap-1.5 text-[8px]">
+        <span className="rounded bg-primary px-2.5 py-1 font-bold uppercase tracking-[0.12em] text-primary-foreground">Agenda</span>
+        <span className="rounded border border-white/25 px-2.5 py-1 font-semibold uppercase tracking-[0.12em] opacity-80">Mis reservas (1)</span>
+      </div>
+      <div className="mt-2.5 flex gap-1">
+        {days.map(([d, n], i) => (
+          <span key={d} className={cn("flex-1 rounded border py-1 text-center", i === 1 ? "border-primary bg-primary text-primary-foreground" : "border-white/20")}>
+            <span className="block text-[7px] opacity-80">{d}</span>
+            <span className="block text-[12px] font-semibold leading-tight">{n}</span>
+          </span>
+        ))}
+      </div>
+      <p className="mt-2 text-[8px] opacity-60">Viernes, 30 de octubre</p>
+      <ul className="mt-1.5 space-y-1.5">
+        {sessions.map(([from, to, title, room, who, tone]) => (
+          <li key={title} className="flex items-start gap-2.5 rounded border border-white/20 bg-white/[0.03] p-2">
+            <span className="w-9 shrink-0"><span className="block text-[11px] font-semibold leading-tight">{from}</span><span className="block text-[8px] opacity-50">{to}</span></span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-[11px] font-semibold leading-tight">{title}</span>
+              <span className="mt-0.5 flex items-center gap-2 text-[8px] opacity-60"><span className="flex items-center gap-0.5"><MapPin className="size-2.5" aria-hidden />{room}</span><span className="flex items-center gap-0.5"><UserRound className="size-2.5" aria-hidden />{who}</span></span>
+              <span className={cn("mt-1 inline-block rounded border px-1.5 py-0.5 text-[7px] font-semibold", badge[tone][1])}>{badge[tone][0]}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </AppShell>
+  );
+}
+
+/** Stylised overhead view of the door sensor: counting zone, crossing line and two people. */
+function SensorView() {
+  return (
+    <div className="relative h-[92px] overflow-hidden rounded border border-white/15 bg-gradient-to-b from-zinc-800 to-zinc-950">
+      <svg viewBox="0 0 400 92" className="absolute inset-0 h-full w-full" preserveAspectRatio="none" aria-hidden>
+        <rect x="110" y="8" width="180" height="76" rx="4" fill="none" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.9" />
+        <line x1="110" y1="46" x2="290" y2="46" stroke="hsl(var(--success))" strokeWidth="1.5" />
+        <path d="M0 80 L110 84 M400 80 L290 84" stroke="#fff" strokeWidth="1" opacity="0.15" />
+        <g fill="#f5f0e8" opacity="0.9">
+          <ellipse cx="170" cy="34" rx="12" ry="9" /><ellipse cx="170" cy="34" rx="5" ry="4" fill="#1a120b" />
+          <ellipse cx="205" cy="60" rx="12" ry="9" /><ellipse cx="205" cy="60" rx="5" ry="4" fill="#1a120b" />
+        </g>
+      </svg>
+      <span className="absolute left-2 top-1.5 rounded bg-black/60 px-1.5 py-0.5 text-[7px] font-bold uppercase tracking-[0.18em] text-primary">Puerta de entrada</span>
+    </div>
+  );
+}
+
+export function SensorPanel() {
+  const entries: [string, string, string, "ok" | "companion" | "noQr"][] = [
+    ["Lucía Fernández Ortega", "Entró una persona · 1 persona", "15:05:12", "ok"],
+    ["Hugo Medina Crespo", "Entraron varias · 2 personas", "15:02:48", "companion"],
+    ["Sin QR", "Entrada sin QR · 1 persona", "14:58:31", "noQr"],
+    ["Irene Vidal Soler", "Entró una persona · 1 persona", "14:55:07", "ok"],
+  ];
+  return (
+    <div>
+      <p className={eyebrow}>Sensor</p>
+      <div className="mt-2"><SensorView /></div>
+      <div className="mt-2 grid grid-cols-3 gap-2">
+        {[["Entradas", "18"], ["Salidas", "11"], ["Dentro (estimado)", "7"]].map(([k, v]) => (
+          <div key={k} className="rounded border border-white/15 px-2 py-1.5 text-center">
+            <p className="text-sm font-semibold leading-none">{v}</p>
+            <p className="mt-1 text-[7px] uppercase tracking-[0.14em] opacity-60">{k}</p>
+          </div>
+        ))}
+      </div>
+      <p className={cn(eyebrow, "mt-3")}>Entradas con QR</p>
+      <div className="mt-1.5 divide-y divide-white/10 rounded border border-white/12">
+        {entries.map(([name, what, at, tone]) => (
+          <div key={at} className="flex items-center gap-2.5 px-2.5 py-1.5">
+            {tone === "ok" ? <ArrowDownToLine className="size-3 shrink-0 text-primary" aria-hidden /> : <AlertCircle className="size-3 shrink-0 text-destructive" aria-hidden />}
+            <span className="min-w-0 flex-1">
+              <span className="block truncate text-[10px] font-medium">{name}</span>
+              <span className={cn("block text-[8px]", tone === "ok" ? "opacity-60" : "text-destructive")}>{what}</span>
+            </span>
+            <span className="text-[8px] tabular-nums opacity-60">{at}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
