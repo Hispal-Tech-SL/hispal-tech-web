@@ -8,7 +8,6 @@ import { useLocation } from "react-router-dom";
 import Projects from "@/components/Projects";
 // import Portfolio from '@/components/Portfolio';
 // import Team from '@/components/Team';
-import PriceComparison from "@/components/PriceComparison";
 // import Testimonials from '@/components/Testimonials';
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -34,7 +33,6 @@ const Index = () => {
         <ValueProps />
         <Services />
         <Products />
-        <PriceComparison />
         <Projects />
         {/* <Portfolio /> */}
         {/* <Testimonials /> */}

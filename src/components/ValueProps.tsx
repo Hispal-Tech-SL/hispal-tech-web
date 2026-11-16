@@ -1,4 +1,4 @@
-import { TrendingDown, Shield, Award } from "lucide-react";
+import { Target, Shield, Award } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -8,10 +8,10 @@ const ValueProps = () => {
 
   const features = [
     {
-      id: "best-price",
-      icon: TrendingDown,
-      title: t("valueProps.bestPrice.title"),
-      description: t("valueProps.bestPrice.description"),
+      id: "tailored",
+      icon: Target,
+      title: t("valueProps.tailored.title"),
+      description: t("valueProps.tailored.description"),
     },
     {
       id: "support",

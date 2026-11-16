@@ -5,23 +5,21 @@
     "projects": "Proyectos",
     "portfolio": "Portafolio",
     "team": "Equipo",
-    "prices": "Precios",
     "contact": "Contacto",
-    "requestQuote": "Solicitar presupuesto",
     "products": "Productos"
   },
   "hero": {
-    "badge": "Mejor precio garantizado",
+    "badge": "Desarrollo a medida",
     "title": "Software que impulsa",
     "subtitle": "negocios reales",
-    "description": "🚀 Transformamos tu idea en software que genera resultados: páginas web que venden, apps que enganchan, sistemas que automatizan tu negocio. Construimos soluciones robustas y escalables con tecnología de vanguardia. ¡Garantizamos el mejor precio!",
+    "description": "Transformamos tu idea en software que genera resultados: páginas web, aplicaciones y sistemas que automatizan tu negocio. Soluciones robustas y escalables, con tecnología de vanguardia y acompañamiento de principio a fin.",
     "benefits": {
       "custom": "100% personalizado",
       "fast": "Entrega rápida",
       "support": "Soporte 24/7"
     },
     "cta": {
-      "primary": "¡Quiero mi software YA!",
+      "primary": "Hablemos de tu proyecto",
       "secondary": "WhatsApp directo"
     },
     "stats": {
@@ -37,9 +35,9 @@
     }
   },
   "valueProps": {
-    "bestPrice": {
-      "title": "Mejor precio garantizado",
-      "description": "Si encuentras una propuesta similar más barata, igualamos el precio + 10% de descuento adicional."
+    "tailored": {
+      "title": "Propuesta a medida",
+      "description": "Analizamos tu caso y te presentamos una propuesta ajustada a tus objetivos, sin soluciones genéricas."
     },
     "support": {
       "title": "Soporte dedicado 24/7",
@@ -51,7 +49,7 @@
     }
   },
   "services": {
-    "description": "Ofrecemos servicios de desarrollo web y aplicaciones personalizadas con el mejor precio garantizado del mercado.",
+    "description": "Desarrollo web, aplicaciones y sistemas a medida para empresas que buscan resultados.",
     "cta": {
       "title": "¿No encuentras lo que buscas?",
       "description": "Contamos con soluciones personalizadas para cualquier necesidad tecnológica. Cuéntanos tu proyecto y te daremos la mejor propuesta.",
@@ -67,9 +65,7 @@
           "Optimización SEO",
           "Landing pages",
           "Hosting incluido"
-        ],
-        "price": "50€",
-        "originalPrice": "500€"
+        ]
       },
       "web": {
         "title": "Aplicación web",
@@ -79,9 +75,7 @@
           "Optimización SEO",
           "Panel de administración",
           "Base de datos incluida"
-        ],
-        "price": "500€",
-        "originalPrice": "1.500€"
+        ]
       },
       "ecommerce": {
         "title": "E-commerce",
@@ -91,9 +85,7 @@
           "Gestión de stock",
           "Panel de pedidos",
           "Multi-idioma"
-        ],
-        "price": "800€",
-        "originalPrice": "1.200€"
+        ]
       },
       "mobile": {
         "title": "Aplicaciones móviles",
@@ -103,9 +95,7 @@
           "Diseño intuitivo",
           "Notificaciones push",
           "Sincronización offline"
-        ],
-        "price": "1.300€",
-        "originalPrice": "2.000€"
+        ]
       },
       "systems": {
         "title": "Sistemas empresariales",
@@ -115,9 +105,7 @@
           "Reportes avanzados",
           "Integración de APIs",
           "Base de datos segura"
-        ],
-        "price": "2.500€",
-        "originalPrice": "4.000€"
+        ]
       },
       "integration": {
         "title": "Integraciones y APIs",
@@ -127,9 +115,7 @@
           "Webhooks",
           "Sincronización automática",
           "Documentación completa"
-        ],
-        "price": "350€",
-        "originalPrice": "800€"
+        ]
       },
       "custom": {
         "title": "Soluciones a medida",
@@ -139,11 +125,10 @@
           "Arquitectura escalable",
           "I+D personalizado",
           "Soporte prioritario"
-        ],
-        "price": "Consultar",
-        "originalPrice": ""
+        ]
       }
-    }
+    },
+    "consult": "Consultar"
   },
   "products": {
     "eyebrow": "Productos",
@@ -233,70 +218,22 @@
       }
     }
   },
-  "prices": {
-    "title": "Comparación de precios",
-    "subtitle": "El mejor precio garantizado",
-    "description": "Compara nuestros precios con la competencia. Garantizamos ser más económicos o igualamos el precio.",
-    "guarantee": "Garantía de mejor precio",
-    "guaranteeDescription": "Si encuentras un precio más bajo, lo igualamos y te damos un 10% de descuento adicional.",
-    "cta": {
-      "title": "¿Necesitas un presupuesto personalizado?",
-      "description": "Cada proyecto es único. Contáctanos para una cotización adaptada a tus necesidades específicas.",
-      "primary": "Solicitar presupuesto",
-      "secondary": "Ver servicios"
-    },
-    "comparison": {
-      "description": "Comparamos nuestros precios y calidad con cualquier competidor. El resultado siempre es el mismo: Hispal Tech gana.",
-      "competitor": {
-        "badge": "La competencia",
-        "title": "Freelance y agencias",
-        "subtitle": "Lo que suele pasar con otros proveedores",
-        "startingAt": "Desde €2.500+",
-        "priceSubtext": "precio inicial típico",
-        "items": [
-          "Precios desde €2.500",
-          "Calidad variable o sin garantía",
-          "Soporte limitado en horario comercial",
-          "Plazos largos e imprecisos",
-          "Comunicación escasa durante el proyecto"
-        ]
-      },
-      "hispaltech": {
-        "badge": "Hispal Tech",
-        "title": "Equipo tech experto",
-        "subtitle": "Lo que obtienes trabajando con nosotros",
-        "startingAt": "Desde €50",
-        "priceSubtext": "precio más bajo garantizado",
-        "items": [
-          "Precios desde €50 — los más bajos del mercado",
-          "Calidad premium garantizada en cada entrega",
-          "Soporte 24/7 dedicado siempre disponible",
-          "Entregas rápidas con plazos claros",
-          "Comunicación constante y transparente"
-        ],
-        "cta": "Quiero este precio →",
-        "ctaSubtext": "Sin compromiso. Presupuesto en menos de 2 h"
-      },
-      "footer": "Si encuentras una propuesta similar más barata, igualamos el precio y añadimos un 10% de descuento adicional."
-    }
-  },
   "testimonials": {
     "title": "Lo que dicen nuestros clientes",
     "subtitle": "Testimonios reales",
     "description": "La satisfacción de nuestros clientes es nuestra mejor carta de presentación."
   },
   "contact": {
-    "description": "Cuéntanos tu idea y te enviaremos una propuesta personalizada con el mejor precio garantizado en menos de 2 horas.",
+    "description": "Cuéntanos tu proyecto y te responderemos con una propuesta personalizada en un plazo máximo de 24 horas.",
     "form": {
-      "title": "Solicitar presupuesto gratuito",
-      "description": "Completa el formulario y recibe una cotización personalizada en menos de 2 horas",
+      "title": "Hablemos de tu proyecto",
+      "description": "Rellena el formulario y te responderemos con una propuesta personalizada en un plazo máximo de 24 horas",
       "fields": {
         "name": "Nombre completo",
         "email": "Email",
         "phone": "Teléfono",
         "company": "Empresa",
         "project": "Tipo de proyecto",
-        "budget": "Presupuesto aproximado",
         "timeline": "¿Cuándo necesitas el proyecto?",
         "description": "Descripción del proyecto"
       },
@@ -309,23 +246,15 @@
         "integration": "Integración/API",
         "other": "Otro"
       },
-      "budgetRanges": {
-        "50-500": "€50 - €500",
-        "500-1000": "€500 - €1,000",
-        "1000-2500": "€1,000 - €2,500",
-        "2500-5000": "€2,500 - €5,000",
-        "5000+": "Más de €5,000",
-        "undefined": "No estoy seguro"
-      },
       "timelineOptions": {
         "urgent": "Lo antes posible",
         "month": "En un mes",
         "quarter": "En 2-3 meses",
         "flexible": "Sin prisa"
       },
-      "newsletter": "Quiero recibir consejos y ofertas especiales por email",
+      "newsletter": "Quiero recibir novedades y contenidos sobre tecnología por email",
       "privacyPolicy": "He leído y acepto la política de privacidad y el tratamiento de mis datos personales según el RGPD.",
-      "submit": "Solicitar presupuesto gratuito",
+      "submit": "Enviar consulta",
       "submitting": "Enviando...",
       "guarantee": "Respuesta garantizada en 24 horas"
     },
@@ -363,7 +292,7 @@
   "footer": {
     "newsletter": {
       "title": "Mantente al día con las últimas tendencias tech",
-      "description": "Recibe consejos, ofertas especiales y novedades sobre desarrollo web y tecnología. Sin spam, solo contenido valioso.",
+      "description": "Recibe novedades y contenidos sobre desarrollo web y tecnología. Sin spam, solo contenido valioso.",
       "placeholder": "tu@email.com",
       "subscribe": "Suscribirme",
       "subscribers": "Más de 500 profesionales ya reciben nuestro newsletter"
@@ -390,7 +319,7 @@
       "gdpr": "GDPR"
     },
     "company": {
-      "description": "Especialistas en desarrollo web y aplicaciones personalizadas. Transformamos ideas en soluciones digitales exitosas con el mejor precio garantizado.",
+      "description": "Especialistas en desarrollo web y aplicaciones personalizadas. Transformamos ideas en soluciones digitales sólidas y escalables.",
       "location": "Madrid, España",
       "phone": "+34 600 000 000",
       "email": "hola@hispaltech.dev"
@@ -416,7 +345,6 @@
   },
   "sections": {
     "services": "Servicios",
-    "prices": "Precios",
     "projects": "Proyectos",
     "contact": "Contacto"
   }

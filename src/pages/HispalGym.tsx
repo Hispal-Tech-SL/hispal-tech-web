@@ -45,7 +45,7 @@ const HispalGym = () => {
     window.scrollTo(0, 0);
     const prev = document.title;
     document.title = "Hispal GYM, acceso autónomo y gestión para gimnasios sin recepción";
-    // Hispal GYM favicon while this page is open (the rest of the site keeps the Hispal Tech one)
+    // Hispal GYM favicon while this page is open (the rest of the site keeps the Hispal Network one)
     const icons = Array.from(document.querySelectorAll<HTMLLinkElement>('link[rel="icon"], link[rel="apple-touch-icon"]'));
     const original = icons.map((l) => [l, l.getAttribute("href")] as const);
     icons.forEach((l) => l.setAttribute("href", l.rel === "apple-touch-icon" ? "/hispalgym/favicon-180.png" : "/hispalgym/favicon-32.png"));

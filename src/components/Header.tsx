@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -9,7 +8,6 @@ const navLinks = [
   { id: "inicio", label: "nav.home" },
   { id: "servicios", label: "nav.services" },
   { id: "productos", label: "nav.products" },
-  { id: "precios", label: "nav.prices" },
   { id: "proyectos", label: "nav.projects" },
   { id: "contacto", label: "nav.contact" },
 ];
@@ -61,7 +59,7 @@ const Header = () => {
           <div className="flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
             <img
               src="/logoHispalTech.png"
-              alt="Hispal Tech Logo"
+              alt="Hispal Network Logo"
               className={`h-9 w-9 sm:h-10 sm:w-10 xl:h-12 xl:w-12 object-contain transition-all duration-300 ${
                 !isScrolled ? "brightness-0 invert" : ""
               }`}
@@ -69,7 +67,7 @@ const Header = () => {
             <span className={`text-xl sm:text-2xl 2xl:text-3xl font-bold transition-colors duration-300 whitespace-nowrap ${
               isScrolled ? "text-primary" : "text-white"
             }`}>
-              Hispal Tech
+              Hispal Network
             </span>
           </div>
 
@@ -90,19 +88,8 @@ const Header = () => {
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden xl:flex items-center space-x-4">
-            <Button 
-              variant={isScrolled ? "cta" : "outline"} 
-              onClick={() => scrollToSection("contacto")} 
-              className={`text-xs 2xl:text-sm uppercase tracking-wider font-semibold px-4 2xl:px-6 transition-all duration-300 ${
-                !isScrolled 
-                  ? "border-white text-white hover:bg-white hover:text-hispaltech-navy bg-transparent" 
-                  : ""
-              }`}
-            >
-              {t("nav.requestQuote")}
-            </Button>
+          {/* Language */}
+          <div className="hidden xl:flex items-center">
             <LanguageSwitcher isScrolled={isScrolled} />
           </div>
 
@@ -137,15 +124,6 @@ const Header = () => {
                   {t(link.label)}
                 </button>
               ))}
-              <div className="pt-4">
-                <Button
-                  variant="cta"
-                  onClick={() => scrollToSection("contacto")}
-                  className="w-full text-sm uppercase tracking-wider font-semibold"
-                >
-                  {t("nav.requestQuote")}
-                </Button>
-              </div>
             </div>
           </div>
         )}

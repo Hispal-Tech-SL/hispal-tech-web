@@ -13,11 +13,11 @@ const Contacto = () => {
         <div className="flex items-center space-x-3">
           <img
             src="/logoHispalTech.png"
-            alt="Hispal Tech Logo"
+            alt="Hispal Network Logo"
             className="h-12 w-12 object-contain"
           />
           <span className="text-3xl font-bold text-primary">
-            Hispal Tech
+            Hispal Network
           </span>
         </div>
       </header>

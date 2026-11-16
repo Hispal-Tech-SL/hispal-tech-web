@@ -41,8 +41,6 @@ const Services = () => {
     features:
       (t(`services.items.${service.id}.features`) as unknown as string[]) ||
       service.features,
-    price: t(`services.items.${service.id}.price`),
-    originalPrice: t(`services.items.${service.id}.originalPrice`),
     icon: iconMap[service.icon as keyof typeof iconMap],
   }));
 
@@ -84,28 +82,9 @@ const Services = () => {
                 className="reveal group bg-white border border-hispaltech-blue/10 shadow-lg hover:shadow-hispaltech transition-all duration-300 md:hover:scale-[1.02]"
               >
                 <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between gap-2 mb-4 flex-wrap">
+                  <div className="mb-4">
                     <div className="w-12 h-12 flex-shrink-0 bg-hispaltech-blue/10 rounded-lg flex items-center justify-center group-hover:bg-hispaltech-blue group-hover:text-white transition-colors">
                       <IconComponent className="h-6 w-6 text-hispaltech-blue group-hover:text-white" />
-                    </div>
-                    <div className="text-right min-w-0 overflow-hidden">
-                      <div className="flex flex-wrap items-baseline justify-end gap-2">
-                        {service.originalPrice && service.id !== "custom" && (
-                          <span className="text-sm text-muted-foreground line-through">
-                            {service.originalPrice}
-                          </span>
-                        )}
-                        <div className="flex items-baseline gap-1">
-                          {service.id !== "custom" && (
-                            <span className="text-sm font-bold text-hispaltech-blue">
-                              {t("common.from")}
-                            </span>
-                          )}
-                          <span className="text-2xl font-bold text-hispaltech-blue">
-                            {service.price}
-                          </span>
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <CardTitle className="text-xl text-primary">
@@ -136,7 +115,7 @@ const Services = () => {
                     className="w-full group border-hispaltech-blue text-hispaltech-blue hover:bg-hispaltech-blue hover:text-white"
                     onClick={() => scrollToSection("contacto", service.id)}
                   >
-                    {t("nav.requestQuote")}
+                    {t("services.consult")}
                     <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>

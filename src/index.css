@@ -4,11 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hispal Tech Design System - Professional & Tech-focused */
+/* Hispal Network Design System - Professional & Tech-focused */
 
 @layer base {
   :root {
-    /* Hispal Tech Brand Colors */
+    /* Hispal Network Brand Colors */
     --hispaltech-navy: 210 93% 16%;           /* #0A2540 */
     --hispaltech-blue: 210 100% 45%;         /* #0080ff - Corporate blue from logo */
     --hispaltech-light-blue: 210 100% 60%;   /* Lighter blue variant for highlights */
@@ -24,13 +24,13 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 93% 16%;
 
-    --primary: 210 93% 16%;                   /* Hispal Tech navy */
+    --primary: 210 93% 16%;                   /* Hispal Network navy */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 20% 98%;
     --secondary-foreground: 210 93% 16%;
 
-    --accent: 210 100% 45%;                   /* Hispal Tech blue */
+    --accent: 210 100% 45%;                   /* Hispal Network blue */
     --accent-foreground: 0 0% 100%;
 
     --success: 210 100% 45%;                  /* Replacing green with corporate blue */
@@ -48,7 +48,7 @@
 
     --radius: 0.5rem;
 
-    /* Hispal Tech Gradients */
+    /* Hispal Network Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--hispaltech-navy)), hsl(var(--hispaltech-dark-navy)));
     --gradient-success: linear-gradient(135deg, hsl(var(--hispaltech-blue)), hsl(var(--hispaltech-light-blue)));
     --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(var(--hispaltech-navy)) 100%);
@@ -97,7 +97,7 @@
 }
 
 @layer components {
-  /* Hispal Tech Hero Styles */
+  /* Hispal Network Hero Styles */
   .hero-gradient {
     background: var(--gradient-hero);
   }
