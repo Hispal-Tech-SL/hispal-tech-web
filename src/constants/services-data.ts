@@ -12,8 +12,6 @@ export const SERVICES_DATA = [
       "Landing pages",
       "Hosting incluido",
     ],
-    price: "Desde 50€",
-    originalPrice: "500€",
   },
   {
     id: "web",
@@ -27,8 +25,6 @@ export const SERVICES_DATA = [
       "Panel de administración",
       "Base de datos incluida",
     ],
-    price: "Desde 500€",
-    originalPrice: "1.500€",
   },
   {
     id: "mobile",
@@ -42,8 +38,6 @@ export const SERVICES_DATA = [
       "Notificaciones push",
       "Sincronización offline",
     ],
-    price: "Desde 1.300€",
-    originalPrice: "2.000€",
   },
   {
     id: "systems",
@@ -57,8 +51,6 @@ export const SERVICES_DATA = [
       "Integración de APIs",
       "Base de datos segura",
     ],
-    price: "Desde 2.500€",
-    originalPrice: "4.000€",
   },
   {
     id: "integration",
@@ -72,8 +64,6 @@ export const SERVICES_DATA = [
       "Sincronización automática",
       "Documentación completa",
     ],
-    price: "Desde 350€",
-    originalPrice: "800€",
   },
   {
     id: "custom",
@@ -87,7 +77,5 @@ export const SERVICES_DATA = [
       "I+D personalizado",
       "Soporte prioritario",
     ],
-    price: "Consultar",
-    originalPrice: "",
   },
 ];
