@@ -20,7 +20,6 @@ const Footer = () => {
   const quickLinks = [
     { name: t("nav.home"), href: "#inicio" },
     { name: t("nav.services"), href: "#servicios" },
-    { name: t("nav.prices"), href: "#precios" },
     { name: t("nav.projects"), href: "#proyectos" },
     // { name: t("nav.portfolio"), href: "#portafolio" },
     // { name: t("nav.team"), href: "#equipo" },
@@ -87,10 +86,10 @@ const Footer = () => {
             <div className="flex items-center space-x-2">
               <img
                 src="/logoHispalTech.png"
-                alt="Hispal Tech Logo"
+                alt="Hispal Network Logo"
                 className="h-8 w-8 object-contain brightness-0 invert"
               />
-              <span className="text-2xl font-bold">Hispal Tech</span>
+              <span className="text-2xl font-bold">Hispal Network</span>
             </div>
 
             <p className="text-white/80 text-sm leading-relaxed">
@@ -200,7 +199,7 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="py-6 flex justify-center items-center text-center">
           <div className="text-sm text-white/80">
-            © {currentYear} Hispal Tech. {t("footer.bottom.copyright")}
+            © {currentYear} Hispal Network. {t("footer.bottom.copyright")}
           </div>
         </div>
       </div>

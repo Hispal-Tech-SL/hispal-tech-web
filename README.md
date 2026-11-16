@@ -1,6 +1,6 @@
-# Hispal Tech S.L - Soluciones a Medida
+# Hispal Network S.L - Soluciones a Medida
 
-Sitio web de Hispal Tech, especialistas en desarrollo web y aplicaciones personalizadas.
+Sitio web de Hispal Network, especialistas en desarrollo web y aplicaciones personalizadas.
 
 ## Desarrollo
 

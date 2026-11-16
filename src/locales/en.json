@@ -5,23 +5,21 @@
     "projects": "Projects",
     "portfolio": "Portfolio",
     "team": "Team",
-    "prices": "Prices",
     "contact": "Contact",
-    "requestQuote": "Request quote",
     "products": "Products"
   },
   "hero": {
-    "badge": "Best price guaranteed",
+    "badge": "Custom development",
     "title": "Software that drives",
     "subtitle": "real businesses",
-    "description": "🚀 We transform your idea into software that delivers results: websites that sell, apps that engage, systems that automate your business. We build robust and scalable solutions with cutting-edge technology. We guarantee the best price!",
+    "description": "We turn your idea into software that delivers results: websites, applications and systems that automate your business. Robust, scalable solutions built with cutting-edge technology and support from start to finish.",
     "benefits": {
       "custom": "100% Custom",
       "fast": "Fast delivery",
       "support": "24/7 support"
     },
     "cta": {
-      "primary": "I want my software NOW!",
+      "primary": "Let's talk about your project",
       "secondary": "Direct WhatsApp"
     },
     "stats": {
@@ -37,9 +35,9 @@
     }
   },
   "valueProps": {
-    "bestPrice": {
-      "title": "Best price guaranteed",
-      "description": "If you find a similar cheaper proposal, we match the price + 10% additional discount."
+    "tailored": {
+      "title": "Tailored proposal",
+      "description": "We analyse your case and present a proposal fitted to your goals, with no generic solutions."
     },
     "support": {
       "title": "24/7 dedicated support",
@@ -51,7 +49,7 @@
     }
   },
   "services": {
-    "description": "We offer custom web development and application services with the best guaranteed price in the market.",
+    "description": "Custom web development, applications and systems for companies that want results.",
     "cta": {
       "title": "Can't find what you're looking for?",
       "description": "We have custom solutions for any technological need. Tell us about your project and we'll give you the best proposal.",
@@ -67,9 +65,7 @@
           "SEO optimization",
           "Landing pages",
           "Hosting included"
-        ],
-        "price": "€50",
-        "originalPrice": "€500"
+        ]
       },
       "web": {
         "title": "Web application",
@@ -79,9 +75,7 @@
           "SEO optimization",
           "Admin panel",
           "Database included"
-        ],
-        "price": "€500",
-        "originalPrice": "€1,500"
+        ]
       },
       "ecommerce": {
         "title": "E-commerce",
@@ -91,9 +85,7 @@
           "Inventory management",
           "Order panel",
           "Multi-language"
-        ],
-        "price": "€800",
-        "originalPrice": "€1,200"
+        ]
       },
       "mobile": {
         "title": "Mobile apps",
@@ -103,9 +95,7 @@
           "Intuitive design",
           "Push notifications",
           "Offline sync"
-        ],
-        "price": "€1,300",
-        "originalPrice": "€2,000"
+        ]
       },
       "systems": {
         "title": "Enterprise systems",
@@ -115,9 +105,7 @@
           "Advanced reporting",
           "API integration",
           "Secure database"
-        ],
-        "price": "€2,500",
-        "originalPrice": "€4,000"
+        ]
       },
       "integration": {
         "title": "Integrations & APIs",
@@ -127,9 +115,7 @@
           "Webhooks",
           "Auto sync",
           "Full documentation"
-        ],
-        "price": "€350",
-        "originalPrice": "€800"
+        ]
       },
       "custom": {
         "title": "Custom solutions",
@@ -139,11 +125,10 @@
           "Scalable architecture",
           "Custom R&D",
           "Priority support"
-        ],
-        "price": "Quote",
-        "originalPrice": ""
+        ]
       }
-    }
+    },
+    "consult": "Enquire"
   },
   "products": {
     "eyebrow": "Products",
@@ -233,70 +218,22 @@
       }
     }
   },
-  "prices": {
-    "title": "Price comparison",
-    "subtitle": "Best price guaranteed",
-    "description": "Compare our prices with the competition. We guarantee to be more economical or match the price.",
-    "guarantee": "Best price guarantee",
-    "guaranteeDescription": "If you find a lower price, we match it and give you an additional 10% discount.",
-    "cta": {
-      "title": "Need a custom quote?",
-      "description": "Every project is unique. Contact us for a quote tailored to your specific needs.",
-      "primary": "Request quote",
-      "secondary": "View services"
-    },
-    "comparison": {
-      "description": "We compare our prices and quality with any competitor. The result is always the same: Hispal Tech wins.",
-      "competitor": {
-        "badge": "The competition",
-        "title": "Freelance & agency",
-        "subtitle": "What usually happens with other providers",
-        "startingAt": "From €2,500+",
-        "priceSubtext": "typical starting price",
-        "items": [
-          "Starting at €2,500",
-          "Variable quality or no guarantee",
-          "Limited business hours support",
-          "Long and imprecise deadlines",
-          "Scarce communication during project"
-        ]
-      },
-      "hispaltech": {
-        "badge": "Hispal Tech",
-        "title": "Expert tech team",
-        "subtitle": "What you get working with us",
-        "startingAt": "From €50",
-        "priceSubtext": "lowest price guaranteed",
-        "items": [
-          "Starting at €50 — lowest in the market",
-          "Premium quality guaranteed in every delivery",
-          "Dedicated 24/7 support always available",
-          "Fast deliveries with clear deadlines",
-          "Constant and transparent communication"
-        ],
-        "cta": "I want this price →",
-        "ctaSubtext": "No commitment. Quote in less than 2 h"
-      },
-      "footer": "If you find a similar proposal for less, we match the price and add an extra 10% discount."
-    }
-  },
   "testimonials": {
     "title": "What our clients say",
     "subtitle": "Real testimonials",
     "description": "Our clients' satisfaction is our best business card."
   },
   "contact": {
-    "description": "Tell us your idea and we'll send you a personalized proposal with the best guaranteed price in less than 2 hours.",
+    "description": "Tell us about your project and we will reply with a personalised proposal within 24 hours.",
     "form": {
-      "title": "Request free quote",
-      "description": "Complete the form and receive a personalized quote in less than 2 hours",
+      "title": "Let's talk about your project",
+      "description": "Fill in the form and we will reply with a personalised proposal within 24 hours",
       "fields": {
         "name": "Full name",
         "email": "Email",
         "phone": "Phone",
         "company": "Company",
         "project": "Project type",
-        "budget": "Approximate budget",
         "timeline": "When do you need the project?",
         "description": "Project description"
       },
@@ -309,25 +246,17 @@
         "integration": "API integration",
         "other": "Other"
       },
-      "budgetRanges": {
-        "50-500": "€50 - €500",
-        "legal": "Legal & social",
-        "1000-2500": "€1,000 - €2,500",
-        "2500-5000": "€2,500 - €5,000",
-        "5000+": "More than €5,000",
-        "undefined": "I'm not sure"
-      },
       "timelineOptions": {
         "urgent": "As soon as possible",
         "month": "In a month",
         "quarter": "In 2-3 months",
         "flexible": "No rush"
       },
-      "newsletter": "I want to receive tips and special offers by email",
+      "newsletter": "I want to receive news and technology content by email",
       "privacyPolicy": "I have read and agree to the privacy policy and the processing of my personal data according to the GDPR.",
-      "submit": "Request free quote",
+      "submit": "Send enquiry",
       "submitting": "Sending...",
-      "guarantee": "Guaranteed response in less than 2 hours"
+      "guarantee": "Response guaranteed within 24 hours"
     },
     "directContact": {
       "title": "Direct contact",
@@ -364,7 +293,7 @@
   "footer": {
     "newsletter": {
       "title": "Stay up to date with the latest tech trends",
-      "description": "Receive tips, special offers and news about web development and technology. No spam, just valuable content.",
+      "description": "Receive news and content about web development and technology. No spam, just valuable content.",
       "placeholder": "your@email.com",
       "subscribe": "Subscribe",
       "subscribers": "More than 500 professionals already receive our newsletter"
@@ -391,7 +320,7 @@
       "gdpr": "GDPR"
     },
     "company": {
-      "description": "Specialists in web development and custom applications. We transform ideas into successful digital solutions with the best guaranteed price.",
+      "description": "Specialists in web development and custom applications. We turn ideas into solid, scalable digital solutions.",
       "location": "Madrid, Spain",
       "phone": "+34 600 000 000",
       "email": "hola@hispaltech.dev"
@@ -417,7 +346,6 @@
   },
   "sections": {
     "services": "Services",
-    "prices": "Prices",
     "projects": "Projects",
     "contact": "Contact"
   }

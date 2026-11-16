@@ -47,7 +47,6 @@ const Contact = () => {
     phone: "",
     company: "",
     project: "",
-    budget: "",
     description: "",
     timeline: "",
     newsletter: false,
@@ -80,7 +79,6 @@ const Contact = () => {
           phone: "",
           company: "",
           project: "",
-          budget: "",
           description: "",
           timeline: "",
           newsletter: false,
@@ -259,43 +257,6 @@ const Contact = () => {
                           </SelectItem>
                           <SelectItem value="other">
                             {t("contact.form.projectTypes.other")}
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="budget">
-                        {t("contact.form.fields.budget")}
-                      </Label>
-                      <Select
-                        value={formData.budget}
-                        onValueChange={(value) =>
-                          handleInputChange("budget", value)
-                        }
-                      >
-                        <SelectTrigger>
-                          <SelectValue
-                            placeholder={t("contact.form.fields.budget")}
-                          />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="50-500">
-                            {t("contact.form.budgetRanges.50-500")}
-                          </SelectItem>
-                          <SelectItem value="500-1000">
-                            {t("contact.form.budgetRanges.500-1000")}
-                          </SelectItem>
-                          <SelectItem value="1000-2500">
-                            {t("contact.form.budgetRanges.1000-2500")}
-                          </SelectItem>
-                          <SelectItem value="2500-5000">
-                            {t("contact.form.budgetRanges.2500-5000")}
-                          </SelectItem>
-                          <SelectItem value="5000+">
-                            {t("contact.form.budgetRanges.5000+")}
-                          </SelectItem>
-                          <SelectItem value="undefined">
-                            {t("contact.form.budgetRanges.undefined")}
                           </SelectItem>
                         </SelectContent>
                       </Select>
