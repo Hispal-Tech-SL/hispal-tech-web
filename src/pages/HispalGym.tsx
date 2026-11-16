@@ -1,9 +1,6 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
-  CreditCard, Layers, Smartphone, QrCode, ArrowRight, Dumbbell, CalendarDays, Bell,
-  LayoutDashboard, ShoppingBag, Lock, Landmark, DatabaseBackup, IdCard, CheckCircle2, UserPlus, LogIn,
-  ScanFace, Users, ShieldCheck,
-  UserCog, Lightbulb, Wrench, Music2, KeyRound, DoorOpen,
+  CreditCard, QrCode, ArrowRight, CalendarDays, UserCog, LayoutDashboard, ShoppingBag, Lock, Landmark, DatabaseBackup, IdCard, CheckCircle2, ScanFace, Users, KeyRound, Lightbulb, Wrench, Layers, Smartphone, ShieldCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,8 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
-  Phone, PanelFrame, QrScreen, MembershipScreen, RoutinesScreen, RoutineDetailScreen, TariffsScreen,
-  CashPanel, PaymentsPanel, AccessPanel, CustomerPanel, DomoticaScreen, TracePanel, ShopScreen, ShopOrderScreen, ClassesScreen, SensorPanel,
+  Phone, PanelFrame, QrScreen, MembershipScreen, TariffsScreen, RoutineDetailScreen, ShopScreen, ShopOrderScreen, ClassesScreen,
+  PaymentsPanel, DomoticaScreen, TracePanel,
 } from "@/components/hispalgym/Mockups";
 import { AccessScene, SensorAlarm, OpeningHours, GymFacade } from "@/components/hispalgym/Illustrations";
 import { GymHeader, GymFooter } from "@/components/hispalgym/GymChrome";
@@ -29,14 +26,15 @@ function useReveal() {
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="text-sm font-bold uppercase tracking-widest text-primary">{children}</p>;
+  return <p className="text-xs font-bold uppercase tracking-widest text-primary sm:text-sm">{children}</p>;
 }
+
 function SectionHead({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: string }) {
   return (
     <div className="reveal mx-auto max-w-2xl text-center">
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">{title}</h2>
-      {sub && <p className="mt-4 text-muted-foreground">{sub}</p>}
+      <h2 className="mt-3 text-2xl font-extrabold sm:text-3xl md:text-4xl">{title}</h2>
+      {sub && <p className="mt-4 text-muted-foreground [.bg-ink_&]:text-ink-foreground/75">{sub}</p>}
     </div>
   );
 }
@@ -63,21 +61,17 @@ const HispalGym = () => {
       <main id="main">
         <Hero />
         <Values />
-        <CostBand />
-        <Showcase />
-        <Profiles />
-        <HowItWorks />
-        <Spotlights />
-        <ThreeLayers />
+        <Access />
         <Comparison />
-        <Packs />
+        <CostBand />
+        <Features />
+        <Profiles />
         <Custom />
         <CaseStudy />
-        <Roadmap />
-        <AllInOne />
+        <Packs />
         <Trust />
-        <Contact />
         <Faq />
+        <Contact />
       </main>
       <GymFooter />
     </div>
@@ -90,25 +84,162 @@ function Hero() {
   return (
     <section id="producto" className="relative overflow-hidden bg-ink text-ink-foreground">
       <div className="absolute inset-0 bg-hero-glow opacity-70" aria-hidden />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-[1.1fr_1fr] md:py-24">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-4 pb-12 pt-9 md:grid-cols-[1.1fr_1fr] md:gap-12 md:py-24">
         <div>
-          <Eyebrow>Acceso autónomo y gestión para gimnasios</Eyebrow>
-          <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">Abre tu gimnasio las horas que quieras, <span className="text-primary">sin nadie en recepción</span>.</h1>
-          <p className="mt-5 max-w-xl text-lg opacity-80">Hispal GYM es el software que abre y controla la puerta de tu gimnasio con el móvil del socio, y gestiona todo lo demás: cobros, tienda, clases, rutinas, equipo y cuentas. Cada centro elige cómo entra su gente: solo QR, solo cara o QR y cara. Lo recomendado para la máxima seguridad es QR + cara + sensor de conteo.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="font-semibold shadow-glow"><a href="#contacto">Solicitar demo</a></Button>
-            <Button asChild size="lg" variant="outline" className="border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground"><a href="#como-funciona">Ver cómo funciona <ArrowRight /></a></Button>
+          <Eyebrow>Acceso autónomo para gimnasios</Eyebrow>
+          <h1 className="mt-3 text-[2rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">Abre tu gimnasio las horas que quieras, <span className="text-primary">sin nadie en recepción</span>.</h1>
+          <p className="mt-4 max-w-xl text-base opacity-80 md:text-lg">El software que abre y controla la puerta con el móvil del socio, y gestiona los cobros, la tienda, las clases y tu equipo.</p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="lg" className="w-full font-semibold shadow-glow sm:w-auto"><a href="#contacto">Solicitar demo</a></Button>
+            <Button asChild size="lg" variant="outline" className="w-full border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground sm:w-auto"><a href="#acceso">Ver cómo funciona <ArrowRight /></a></Button>
           </div>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-3">
+          <ul className="mt-6 flex flex-wrap gap-2">
             {[[CreditCard, "Cobros online"], [QrCode, "QR, cara y sensor"], [LayoutDashboard, "Panel de gestión"]].map(([I, t]) => {
               const Icon = I as typeof CreditCard;
-              return <li key={t as string} className="flex items-center gap-2.5 text-sm font-semibold"><span className="grid size-9 place-items-center rounded-lg bg-primary/15 text-primary"><Icon className="size-4" aria-hidden /></span>{t as string}</li>;
+              return <li key={t as string} className="flex items-center gap-2 rounded-full border border-ink-foreground/15 bg-ink-foreground/5 py-1.5 pl-2 pr-3.5 text-xs font-semibold sm:text-sm"><Icon className="size-4 text-primary" aria-hidden />{t as string}</li>;
             })}
           </ul>
         </div>
-        <div className="relative pb-10 md:pb-14">
+        <div className="relative mx-auto w-full max-w-md md:max-w-none md:pb-14">
           <GymFacade className="rounded-3xl shadow-device" />
           <div className="pointer-events-none absolute -bottom-2 -right-2 hidden origin-bottom-right rotate-3 scale-[0.5] md:block"><Phone label="App del socio con el código QR de acceso al gimnasio"><QrScreen /></Phone></div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Values() {
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+      <SectionHead eyebrow="Todo en un solo sistema" title="Cobra. Abre. Vende. Sin nadie en la puerta." sub="Control total de quién entra y quién sale, con cámara y sensor de conteo, y alarma si pasa más de una persona." />
+      <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-3 md:gap-6">
+        <IconCard icon={CreditCard} title="Cobra" text="Tarjeta, Bizum y efectivo. Tus socios se apuntan y pagan desde el móvil, a cualquier hora, y todo queda registrado." />
+        <IconCard icon={QrCode} title="Abre" text="QR que cambia cada 4 segundos, cara que confirma al titular y un sensor que cuenta quién cruza." />
+        <IconCard icon={ShoppingBag} title="Vende" text="Una tienda dentro de la app: el socio compra y paga cuando quiere, con su factura, y recoge con su QR." />
+      </div>
+    </section>
+  );
+}
+
+function Access() {
+  const layers = [
+    [QrCode, "1 · Identificación (QR)", "Un código QR dinámico en el móvil del socio: cambia cada 4 segundos y solo funciona en un dispositivo. La membresía se comprueba en cada entrada."],
+    [ScanFace, "2 · Verificación facial", "Tras el QR, el terminal confirma que quien lo presenta es su titular, con protección contra fotos y vídeos. Un QR prestado deja de valer."],
+    [Users, "3 · Sensor de conteo", "Un sensor sobre la puerta cuenta cada persona que cruza. Una identificación, una persona: si pasa más de una, salta una alarma."],
+  ] as const;
+  return (
+    <section id="acceso" className="bg-ink py-14 text-ink-foreground md:py-20">
+      <div className="mx-auto max-w-6xl px-4">
+        <SectionHead eyebrow="Acceso autónomo" title="Tu puerta sabe quién entra, quién sale y cuántos pasan" sub="Sin tarjetas físicas y sin torno obligatorio: se instala sobre tu puerta. Si prefieres torno, también te lo suministramos e integramos." />
+        <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-3 md:gap-6">
+          {layers.map(([Icon, t, d]) => (
+            <div key={t} className="reveal rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 md:p-6">
+              <Icon className="size-7 text-primary" aria-hidden />
+              <h3 className="mt-3 text-lg font-bold">{t}</h3>
+              <p className="mt-2 text-sm opacity-80">{d}</p>
+            </div>
+          ))}
+        </div>
+        <div className="reveal mt-12 grid items-center gap-8 md:mt-16 md:grid-cols-2 md:gap-12">
+          <AccessScene className="rounded-2xl" />
+          <div>
+            <Eyebrow>Tú eliges</Eyebrow>
+            <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">Cada centro decide cómo entra su gente</h3>
+            <ul className="mt-5 space-y-3 text-sm">
+              {[[QrCode, "Solo QR"], [ScanFace, "Solo cara"], [ShieldCheck, "QR + cara: máxima seguridad"], [KeyRound, "PIN o tarjeta, opcional según el centro"]].map(([I, t]) => {
+                const Icon = I as typeof QrCode;
+                return <li key={t as string} className="flex items-center gap-3"><Icon className="size-4 shrink-0 text-primary" aria-hidden />{t as string}</li>;
+              })}
+            </ul>
+            <p className="mt-5 rounded-xl bg-primary/15 p-3 text-sm font-semibold">Lo recomendado: QR + cara + sensor de conteo.</p>
+          </div>
+        </div>
+        <div className="reveal mt-12 grid items-center gap-8 md:mt-16 md:grid-cols-2 md:gap-12">
+          <div className="md:order-2"><SensorAlarm className="rounded-2xl" /></div>
+          <div>
+            <Eyebrow>Contador de personas</Eyebrow>
+            <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">Una identificación, una persona</h3>
+            <p className="mt-3 opacity-80">Un sensor sobre la puerta cuenta a cada persona que cruza y lo cruza con el código QR leído. Es la alternativa más económica a un torno.</p>
+            <ul className="mt-5 space-y-3 text-sm">
+              {["Si pasa más de una por un solo acceso, salta una alarma en la aplicación y por los altavoces del local", "Sabes quién abrió, a qué hora y cuántas personas pasaron, y puedes hablar con ese socio", "Entradas, salidas y personas dentro en el panel, con las acompañadas marcadas en rojo"].map((t) => (
+                <li key={t} className="flex gap-3"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />{t}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+type Feature = { id: string; label: string; icon: typeof CreditCard; title: string; text: string; points: string[]; visual: ReactNode };
+
+function Features() {
+  const phone = (label: string, screen: ReactNode, extra = "") => <div className={extra}><Phone label={label}>{screen}</Phone></div>;
+  const items: Feature[] = [
+    { id: "cobros", label: "Cobros", icon: CreditCard, title: "Cobros y membresías, sin sorpresas", text: "No hay cobros automáticos. El socio paga cuando decide y el gimnasio sabe exactamente quién tiene acceso y hasta cuándo.",
+      points: ["Pago con tarjeta o Bizum desde el móvil, a cualquier hora", "Cada pago compra un periodo: encadénalos sin perder días o empieza más adelante", "Varios meses de una vez, hasta 12", "Cobro en mostrador, en efectivo o con datáfono, con corrección y traza"],
+      visual: <>{phone("Membresía con tarifa, fechas y días restantes", <MembershipScreen />)}{phone("Alta online con las tarifas", <TariffsScreen />, "hidden sm:block")}</> },
+    { id: "tienda", label: "Tienda", icon: ShoppingBag, title: "Tu tienda, siempre abierta", text: "Una nueva fuente de ingresos dentro de la app que ya usan tus socios, con factura y recogida con código QR.",
+      points: ["Catálogo por categorías, con marca, precio y disponibilidad que gestiona tu equipo", "Pago con tarjeta desde el móvil, y venta también en el mostrador", "Sin código QR no hay entrega: el equipo lo escanea para entregar", "Factura en PDF de cada compra y aviso al socio"],
+      visual: <>{phone("Tienda de la app con catálogo y carrito", <ShopScreen />)}{phone("Compra por recoger con su factura y código QR", <ShopOrderScreen />, "hidden sm:block")}</> },
+    { id: "clases", label: "Clases y rutinas", icon: CalendarDays, title: "Clases, rutinas y ejercicios", text: "Tus socios reservan, entrenan con rutinas guiadas y consultan un catálogo de ejercicios, todo desde la misma app.",
+      points: ["Agenda de clases y eventos con aforo, reservas y avisos al socio", "Rutinas creadas por tu equipo y asignadas a todos o a algunos", "Entrenamiento guiado con temporizador, y catálogo por grupo muscular y material", "Próximamente: lista de espera y asistencia con QR en las clases"],
+      visual: <>{phone("Agenda de clases con plazas libres", <ClassesScreen />)}{phone("Detalle de una rutina de entrenamiento", <RoutineDetailScreen />, "hidden sm:block")}</> },
+    { id: "equipo", label: "Equipo y panel", icon: UserCog, title: "Tu equipo y tu negocio, bajo control", text: "Cada cobro, venta y ficha nueva queda a nombre de quien la registró, y cada persona ve solo lo que le toca.",
+      points: ["Control de empleados: qué ha cobrado y vendido cada uno, con trazabilidad completa", "Libro de pagos: ingresos por día, mes o año, online y presencial", "Roles: el empleado cobra, pero no ve los ingresos del negocio", "Fichas de clientes, altas del equipo y avisos a los socios"],
+      visual: <div className="w-full space-y-6"><PanelFrame label="Control de empleados con cobro, venta de tienda y ficha nueva, cada uno con su autor"><TracePanel /></PanelFrame><PanelFrame label="Libro de pagos con el total ingresado y el reparto online y presencial"><PaymentsPanel /></PanelFrame></div> },
+    { id: "local", label: "Tu local", icon: Lightbulb, title: "Luces, portones, música y alarmas", text: "Controla el local desde el panel, estés donde estés.",
+      points: ["Luces del gimnasio, una a una o todas a la vez", "Portón: abrir, parar y cerrar, con su estado en vivo (dispositivos Shelly)", "Música con Spotify en los altavoces del local", "Las alarmas de acceso suenan por los mismos altavoces"],
+      visual: phone("Domótica con las luces y el portón del gimnasio", <DomoticaScreen />) },
+  ];
+  return (
+    <section id="funciones" className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+      <SectionHead eyebrow="Funciones" title="Todo lo que necesita tu gimnasio, en un solo sistema" sub="Elige una área y mira cómo se ve." />
+      <Tabs defaultValue="cobros" className="mt-8 md:mt-10">
+        <TabsList className="flex h-auto w-full justify-start gap-1 overflow-x-auto rounded-xl p-1 md:justify-center">
+          {items.map(({ id, label, icon: Icon }) => (
+            <TabsTrigger key={id} value={id} className="shrink-0 gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold"><Icon className="size-4" aria-hidden />{label}</TabsTrigger>
+          ))}
+        </TabsList>
+        {items.map((f) => (
+          <TabsContent key={f.id} value={f.id} className="mt-8 animate-in fade-in-50 md:mt-10">
+            <div className="grid items-center gap-8 md:grid-cols-[0.85fr_1.15fr] md:gap-10">
+              <div className="min-w-0">
+                <h3 className="text-2xl font-extrabold md:text-3xl">{f.title}</h3>
+                <p className="mt-3 text-muted-foreground">{f.text}</p>
+                <div className="mt-6"><Checklist items={f.points} /></div>
+                <a href="#contacto" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline">Verlo en una demo <ArrowRight className="size-4" aria-hidden /></a>
+              </div>
+              <div className="flex min-w-0 flex-wrap items-start justify-center gap-6">{f.visual}</div>
+            </div>
+          </TabsContent>
+        ))}
+      </Tabs>
+      <p className="mx-auto mt-8 max-w-xl text-center text-xs text-muted-foreground">Pantallas con datos ficticios. El nombre, el logo y los colores se adaptan a tu centro bajo proyecto.</p>
+    </section>
+  );
+}
+
+function Profiles() {
+  const roles = [
+    [Smartphone, "Socio", ["Alta y pago desde el móvil, a cualquier hora", "Su QR de acceso, y lo recupera en un móvil nuevo", "Rutinas, clases, tienda y avisos", "Solo ve sus propios datos"]],
+    [IdCard, "Empleado", ["Clientes con buscador y estado de membresía", "Cobro y venta en el mostrador", "Entrega de pedidos con el QR del socio", "Abre la puerta, pero no ve los ingresos"]],
+    [LayoutDashboard, "Propietario", ["Todo lo del empleado", "Ingresos por día, mes o año, online y presencial", "Cada cobro y venta, con quién la registró", "Altas y roles de tu equipo"]],
+  ] as const;
+  return (
+    <section className="bg-muted/60 py-14 md:py-20">
+      <div className="mx-auto max-w-6xl px-4">
+        <SectionHead eyebrow="Tres perfiles" title="Cada persona ve exactamente lo que necesita" />
+        <div className="mt-10 grid gap-5 md:grid-cols-3 md:gap-6">
+          {roles.map(([Icon, t, pts]) => (
+            <div key={t} className="reveal rounded-2xl border bg-card p-6 shadow-soft">
+              <span className="grid size-11 place-items-center rounded-xl bg-accent text-accent-foreground"><Icon className="size-5" aria-hidden /></span>
+              <h3 className="mt-4 text-xl font-bold">{t}</h3>
+              <div className="mt-4"><Checklist items={[...pts]} /></div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -126,16 +257,11 @@ function IconCard({ icon: Icon, title, text, children }: { icon: typeof CreditCa
   );
 }
 
-function Values() {
+function Checklist({ items }: { items: string[] }) {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20">
-      <SectionHead eyebrow="Todo en un solo sistema" title="Cobra. Abre. Vende. Sin nadie en la puerta." sub="Control total de quién entra y quién sale, con cámara y sensor de conteo, y alarma si pasa más de una persona." />
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
-        <IconCard icon={CreditCard} title="Cobra" text="Tarjeta, Bizum y efectivo. Tus socios se apuntan y pagan desde el móvil, a cualquier hora, y todo queda registrado." />
-        <IconCard icon={QrCode} title="Abre" text="QR que cambia cada 4 segundos, cara que confirma al titular y un sensor que cuenta quién cruza." />
-        <IconCard icon={ShoppingBag} title="Vende" text="Una tienda dentro de la app: el socio compra y paga cuando quiere, con su factura, y recoge con su QR." />
-      </div>
-    </section>
+    <ul className="space-y-3">
+      {items.map((i) => <li key={i} className="flex gap-3 text-sm"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />{i}</li>)}
+    </ul>
   );
 }
 
@@ -147,163 +273,6 @@ function CostBand() {
         <div>
           <p className="text-lg font-semibold">Horas de recepción que dejas de cubrir × lo que te cuesta cada hora = lo que ahorras cada mes. Hacemos la cuenta contigo, sin compromiso.</p>
           <Button asChild size="lg" className="mt-6 bg-[#1a120b] font-semibold text-white hover:bg-black"><a href="#contacto">Reserva una llamada</a></Button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Showcase() {
-  return (
-    <section className="bg-ink py-20 text-ink-foreground">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="La app del socio" title="Una app instalable en el móvil de tus socios" sub="Se instala desde el navegador, sin pasar por tiendas de apps. Membresía, código QR, rutinas, clases y tienda en un mismo sitio." />
-        <div className="mt-14 flex snap-x gap-8 overflow-x-auto pb-6 md:justify-center md:overflow-visible">
-          <div className="reveal snap-center shrink-0"><Phone label="Pantalla de membresía con tarifa, fechas, días restantes y botón para pagar el siguiente periodo"><MembershipScreen /></Phone></div>
-          <div className="reveal snap-center shrink-0 md:-translate-y-6"><Phone label="Pantalla del código QR de acceso al gimnasio"><QrScreen /></Phone></div>
-          <div className="reveal snap-center shrink-0"><Phone label="Lista de rutinas de entrenamiento con sus días y número de ejercicios"><RoutinesScreen /></Phone></div>
-        </div>
-        <p className="mx-auto mt-6 max-w-xl text-center text-xs opacity-60">Pantallas de la app con datos ficticios. El nombre, el logo y los colores se adaptan a tu centro bajo proyecto.</p>
-      </div>
-    </section>
-  );
-}
-
-function Checklist({ items }: { items: string[] }) {
-  return (
-    <ul className="space-y-3">
-      {items.map((i) => <li key={i} className="flex gap-3 text-sm"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />{i}</li>)}
-    </ul>
-  );
-}
-
-function Profiles() {
-  const socio = ["Alta online 24/7 y pago con tarjeta desde el móvil", "Membresía con fecha de inicio y fin, días restantes y estado", "Renovar o encadenar un periodo sin perder días, o pagar hoy y empezar más adelante", "Código QR en el móvil para entrar", "Rutinas con ejercicios, series, repeticiones y entrenamiento guiado", "Reserva de clases y eventos con plazas, y aviso si se cancelan", "Tienda de suplementación: compra con tarjeta y recoge con un código QR", "Factura en PDF de cada pago, de la membresía o de la tienda", "Buzón de avisos y notificaciones push", "Recordatorio por email antes de que venza la membresía"];
-  const empleado = ["Listado y ficha de clientes con buscador y estado de membresía", "Cobro en mostrador: efectivo o tarjeta en datáfono", "Registro de fecha de pago, periodo y quién cobró", "Corrección de pagos con traza, sin perder el histórico", "Registro de entradas con aviso de accesos sospechosos", "Pantalla del sensor: cuántas personas entran con cada código QR", "Venta de productos en el mostrador, en efectivo o con datáfono", "Entrega de pedidos escaneando el código QR del socio", "Catálogo de la tienda: marcas, precios y disponibilidad", "Clases, eventos y espacios con sus plazas", "Gestión de rutinas y asignación a los socios", "Domótica del local: luces y portones desde el panel"];
-  const propietario = ["Todo lo del empleado", "Control de empleados: cada cobro, venta y ficha nueva queda a nombre de quien la registró", "Libro de pagos: ingresos por día, semana, mes o año, con reparto online y presencial", "Roles diferenciados: el empleado no ve los ingresos", "Cada pago muestra quién lo registró", "Altas, roles y accesos de tu equipo desde el panel", "Archivar clientes duplicados o antiguos conservando su histórico"];
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-20">
-      <SectionHead eyebrow="Un sistema, tres perfiles" title="Cada persona ve exactamente lo que necesita" />
-      <Tabs defaultValue="socio" className="reveal mt-10">
-        <TabsList className="mx-auto grid h-auto w-full max-w-md grid-cols-3 rounded-xl p-1">
-          <TabsTrigger value="socio" className="rounded-lg py-2 font-semibold">Socio</TabsTrigger>
-          <TabsTrigger value="empleado" className="rounded-lg py-2 font-semibold">Empleado</TabsTrigger>
-          <TabsTrigger value="propietario" className="rounded-lg py-2 font-semibold">Propietario</TabsTrigger>
-        </TabsList>
-        <TabsContent value="socio" className="mt-10 animate-in fade-in-50">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div><h3 className="text-2xl font-bold">App web instalable en el móvil</h3><p className="mb-6 mt-2 text-muted-foreground">Todo lo que el socio necesita, sin llamar ni pasar por recepción.</p><Checklist items={socio} /></div>
-            <Phone label="App del socio con su membresía activa y los días que le quedan"><MembershipScreen /></Phone>
-          </div>
-        </TabsContent>
-        <TabsContent value="empleado" className="mt-10 animate-in fade-in-50">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div><h3 className="text-2xl font-bold">Panel de mostrador</h3><p className="mb-6 mt-2 text-muted-foreground">Clientes, cobros y accesos desde un panel que se adapta al ordenador, la tablet y el móvil.</p><Checklist items={empleado} /></div>
-            <PanelFrame label="Panel del empleado registrando un pago en mostrador, en efectivo o con tarjeta en datáfono"><CashPanel /></PanelFrame>
-          </div>
-        </TabsContent>
-        <TabsContent value="propietario" className="mt-10 animate-in fade-in-50">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div><h3 className="text-2xl font-bold">Visión completa del negocio</h3><p className="mb-6 mt-2 text-muted-foreground">Ingresos y control de lo que pasa en el gimnasio.</p><Checklist items={propietario} /></div>
-            <PanelFrame label="Libro de pagos del propietario con total ingresado y reparto entre online y presencial"><PaymentsPanel /></PanelFrame>
-          </div>
-        </TabsContent>
-      </Tabs>
-    </section>
-  );
-}
-
-function HowItWorks() {
-  const steps = [[UserPlus, "El socio se da de alta y paga desde el móvil", "A cualquier hora, con tarjeta en la pasarela bancaria Redsys."], [IdCard, "Crea su cuenta y recibe su código QR", "Tras el pago crea su contraseña y ya lo tiene en el móvil. Sin tarjetas físicas."], [LogIn, "Entra con su QR; tú lo ves en el panel", "Cada entrada concedida queda registrada con fecha y hora."]] as const;
-  return (
-    <section id="como-funciona" className="bg-muted/60 py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="Cómo funciona" title="Tres pasos, sin pasar por recepción" />
-        <ol className="mt-12 grid gap-6 md:grid-cols-3">
-          {steps.map(([Icon, t, d], i) => (
-            <li key={t} className="reveal relative rounded-2xl border bg-card p-6 shadow-soft">
-              <span className="font-display text-5xl font-extrabold text-primary/25">0{i + 1}</span>
-              <Icon className="absolute right-6 top-6 size-6 text-primary" aria-hidden />
-              <h3 className="mt-3 text-lg font-bold">{t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{d}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
-function Spotlight({ eyebrow, title, text, points, visual, flip, link }: { eyebrow: string; title: string; text: string; points: string[]; visual: ReactNode; flip?: boolean; link: string }) {
-  return (
-    <div className="reveal grid items-center gap-10 md:grid-cols-2 md:gap-16">
-      <div className={flip ? "min-w-0 md:order-2" : "min-w-0"}>{visual}</div>
-      <div className="min-w-0">
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">{title}</h3>
-        <p className="mt-3 text-muted-foreground">{text}</p>
-        <div className="mt-6"><Checklist items={points} /></div>
-        <a href="#contacto" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline">{link} <ArrowRight className="size-4" aria-hidden /></a>
-      </div>
-    </div>
-  );
-}
-
-function Spotlights() {
-  return (
-    <section id="funcionalidades" className="mx-auto max-w-6xl space-y-24 px-4 py-24">
-      <Spotlight eyebrow="Pagos y membresías" title="Sin sorpresas en el recibo" text="No hay cobros automáticos. El socio paga cuando decide, el gimnasio sabe exactamente quién tiene acceso y hasta cuándo." points={["Cada pago compra un periodo de acceso", "Encadena periodos sin perder días, o empieza más adelante", "Paga varios meses de una vez, hasta 12"]} link="Ver pagos en la demo" visual={<Phone label="Pantalla de alta online con la parrilla de tarifas, cada una con su periodo de acceso"><TariffsScreen /></Phone>} />
-      <Spotlight flip eyebrow="Control de acceso con QR" title="Tu puerta sabe quién puede entrar" text="Integrado con lectores y controladoras Kimaldi. Cada centro elige cómo entra su gente. Con membresía vigente se entra; si no, se deniega." points={["Solo QR, solo cara o QR + cara: lo eliges para cada centro", "PIN o tarjeta, opcional según el centro", "El código QR cambia cada 4 segundos y solo funciona en un dispositivo", "El socio recupera su código QR en un móvil nuevo sin pasar por recepción", "Registro de entradas con aviso de accesos sospechosos", "Verificación facial y conteo de personas en los packs Seguro y Total"]} link="Consultar hardware compatible" visual={<PanelFrame label="Registro de accesos del panel, con entradas agrupadas por día y botón para abrir la puerta"><AccessPanel /></PanelFrame>} />
-      <Spotlight eyebrow="Contador de personas" title="Sin torno, controlas quién entra y quién sale" text="Instalamos un sensor sobre la puerta que cuenta a cada persona que cruza y lo cruza con el código QR leído. Es la alternativa más económica a un torno, para los gimnasios que no quieren instalarlo. Y si lo prefieres, también te suministramos el torno." points={["Una identificación, una persona: si pasa más de una, salta una alarma en la aplicación y por los altavoces del local", "Cada entrada con código QR queda cruzada con las personas que cuenta el sensor", "Si pasan más personas que accesos concedidos, queda registrado y marcado en rojo", "Si alguien entra acompañado, sabes quién abrió la puerta y a qué hora", "Pantalla del sensor en el panel: imagen casi en directo, contadores y lista de entradas"]} link="Pedir información del sensor" visual={<PanelFrame label="Pantalla del sensor del panel con la imagen de la puerta, los contadores de entradas y salidas y la lista de entradas con código QR, con las acompañadas y sin código marcadas en rojo"><SensorPanel /></PanelFrame>} />
-      <Spotlight flip eyebrow="Clases, eventos y espacios" title="Agenda y reservas desde el móvil" text="Crea clases y eventos con su horario, su sala y su aforo. El socio con la membresía en vigor reserva su plaza desde la app y el equipo controla las plazas desde el panel." points={["Reserva y cancelación de plazas, con aviso de plazas libres, completa o reservada", "Espacios con su aforo, para no pasarte de plazas", "Clases con reserva o de entrada libre, y eventos puntuales", "Aviso al socio cuando se apunta o se cancela una sesión"]} link="Ver la agenda en la demo" visual={<Phone label="Agenda de clases con el selector de días y cada clase con su horario, sala, monitor y plazas libres"><ClassesScreen /></Phone>} />
-      <Spotlight eyebrow="Tienda del gimnasio" title="Suplementación y accesorios, a un toque" text="Una nueva fuente de ingresos dentro de la app que ya usan tus socios. Catálogo con fotos, carrito y pago con tarjeta en la pasarela bancaria Redsys." points={["Catálogo por categorías, con marca, precio y disponibilidad que gestiona tu equipo", "Carrito y pago con tarjeta desde el móvil, a cualquier hora", "El importe lo calcula el servidor: el socio nunca manda un precio", "Una historia a pantalla completa presenta la tienda al abrir la app"]} link="Ver la tienda en la demo" visual={<Phone label="Tienda de la app del socio con el catálogo de productos, su precio, el botón de añadir y el carrito"><ShopScreen /></Phone>} />
-      <Spotlight flip eyebrow="Recogida con código QR" title="Compra online, recoge con un código QR" text="Cada compra de la tienda aparece en Mis pagos con su factura y un código QR. En el mostrador, el equipo lo escanea para entregar el pedido." points={["Sin código QR no hay entrega: el servidor lo exige y no se puede marcar a mano", "Venta en el mostrador en efectivo o con datáfono, con entrega inmediata si se lo lleva", "Factura en PDF de cada compra, con una fila por producto", "Aviso al socio cuando paga y cuando recoge su pedido"]} link="Ver la recogida en la demo" visual={<Phone label="Mis pagos con una compra de la tienda por recoger, con sus productos, la factura y el código QR de recogida"><ShopOrderScreen /></Phone>} />
-      <Spotlight eyebrow="Rutinas de entrenamiento" title="Entrenamiento en el bolsillo" text="Crea rutinas desde el panel y asígnalas a todos tus socios o solo a algunos. El socio las sigue desde el móvil." points={["Ejercicios con series, repeticiones, descanso y superseries", "Entrenamiento guiado con temporizador", "Aviso al socio cuando le asignas una rutina"]} link="Ver rutinas en la demo" visual={<Phone label="Detalle de una rutina con sus días de entrenamiento y los ejercicios de cada uno"><RoutineDetailScreen /></Phone>} />
-      <Spotlight eyebrow="Control de empleados" title="Trazabilidad completa de tu equipo" text="Sabes qué ha cobrado y vendido cada empleado. Cada cobro, cada venta de la tienda y cada ficha nueva queda a nombre de quien la registró, y el empleado no ve los ingresos del negocio." points={["Cobros y ventas de tienda, con quién los registró y cuándo", "Fichas de clientes nuevas, con su autor", "Roles diferenciados: empleado y propietario no ven lo mismo", "Altas y bajas del equipo desde el panel"]} link="Ver el control de empleados" visual={<PanelFrame label="Control de empleados con un cobro, una venta de tienda y una ficha nueva, cada uno con el nombre del empleado que lo registró"><TracePanel /></PanelFrame>} />
-      <Spotlight flip eyebrow="Domótica y ambiente" title="Luces, portones, música y alarmas" text="Controla el local desde el panel, estés donde estés. Con dispositivos Shelly subes y bajas los portones y enciendes y apagas las luces, y los altavoces del gimnasio llevan tu música y las alarmas." points={["Luces del gimnasio: una a una o todas a la vez", "Portón: abrir, parar y cerrar, con su estado en vivo", "Música con Spotify en los altavoces del local", "Las alarmas de acceso suenan por los mismos altavoces"]} link="Ver la domótica en la demo" visual={<Phone label="Pantalla de domótica con las luces del gimnasio, los botones de encender y apagar todas y el portón con abrir, parar y cerrar"><DomoticaScreen /></Phone>} />
-      <Spotlight eyebrow="Panel de gestión" title="Cobros corregidos, con traza" text="Cada pago muestra quién lo registró y cuándo. Si el mostrador se equivoca, se corrige sin perder el histórico." points={["Roles diferenciados para empleado y propietario", "Pagos corregidos con motivo y posibilidad de restaurar", "Clientes archivados sin perder historial"]} link="Ver el panel en la demo" visual={<PanelFrame label="Ficha de cliente con sus datos, membresía activa y pagos realizados, con quién los registró"><CustomerPanel /></PanelFrame>} />
-    </section>
-  );
-}
-
-function ThreeLayers() {
-  const layers = [
-    [QrCode, "1 · Identificación (QR)", "Un código QR dinámico en el móvil del socio: cambia cada 4 segundos y solo funciona en un dispositivo. La membresía se comprueba al instante, en cada entrada."],
-    [ScanFace, "2 · Verificación facial", "Tras el QR, el terminal confirma que quien lo presenta es su titular, con protección contra fotos y vídeos. Un QR prestado deja de valer."],
-    [Users, "3 · Sensor de conteo", "Un sensor sobre la puerta cuenta cada persona que cruza. Una identificación, una persona: si pasa más de una, salta una alarma."],
-  ] as const;
-  return (
-    <section id="seguridad" className="bg-ink py-20 text-ink-foreground">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="Acceso en tres capas" title="Tu puerta sabe quién entra, quién abre y cuántos pasan" sub="Sin tarjetas físicas y sin torno obligatorio: se instala sobre tu puerta, con el sensor como alternativa más económica. Si prefieres torno, también te lo suministramos e integramos." />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {layers.map(([Icon, t, d]) => (
-            <div key={t} className="reveal rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-6">
-              <Icon className="size-7 text-primary" aria-hidden />
-              <h3 className="mt-4 text-lg font-bold">{t}</h3>
-              <p className="mt-2 text-sm opacity-80">{d}</p>
-            </div>
-          ))}
-        </div>
-        <div className="reveal mx-auto mt-10 max-w-3xl"><AccessScene className="rounded-2xl" /></div>
-        <div className="reveal mt-10 grid items-center gap-8 rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-6 md:grid-cols-2 md:p-8">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-primary">Tú eliges</p>
-            <h3 className="mt-3 text-2xl font-extrabold">Cada centro decide cómo entra su gente</h3>
-            <ul className="mt-5 space-y-3 text-sm">
-              {[[QrCode, "Solo QR"], [ScanFace, "Solo cara"], [ShieldCheck, "QR + cara: máxima seguridad"], [KeyRound, "PIN o tarjeta, opcional según el centro"]].map(([I, t]) => {
-                const Icon = I as typeof QrCode;
-                return <li key={t as string} className="flex items-center gap-3"><Icon className="size-4 shrink-0 text-primary" aria-hidden />{t as string}</li>;
-              })}
-            </ul>
-            <p className="mt-5 rounded-xl bg-primary/15 p-3 text-sm font-semibold">Lo recomendado: QR + cara + sensor de conteo.</p>
-          </div>
-          <SensorAlarm className="rounded-2xl" />
-        </div>
-        <div className="reveal mx-auto mt-10 max-w-3xl rounded-2xl bg-primary/10 p-6 text-center">
-          <ShieldCheck className="mx-auto size-7 text-primary" aria-hidden />
-          <h3 className="mt-3 text-xl font-bold">Cada entrada tiene un responsable</h3>
-          <p className="mt-2 text-sm opacity-80">Si alguien entra acompañado, salta una alarma y el aviso aparece en la aplicación con quién abrió la puerta, a qué hora y cuántas personas pasaron. El gimnasio puede hablar con ese socio y explicarle las normas.</p>
         </div>
       </div>
     </section>
@@ -416,55 +385,12 @@ function Custom() {
   );
 }
 
-function Roadmap() {
-  const items = [[CalendarDays, "Clases: lista de espera y asistencia", "Lista de espera, estadísticas de asistencia y asistencia con código QR en las clases."]] as const;
-  return (
-    <section className="mx-auto max-w-6xl px-4 pb-20">
-      <div className="reveal relative overflow-hidden rounded-3xl bg-ink p-8 text-ink-foreground md:p-14">
-        <div className="absolute inset-0 bg-hero-glow" aria-hidden />
-        <div className="relative">
-          <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">Próximamente</span>
-          <h2 className="mt-4 text-3xl font-extrabold md:text-4xl">Lo que viene</h2>
-          <p className="mt-3 max-w-xl opacity-80">Estamos construyendo estos módulos. Si alguno te interesa, cuéntanoslo en la llamada de introducción.</p>
-          <ul className="mt-8 grid max-w-md gap-4">
-            {items.map(([Icon, t, d]) => (
-              <li key={t} className="rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5">
-                <Icon className="size-6 text-primary" aria-hidden />
-                <h3 className="mt-3 font-bold">{t}</h3>
-                <p className="mt-1 text-sm opacity-75">{d}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function AllInOne() {
-  const items = [[CreditCard, "Pagos online", "Pago con tarjeta desde el móvil y cobro en mostrador, en efectivo o con datáfono."], [IdCard, "Membresías", "Estados claros: activa, sin empezar, vencida o sin pago."], [QrCode, "Control de acceso", "Lectores QR Kimaldi con torno o puerta, y registro de entradas."], [Dumbbell, "Rutinas", "Ejercicios, series y repeticiones en la app, con modo guiado."], [Bell, "Avisos al socio", "Email, buzón y notificaciones push: vencimientos, pagos y rutinas."], [LayoutDashboard, "Panel de gestión", "Clientes, cobros, accesos e ingresos, con roles de empleado y propietario y altas del equipo."], [CalendarDays, "Clases, eventos y espacios", "Agenda, reservas con control de plazas y avisos al socio desde su app."], [ShoppingBag, "Tienda del gimnasio", "Catálogo, carrito y pago con tarjeta; el socio recoge con un código QR y tiene su factura."], [ScanFace, "Facial y conteo de personas", "Reconocimiento facial tras el código QR y sensor de conteo para saber quién abre y cuántos pasan."], [UserCog, "Control de empleados", "Cada cobro, venta y ficha nueva queda a nombre de quien la registró: trazabilidad completa."], [Lightbulb, "Domótica", "Luces y portones del gimnasio con dispositivos Shelly, desde el panel."], [Music2, "Música y alarmas", "Spotify en los altavoces del local, y alarmas de acceso por los mismos altavoces."], [Wrench, "A medida", "Cambiamos funciones, añadimos nuevas e integramos con tu sistema actual."]] as const;
-  return (
-    <section className="bg-muted/60 py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="Software todo en uno" title="Todo lo que tu gimnasio necesita" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map(([I, t, d]) => (
-            <IconCard key={t} icon={I} title={t} text={d}>
-              <a href="#contacto" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">Saber más <ArrowRight className="size-4" aria-hidden /><span className="sr-only">sobre {t}</span></a>
-            </IconCard>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Trust() {
   const items = [[Lock, "Datos protegidos", "Acceso por roles y conexión cifrada. El socio solo ve sus propios datos."], [Landmark, "Pago con Redsys", "Los pagos con tarjeta se hacen en la pasarela bancaria Redsys: los datos de tu tarjeta no pasan por el gimnasio."], [QrCode, "Código QR antifraude", "Un solo dispositivo por socio y un código que cambia cada 4 segundos."], [DatabaseBackup, "Copias de seguridad", "Copias automáticas y cifradas cada 6 horas."]] as const;
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
       <SectionHead eyebrow="Confianza" title="Seguro para ti y para tus socios" />
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 md:mt-12 lg:grid-cols-4">
         {items.map(([Icon, t, d]) => (
           <div key={t} className="reveal text-center">
             <span className="mx-auto grid size-12 place-items-center rounded-full bg-accent text-accent-foreground"><Icon className="size-5" aria-hidden /></span>
