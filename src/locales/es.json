@@ -153,15 +153,15 @@
     "requestDemo": "Solicitar demo",
     "items": {
       "hispalGym": {
-        "title": "Software de gestión para gimnasios y centros deportivos",
-        "description": "Un único sistema para gestionar socios, membresías, cobros online, tienda, clases, accesos y rutinas. Tus clientes se dan de alta y pagan con tarjeta desde el móvil, entran con su código QR y tú controlas clientes, cobros y accesos desde un panel.",
+        "title": "Acceso autónomo y gestión para gimnasios, sin nadie en recepción",
+        "description": "Abre tu gimnasio las horas que quieras. Hispal GYM abre y controla la puerta con el móvil del socio y gestiona todo lo demás: cobros, tienda, clases, rutinas, equipo y domótica. Cada centro elige cómo entra su gente: solo QR, solo cara o QR y cara, con sensor de conteo y alarma si pasa más de una persona por acceso.",
         "chip": "Acceso permitido",
         "points": [
-          "Alta y pago con tarjeta desde el móvil, a cualquier hora",
-          "Código QR antifraude para entrar, integrado con Kimaldi, y sensor de conteo de personas",
-          "Membresías sin cobros automáticos, rutinas con modo guiado y reserva de clases",
-          "Tienda del gimnasio con pago con tarjeta y recogida con código QR",
-          "Panel de gestión con clientes, cobros, accesos y roles"
+          "Alta y pago con tarjeta o Bizum desde el móvil, a cualquier hora",
+          "Acceso con QR y reconocimiento facial, integrado con Kimaldi, y sensor de conteo: una identificación, una persona",
+          "Tienda con factura, clases y actividades, rutinas y ejercicios, y control de empleados con trazabilidad completa",
+          "Domótica del local: luces y portones desde el panel, con música y alarmas por los altavoces",
+          "Se adapta a tu gimnasio: funciones a medida e integraciones con tu sistema"
         ],
         "tags": {
           "open": "Alta 24/7",

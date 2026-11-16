@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import {
   Bell, Menu, Home, QrCode, User, ChevronRight, RefreshCw, Info, X, ArrowLeft, Dumbbell, Euro, SlidersHorizontal, DoorOpen, Pencil, Trash2, Search,
   ShoppingCart, ShoppingBag, Store, PackageCheck, FileDown, MapPin, UserRound, AlertCircle, ArrowDownToLine,
+  Lightbulb, LightbulbOff, DoorClosed, CreditCard, UserPlus, Music2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GymLogo } from "@/components/hispalgym/Logo";
@@ -613,6 +614,63 @@ export function SensorPanel() {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+/** Domotics screen of the panel: lights and the gate of the gym, driven from the phone. */
+export function DomoticaScreen() {
+  const lights: [string, boolean][] = [["Sala principal", true], ["Zona de pesas", true], ["Cardio", true], ["Vestuarios", false], ["Recepción", false]];
+  return (
+    <AppShell active="cuenta">
+      <p className={eyebrow}>Luces<span className="ml-2 normal-case tracking-normal text-white/45">3 de 5 encendidas</span></p>
+      <div className="mt-2 divide-y divide-white/10 border border-white/12">
+        {lights.map(([name, on]) => (
+          <div key={name} className="flex items-center gap-2 px-2 py-1.5">
+            {on ? <Lightbulb className="size-3 shrink-0 text-primary" aria-hidden /> : <LightbulbOff className="size-3 shrink-0 text-white/40" aria-hidden />}
+            <span className="min-w-0 flex-1"><span className="block text-[9px] font-medium">{name}</span><span className="block text-[7px] opacity-50">{on ? "Encendida" : "Apagada"}</span></span>
+            <span className={cn("relative h-3 w-6 rounded-full", on ? "bg-primary" : "bg-white/25")}><span className={cn("absolute top-0.5 size-2 rounded-full bg-white", on ? "right-0.5" : "left-0.5")} /></span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-2 grid grid-cols-2 gap-1.5 text-center text-[7px] font-bold uppercase tracking-[0.14em] text-primary-foreground">
+        <span className="rounded-sm bg-primary py-1.5">Encender todas</span><span className="rounded-sm bg-primary py-1.5">Apagar todas</span>
+      </div>
+      <p className={cn(eyebrow, "mt-3")}>Portón del gimnasio</p>
+      <div className="mt-1.5 border border-white/12 p-2">
+        <p className="flex items-center gap-1.5 text-[9px] font-medium"><DoorClosed className="size-3 text-white/60" aria-hidden />Cerrado</p>
+        <div className="mt-2 grid grid-cols-3 gap-1.5 text-center text-[7px] font-bold uppercase tracking-[0.14em]">
+          <span className="rounded-sm bg-primary py-1.5 text-primary-foreground">Abrir</span>
+          <span className="rounded-sm border border-primary/60 py-1.5 text-primary">Parar</span>
+          <span className="rounded-sm border border-primary/60 py-1.5 text-primary">Cerrar</span>
+        </div>
+      </div>
+      <p className="mt-2.5 flex items-center gap-1.5 text-[8px] opacity-70"><Music2 className="size-3 text-primary" aria-hidden />Música y alarmas por los altavoces del local</p>
+    </AppShell>
+  );
+}
+
+/** Employee control: every collection, sale and new client record carries the name of who registered it. */
+export function TracePanel() {
+  const rows: [typeof CreditCard, string, string, string][] = [
+    [CreditCard, "Cobro · 39,90 €", "Registrado por Marta · 15:32", "Marta"],
+    [ShoppingBag, "Venta de tienda · 54,90 €", "Registrado por Marta · 16:05", "Marta"],
+    [UserPlus, "Ficha nueva · Lucía F.", "Creada por Marta · 16:20", "Marta"],
+  ];
+  return (
+    <div>
+      <p className={eyebrow}>Control de empleados</p>
+      <p className="mt-1 font-display text-lg font-semibold leading-tight">Trazabilidad <em className="text-primary">completa</em></p>
+      <div className="mt-3 space-y-2">
+        {rows.map(([Icon, t, d, who]) => (
+          <div key={t} className="flex items-center gap-2.5 rounded border border-white/15 px-2.5 py-2">
+            <span className="grid size-7 shrink-0 place-items-center rounded bg-primary/15"><Icon className="size-3.5 text-primary" aria-hidden /></span>
+            <span className="min-w-0 flex-1"><span className="block truncate text-[10px] font-semibold">{t}</span><span className="block text-[8px] opacity-60">{d}</span></span>
+            <span className="rounded-full bg-primary px-2 py-0.5 text-[8px] font-bold text-primary-foreground">{who}</span>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 text-[8px] opacity-60">Ejemplo con datos ficticios. Cada cobro, venta y ficha queda a nombre de quien la registró.</p>
     </div>
   );
 }
