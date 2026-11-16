@@ -3,6 +3,7 @@ import {
   CreditCard, Layers, Smartphone, QrCode, ArrowRight, Dumbbell, CalendarDays, Bell,
   LayoutDashboard, ShoppingBag, Lock, Landmark, DatabaseBackup, IdCard, CheckCircle2, UserPlus, LogIn,
   ScanFace, Users, ShieldCheck,
+  UserCog, Lightbulb, Wrench, Music2, KeyRound, DoorOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,8 +13,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   Phone, PanelFrame, QrScreen, MembershipScreen, RoutinesScreen, RoutineDetailScreen, TariffsScreen,
-  CashPanel, PaymentsPanel, AccessPanel, CustomerPanel, ShopScreen, ShopOrderScreen, ClassesScreen, SensorPanel,
+  CashPanel, PaymentsPanel, AccessPanel, CustomerPanel, DomoticaScreen, TracePanel, ShopScreen, ShopOrderScreen, ClassesScreen, SensorPanel,
 } from "@/components/hispalgym/Mockups";
+import { AccessScene, SensorAlarm, OpeningHours, GymFacade } from "@/components/hispalgym/Illustrations";
 import { GymHeader, GymFooter } from "@/components/hispalgym/GymChrome";
 import { sendEmailAlternative } from "@/services/emailService";
 
@@ -44,7 +46,7 @@ const HispalGym = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const prev = document.title;
-    document.title = "Hispal GYM, software de gestión para gimnasios con acceso por QR";
+    document.title = "Hispal GYM, acceso autónomo y gestión para gimnasios sin recepción";
     // Hispal GYM favicon while this page is open (the rest of the site keeps the Hispal Tech one)
     const icons = Array.from(document.querySelectorAll<HTMLLinkElement>('link[rel="icon"], link[rel="apple-touch-icon"]'));
     const original = icons.map((l) => [l, l.getAttribute("href")] as const);
@@ -61,6 +63,7 @@ const HispalGym = () => {
       <main id="main">
         <Hero />
         <Values />
+        <CostBand />
         <Showcase />
         <Profiles />
         <HowItWorks />
@@ -68,6 +71,7 @@ const HispalGym = () => {
         <ThreeLayers />
         <Comparison />
         <Packs />
+        <Custom />
         <CaseStudy />
         <Roadmap />
         <AllInOne />
@@ -84,25 +88,27 @@ export default HispalGym;
 
 function Hero() {
   return (
-    <section id="producto" className="relative overflow-hidden bg-hero-glow">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-[1.15fr_1fr] md:py-24">
+    <section id="producto" className="relative overflow-hidden bg-ink text-ink-foreground">
+      <div className="absolute inset-0 bg-hero-glow opacity-70" aria-hidden />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-[1.1fr_1fr] md:py-24">
         <div>
-          <Eyebrow>Software de gestión para gimnasios</Eyebrow>
-          <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] md:text-6xl">Gestiona tu gimnasio y da a tus socios <span className="text-primary">acceso autónomo con QR</span>.</h1>
-          <p className="mt-5 max-w-xl text-lg text-muted-foreground">Software de gestión con control de acceso por código QR, reconocimiento facial y conteo de personas: membresías, cobros, tienda, rutinas, clases y accesos en un solo sistema. Tus socios se dan de alta, pagan con tarjeta desde el móvil y entran con su código QR; tú controlas clientes, cobros y accesos desde un panel.</p>
+          <Eyebrow>Acceso autónomo y gestión para gimnasios</Eyebrow>
+          <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">Abre tu gimnasio las horas que quieras, <span className="text-primary">sin nadie en recepción</span>.</h1>
+          <p className="mt-5 max-w-xl text-lg opacity-80">Hispal GYM es el software que abre y controla la puerta de tu gimnasio con el móvil del socio, y gestiona todo lo demás: cobros, tienda, clases, rutinas, equipo y cuentas. Cada centro elige cómo entra su gente: solo QR, solo cara o QR y cara. Lo recomendado para la máxima seguridad es QR + cara + sensor de conteo.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="font-semibold shadow-glow"><a href="#contacto">Solicitar demo</a></Button>
-            <Button asChild size="lg" variant="secondary" className="font-semibold"><a href="#como-funciona">Ver cómo funciona <ArrowRight /></a></Button>
+            <Button asChild size="lg" variant="outline" className="border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground"><a href="#como-funciona">Ver cómo funciona <ArrowRight /></a></Button>
           </div>
           <ul className="mt-10 grid gap-4 sm:grid-cols-3">
-            {[[CreditCard, "Alta y pago online"], [QrCode, "Código QR en el móvil"], [LayoutDashboard, "Panel de gestión"]].map(([I, t]) => {
+            {[[CreditCard, "Cobros online"], [QrCode, "QR, cara y sensor"], [LayoutDashboard, "Panel de gestión"]].map(([I, t]) => {
               const Icon = I as typeof CreditCard;
-              return <li key={t as string} className="flex items-center gap-2.5 text-sm font-semibold"><span className="grid size-9 place-items-center rounded-lg bg-accent text-accent-foreground"><Icon className="size-4" aria-hidden /></span>{t as string}</li>;
+              return <li key={t as string} className="flex items-center gap-2.5 text-sm font-semibold"><span className="grid size-9 place-items-center rounded-lg bg-primary/15 text-primary"><Icon className="size-4" aria-hidden /></span>{t as string}</li>;
             })}
           </ul>
         </div>
-        <div className="relative">
-          <Phone label="App del socio con el código QR de acceso al gimnasio" className="rotate-2 transition-transform duration-500 will-change-transform hover:rotate-0"><QrScreen /></Phone>
+        <div className="relative pb-10 md:pb-14">
+          <GymFacade className="rounded-3xl shadow-device" />
+          <div className="pointer-events-none absolute -bottom-2 -right-2 hidden origin-bottom-right rotate-3 scale-[0.5] md:block"><Phone label="App del socio con el código QR de acceso al gimnasio"><QrScreen /></Phone></div>
         </div>
       </div>
     </section>
@@ -123,11 +129,25 @@ function IconCard({ icon: Icon, title, text, children }: { icon: typeof CreditCa
 function Values() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <SectionHead eyebrow="Por qué Hispal GYM" title="Gestión completa, con acceso autónomo para tus socios" />
+      <SectionHead eyebrow="Todo en un solo sistema" title="Cobra. Abre. Vende. Sin nadie en la puerta." sub="Control total de quién entra y quién sale, con cámara y sensor de conteo, y alarma si pasa más de una persona." />
       <div className="mt-12 grid gap-6 md:grid-cols-3">
-        <IconCard icon={Layers} title="Un solo sistema para todo" text="Membresías, pagos, accesos y rutinas sin hojas de cálculo ni programas sueltos." />
-        <IconCard icon={Smartphone} title="Alta y pago a cualquier hora" text="Tus socios se apuntan y pagan con tarjeta desde el móvil, sin pasar por recepción." />
-        <IconCard icon={QrCode} title="Un código QR que no se presta" text="El código QR cambia cada 4 segundos y la membresía se comprueba en el momento de entrar." />
+        <IconCard icon={CreditCard} title="Cobra" text="Tarjeta, Bizum y efectivo. Tus socios se apuntan y pagan desde el móvil, a cualquier hora, y todo queda registrado." />
+        <IconCard icon={QrCode} title="Abre" text="QR que cambia cada 4 segundos, cara que confirma al titular y un sensor que cuenta quién cruza." />
+        <IconCard icon={ShoppingBag} title="Vende" text="Una tienda dentro de la app: el socio compra y paga cuando quiere, con su factura, y recoge con su QR." />
+      </div>
+    </section>
+  );
+}
+
+function CostBand() {
+  return (
+    <section className="bg-primary py-20 text-[#1a120b]">
+      <div className="reveal mx-auto grid max-w-6xl items-center gap-8 px-4 md:grid-cols-[1.3fr_1fr]">
+        <h2 className="text-5xl font-extrabold leading-[0.98] tracking-tight md:text-7xl">¿Cuánto cuesta cada hora <span className="text-white">cerrada</span>?</h2>
+        <div>
+          <p className="text-lg font-semibold">Horas de recepción que dejas de cubrir × lo que te cuesta cada hora = lo que ahorras cada mes. Hacemos la cuenta contigo, sin compromiso.</p>
+          <Button asChild size="lg" className="mt-6 bg-[#1a120b] font-semibold text-white hover:bg-black"><a href="#contacto">Reserva una llamada</a></Button>
+        </div>
       </div>
     </section>
   );
@@ -159,8 +179,8 @@ function Checklist({ items }: { items: string[] }) {
 
 function Profiles() {
   const socio = ["Alta online 24/7 y pago con tarjeta desde el móvil", "Membresía con fecha de inicio y fin, días restantes y estado", "Renovar o encadenar un periodo sin perder días, o pagar hoy y empezar más adelante", "Código QR en el móvil para entrar", "Rutinas con ejercicios, series, repeticiones y entrenamiento guiado", "Reserva de clases y eventos con plazas, y aviso si se cancelan", "Tienda de suplementación: compra con tarjeta y recoge con un código QR", "Factura en PDF de cada pago, de la membresía o de la tienda", "Buzón de avisos y notificaciones push", "Recordatorio por email antes de que venza la membresía"];
-  const empleado = ["Listado y ficha de clientes con buscador y estado de membresía", "Cobro en mostrador: efectivo o tarjeta en datáfono", "Registro de fecha de pago, periodo y quién cobró", "Corrección de pagos con traza, sin perder el histórico", "Registro de entradas con aviso de accesos sospechosos", "Pantalla del sensor: cuántas personas entran con cada código QR", "Venta de productos en el mostrador, en efectivo o con datáfono", "Entrega de pedidos escaneando el código QR del socio", "Catálogo de la tienda: marcas, precios y disponibilidad", "Clases, eventos y espacios con sus plazas", "Gestión de rutinas y asignación a los socios"];
-  const propietario = ["Todo lo del empleado", "Libro de pagos: ingresos por día, semana, mes o año, con reparto online y presencial", "Roles diferenciados: el empleado no ve los ingresos", "Cada pago muestra quién lo registró", "Altas, roles y accesos de tu equipo desde el panel", "Archivar clientes duplicados o antiguos conservando su histórico"];
+  const empleado = ["Listado y ficha de clientes con buscador y estado de membresía", "Cobro en mostrador: efectivo o tarjeta en datáfono", "Registro de fecha de pago, periodo y quién cobró", "Corrección de pagos con traza, sin perder el histórico", "Registro de entradas con aviso de accesos sospechosos", "Pantalla del sensor: cuántas personas entran con cada código QR", "Venta de productos en el mostrador, en efectivo o con datáfono", "Entrega de pedidos escaneando el código QR del socio", "Catálogo de la tienda: marcas, precios y disponibilidad", "Clases, eventos y espacios con sus plazas", "Gestión de rutinas y asignación a los socios", "Domótica del local: luces y portones desde el panel"];
+  const propietario = ["Todo lo del empleado", "Control de empleados: cada cobro, venta y ficha nueva queda a nombre de quien la registró", "Libro de pagos: ingresos por día, semana, mes o año, con reparto online y presencial", "Roles diferenciados: el empleado no ve los ingresos", "Cada pago muestra quién lo registró", "Altas, roles y accesos de tu equipo desde el panel", "Archivar clientes duplicados o antiguos conservando su histórico"];
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
       <SectionHead eyebrow="Un sistema, tres perfiles" title="Cada persona ve exactamente lo que necesita" />
@@ -233,22 +253,24 @@ function Spotlights() {
   return (
     <section id="funcionalidades" className="mx-auto max-w-6xl space-y-24 px-4 py-24">
       <Spotlight eyebrow="Pagos y membresías" title="Sin sorpresas en el recibo" text="No hay cobros automáticos. El socio paga cuando decide, el gimnasio sabe exactamente quién tiene acceso y hasta cuándo." points={["Cada pago compra un periodo de acceso", "Encadena periodos sin perder días, o empieza más adelante", "Paga varios meses de una vez, hasta 12"]} link="Ver pagos en la demo" visual={<Phone label="Pantalla de alta online con la parrilla de tarifas, cada una con su periodo de acceso"><TariffsScreen /></Phone>} />
-      <Spotlight flip eyebrow="Control de acceso con QR" title="Tu puerta sabe quién puede entrar" text="Integrado con lectores y controladoras Kimaldi. Con membresía vigente se entra; si no, se deniega." points={["El código QR cambia cada 4 segundos y solo funciona en un dispositivo", "El socio recupera su código QR en un móvil nuevo sin pasar por recepción", "Registro de entradas con aviso de accesos sospechosos", "Verificación facial y conteo de personas en los packs Seguro y Total"]} link="Consultar hardware compatible" visual={<PanelFrame label="Registro de accesos del panel, con entradas agrupadas por día y botón para abrir la puerta"><AccessPanel /></PanelFrame>} />
-      <Spotlight eyebrow="Contador de personas" title="Sin torno, sabes quién entra y quién se cuela" text="Instalamos un sensor sobre la puerta que cuenta a cada persona que cruza y lo cruza con el código QR leído. Es la alternativa más económica a un torno, para los gimnasios que no quieren instalarlo. Y si lo prefieres, también te suministramos el torno." points={["Cada entrada con código QR queda cruzada con las personas que cuenta el sensor", "Si pasan más personas que accesos concedidos, queda registrado y marcado en rojo", "Si alguien entra acompañado, sabes quién abrió la puerta y a qué hora", "Pantalla del sensor en el panel: imagen casi en directo, contadores y lista de entradas"]} link="Pedir información del sensor" visual={<PanelFrame label="Pantalla del sensor del panel con la imagen de la puerta, los contadores de entradas y salidas y la lista de entradas con código QR, con las acompañadas y sin código marcadas en rojo"><SensorPanel /></PanelFrame>} />
+      <Spotlight flip eyebrow="Control de acceso con QR" title="Tu puerta sabe quién puede entrar" text="Integrado con lectores y controladoras Kimaldi. Cada centro elige cómo entra su gente. Con membresía vigente se entra; si no, se deniega." points={["Solo QR, solo cara o QR + cara: lo eliges para cada centro", "PIN o tarjeta, opcional según el centro", "El código QR cambia cada 4 segundos y solo funciona en un dispositivo", "El socio recupera su código QR en un móvil nuevo sin pasar por recepción", "Registro de entradas con aviso de accesos sospechosos", "Verificación facial y conteo de personas en los packs Seguro y Total"]} link="Consultar hardware compatible" visual={<PanelFrame label="Registro de accesos del panel, con entradas agrupadas por día y botón para abrir la puerta"><AccessPanel /></PanelFrame>} />
+      <Spotlight eyebrow="Contador de personas" title="Sin torno, controlas quién entra y quién sale" text="Instalamos un sensor sobre la puerta que cuenta a cada persona que cruza y lo cruza con el código QR leído. Es la alternativa más económica a un torno, para los gimnasios que no quieren instalarlo. Y si lo prefieres, también te suministramos el torno." points={["Una identificación, una persona: si pasa más de una, salta una alarma en la aplicación y por los altavoces del local", "Cada entrada con código QR queda cruzada con las personas que cuenta el sensor", "Si pasan más personas que accesos concedidos, queda registrado y marcado en rojo", "Si alguien entra acompañado, sabes quién abrió la puerta y a qué hora", "Pantalla del sensor en el panel: imagen casi en directo, contadores y lista de entradas"]} link="Pedir información del sensor" visual={<PanelFrame label="Pantalla del sensor del panel con la imagen de la puerta, los contadores de entradas y salidas y la lista de entradas con código QR, con las acompañadas y sin código marcadas en rojo"><SensorPanel /></PanelFrame>} />
       <Spotlight flip eyebrow="Clases, eventos y espacios" title="Agenda y reservas desde el móvil" text="Crea clases y eventos con su horario, su sala y su aforo. El socio con la membresía en vigor reserva su plaza desde la app y el equipo controla las plazas desde el panel." points={["Reserva y cancelación de plazas, con aviso de plazas libres, completa o reservada", "Espacios con su aforo, para no pasarte de plazas", "Clases con reserva o de entrada libre, y eventos puntuales", "Aviso al socio cuando se apunta o se cancela una sesión"]} link="Ver la agenda en la demo" visual={<Phone label="Agenda de clases con el selector de días y cada clase con su horario, sala, monitor y plazas libres"><ClassesScreen /></Phone>} />
       <Spotlight eyebrow="Tienda del gimnasio" title="Suplementación y accesorios, a un toque" text="Una nueva fuente de ingresos dentro de la app que ya usan tus socios. Catálogo con fotos, carrito y pago con tarjeta en la pasarela bancaria Redsys." points={["Catálogo por categorías, con marca, precio y disponibilidad que gestiona tu equipo", "Carrito y pago con tarjeta desde el móvil, a cualquier hora", "El importe lo calcula el servidor: el socio nunca manda un precio", "Una historia a pantalla completa presenta la tienda al abrir la app"]} link="Ver la tienda en la demo" visual={<Phone label="Tienda de la app del socio con el catálogo de productos, su precio, el botón de añadir y el carrito"><ShopScreen /></Phone>} />
       <Spotlight flip eyebrow="Recogida con código QR" title="Compra online, recoge con un código QR" text="Cada compra de la tienda aparece en Mis pagos con su factura y un código QR. En el mostrador, el equipo lo escanea para entregar el pedido." points={["Sin código QR no hay entrega: el servidor lo exige y no se puede marcar a mano", "Venta en el mostrador en efectivo o con datáfono, con entrega inmediata si se lo lleva", "Factura en PDF de cada compra, con una fila por producto", "Aviso al socio cuando paga y cuando recoge su pedido"]} link="Ver la recogida en la demo" visual={<Phone label="Mis pagos con una compra de la tienda por recoger, con sus productos, la factura y el código QR de recogida"><ShopOrderScreen /></Phone>} />
       <Spotlight eyebrow="Rutinas de entrenamiento" title="Entrenamiento en el bolsillo" text="Crea rutinas desde el panel y asígnalas a todos tus socios o solo a algunos. El socio las sigue desde el móvil." points={["Ejercicios con series, repeticiones, descanso y superseries", "Entrenamiento guiado con temporizador", "Aviso al socio cuando le asignas una rutina"]} link="Ver rutinas en la demo" visual={<Phone label="Detalle de una rutina con sus días de entrenamiento y los ejercicios de cada uno"><RoutineDetailScreen /></Phone>} />
-      <Spotlight flip eyebrow="Panel de gestión" title="Cobros corregidos, con traza" text="Cada pago muestra quién lo registró y cuándo. Si el mostrador se equivoca, se corrige sin perder el histórico." points={["Roles diferenciados para empleado y propietario", "Pagos corregidos con motivo y posibilidad de restaurar", "Clientes archivados sin perder historial"]} link="Ver el panel en la demo" visual={<PanelFrame label="Ficha de cliente con sus datos, membresía activa y pagos realizados, con quién los registró"><CustomerPanel /></PanelFrame>} />
+      <Spotlight eyebrow="Control de empleados" title="Trazabilidad completa de tu equipo" text="Sabes qué ha cobrado y vendido cada empleado. Cada cobro, cada venta de la tienda y cada ficha nueva queda a nombre de quien la registró, y el empleado no ve los ingresos del negocio." points={["Cobros y ventas de tienda, con quién los registró y cuándo", "Fichas de clientes nuevas, con su autor", "Roles diferenciados: empleado y propietario no ven lo mismo", "Altas y bajas del equipo desde el panel"]} link="Ver el control de empleados" visual={<PanelFrame label="Control de empleados con un cobro, una venta de tienda y una ficha nueva, cada uno con el nombre del empleado que lo registró"><TracePanel /></PanelFrame>} />
+      <Spotlight flip eyebrow="Domótica y ambiente" title="Luces, portones, música y alarmas" text="Controla el local desde el panel, estés donde estés. Con dispositivos Shelly subes y bajas los portones y enciendes y apagas las luces, y los altavoces del gimnasio llevan tu música y las alarmas." points={["Luces del gimnasio: una a una o todas a la vez", "Portón: abrir, parar y cerrar, con su estado en vivo", "Música con Spotify en los altavoces del local", "Las alarmas de acceso suenan por los mismos altavoces"]} link="Ver la domótica en la demo" visual={<Phone label="Pantalla de domótica con las luces del gimnasio, los botones de encender y apagar todas y el portón con abrir, parar y cerrar"><DomoticaScreen /></Phone>} />
+      <Spotlight eyebrow="Panel de gestión" title="Cobros corregidos, con traza" text="Cada pago muestra quién lo registró y cuándo. Si el mostrador se equivoca, se corrige sin perder el histórico." points={["Roles diferenciados para empleado y propietario", "Pagos corregidos con motivo y posibilidad de restaurar", "Clientes archivados sin perder historial"]} link="Ver el panel en la demo" visual={<PanelFrame label="Ficha de cliente con sus datos, membresía activa y pagos realizados, con quién los registró"><CustomerPanel /></PanelFrame>} />
     </section>
   );
 }
 
 function ThreeLayers() {
   const layers = [
-    [QrCode, "1 · QR que no se copia", "El código QR cambia cada 4 segundos y solo funciona en un dispositivo. La membresía se comprueba al instante, en cada entrada."],
+    [QrCode, "1 · Identificación (QR)", "Un código QR dinámico en el móvil del socio: cambia cada 4 segundos y solo funciona en un dispositivo. La membresía se comprueba al instante, en cada entrada."],
     [ScanFace, "2 · Verificación facial", "Tras el QR, el terminal confirma que quien lo presenta es su titular, con protección contra fotos y vídeos. Un QR prestado deja de valer."],
-    [Users, "3 · Conteo de personas", "Un sensor sobre la puerta cuenta cada persona que cruza. Si pasan más personas que accesos concedidos, el sistema lo registra y avisa."],
+    [Users, "3 · Sensor de conteo", "Un sensor sobre la puerta cuenta cada persona que cruza. Una identificación, una persona: si pasa más de una, salta una alarma."],
   ] as const;
   return (
     <section id="seguridad" className="bg-ink py-20 text-ink-foreground">
@@ -263,10 +285,25 @@ function ThreeLayers() {
             </div>
           ))}
         </div>
+        <div className="reveal mx-auto mt-10 max-w-3xl"><AccessScene className="rounded-2xl" /></div>
+        <div className="reveal mt-10 grid items-center gap-8 rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-6 md:grid-cols-2 md:p-8">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-widest text-primary">Tú eliges</p>
+            <h3 className="mt-3 text-2xl font-extrabold">Cada centro decide cómo entra su gente</h3>
+            <ul className="mt-5 space-y-3 text-sm">
+              {[[QrCode, "Solo QR"], [ScanFace, "Solo cara"], [ShieldCheck, "QR + cara: máxima seguridad"], [KeyRound, "PIN o tarjeta, opcional según el centro"]].map(([I, t]) => {
+                const Icon = I as typeof QrCode;
+                return <li key={t as string} className="flex items-center gap-3"><Icon className="size-4 shrink-0 text-primary" aria-hidden />{t as string}</li>;
+              })}
+            </ul>
+            <p className="mt-5 rounded-xl bg-primary/15 p-3 text-sm font-semibold">Lo recomendado: QR + cara + sensor de conteo.</p>
+          </div>
+          <SensorAlarm className="rounded-2xl" />
+        </div>
         <div className="reveal mx-auto mt-10 max-w-3xl rounded-2xl bg-primary/10 p-6 text-center">
           <ShieldCheck className="mx-auto size-7 text-primary" aria-hidden />
           <h3 className="mt-3 text-xl font-bold">Cada entrada tiene un responsable</h3>
-          <p className="mt-2 text-sm opacity-80">Si alguien entra acompañado, el sistema sabe exactamente quién abrió la puerta y a qué hora. El socio responde de quien deja pasar, y tú tienes el dato para actuar.</p>
+          <p className="mt-2 text-sm opacity-80">Si alguien entra acompañado, salta una alarma y el aviso aparece en la aplicación con quién abrió la puerta, a qué hora y cuántas personas pasaron. El gimnasio puede hablar con ese socio y explicarle las normas.</p>
         </div>
       </div>
     </section>
@@ -319,7 +356,8 @@ function CaseStudy() {
         <div className="reveal">
           <Eyebrow>Caso real</Eyebrow>
           <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">Pruébalo donde ya funciona</h2>
-          <p className="mt-4 text-muted-foreground">Hispal GYM nació en Premium GYM, en Huétor Tájar (Granada). Allí los socios se dan de alta, pagan, entran, reservan clases, compran en la tienda y entrenan con la app cada día, y el equipo lo gestiona todo desde el panel.</p>
+          <p className="mt-4 text-muted-foreground">Hispal GYM nació en Premium GYM Health & Beauty, en Huétor Tájar (Granada), calle Ancha, 88. Abre todos los días del año, en un pueblo de 10.000 habitantes y con competencia activa. Allí los socios se dan de alta, pagan, entran, reservan clases, compran en la tienda y entrenan con la app cada día, y el equipo lo gestiona todo desde el panel.</p>
+          <div className="mt-6 rounded-2xl border bg-card p-5"><OpeningHours /></div>
           <div className="mt-6"><Checklist items={points} /></div>
           <Button asChild size="lg" className="mt-8 font-semibold shadow-glow"><a href="#contacto">Pedir una visita</a></Button>
         </div>
@@ -357,6 +395,27 @@ function Packs() {
   );
 }
 
+function Custom() {
+  const items = [[Wrench, "Cambiamos lo que no encaja", "Si una función no hace lo que necesitas, la modificamos para que lo haga."], [CheckCircle2, "Añadimos lo que te falta", "Funcionalidades nuevas, desarrolladas para tu centro sobre la misma plataforma."], [Layers, "Integramos con tu sistema", "Con tu hardware y tu software actuales. Si ya tienes torno o controladoras, trabajamos con ellos."], [IdCard, "Tu marca, tus centros", "Nombre, logo y colores de tu gimnasio, y varios centros en el mismo sistema."]] as const;
+  return (
+    <section id="a-medida" className="bg-ink py-20 text-ink-foreground">
+      <div className="mx-auto max-w-6xl px-4">
+        <SectionHead eyebrow="A tu medida" title="Es un producto, pero no una caja cerrada" sub="Cada gimnasio funciona a su manera. Hispal GYM llega ya hecho y probado, y nosotros lo adaptamos a tu forma de trabajar, no al revés." />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map(([Icon, t, d]) => (
+            <div key={t} className="reveal rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-6">
+              <Icon className="size-7 text-primary" aria-hidden />
+              <h3 className="mt-4 text-lg font-bold">{t}</h3>
+              <p className="mt-2 text-sm opacity-80">{d}</p>
+            </div>
+          ))}
+        </div>
+        <p className="reveal mx-auto mt-8 max-w-3xl text-center text-sm opacity-80">Ya lo hemos hecho: lector QR, controladora y torno Kimaldi, cobros con tarjeta y Bizum por Redsys, sensor de conteo, domótica del local y migración de socios desde el programa anterior.</p>
+      </div>
+    </section>
+  );
+}
+
 function Roadmap() {
   const items = [[CalendarDays, "Clases: lista de espera y asistencia", "Lista de espera, estadísticas de asistencia y asistencia con código QR en las clases."]] as const;
   return (
@@ -383,7 +442,7 @@ function Roadmap() {
 }
 
 function AllInOne() {
-  const items = [[CreditCard, "Pagos online", "Pago con tarjeta desde el móvil y cobro en mostrador, en efectivo o con datáfono."], [IdCard, "Membresías", "Estados claros: activa, sin empezar, vencida o sin pago."], [QrCode, "Control de acceso", "Lectores QR Kimaldi con torno o puerta, y registro de entradas."], [Dumbbell, "Rutinas", "Ejercicios, series y repeticiones en la app, con modo guiado."], [Bell, "Avisos al socio", "Email, buzón y notificaciones push: vencimientos, pagos y rutinas."], [LayoutDashboard, "Panel de gestión", "Clientes, cobros, accesos e ingresos, con roles de empleado y propietario y altas del equipo."], [CalendarDays, "Clases, eventos y espacios", "Agenda, reservas con control de plazas y avisos al socio desde su app."], [ShoppingBag, "Tienda del gimnasio", "Catálogo, carrito y pago con tarjeta; el socio recoge con un código QR y tiene su factura."], [ScanFace, "Facial y conteo de personas", "Reconocimiento facial tras el código QR y sensor de conteo para saber quién abre y cuántos pasan."]] as const;
+  const items = [[CreditCard, "Pagos online", "Pago con tarjeta desde el móvil y cobro en mostrador, en efectivo o con datáfono."], [IdCard, "Membresías", "Estados claros: activa, sin empezar, vencida o sin pago."], [QrCode, "Control de acceso", "Lectores QR Kimaldi con torno o puerta, y registro de entradas."], [Dumbbell, "Rutinas", "Ejercicios, series y repeticiones en la app, con modo guiado."], [Bell, "Avisos al socio", "Email, buzón y notificaciones push: vencimientos, pagos y rutinas."], [LayoutDashboard, "Panel de gestión", "Clientes, cobros, accesos e ingresos, con roles de empleado y propietario y altas del equipo."], [CalendarDays, "Clases, eventos y espacios", "Agenda, reservas con control de plazas y avisos al socio desde su app."], [ShoppingBag, "Tienda del gimnasio", "Catálogo, carrito y pago con tarjeta; el socio recoge con un código QR y tiene su factura."], [ScanFace, "Facial y conteo de personas", "Reconocimiento facial tras el código QR y sensor de conteo para saber quién abre y cuántos pasan."], [UserCog, "Control de empleados", "Cada cobro, venta y ficha nueva queda a nombre de quien la registró: trazabilidad completa."], [Lightbulb, "Domótica", "Luces y portones del gimnasio con dispositivos Shelly, desde el panel."], [Music2, "Música y alarmas", "Spotify en los altavoces del local, y alarmas de acceso por los mismos altavoces."], [Wrench, "A medida", "Cambiamos funciones, añadimos nuevas e integramos con tu sistema actual."]] as const;
   return (
     <section className="bg-muted/60 py-20">
       <div className="mx-auto max-w-6xl px-4">
@@ -497,9 +556,13 @@ function Faq() {
     ["¿Qué hardware de acceso es compatible?", "Trabajamos con controladoras y lectores QR de Kimaldi, terminales de reconocimiento facial y sensores de conteo de personas, con una puerta o torno por instalación. Otros equipos son posibles bajo proyecto. Revisamos contigo tu instalación durante la llamada de introducción."],
     ["¿Hace falta un torno?", "No. Hispal GYM se instala sobre la puerta que ya tienes: código QR, verificación facial y sensor de conteo de personas. El sensor es la alternativa más económica a un torno: no impide el paso, pero registra quién abrió y cuántas personas pasaron. Si prefieres un torno físico, también te lo suministramos e integramos."],
     ["¿Cómo funciona el reconocimiento facial y qué pasa con la protección de datos?", "El terminal confirma que quien presenta el QR es su titular. Incluimos la documentación de protección de datos y una alternativa sin biometría: el socio que no quiera usar su cara entra con QR y validación en recepción. Tu gimnasio es el responsable del tratamiento y te damos la documentación y la configuración para cumplir."],
-    ["¿Qué pasa si alguien entra acompañado?", "Un sensor sobre la puerta cuenta las personas que cruzan. Si pasan más personas que accesos concedidos, el sistema lo registra y lo marca en rojo en la pantalla del sensor, y queda constancia de quién abrió la puerta y a qué hora."],
+    ["¿Qué pasa si alguien entra acompañado?", "Un sensor sobre la puerta cuenta las personas que cruzan. Si pasan más personas que accesos concedidos, salta una alarma y el sistema lo marca en rojo en la pantalla del sensor. Queda constancia de quién abrió la puerta y a qué hora, y el gimnasio puede hablar con ese socio."],
     ["¿Puedo vender productos desde la app?", "Sí. La tienda incluye catálogo con fotos y precios, carrito y pago con tarjeta desde el móvil. El socio recoge su pedido en el mostrador enseñando un código QR, y el personal solo puede marcarlo como entregado escaneándolo. También puedes vender en el mostrador, en efectivo o con datáfono. Cada compra tiene su factura en PDF."],
     ["¿Cómo funcionan las clases y los eventos?", "Tu equipo crea clases y eventos con su horario, su sala y sus plazas. El socio con la membresía en vigor reserva y cancela su plaza desde la app, y recibe avisos. Las sesiones pueden ser con reserva o de entrada libre."],
+    ["¿Puedo elegir cómo entran mis socios?", "Sí. Cada centro elige: solo QR, solo cara o QR y cara juntos. Lo recomendado para la máxima seguridad es QR + reconocimiento facial + sensor de conteo. Según el centro, también se puede ofrecer un PIN o una tarjeta como opción."],
+    ["¿Qué muestra el control de empleados?", "Cada cobro, cada venta de la tienda y cada ficha nueva queda a nombre de quien la registró. Sabes qué ha cobrado y vendido cada empleado, con trazabilidad completa. El empleado no ve los ingresos del negocio."],
+    ["¿Qué incluye la domótica?", "Luces y portones del gimnasio controlados desde el panel con dispositivos Shelly, y música con Spotify y alarmas por los altavoces del local."],
+    ["¿Se adapta a mi gimnasio?", "Sí. Es un producto, pero nos adaptamos: modificamos funciones, añadimos nuevas e integramos con tu sistema actual, con presupuesto cerrado."],
     ["¿Se cobra automáticamente a los socios?", "No. No hay cobros automáticos. Cada pago compra un periodo de acceso y termina. El socio renueva cuando quiere, pagando de nuevo."],
     ["¿Cómo se pagan las membresías?", "Online con tarjeta desde la app, en la pasarela bancaria Redsys, o en el mostrador en efectivo o con tarjeta en datáfono."],
     ["¿Puedo abrir 24 horas sin personal?", "El flujo no necesita a nadie: alta online, pago, código QR, verificación facial y conteo de personas. Con el pack Total tienes aforo en vivo y salida registrada. No hay control de franjas horarias, y por seguridad no se valida ninguna entrada sin conexión. Lo valoramos contigo según tu centro."],
