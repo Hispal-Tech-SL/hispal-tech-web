@@ -17,18 +17,18 @@ const links = [
 export function GymHeader() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/85 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-ink-foreground/10 bg-ink/95 text-ink-foreground backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <a href="#producto" aria-label="Hispal GYM, inicio"><Logo className="text-xl" markClassName="size-12" /></a>
+        <a href="#producto" aria-label="Hispal GYM, inicio"><Logo className="text-lg" markClassName="size-9" /></a>
         <nav aria-label="Principal" className="hidden items-center gap-6 text-sm md:flex">
           {links.map(([l, id]) => (
-            <a key={id} href={`#${id}`} className="text-muted-foreground hover:text-foreground">{l}</a>
+            <a key={id} href={`#${id}`} className="text-ink-foreground/70 hover:text-ink-foreground">{l}</a>
           ))}
         </nav>
         <div className="flex items-center gap-1">
           <Link
             to="/#productos"
-            className="mr-2 hidden items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground lg:inline-flex"
+            className="mr-2 hidden items-center gap-1.5 text-sm text-ink-foreground/70 hover:text-ink-foreground lg:inline-flex"
           >
             <ArrowLeft className="size-4" aria-hidden /> Hispal Tech
           </Link>
@@ -48,7 +48,7 @@ export function GymHeader() {
           {links.map(([l, id]) => (
             <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className="block py-2.5 font-medium">{l}</a>
           ))}
-          <Link to="/#productos" className="block py-2.5 font-medium text-muted-foreground">← Volver a Hispal Tech</Link>
+          <Link to="/#productos" className="block py-2.5 font-medium text-ink-foreground/70">← Volver a Hispal Tech</Link>
           <Button asChild className="mt-2 w-full font-semibold"><a href="#contacto" onClick={() => setOpen(false)}>Solicitar demo</a></Button>
         </nav>
       )}

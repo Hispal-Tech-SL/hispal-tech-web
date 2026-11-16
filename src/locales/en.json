@@ -153,14 +153,15 @@
     "requestDemo": "Request demo",
     "items": {
       "hispalGym": {
-        "title": "Management software for gyms and sports centers",
-        "description": "A single system to manage members, memberships, online payments, access and routines. Your clients sign up and pay by card from their phone, get in with their QR card, and you control clients, payments and access from one dashboard.",
+        "title": "Autonomous access and management for gyms, with nobody at reception",
+        "description": "Open your gym whenever you want. Hispal GYM opens and controls the door with the member's phone and manages everything else: payments, shop, classes, routines, staff and home automation. Each centre chooses how its members get in: QR only, face only, or QR and face, with a people-counting sensor and an alarm if more than one person goes through a single access.",
         "chip": "Access granted",
         "points": [
-          "Sign-up and card payment from the phone, any time",
-          "Anti-fraud QR card to get in, integrated with Kimaldi",
-          "Memberships with no automatic charges and guided workout routines",
-          "Management dashboard with clients, payments, access and roles"
+          "Sign-up and payment by card or Bizum from the phone, any time",
+          "QR and face recognition access, integrated with Kimaldi, plus a counting sensor: one ID, one person",
+          "Shop with invoices, classes and activities, routines and exercises, and staff control with full traceability",
+          "Home automation: lights and gates from the dashboard, with music and alarms over the venue speakers",
+          "Adapted to your gym: custom features and integrations with your current system"
         ],
         "tags": {
           "open": "Sign-up 24/7",
@@ -168,9 +169,11 @@
           "access": "QR access"
         },
         "screens": {
-          "qr": "QR card",
+          "qr": "QR code",
           "membership": "Membership",
           "routine": "Routines",
+          "shop": "Shop",
+          "classes": "Classes",
           "panel": "Owner payments dashboard"
         }
       }

@@ -5,7 +5,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PRODUCTS_DATA } from "@/constants";
-import { Phone, PanelFrame, QrScreen, MembershipScreen, RoutinesScreen, PaymentsPanel } from "@/components/hispalgym/Mockups";
+import { Phone, PanelFrame, QrScreen, MembershipScreen, RoutinesScreen, PaymentsPanel, ShopScreen, ClassesScreen } from "@/components/hispalgym/Mockups";
 
 const badges = [
   { icon: Clock, key: "open" },
@@ -17,6 +17,8 @@ const screens = [
   { key: "qr", node: <QrScreen /> },
   { key: "membership", node: <MembershipScreen /> },
   { key: "routine", node: <RoutinesScreen /> },
+  { key: "classes", node: <ClassesScreen /> },
+  { key: "shop", node: <ShopScreen /> },
 ] as const;
 
 const Products = () => {
