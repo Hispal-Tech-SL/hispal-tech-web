@@ -9,8 +9,8 @@ const Logo = GymLogo;
 const links = [
   ["Acceso", "acceso"],
   ["Funciones", "funciones"],
-  ["Packs", "packs"],
   ["Caso real", "caso-real"],
+  ["Packs", "packs"],
   ["Preguntas", "preguntas"],
 ];
 
@@ -21,6 +21,7 @@ export function GymHeader() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
   return (
+    <>
     <header className="sticky top-0 z-50 border-b border-ink-foreground/10 bg-ink/95 text-ink-foreground backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4">
         <a href="#producto" aria-label="Hispal GYM, inicio" onClick={() => setOpen(false)}><Logo className="text-[17px]" markClassName="size-8" /></a>
@@ -44,8 +45,9 @@ export function GymHeader() {
           </button>
         </div>
       </div>
+    </header>
       {open && (
-        <nav aria-label="Móvil" className="fixed inset-x-0 bottom-0 top-14 z-40 overflow-y-auto bg-ink px-6 pb-10 pt-6 md:hidden">
+        <nav aria-label="Móvil" className="fixed inset-x-0 bottom-0 top-14 z-40 overflow-y-auto bg-ink px-6 pb-10 pt-6 text-ink-foreground md:hidden">
           <ul className="divide-y divide-ink-foreground/10">
             {links.map(([l, id]) => (
               <li key={id}><a href={`#${id}`} onClick={() => setOpen(false)} className="block py-4 font-display text-2xl font-bold">{l}</a></li>
@@ -55,7 +57,7 @@ export function GymHeader() {
           <Link to="/#productos" className="mt-6 flex items-center justify-center gap-1.5 text-sm text-ink-foreground/60"><ArrowLeft className="size-4" aria-hidden /> Volver a Hispal Tech</Link>
         </nav>
       )}
-    </header>
+    </>
   );
 }
 
