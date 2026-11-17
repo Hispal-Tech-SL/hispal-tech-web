@@ -7,13 +7,14 @@ export const API_CONFIG = {
 
 // Email Configuration
 export const EMAIL_CONFIG = {
-  to: "contacthispaltech@gmail.com",
+  to: "info@hispal-network.com",
   from: "noreply@hispaltech.dev",
-  replyTo: "contacthispaltech@gmail.com",
+  replyTo: "info@hispal-network.com",
 };
 
 // Re-export all constants for backward compatibility
 export { CONTACT_INFO } from "./contact-info";
+export { HISPALGYM_DEMO_URL } from "./hispalgym";
 export { SERVICES_DATA } from "./services-data";
 export { PORTFOLIO_DATA } from "./portfolio-data";
 export { TEAM_DATA } from "./team-data";

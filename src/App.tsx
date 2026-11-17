@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 
 import Contacto from "./pages/Contacto";
 import HispalGym from "./pages/HispalGym";
+import HispalGymDemo from "./pages/HispalGymDemo";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/contacto" element={<Contacto />} />
               <Route path="/hispalgym" element={<HispalGym />} />
+              <Route path="/hispalgym/demo" element={<HispalGymDemo />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+      El navegador avisa una sola vez de que puede instalar la aplicación, y lo hace en cuanto lee
+      el manifiesto, mucho antes de que React llegue a montarse en un móvil. Si nadie escucha en
+      ese momento, el aviso se pierde para siempre y el botón de instalar acaba diciendo que el
+      navegador no puede, cuando sí puede. Por eso se recoge aquí, en el primer script de la
+      página, y se guarda para quien llegue después. El nombre del evento propio está repetido en
+      src/hooks/use-pwa-install.ts, que es quien lo escucha.
+
+      Este es el único script embebido que queda en toda la página, y por eso la política de
+      seguridad (public/_headers) lo permite por su hash en vez de con 'unsafe-inline', que abriría
+      la puerta a cualquier otro script que alguien lograra inyectar. Ese hash se calcula sobre el
+      contenido EXACTO de aquí abajo, con sus saltos de línea CRLF tal cual: tocar una sola coma, o
+      que un editor cambie los finales de línea a LF, cambia el hash y la política empieza a
+      bloquear este script sin avisar más que en la consola. Si hay que editarlo, recalcula el hash
+      (ver el comentario en public/_headers) antes de publicar.
+    -->
+    <script>
+      window.deferredInstallPrompt = null;
+      window.addEventListener("beforeinstallprompt", function (event) {
+        event.preventDefault();
+        window.deferredInstallPrompt = event;
+        window.dispatchEvent(new Event("installpromptcaptured"));
+      });
+      window.addEventListener("appinstalled", function () {
+        window.deferredInstallPrompt = null;
+      });
+    </script>
+
+    <title>
+      Hispal GYM | Demo del software de gestión para gimnasios
+    </title>
+    <meta
+      name="description"
+      content="Demo pública de Hispal GYM: la cuenta del socio y el panel del gimnasio, con datos ficticios."
+    />
+    <meta
+      name="keywords"
+      content="gimnasio, gestión de gimnasios, control de accesos, pagos, demo"
+    />
+    <meta name="author" content="Hispal Network SL" />
+    <meta name="robots" content="noindex" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Hispal GYM | Demo"
+    />
+    <meta
+      property="og:description"
+      content="Prueba Hispal GYM con un gimnasio ficticio: sin registro y sin datos reales."
+    />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Hispal GYM | Demo"
+    />
+    <meta
+      name="twitter:description"
+      content="Prueba Hispal GYM con un gimnasio ficticio: sin registro y sin datos reales."
+    />
+
+    <!-- Structured Data (JSON-LD) para LocalBusiness -->
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <meta name="theme-color" content="#f06800" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Hispal GYM" />
+  <style>:root:root{--secondary:#f06800}</style>  <script type="module" crossorigin src="./assets/index-FzUzSN2n.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/vendor-react-YyfIXni6.js">
+  <link rel="modulepreload" crossorigin href="./assets/vendor-ui-CZ0eK7iW.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-D0U7HY4p.css">
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

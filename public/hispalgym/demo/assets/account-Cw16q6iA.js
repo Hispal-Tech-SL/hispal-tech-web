@@ -1,0 +1,1 @@
+const n={name:"nombre y apellidos",phone:"teléfono",nationalId:"DNI",birthDate:"fecha de nacimiento",address:"dirección"};function o(e){const t=e.trim().split(/\s+/).filter(Boolean);return{firstName:t[0]??"",lastName:t.slice(1).join(" ")}}function a(e,t){const i=e.trim()[0]??"",s=t.trim()[0]??"";return(i+s).toUpperCase()||"?"}export{n as M,a as i,o as s};
