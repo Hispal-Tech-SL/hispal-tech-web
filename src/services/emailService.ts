@@ -36,7 +36,7 @@ export const sendEmail = async (data: EmailData): Promise<boolean> => {
       timeline: data.timeline || "",
       message: data.description,
       newsletter: data.newsletter ? "Sí" : "No",
-      to_email: "hola@hispaltech.dev",
+      to_email: "info@hispal-network.com",
     };
 
     // Send email

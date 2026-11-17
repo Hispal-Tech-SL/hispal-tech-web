@@ -2,7 +2,9 @@
 
 ## ✅ Estado Actual
 
-El formulario de contacto está configurado para usar **Web3Forms** (API real). Los emails se envían directamente a `contacthispaltech@gmail.com`.
+El formulario de contacto está configurado para usar **Web3Forms** (API real). Los emails se envían directamente a `info@hispal-network.com`.
+
+> **Importante:** con Web3Forms el buzón de destino lo fija la `access_key`, no el código. La clave debe haberse creado con `info@hispal-network.com`; si la clave actual se creó con otra dirección, los mensajes seguirán llegando a esa otra hasta que se genere una clave nueva y se actualice `VITE_WEB3FORMS_ACCESS_KEY` (en el `.env` local y en las variables del hosting, y volver a desplegar, porque la variable se incrusta al compilar).
 
 ## 🚀 Configuración para Desarrolladores
 
@@ -31,7 +33,7 @@ npm run dev
 ## 📧 Cómo Funciona
 
 - **API Real**: Usa Web3Forms para envío real de emails
-- **Destino**: Todos los emails van a `contacthispaltech@gmail.com`
+- **Destino**: Todos los emails van a `info@hispal-network.com`
 - **Datos**: Incluye nombre, email, teléfono, empresa, proyecto, presupuesto, timeline y descripción
 - **Notificaciones**: El usuario recibe confirmación de envío exitoso
 
@@ -68,7 +70,7 @@ const response = await fetch("https://formspree.io/f/TU_ENDPOINT", {
 
 1. Completa el formulario de contacto
 2. Haz clic en "Solicitar Presupuesto Gratuito"
-3. Verifica que recibes el email en `contacthispaltech@gmail.com`
+3. Verifica que recibes el email en `info@hispal-network.com`
 4. Revisa la consola del navegador (F12) para logs de depuración
 
 ## 🔒 Seguridad

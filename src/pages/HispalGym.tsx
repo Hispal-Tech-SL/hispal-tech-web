@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
-  CreditCard, QrCode, ArrowRight, CalendarDays, UserCog, LayoutDashboard, ShoppingBag, Lock, Landmark, DatabaseBackup, IdCard, CheckCircle2, ScanFace, Users, KeyRound, Lightbulb, Wrench, Layers, Smartphone, ShieldCheck,
+  CreditCard, QrCode, ArrowRight, CalendarDays, UserCog, LayoutDashboard, ShoppingBag, Lock, Landmark, DatabaseBackup, IdCard, CheckCircle2, ScanFace, Users, KeyRound, Lightbulb, Wrench, Layers, Smartphone, ShieldCheck, Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,7 @@ import {
 import { AccessScene, SensorAlarm, OpeningHours, GymFacade } from "@/components/hispalgym/Illustrations";
 import { GymHeader, GymFooter } from "@/components/hispalgym/GymChrome";
 import { sendEmailAlternative } from "@/services/emailService";
+import { HISPALGYM_DEMO_URL } from "@/constants/hispalgym";
 
 function useReveal() {
   useEffect(() => {
@@ -91,7 +92,7 @@ function Hero() {
           <p className="mt-4 max-w-xl text-base opacity-80 md:text-lg">El software que abre y controla la puerta con el móvil del socio, y gestiona los cobros, la tienda, las clases y tu equipo.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="w-full font-semibold shadow-glow sm:w-auto"><a href="#contacto">Solicitar demo</a></Button>
-            <Button asChild size="lg" variant="outline" className="w-full border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground sm:w-auto"><a href="#acceso">Ver cómo funciona <ArrowRight /></a></Button>
+            <Button asChild size="lg" variant="outline" className="w-full border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground sm:w-auto"><a href={HISPALGYM_DEMO_URL}><Play /> Ver demo</a></Button>
           </div>
           <ul className="mt-6 flex flex-wrap gap-2">
             {[[CreditCard, "Cobros online"], [QrCode, "QR, cara y sensor"], [LayoutDashboard, "Panel de gestión"]].map(([I, t]) => {
@@ -210,7 +211,7 @@ function Features() {
                 <h3 className="text-2xl font-extrabold md:text-3xl">{f.title}</h3>
                 <p className="mt-3 text-muted-foreground">{f.text}</p>
                 <div className="mt-6"><Checklist items={f.points} /></div>
-                <a href="#contacto" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline">Verlo en una demo <ArrowRight className="size-4" aria-hidden /></a>
+                <a href={HISPALGYM_DEMO_URL} className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline">Verlo en la demo <ArrowRight className="size-4" aria-hidden /></a>
               </div>
               <div className="flex min-w-0 flex-wrap items-start justify-center gap-6">{f.visual}</div>
             </div>
@@ -288,9 +289,24 @@ function Comparison() {
     ["Necesita torno", "Suele necesitarlo", "Suele necesitarlo", "No: se instala sobre tu puerta"],
   ];
   return (
-    <section id="comparativa" className="mx-auto max-w-6xl px-4 py-20">
+    <section id="comparativa" className="mx-auto max-w-6xl px-4 py-14 md:py-20">
       <SectionHead eyebrow="Por qué ya no basta una tarjeta" title="Una tarjeta se presta. Tu cara, no." sub="Las tarjetas, pulseras, llaveros y códigos fijos identifican un objeto, no a una persona. Hispal GYM comprueba a la persona y cuenta quién pasa." />
-      <div className="reveal mt-12 overflow-x-auto rounded-2xl border shadow-soft">
+      <ul className="mt-10 space-y-4 md:hidden">
+        {rows.map(([a, b, c, d]) => (
+          <li key={a} className="reveal overflow-hidden rounded-2xl border bg-card shadow-soft">
+            <h3 className="px-4 pb-3 pt-4 text-base font-bold leading-snug">{a}</h3>
+            <div className="border-y border-primary/20 bg-accent/50 px-4 py-3">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-primary">Hispal GYM</p>
+              <p className="mt-1 flex items-start gap-2 text-sm font-semibold"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />{d}</p>
+            </div>
+            <dl className="grid grid-cols-2 divide-x text-sm">
+              <div className="px-4 py-3"><dt className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Tarjeta, pulsera o llavero</dt><dd className="mt-1 font-medium">{b}</dd></div>
+              <div className="px-4 py-3"><dt className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Solo QR o código en el móvil</dt><dd className="mt-1 font-medium">{c}</dd></div>
+            </dl>
+          </li>
+        ))}
+      </ul>
+      <div className="reveal mt-12 hidden overflow-x-auto rounded-2xl border shadow-soft md:block">
         <table className="w-full min-w-[720px] text-left text-sm">
           <thead>
             <tr className="bg-ink text-ink-foreground">

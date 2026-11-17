@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Menu, X } from "lucide-react";
+import { ArrowLeft, Menu, Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GymLogo } from "@/components/hispalgym/Logo";
+import { HISPALGYM_DEMO_URL } from "@/constants/hispalgym";
 
 const Logo = GymLogo;
 
@@ -34,6 +35,7 @@ export function GymHeader() {
           <Link to="/#productos" className="hidden items-center gap-1.5 text-sm text-ink-foreground/60 hover:text-ink-foreground xl:inline-flex">
             <ArrowLeft className="size-4" aria-hidden /> Hispal Network
           </Link>
+          <Button asChild size="sm" variant="outline" className="hidden border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground lg:inline-flex"><a href={HISPALGYM_DEMO_URL}><Play /> Ver demo</a></Button>
           <Button asChild size="sm" className="hidden font-semibold sm:inline-flex"><a href="#contacto">Solicitar demo</a></Button>
           <button
             className="grid size-10 place-items-center rounded-lg text-ink-foreground md:hidden"
@@ -54,6 +56,7 @@ export function GymHeader() {
             ))}
           </ul>
           <Button asChild size="lg" className="mt-8 w-full font-semibold shadow-glow"><a href="#contacto" onClick={() => setOpen(false)}>Solicitar demo</a></Button>
+          <Button asChild size="lg" variant="outline" className="mt-3 w-full border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground"><a href={HISPALGYM_DEMO_URL}><Play /> Ver demo</a></Button>
           <Link to="/#productos" className="mt-6 flex items-center justify-center gap-1.5 text-sm text-ink-foreground/60"><ArrowLeft className="size-4" aria-hidden /> Volver a Hispal Network</Link>
         </nav>
       )}
@@ -81,6 +84,7 @@ export function GymFooter() {
         <div>
           <p className="font-display font-bold">Contacto</p>
           <ul className="mt-3 space-y-2 text-sm opacity-80">
+            <li><a href={HISPALGYM_DEMO_URL} className="hover:text-primary">Ver demo</a></li>
             <li><a href="#contacto" className="hover:text-primary">Solicitar demo</a></li>
             <li><Link to="/" className="hover:text-primary">Hispal Network</Link></li>
           </ul>
