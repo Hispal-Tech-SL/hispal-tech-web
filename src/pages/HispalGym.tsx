@@ -91,7 +91,7 @@ function Hero() {
           <h1 className="mt-3 text-[2rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">Abre tu gimnasio las horas que quieras, <span className="text-primary">sin nadie en recepción</span>.</h1>
           <p className="mt-4 max-w-xl text-base opacity-80 md:text-lg">El software que abre y controla la puerta con el móvil del socio, y gestiona los cobros, la tienda, las clases y tu equipo.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="w-full font-semibold shadow-glow sm:w-auto"><a href="#contacto">Solicitar demo</a></Button>
+            <Button asChild size="lg" className="w-full font-semibold shadow-glow sm:w-auto"><a href="#contacto">Solicita una llamada</a></Button>
             <Button asChild size="lg" variant="outline" className="w-full border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground sm:w-auto"><a href={HISPALGYM_DEMO_URL}><Play /> Ver demo</a></Button>
           </div>
           <ul className="mt-6 flex flex-wrap gap-2">
@@ -372,7 +372,7 @@ function Packs() {
             <h3 className="font-display text-2xl font-extrabold">{p.name}</h3>
             <p className="mt-1 text-sm text-muted-foreground">{p.tag}</p>
             <div className="mt-6"><Checklist items={p.points} /></div>
-            <Button asChild className="mt-8 w-full font-semibold" variant={p.rec ? "default" : "secondary"}><a href="#contacto">Solicitar demo</a></Button>
+            <Button asChild className="mt-8 w-full font-semibold" variant={p.rec ? "default" : "secondary"}><a href="#contacto">Solicita una llamada</a></Button>
           </div>
         ))}
       </div>
@@ -482,7 +482,7 @@ function Contact() {
               <div className="grid gap-4 sm:grid-cols-2">{field("email", "Email", "email", "email")}{field("telefono", "Teléfono", "tel", "tel")}</div>
               <div><Label htmlFor="mensaje">Mensaje (opcional)</Label><Textarea id="mensaje" name="mensaje" rows={4} className="mt-1.5 bg-background" /></div>
               {failed && <p role="alert" className="text-sm text-destructive">No se pudo enviar la solicitud. Inténtalo de nuevo.</p>}
-              <Button type="submit" size="lg" disabled={sending} className="w-full font-semibold">{sending ? "Enviando..." : "Solicitar demo"}</Button>
+              <Button type="submit" size="lg" disabled={sending} className="w-full font-semibold">{sending ? "Enviando..." : "Solicita una llamada"}</Button>
             </form>
           )}
         </div>
