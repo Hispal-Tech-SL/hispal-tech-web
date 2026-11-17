@@ -36,7 +36,7 @@ export function GymHeader() {
             <ArrowLeft className="size-4" aria-hidden /> Hispal Network
           </Link>
           <Button asChild size="sm" variant="outline" className="hidden border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground lg:inline-flex"><a href={HISPALGYM_DEMO_URL}><Play /> Ver demo</a></Button>
-          <Button asChild size="sm" className="hidden font-semibold sm:inline-flex"><a href="#contacto">Solicitar demo</a></Button>
+          <Button asChild size="sm" className="hidden font-semibold sm:inline-flex"><a href="#contacto">Solicita una llamada</a></Button>
           <button
             className="grid size-10 place-items-center rounded-lg text-ink-foreground md:hidden"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -55,7 +55,7 @@ export function GymHeader() {
               <li key={id}><a href={`#${id}`} onClick={() => setOpen(false)} className="block py-4 font-display text-2xl font-bold">{l}</a></li>
             ))}
           </ul>
-          <Button asChild size="lg" className="mt-8 w-full font-semibold shadow-glow"><a href="#contacto" onClick={() => setOpen(false)}>Solicitar demo</a></Button>
+          <Button asChild size="lg" className="mt-8 w-full font-semibold shadow-glow"><a href="#contacto" onClick={() => setOpen(false)}>Solicita una llamada</a></Button>
           <Button asChild size="lg" variant="outline" className="mt-3 w-full border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground"><a href={HISPALGYM_DEMO_URL}><Play /> Ver demo</a></Button>
           <Link to="/#productos" className="mt-6 flex items-center justify-center gap-1.5 text-sm text-ink-foreground/60"><ArrowLeft className="size-4" aria-hidden /> Volver a Hispal Network</Link>
         </nav>
@@ -85,7 +85,7 @@ export function GymFooter() {
           <p className="font-display font-bold">Contacto</p>
           <ul className="mt-3 space-y-2 text-sm opacity-80">
             <li><a href={HISPALGYM_DEMO_URL} className="hover:text-primary">Ver demo</a></li>
-            <li><a href="#contacto" className="hover:text-primary">Solicitar demo</a></li>
+            <li><a href="#contacto" className="hover:text-primary">Solicita una llamada</a></li>
             <li><Link to="/" className="hover:text-primary">Hispal Network</Link></li>
           </ul>
         </div>

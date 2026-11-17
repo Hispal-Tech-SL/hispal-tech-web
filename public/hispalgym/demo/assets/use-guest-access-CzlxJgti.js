@@ -1,0 +1,1 @@
+import{r as c}from"./vendor-react-DKH65osz.js";import{u as r}from"./use-poll-while-visible-DhCPU4C5.js";import{b as a}from"./AuthPageBackground-Hq9jPV0q.js";const u=8e3;function m(s){const[e,o]=c.useState(null),t=c.useCallback(async()=>{try{o(await a())}catch{}},[]);return c.useEffect(()=>{s&&t()},[s,t]),r(t,u,s),e}export{m as u};
