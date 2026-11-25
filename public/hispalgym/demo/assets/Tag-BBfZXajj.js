@@ -1,1 +1,0 @@
-import{j as t}from"./vendor-react-BzE6HWmJ.js";import{aF as r}from"./index-BGmes_FB.js";function m({tone:a="neutral",className:s,...g}){return t.jsx("span",{className:r("hg-tag",a!=="neutral"&&`hg-tag--${a}`,s),...g})}function o({className:a,...s}){return t.jsx("div",{className:r("hg-tags",a),...s})}export{m as H,o as a};

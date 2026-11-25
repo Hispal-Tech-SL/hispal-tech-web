@@ -1,1 +1,0 @@
-import{r as s}from"./vendor-react-BzE6HWmJ.js";function l(t,r,i=!0){const n=s.useRef(t);n.current=t,s.useEffect(()=>{if(!i)return;let e=!1;const o=window.setInterval(()=>{e||document.visibilityState!=="visible"||(e=!0,Promise.resolve(n.current()).finally(()=>{e=!1}))},r);return()=>window.clearInterval(o)},[r,i])}export{l as u};

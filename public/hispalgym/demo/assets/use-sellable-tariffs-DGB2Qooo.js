@@ -1,1 +1,0 @@
-import{r}from"./vendor-react-BzE6HWmJ.js";import{f as n}from"./index-BGmes_FB.js";function p(){const[o,a]=r.useState([]),[f,s]=r.useState(!0);return r.useEffect(()=>{n("/api/products").then(t=>{if(!t.ok)throw new Error;return t.json()}).then(t=>{a(t.filter(e=>e.numberCustomers<=1).sort((e,i)=>e.price-i.price)),s(!1)}).catch(()=>s(!1))},[]),{tariffs:o,loading:f}}export{p as u};
