@@ -1,1 +1,0 @@
-import{r as n}from"./vendor-react-DKH65osz.js";function i(){const t=n.useRef(null);return n.useEffect(()=>{const s=t.current;if(!s)return;const e=new IntersectionObserver(o=>{o.forEach(r=>{r.isIntersecting&&(r.target.classList.add("in-view"),e.unobserve(r.target))})},{threshold:.01,rootMargin:"0px"});return e.observe(s),()=>e.disconnect()},[]),t}export{i as u};

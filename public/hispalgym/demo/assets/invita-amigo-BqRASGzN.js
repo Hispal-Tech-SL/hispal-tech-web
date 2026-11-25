@@ -1,1 +1,0 @@
-import{j as e}from"./vendor-react-DKH65osz.js";function n(){return e.jsx("div",{className:"flex items-center justify-center min-h-screen",children:e.jsxs("div",{className:"text-center",children:[e.jsx("h1",{className:"text-4xl font-bold mb-4",children:"404"}),e.jsx("p",{className:"text-muted-foreground",children:"Esta página no existe"})]})})}export{n as component};

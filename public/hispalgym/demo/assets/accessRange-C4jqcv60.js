@@ -1,1 +1,0 @@
-import{t as s}from"./membership-BH2jZ2D8.js";function g(r,t,e,n,i){if(r){const o=s();return{from:new Date(`${o}T00:00:00`).toISOString(),to:new Date(`${o}T23:59:59`).toISOString()}}const S=t?new Date(`${t}T${e||"00:00"}:00`):void 0,a=n?new Date(`${n}T${i||"23:59"}:59`):t?new Date:void 0;return{from:S?.toISOString(),to:a?.toISOString()}}export{g as r};

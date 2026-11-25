@@ -1,1 +1,0 @@
-function c(t,n="start",i=96){if(!t)return;const o=t.getBoundingClientRect(),r=n==="center"?o.top+window.scrollY-(window.innerHeight-o.height)/2:o.top+window.scrollY-i;window.scrollTo({top:Math.max(0,r),behavior:"smooth"})}export{c as s};
