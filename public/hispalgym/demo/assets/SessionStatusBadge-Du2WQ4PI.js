@@ -1,1 +1,0 @@
-import{j as e}from"./vendor-react-DKH65osz.js";import{B as r}from"./badge-BtcjWuqT.js";function n({cancelled:t}){return t?e.jsx(r,{variant:"outline",className:"border-destructive text-destructive bg-destructive/10 shrink-0",children:"Inactivo"}):e.jsx(r,{variant:"outline",className:"border-green-500 text-green-500 bg-green-500/10 shrink-0",children:"Activo"})}export{n as S};

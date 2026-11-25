@@ -1,1 +1,0 @@
-import{j as s}from"./vendor-react-DKH65osz.js";function i({label:r,children:t}){return s.jsxs("div",{children:[s.jsx("p",{className:"tracking-luxury text-[10px] text-white/40 uppercase font-semibold mb-3",children:r}),s.jsx("div",{className:"grid grid-cols-2 gap-3",children:t})]})}export{i as A};
