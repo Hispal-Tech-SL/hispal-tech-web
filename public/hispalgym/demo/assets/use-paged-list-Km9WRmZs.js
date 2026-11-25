@@ -1,0 +1,1 @@
+import{r as n}from"./vendor-react-CYD0sM6G.js";function l(s,t,r=""){const[u,a]=n.useState(1);n.useEffect(()=>{a(1)},[r]);const o=s.length,c=Math.max(1,Math.ceil(o/t)),e=Math.min(u,c);return{page:e,setPage:a,pageItems:s.slice((e-1)*t,e*t),totalItems:o,totalPages:c}}export{l as u};
