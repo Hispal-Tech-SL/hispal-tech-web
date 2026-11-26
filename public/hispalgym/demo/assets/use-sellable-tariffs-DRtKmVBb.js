@@ -1,1 +1,0 @@
-import{r}from"./vendor-react-CYD0sM6G.js";import{e as n}from"./index-ohc7F1FU.js";function p(){const[o,a]=r.useState([]),[f,s]=r.useState(!0);return r.useEffect(()=>{n("/api/products").then(e=>{if(!e.ok)throw new Error;return e.json()}).then(e=>{a(e.filter(t=>t.numberCustomers<=1).sort((t,i)=>t.price-i.price)),s(!1)}).catch(()=>s(!1))},[]),{tariffs:o,loading:f}}export{p as u};
