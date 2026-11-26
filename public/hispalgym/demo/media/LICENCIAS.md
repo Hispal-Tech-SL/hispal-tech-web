@@ -62,6 +62,14 @@ Proceso (con `ffmpeg`): corte del tramo, escalado a 854x480 (Lanczos), `libx264 
 sin audio (`-an`), sin metadatos, `-movflags +faststart`. El póster sale del primer fotograma ya codificado, como WebP
 de calidad 72.
 
+## Fotos de la tienda (`shop/<producto>.webp`)
+
+Diecinueve fotos de producto de suplementación (480x480, WebP de calidad 80, unos 436 KB en total), con sus nombres, marcas
+(Yava Labs, Quamtrax y Life Pro) y precios orientativos. Salen del catálogo inicial de un gimnasio real, cuyas fotos son de las
+fichas oficiales de cada marca, de las que ese gimnasio es distribuidor; el propietario ha indicado que se usen en la demo con
+carácter orientativo. Se eligieron las que se ven bien sobre el fondo blanco o gris claro limpio y se dejaron fuera las que
+se confundían con el fondo (bolsas blancas sobre blanco) y las repetidas. Se publican en `media/shop/`.
+
 ## Licencias
 
 - **Pexels License** (fotos de la maqueta, según el usuario): uso libre, también comercial, sin atribución obligatoria.

@@ -1,1 +1,0 @@
-import{j as t}from"./vendor-react-CYD0sM6G.js";import{aD as i}from"./index-J7pMAkWu.js";function p({active:s=!1,className:a,type:r="button",...n}){return t.jsx("button",{type:r,"aria-pressed":s,className:i("hg-chip",s&&"is-active",a),...n})}function c({className:s,...a}){return t.jsx("div",{className:i("hg-chips",s),...a})}export{c as H,p as a};
