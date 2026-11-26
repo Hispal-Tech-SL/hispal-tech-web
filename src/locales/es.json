@@ -138,28 +138,28 @@
     "requestDemo": "Solicitar demo",
     "items": {
       "hispalGym": {
-        "title": "Acceso autónomo y gestión para gimnasios, sin nadie en recepción",
-        "description": "Abre tu gimnasio las horas que quieras. Hispal GYM abre y controla la puerta con el móvil del socio y gestiona todo lo demás: cobros, tienda, clases, rutinas, equipo y domótica. Cada centro elige cómo entra su gente: solo QR, solo cara o QR y cara, con sensor de conteo y alarma si pasa más de una persona por acceso.",
-        "chip": "Acceso permitido",
+        "title": "Software y acceso autónomo para gimnasios, con la marca de cada gimnasio",
+        "description": "Abre tu gimnasio hasta 24 horas con acceso autónomo, cobros online y control total en tiempo real. Cada gimnasio tiene su propia app y su propia web, con su logo y sus colores, y un equipo que va a su local a montarlo y vuelve a revisarlo.",
+        "chip": "Abierto 24 h",
         "points": [
-          "Alta y pago con tarjeta o Bizum desde el móvil, a cualquier hora",
-          "Acceso con QR y reconocimiento facial, integrado con Kimaldi, y sensor de conteo: una identificación, una persona",
-          "Tienda con factura, clases y actividades, rutinas y ejercicios, y control de empleados con trazabilidad completa",
-          "Domótica del local: luces y portones desde el panel, con música y alarmas por los altavoces",
-          "Se adapta a tu gimnasio: funciones a medida e integraciones con tu sistema"
+          "App y web con la marca de tu gimnasio, seas autónomo o sociedad",
+          "Acceso con QR, cara, pulsera o torno, y sensor 3D de conteo",
+          "Altas, cobros, tienda, clases y rutinas desde el móvil",
+          "Visita a tu local y seguimiento en persona incluidos",
+          "Desarrollos a medida para cada centro"
         ],
         "tags": {
-          "open": "Alta 24/7",
+          "open": "Abierto 24 h",
           "payments": "Cobros online",
-          "access": "Acceso con QR"
+          "access": "Tu marca"
         },
         "screens": {
-          "qr": "Código QR",
+          "qr": "Acceso con QR",
           "membership": "Membresía",
           "routine": "Rutinas",
           "shop": "Tienda",
           "classes": "Clases",
-          "panel": "Panel de pagos del propietario"
+          "panel": "Panel del propietario"
         }
       }
     },
@@ -347,5 +347,460 @@
     "services": "Servicios",
     "projects": "Proyectos",
     "contact": "Contacto"
+  },
+  "hispalgymPage": {
+    "meta": {
+      "title": "Hispal GYM · Software y acceso autónomo para gimnasios, con tu marca",
+      "description": "Abre tu gimnasio hasta 24 horas con acceso autónomo, cobros online y control total. Tu propia app y tu web incluidas, y un equipo que va a tu local."
+    },
+    "nav": {
+      "included": "Qué incluye",
+      "brand": "Tu marca",
+      "access": "Acceso",
+      "control": "Control",
+      "packs": "Packs",
+      "case": "Caso real",
+      "faq": "Preguntas",
+      "cta": "Pide tu visita",
+      "demo": "Ver demo",
+      "back": "Hispal Network",
+      "backLong": "Volver a Hispal Network",
+      "menuOpen": "Abrir menú",
+      "menuClose": "Cerrar menú",
+      "skip": "Saltar al contenido",
+      "language": "Idioma"
+    },
+    "hero": {
+      "eyebrow": "Software y acceso autónomo para gimnasios",
+      "title1": "Compite con cualquiera.",
+      "title2": "Con tu marca.",
+      "lead": "Abre tu gimnasio hasta 24 horas, de forma totalmente autónoma, con tu propia app y tu propia web. Y con algo que las grandes plataformas no te dan: un equipo que va a tu local, lo monta contigo y vuelve a revisarlo.",
+      "ctaPrimary": "Pide tu visita gratuita",
+      "ctaDemo": "Ver la demo",
+      "proof": [
+        "Visita y estudio de tu local incluidos",
+        "Web a medida incluida",
+        "Revisión en persona cada 3 meses"
+      ],
+      "chipOpen": "Abierto 24 h",
+      "chipOpenSub": "Acceso autónomo",
+      "chipBrand": "Tu logo, tus colores",
+      "chipBrandSub": "App propia, sin ser S.L.",
+      "chipVisit": "Vamos a tu local",
+      "chipVisitSub": "Nada de videollamadas",
+      "phoneAlt": "App del socio con la marca del gimnasio",
+      "tabletAlt": "Panel del propietario con los ingresos del mes"
+    },
+    "included": {
+      "eyebrow": "Incluido en tu cuota",
+      "title": "Lo que otros cobran aparte, aquí va incluido",
+      "sub": "No vendemos una licencia y te dejamos solo. Montamos tu gimnasio contigo, de principio a fin.",
+      "items": [
+        {
+          "value": "0 €",
+          "title": "Visita y estudio de tu local",
+          "text": "Vamos a tu gimnasio, medimos el espacio, estudiamos el plano y te decimos dónde va cada dispositivo."
+        },
+        {
+          "value": "1.500 €",
+          "title": "Tu web a medida, incluida",
+          "text": "Es lo que puede costar una web personalizada hecha por programadores. Con dominio y alojamiento, dentro de tu cuota."
+        },
+        {
+          "value": "Tu marca",
+          "title": "Tu propia app",
+          "text": "Con tu logo, tus colores y tu nombre en el móvil de tus socios. Seas autónomo o sociedad."
+        },
+        {
+          "value": "3 meses",
+          "title": "Seguimiento en persona",
+          "text": "Volvemos a tu gimnasio como máximo cada tres meses para revisar que todo funciona y ver qué mejorar."
+        }
+      ],
+      "note": "1.500 €: valor estimado de mercado de una web hecha a medida. A ti no te cuesta nada."
+    },
+    "difference": {
+      "eyebrow": "La diferencia",
+      "title": "Para nosotros no eres un número",
+      "sub": "Las grandes plataformas de gestión trabajan con miles de gimnasios y te dan lo mismo que a todos. Nosotros nos sentamos contigo y adaptamos el software a tu centro.",
+      "colTopic": "Tema",
+      "colGeneric": "Plataforma genérica",
+      "colUs": "Hispal GYM",
+      "rows": [
+        [
+          "Tu app",
+          "Genérica y con el nombre de la plataforma. La marca propia suele quedar para cuentas grandes o sociedades.",
+          "Con tu logo, tus colores y tu nombre desde el primer día, seas autónomo o sociedad."
+        ],
+        [
+          "Puesta en marcha",
+          "Te guían por videollamada.",
+          "Vamos a tu local: medimos, estudiamos el plano y te asesoramos en persona."
+        ],
+        [
+          "Tu web",
+          "Aparte, y a tu cargo.",
+          "Incluida y hecha a medida, con dominio y alojamiento."
+        ],
+        [
+          "Funciones",
+          "Las mismas para todos los clientes.",
+          "Adaptamos el software a tu forma de trabajar y desarrollamos lo que te falte."
+        ],
+        [
+          "Seguimiento",
+          "Un ticket o un chat.",
+          "Visitas presenciales periódicas, como máximo cada 3 meses."
+        ],
+        [
+          "Equipos de acceso",
+          "Los que marque la plataforma.",
+          "Los que necesites: QR, cara, pulsera, torno o algo más sencillo."
+        ],
+        [
+          "Trato",
+          "Uno más entre miles de centros.",
+          "Un equipo cercano que conoce tu gimnasio y te coge el teléfono."
+        ]
+      ],
+      "note": "Comparación con el modelo habitual de las plataformas generalistas de gestión de gimnasios."
+    },
+    "brand": {
+      "eyebrow": "Tu marca",
+      "title": "Una app y una web que son tuyas",
+      "sub": "Tus socios no abren una app cualquiera: abren la de tu gimnasio. Eso da una imagen corporativa que una plataforma genérica no puede darte.",
+      "points": [
+        "Tu logo, tus colores y tu nombre en la app de tus socios",
+        "Tu web hecha a medida: tu equipo, tus máquinas, tus fotos y tus tarifas",
+        "Alta y pago online desde tu propia web, a cualquier hora",
+        "Sin necesidad de ser una S.L. ni de ser un cliente grande"
+      ],
+      "pick": "Mira la misma app con otras marcas",
+      "examplesNote": "Marcas de ejemplo.",
+      "webTitle": "¿No tienes web? Te la hacemos",
+      "webText": "Desde cero y a tu gusto: enseña tu equipo, tu sala, tus clases y lo que te hace distinto. Incluida en tu cuota, con dominio y alojamiento.",
+      "phoneHome": "Inicio del socio",
+      "phoneAccess": "Acceso con QR"
+    },
+    "process": {
+      "eyebrow": "Cómo trabajamos",
+      "title": "Contigo desde el primer día",
+      "sub": "Cada gimnasio es distinto. Por eso empezamos en tu local, no en una videollamada.",
+      "steps": [
+        {
+          "title": "Visita a tu local",
+          "text": "Vamos a tu gimnasio, medimos el espacio y estudiamos el plano contigo."
+        },
+        {
+          "title": "Te asesoramos",
+          "text": "Te recomendamos el sistema que tiene sentido para ti: QR, cara, torno, sensor o algo más sencillo. No lo más caro."
+        },
+        {
+          "title": "Lo adaptamos a ti",
+          "text": "Te preguntamos cómo trabajas y cambiamos lo que haga falta en el funcionamiento del software."
+        },
+        {
+          "title": "Tu app y tu web",
+          "text": "Con tu marca y a tu gusto, listas para que tus socios se den de alta y paguen online."
+        },
+        {
+          "title": "Instalación y formación",
+          "text": "Montamos los equipos y enseñamos a tu equipo a usar el panel."
+        },
+        {
+          "title": "Seguimiento en persona",
+          "text": "Volvemos como máximo cada tres meses a revisar todas las funciones contigo."
+        }
+      ]
+    },
+    "access": {
+      "eyebrow": "Acceso autónomo",
+      "title": "Abre hasta 24 horas, sin nadie en la puerta",
+      "sub": "Tus socios se dan de alta, pagan y entran solos. Tú decides cómo se entra, y nosotros lo instalamos.",
+      "options": [
+        {
+          "title": "QR en el móvil",
+          "text": "Cada socio entra con el código de su app, ligado a su móvil."
+        },
+        {
+          "title": "Reconocimiento facial",
+          "text": "Entrar con la cara, sola o junto al QR. Con su documentación de protección de datos."
+        },
+        {
+          "title": "Pulsera o tarjeta RFID",
+          "text": "También la instalamos, aunque solemos recomendar QR o cara: una pulsera se presta."
+        },
+        {
+          "title": "Torno o puerta",
+          "text": "Sobre la puerta que ya tienes o con torno. Si ya tienes equipos, trabajamos con ellos."
+        },
+        {
+          "title": "Sensor 3D de conteo",
+          "text": "Cuenta a cada persona que cruza y avisa si pasan dos con una sola identificación."
+        },
+        {
+          "title": "Apertura remota y alarmas",
+          "text": "Abre la puerta desde el panel y recibe avisos si la puerta se queda abierta."
+        }
+      ],
+      "note": "¿No necesitas tanto? También montamos sistemas tradicionales y sencillos. Te recomendamos lo que encaja con tu centro."
+    },
+    "control": {
+      "eyebrow": "Control total",
+      "title": "Todo tu gimnasio, en tiempo real",
+      "sub": "Desde el móvil, la tableta o el ordenador de recepción: quién está dentro, quién ha entrado, cuánto has ingresado y qué hace tu equipo.",
+      "tabs": [
+        {
+          "label": "Accesos",
+          "title": "Cada entrada y cada salida",
+          "text": "Con la hora, la persona y cómo entró: QR, cara o apertura desde el panel."
+        },
+        {
+          "label": "Dentro ahora",
+          "title": "Quién está en tu gimnasio",
+          "text": "Las personas que hay dentro en este momento, socios y equipo, con la hora a la que entraron."
+        },
+        {
+          "label": "Sensor",
+          "title": "Quién pasa y cuántos pasan",
+          "text": "El sensor 3D cuenta entradas y salidas y marca la alarma si pasan más personas que accesos."
+        },
+        {
+          "label": "Ingresos",
+          "title": "Lo que entra cada mes",
+          "text": "Online y en el mostrador, por día, mes o año, con cada cobro a nombre de quien lo registró."
+        },
+        {
+          "label": "Tu equipo",
+          "title": "Control de tus empleados",
+          "text": "Cada empleado tiene su propio rol. Sabrás cuándo entra y cuándo sale, y qué ha cobrado o vendido."
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "Todo en una app",
+      "title": "Lo que tus socios usan cada día",
+      "sub": "Una app moderna y rápida, con tu marca, que tus socios abren cada vez que vienen a entrenar.",
+      "screens": [
+        "Inicio",
+        "Membresía",
+        "Tienda",
+        "Clases",
+        "Eventos",
+        "Rutinas",
+        "Ocupación",
+        "Pagos"
+      ],
+      "list": [
+        {
+          "title": "Altas y cobros online",
+          "text": "Con tarjeta y Bizum desde el móvil, y en el mostrador en efectivo o datáfono."
+        },
+        {
+          "title": "Tienda en la app",
+          "text": "Tus productos con foto y precio. El socio paga y recoge con su QR."
+        },
+        {
+          "title": "Clases y eventos",
+          "text": "Con horario, sala y plazas. Tus socios reservan desde la app."
+        },
+        {
+          "title": "Rutinas y ejercicios",
+          "text": "Rutinas por objetivo, con vídeo de cada ejercicio."
+        },
+        {
+          "title": "Ocupación en vivo",
+          "text": "Tus socios ven si hay mucha gente antes de venir."
+        },
+        {
+          "title": "Roles para tu equipo",
+          "text": "Socio, recepción, propietario y comercial: cada uno ve lo suyo."
+        },
+        {
+          "title": "Domótica del local",
+          "text": "Luces, portón y música desde el panel."
+        },
+        {
+          "title": "Pantalla en tu local",
+          "text": "Tus productos y tus avisos en la televisión del gimnasio."
+        }
+      ]
+    },
+    "packs": {
+      "eyebrow": "Packs",
+      "title": "Elige por dónde empezar",
+      "sub": "Son los packs que más eligen nuestros clientes. Tómalos como orientación: después estudiamos tu centro a fondo y lo ajustamos a ti.",
+      "recommended": "El más elegido",
+      "cta": "Pide tu visita",
+      "allInclude": "En todos los packs",
+      "allIncludeItems": [
+        "Visita y estudio de tu local",
+        "App y web con tu marca",
+        "Dominio y alojamiento",
+        "Seguimiento en persona cada 3 meses como máximo"
+      ],
+      "items": [
+        {
+          "name": "Esencial",
+          "tag": "Acceso con QR",
+          "points": [
+            "Todo el software de gestión",
+            "Acceso con QR en una puerta",
+            "Panel con roles y registro de accesos",
+            "Apertura remota de la puerta",
+            "Control de entradas y salidas del equipo"
+          ]
+        },
+        {
+          "name": "Seguro",
+          "tag": "QR y cara",
+          "points": [
+            "Todo lo de Esencial",
+            "Reconocimiento facial",
+            "Documentación de protección de datos",
+            "Alternativa sin biometría para quien la pida",
+            "Informe mensual de accesos",
+            "Soporte prioritario"
+          ]
+        },
+        {
+          "name": "Total",
+          "tag": "QR, cara y conteo",
+          "points": [
+            "Todo lo de Seguro",
+            "Sensor 3D con aforo en vivo",
+            "Alarma si pasan dos con un solo acceso",
+            "Lector de salida con registro de salidas",
+            "Respaldo 4G y SAI",
+            "Torno opcional"
+          ]
+        }
+      ],
+      "note": "¿Te sobra algo o te falta algo? Quitamos o añadimos módulos y el precio se hace a tu medida, tras la visita."
+    },
+    "caseStudy": {
+      "eyebrow": "Caso real",
+      "title": "Funcionando cada día en un gimnasio de verdad",
+      "text": "Hispal GYM se puso en marcha por primera vez en Premium GYM Health & Beauty, en Huétor Tájar (Granada). Allí los socios se dan de alta, pagan, entran, reservan clases y compran en la tienda desde la app cada día, y el equipo lo gestiona todo desde el panel.",
+      "place": "Premium GYM Health & Beauty",
+      "address": "Calle Ancha, 88 · Huétor Tájar (Granada)",
+      "points": [
+        "Altas y pagos online, sin pasar por recepción",
+        "Acceso autónomo en la puerta, todos los días del año",
+        "Rutinas, clases y tienda desde la app del socio",
+        "Panel de gestión para el propietario y su equipo"
+      ],
+      "badge": "En producción",
+      "visitTitle": "Ven a verlo",
+      "visitText": "Agenda una llamada con nosotros y te lo enseñamos en persona, con su propietario y su equipo. Así ves cómo funciona un día normal antes de decidir nada.",
+      "cta": "Quiero verlo"
+    },
+    "trust": {
+      "eyebrow": "Tranquilidad",
+      "title": "Seguro para ti y para tus socios",
+      "items": [
+        {
+          "title": "Pagos con Redsys",
+          "text": "La pasarela de los bancos españoles: los datos de la tarjeta no pasan por tu gimnasio."
+        },
+        {
+          "title": "Cada uno ve lo suyo",
+          "text": "Acceso por roles y conexión cifrada. El socio solo ve sus propios datos."
+        },
+        {
+          "title": "Protección de datos",
+          "text": "Documentación incluida y alternativa sin biometría para quien no quiera usar su cara."
+        },
+        {
+          "title": "Un equipo cercano",
+          "text": "Hablas siempre con las mismas personas, que conocen tu gimnasio."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Resolvemos tus dudas",
+      "items": [
+        [
+          "¿Necesito ser una S.L. para tener la app con mi marca?",
+          "No. Tu app lleva tu logo, tus colores y tu nombre seas autónomo o sociedad, y da igual el tamaño de tu gimnasio."
+        ],
+        [
+          "¿La web está incluida de verdad?",
+          "Sí. Te hacemos una web a medida, con tu equipo, tus máquinas, tus fotos y tus tarifas, y con alta y pago online. El dominio y el alojamiento también van dentro de tu cuota."
+        ],
+        [
+          "¿Qué incluye la visita?",
+          "Vamos a tu gimnasio, medimos el local, estudiamos el plano y te asesoramos sobre dónde va cada dispositivo y qué sistema de acceso te conviene. No tiene coste."
+        ],
+        [
+          "¿Cada cuánto venís a revisar?",
+          "Una vez en marcha, volvemos a tu gimnasio como máximo cada tres meses para revisar todas las funciones contigo y ver qué se puede mejorar."
+        ],
+        [
+          "¿Puedo abrir 24 horas sin personal?",
+          "Sí, si lo deseas. El socio se da de alta, paga y entra solo, y tú lo controlas todo desde el panel. Lo planteamos contigo según tu local y tus horarios."
+        ],
+        [
+          "¿Qué sistema de acceso me conviene?",
+          "Depende de tu centro. Podemos instalar QR, reconocimiento facial, pulseras o tarjetas RFID, torno o sensor 3D de conteo, o combinarlos. En la visita te recomendamos lo que tiene sentido para ti."
+        ],
+        [
+          "¿Puedo pedir cambios en la app?",
+          "Sí. Nos adaptamos a tu forma de trabajar: cambiamos lo que no encaje y desarrollamos lo que te falte para tu centro."
+        ],
+        [
+          "¿Hace falta descargar algo de una tienda de apps?",
+          "No. Es una app web instalable: el socio abre el enlace de tu gimnasio en el móvil y la añade a su pantalla de inicio en un par de toques."
+        ],
+        [
+          "¿Cómo pagan mis socios?",
+          "Online con tarjeta o Bizum desde la app, en la pasarela bancaria Redsys, o en el mostrador en efectivo o con datáfono."
+        ],
+        [
+          "¿Qué pasa si falla la conexión?",
+          "Por seguridad, no se valida ninguna entrada sin conexión y la pantalla indica que pases por recepción. Con el pack Total, un respaldo 4G y un SAI mantienen la puerta funcionando si cae la fibra o la luz."
+        ],
+        [
+          "¿Puedo traer a mis socios actuales?",
+          "Sí. Preparamos la migración desde tu programa actual para que no tengas que dar de alta a nadie a mano."
+        ],
+        [
+          "¿Cuánto cuesta?",
+          "Depende de lo que necesite tu centro. Partimos de los packs y, tras la visita, te damos un precio cerrado y a tu medida."
+        ]
+      ]
+    },
+    "contact": {
+      "eyebrow": "Contacto",
+      "title": "Pide tu visita gratuita",
+      "sub": "Cuéntanos cómo es tu gimnasio. Te llamamos, resolvemos tus dudas y organizamos la visita a tu local, sin compromiso.",
+      "points": [
+        "Visita y estudio del local sin coste",
+        "Te enseñamos la app con tu caso concreto",
+        "Precio cerrado y a tu medida"
+      ],
+      "name": "Nombre",
+      "gym": "Gimnasio",
+      "email": "Email",
+      "phone": "Teléfono",
+      "message": "Mensaje (opcional)",
+      "send": "Pedir mi visita",
+      "sending": "Enviando...",
+      "sentTitle": "Solicitud recibida",
+      "sentText": "Gracias. Te llamamos en breve para organizar la visita.",
+      "failed": "No se pudo enviar la solicitud. Inténtalo de nuevo.",
+      "errName": "Indica tu nombre.",
+      "errGym": "Indica el nombre de tu gimnasio.",
+      "errEmail": "Introduce un email válido.",
+      "errPhone": "Introduce un teléfono válido.",
+      "defaultMessage": "Solicitud de visita de Hispal GYM"
+    },
+    "footer": {
+      "tagline": "Software y acceso autónomo para gimnasios, con tu marca y con un equipo cercano.",
+      "product": "Producto",
+      "company": "Contacto",
+      "rights": "Hispal GYM, un producto de Hispal Network. Todos los derechos reservados."
+    }
   }
 }

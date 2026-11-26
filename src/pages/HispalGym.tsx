@@ -1,75 +1,85 @@
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
 import {
-  CreditCard, QrCode, ArrowRight, CalendarDays, UserCog, LayoutDashboard, ShoppingBag, Lock, Landmark, DatabaseBackup, IdCard, CheckCircle2, ScanFace, Users, KeyRound, Lightbulb, Wrench, Layers, Smartphone, ShieldCheck, Play,
+  ArrowRight, BellRing, Check, CheckCircle2, ChevronLeft, ChevronRight, CreditCard, CalendarDays, DoorOpen, Dumbbell, Gauge, Globe,
+  Headset, Landmark, Lightbulb, Lock, MapPin, Nfc, Palette, Play, QrCode, Ruler, ScanFace, ScanLine, ShieldCheck, ShoppingBag, Tv, Users,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import {
-  Phone, PanelFrame, QrScreen, MembershipScreen, TariffsScreen, RoutineDetailScreen, ShopScreen, ShopOrderScreen, ClassesScreen,
-  PaymentsPanel, DomoticaScreen, TracePanel,
-} from "@/components/hispalgym/Mockups";
-import { AccessScene, SensorAlarm, OpeningHours, GymFacade } from "@/components/hispalgym/Illustrations";
 import { GymHeader, GymFooter } from "@/components/hispalgym/GymChrome";
+import { PhoneShot, TabletShot } from "@/components/hispalgym/Devices";
+import { useGymCopy, appShot, GYM_MEDIA } from "@/components/hispalgym/copy";
 import { sendEmailAlternative } from "@/services/emailService";
 import { HISPALGYM_DEMO_URL } from "@/constants/hispalgym";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { cn } from "@/lib/utils";
+import "@/components/hispalgym/theme.css";
 
-function useReveal() {
+function useReveal(dep: unknown) {
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("is-visible")), { threshold: 0.12 });
+    const els = document.querySelectorAll(".reveal:not(.is-visible)");
+    const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("is-visible")), { threshold: 0.1 });
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [dep]);
 }
 
-function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="text-xs font-bold uppercase tracking-widest text-primary sm:text-sm">{children}</p>;
+function useDocumentMeta(title: string, description: string) {
+  useEffect(() => {
+    const prevTitle = document.title;
+    document.title = title;
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const prevDesc = meta?.getAttribute("content") ?? null;
+    meta?.setAttribute("content", description);
+    // Hispal GYM favicon while this page is open (the rest of the site keeps the Hispal Network one).
+    const icons = Array.from(document.querySelectorAll<HTMLLinkElement>('link[rel="icon"], link[rel="apple-touch-icon"]'));
+    const original = icons.map((l) => [l, l.getAttribute("href")] as const);
+    icons.forEach((l) => l.setAttribute("href", l.rel === "apple-touch-icon" ? "/hispalgym/favicon-180.png" : "/hispalgym/favicon-32.png"));
+    return () => {
+      document.title = prevTitle;
+      if (meta && prevDesc !== null) meta.setAttribute("content", prevDesc);
+      original.forEach(([l, href]) => href && l.setAttribute("href", href));
+    };
+  }, [title, description]);
 }
 
-function SectionHead({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: string }) {
+const Container = ({ className, children }: { className?: string; children: ReactNode }) => (
+  <div className={cn("mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8", className)}>{children}</div>
+);
+
+function SectionHead({ eyebrow, title, sub, center = false, className }: { eyebrow: string; title: string; sub?: string; center?: boolean; className?: string }) {
   return (
-    <div className="reveal mx-auto max-w-2xl text-center">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="mt-3 text-2xl font-extrabold sm:text-3xl md:text-4xl">{title}</h2>
-      {sub && <p className="mt-4 text-muted-foreground [.bg-ink_&]:text-ink-foreground/75">{sub}</p>}
+    <div className={cn("reveal max-w-3xl", center && "mx-auto text-center", className)}>
+      <p className="hg-eyebrow">{eyebrow}</p>
+      <h2 className="mt-4 text-[2.6rem] sm:text-6xl lg:text-[4.2rem]">{title}</h2>
+      {sub && <p className={cn("mt-5 text-lg leading-relaxed text-hg-muted", center && "mx-auto max-w-2xl")}>{sub}</p>}
     </div>
   );
 }
 
 const HispalGym = () => {
-  useReveal();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const prev = document.title;
-    document.title = "Hispal GYM, acceso autónomo y gestión para gimnasios sin recepción";
-    // Hispal GYM favicon while this page is open (the rest of the site keeps the Hispal Network one)
-    const icons = Array.from(document.querySelectorAll<HTMLLinkElement>('link[rel="icon"], link[rel="apple-touch-icon"]'));
-    const original = icons.map((l) => [l, l.getAttribute("href")] as const);
-    icons.forEach((l) => l.setAttribute("href", l.rel === "apple-touch-icon" ? "/hispalgym/favicon-180.png" : "/hispalgym/favicon-32.png"));
-    return () => {
-      document.title = prev;
-      original.forEach(([l, href]) => href && l.setAttribute("href", href));
-    };
-  }, []);
+  const c = useGymCopy();
+  const { language } = useLanguage();
+  useReveal(language);
+  useDocumentMeta(c.meta.title, c.meta.description);
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
-    <div className="hispalgym min-h-screen overflow-x-hidden">
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground">Saltar al contenido</a>
+    <div className="hg min-h-screen overflow-x-clip">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-hg-accent focus:px-4 focus:py-2 focus:text-hg-ink">{c.nav.skip}</a>
       <GymHeader />
       <main id="main">
         <Hero />
-        <Values />
+        <Included />
+        <Difference />
+        <Brand />
+        <Process />
         <Access />
-        <Comparison />
-        <CostBand />
+        <Control />
         <Features />
-        <Profiles />
-        <Custom />
-        <CaseStudy />
         <Packs />
+        <CaseStudy />
         <Trust />
         <Faq />
         <Contact />
@@ -81,360 +91,577 @@ const HispalGym = () => {
 
 export default HispalGym;
 
+/* ------------------------------------------------------------------ Hero */
+
 function Hero() {
+  const c = useGymCopy();
   return (
-    <section id="producto" className="relative overflow-hidden bg-ink text-ink-foreground">
-      <div className="absolute inset-0 bg-hero-glow opacity-70" aria-hidden />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-4 pb-12 pt-9 md:grid-cols-[1.1fr_1fr] md:gap-12 md:py-24">
-        <div>
-          <Eyebrow>Acceso autónomo para gimnasios</Eyebrow>
-          <h1 className="mt-3 text-[2rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">Abre tu gimnasio las horas que quieras, <span className="text-primary">sin nadie en recepción</span>.</h1>
-          <p className="mt-4 max-w-xl text-base opacity-80 md:text-lg">El software que abre y controla la puerta con el móvil del socio, y gestiona los cobros, la tienda, las clases y tu equipo.</p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="w-full font-semibold shadow-glow sm:w-auto"><a href="#contacto">Solicita una llamada</a></Button>
-            <Button asChild size="lg" variant="outline" className="w-full border-primary bg-transparent font-semibold text-primary hover:bg-primary hover:text-primary-foreground sm:w-auto"><a href={HISPALGYM_DEMO_URL}><Play /> Ver demo</a></Button>
+    <section id="inicio" className="hg-grain relative isolate overflow-hidden bg-hg-deep">
+      {/* Background footage (licensed stock), darkened; still poster when motion is reduced. */}
+      <video
+        className="absolute inset-0 -z-20 h-full w-full object-cover opacity-55 motion-reduce:hidden"
+        src={`${GYM_MEDIA}/hero.mp4`}
+        poster={`${GYM_MEDIA}/hero-poster.webp`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden
+      />
+      <img src={`${GYM_MEDIA}/hero-poster.webp`} alt="" aria-hidden className="absolute inset-0 -z-20 hidden h-full w-full object-cover opacity-50 motion-reduce:block" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(var(--hg-deep)/0.55)_0%,rgb(var(--hg-deep)/0.78)_45%,rgb(var(--hg-bg))_100%)] lg:bg-[linear-gradient(90deg,rgb(var(--hg-deep)/0.96)_0%,rgb(var(--hg-deep)/0.82)_42%,rgb(var(--hg-deep)/0.45)_100%)]" aria-hidden />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-hg-bg" aria-hidden />
+      <div className="absolute -right-40 top-1/3 -z-10 size-[38rem] rounded-full bg-hg-accent/20 blur-[140px]" aria-hidden />
+
+      <Container className="grid min-h-[100svh] items-center gap-10 pb-10 pt-24 lg:grid-cols-[1.02fr_1fr] lg:gap-6 lg:pb-16 lg:pt-28">
+        <div className="relative z-10">
+          <p className="hg-eyebrow">{c.hero.eyebrow}</p>
+          <h1 className="mt-5 text-[3.4rem] leading-[0.88] sm:text-[5.2rem] lg:text-[5.4rem] xl:text-[6.6rem]">
+            <span className="block">{c.hero.title1}</span>
+            <span className="block text-hg-accent">{c.hero.title2}</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-[1.08rem] leading-relaxed text-hg-fg/80 sm:text-lg">{c.hero.lead}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#contacto" className="hg-btn hg-btn--primary">{c.hero.ctaPrimary} <ArrowRight className="size-5" aria-hidden /></a>
+            <a href={HISPALGYM_DEMO_URL} className="hg-btn hg-btn--ghost"><Play className="size-4" aria-hidden /> {c.hero.ctaDemo}</a>
           </div>
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {[[CreditCard, "Cobros online"], [QrCode, "QR, cara y sensor"], [LayoutDashboard, "Panel de gestión"]].map(([I, t]) => {
-              const Icon = I as typeof CreditCard;
-              return <li key={t as string} className="flex items-center gap-2 rounded-full border border-ink-foreground/15 bg-ink-foreground/5 py-1.5 pl-2 pr-3.5 text-xs font-semibold sm:text-sm"><Icon className="size-4 text-primary" aria-hidden />{t as string}</li>;
-            })}
+          <ul className="mt-8 grid gap-2.5 sm:grid-cols-3 sm:gap-4">
+            {c.hero.proof.map((p) => (
+              <li key={p} className="flex items-start gap-2.5 text-sm font-semibold leading-snug text-hg-fg/85">
+                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-hg-accent text-hg-ink"><Check className="size-3.5" strokeWidth={3} aria-hidden /></span>
+                {p}
+              </li>
+            ))}
           </ul>
         </div>
-        <div className="relative mx-auto w-full max-w-md md:max-w-none md:pb-14">
-          <GymFacade className="rounded-3xl shadow-device" />
-          <div className="pointer-events-none absolute -bottom-2 -right-2 hidden origin-bottom-right rotate-3 scale-[0.5] md:block"><Phone label="App del socio con el código QR de acceso al gimnasio"><QrScreen /></Phone></div>
-        </div>
-      </div>
+
+        <HeroDevices />
+      </Container>
     </section>
   );
 }
 
-function Values() {
+function HeroChip({ icon: Icon, title, sub, className }: { icon: typeof Check; title: string; sub: string; className?: string }) {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-      <SectionHead eyebrow="Todo en un solo sistema" title="Cobra. Abre. Vende. Sin nadie en la puerta." sub="Control total de quién entra y quién sale, con cámara y sensor de conteo, y alarma si pasa más de una persona." />
-      <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-3 md:gap-6">
-        <IconCard icon={CreditCard} title="Cobra" text="Tarjeta, Bizum y efectivo. Tus socios se apuntan y pagan desde el móvil, a cualquier hora, y todo queda registrado." />
-        <IconCard icon={QrCode} title="Abre" text="QR que cambia cada 4 segundos, cara que confirma al titular y un sensor que cuenta quién cruza." />
-        <IconCard icon={ShoppingBag} title="Vende" text="Una tienda dentro de la app: el socio compra y paga cuando quiere, con su factura, y recoge con su QR." />
-      </div>
-    </section>
-  );
-}
-
-function Access() {
-  const layers = [
-    [QrCode, "1 · Identificación (QR)", "Un código QR dinámico en el móvil del socio: cambia cada 4 segundos y solo funciona en un dispositivo. La membresía se comprueba en cada entrada."],
-    [ScanFace, "2 · Verificación facial", "Tras el QR, el terminal confirma que quien lo presenta es su titular, con protección contra fotos y vídeos. Un QR prestado deja de valer."],
-    [Users, "3 · Sensor de conteo", "Un sensor sobre la puerta cuenta cada persona que cruza. Una identificación, una persona: si pasa más de una, salta una alarma."],
-  ] as const;
-  return (
-    <section id="acceso" className="bg-ink py-14 text-ink-foreground md:py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="Acceso autónomo" title="Tu puerta sabe quién entra, quién sale y cuántos pasan" sub="Sin tarjetas físicas y sin torno obligatorio: se instala sobre tu puerta. Si prefieres torno, también te lo suministramos e integramos." />
-        <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-3 md:gap-6">
-          {layers.map(([Icon, t, d]) => (
-            <div key={t} className="reveal rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 md:p-6">
-              <Icon className="size-7 text-primary" aria-hidden />
-              <h3 className="mt-3 text-lg font-bold">{t}</h3>
-              <p className="mt-2 text-sm opacity-80">{d}</p>
-            </div>
-          ))}
-        </div>
-        <div className="reveal mt-12 grid items-center gap-8 md:mt-16 md:grid-cols-2 md:gap-12">
-          <AccessScene className="rounded-2xl" />
-          <div>
-            <Eyebrow>Tú eliges</Eyebrow>
-            <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">Cada centro decide cómo entra su gente</h3>
-            <ul className="mt-5 space-y-3 text-sm">
-              {[[QrCode, "Solo QR"], [ScanFace, "Solo cara"], [ShieldCheck, "QR + cara: máxima seguridad"], [KeyRound, "PIN o tarjeta, opcional según el centro"]].map(([I, t]) => {
-                const Icon = I as typeof QrCode;
-                return <li key={t as string} className="flex items-center gap-3"><Icon className="size-4 shrink-0 text-primary" aria-hidden />{t as string}</li>;
-              })}
-            </ul>
-            <p className="mt-5 rounded-xl bg-primary/15 p-3 text-sm font-semibold">Lo recomendado: QR + cara + sensor de conteo.</p>
-          </div>
-        </div>
-        <div className="reveal mt-12 grid items-center gap-8 md:mt-16 md:grid-cols-2 md:gap-12">
-          <div className="md:order-2"><SensorAlarm className="rounded-2xl" /></div>
-          <div>
-            <Eyebrow>Contador de personas</Eyebrow>
-            <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">Una identificación, una persona</h3>
-            <p className="mt-3 opacity-80">Un sensor sobre la puerta cuenta a cada persona que cruza y lo cruza con el código QR leído. Es la alternativa más económica a un torno.</p>
-            <ul className="mt-5 space-y-3 text-sm">
-              {["Si pasa más de una por un solo acceso, salta una alarma en la aplicación y por los altavoces del local", "Sabes quién abrió, a qué hora y cuántas personas pasaron, y puedes hablar con ese socio", "Entradas, salidas y personas dentro en el panel, con las acompañadas marcadas en rojo"].map((t) => (
-                <li key={t} className="flex gap-3"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />{t}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-type Feature = { id: string; label: string; icon: typeof CreditCard; title: string; text: string; points: string[]; visual: ReactNode };
-
-function Features() {
-  const phone = (label: string, screen: ReactNode, extra = "") => <div className={extra}><Phone label={label}>{screen}</Phone></div>;
-  const items: Feature[] = [
-    { id: "cobros", label: "Cobros", icon: CreditCard, title: "Cobros y membresías, sin sorpresas", text: "No hay cobros automáticos. El socio paga cuando decide y el gimnasio sabe exactamente quién tiene acceso y hasta cuándo.",
-      points: ["Pago con tarjeta o Bizum desde el móvil, a cualquier hora", "Cada pago compra un periodo: encadénalos sin perder días o empieza más adelante", "Varios meses de una vez, hasta 12", "Cobro en mostrador, en efectivo o con datáfono, con corrección y traza"],
-      visual: <>{phone("Membresía con tarifa, fechas y días restantes", <MembershipScreen />)}{phone("Alta online con las tarifas", <TariffsScreen />, "hidden sm:block")}</> },
-    { id: "tienda", label: "Tienda", icon: ShoppingBag, title: "Tu tienda, siempre abierta", text: "Una nueva fuente de ingresos dentro de la app que ya usan tus socios, con factura y recogida con código QR.",
-      points: ["Catálogo por categorías, con marca, precio y disponibilidad que gestiona tu equipo", "Pago con tarjeta desde el móvil, y venta también en el mostrador", "Sin código QR no hay entrega: el equipo lo escanea para entregar", "Factura en PDF de cada compra y aviso al socio"],
-      visual: <>{phone("Tienda de la app con catálogo y carrito", <ShopScreen />)}{phone("Compra por recoger con su factura y código QR", <ShopOrderScreen />, "hidden sm:block")}</> },
-    { id: "clases", label: "Clases y rutinas", icon: CalendarDays, title: "Clases, rutinas y ejercicios", text: "Tus socios reservan, entrenan con rutinas guiadas y consultan un catálogo de ejercicios, todo desde la misma app.",
-      points: ["Agenda de clases y eventos con aforo, reservas y avisos al socio", "Rutinas creadas por tu equipo y asignadas a todos o a algunos", "Entrenamiento guiado con temporizador, y catálogo por grupo muscular y material", "Próximamente: lista de espera y asistencia con QR en las clases"],
-      visual: <>{phone("Agenda de clases con plazas libres", <ClassesScreen />)}{phone("Detalle de una rutina de entrenamiento", <RoutineDetailScreen />, "hidden sm:block")}</> },
-    { id: "equipo", label: "Equipo y panel", icon: UserCog, title: "Tu equipo y tu negocio, bajo control", text: "Cada cobro, venta y ficha nueva queda a nombre de quien la registró, y cada persona ve solo lo que le toca.",
-      points: ["Control de empleados: qué ha cobrado y vendido cada uno, con trazabilidad completa", "Libro de pagos: ingresos por día, mes o año, online y presencial", "Roles: el empleado cobra, pero no ve los ingresos del negocio", "Fichas de clientes, altas del equipo y avisos a los socios"],
-      visual: <div className="w-full space-y-6"><PanelFrame label="Control de empleados con cobro, venta de tienda y ficha nueva, cada uno con su autor"><TracePanel /></PanelFrame><PanelFrame label="Libro de pagos con el total ingresado y el reparto online y presencial"><PaymentsPanel /></PanelFrame></div> },
-    { id: "local", label: "Tu local", icon: Lightbulb, title: "Luces, portones, música y alarmas", text: "Controla el local desde el panel, estés donde estés.",
-      points: ["Luces del gimnasio, una a una o todas a la vez", "Portón: abrir, parar y cerrar, con su estado en vivo (dispositivos Shelly)", "Música con Spotify en los altavoces del local", "Las alarmas de acceso suenan por los mismos altavoces"],
-      visual: phone("Domótica con las luces y el portón del gimnasio", <DomoticaScreen />) },
-  ];
-  return (
-    <section id="funciones" className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-      <SectionHead eyebrow="Funciones" title="Todo lo que necesita tu gimnasio, en un solo sistema" sub="Elige una área y mira cómo se ve." />
-      <Tabs defaultValue="cobros" className="mt-8 md:mt-10">
-        <TabsList className="flex h-auto w-full justify-start gap-1 overflow-x-auto rounded-xl p-1 md:justify-center">
-          {items.map(({ id, label, icon: Icon }) => (
-            <TabsTrigger key={id} value={id} className="shrink-0 gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold"><Icon className="size-4" aria-hidden />{label}</TabsTrigger>
-          ))}
-        </TabsList>
-        {items.map((f) => (
-          <TabsContent key={f.id} value={f.id} className="mt-8 animate-in fade-in-50 md:mt-10">
-            <div className="grid items-center gap-8 md:grid-cols-[0.85fr_1.15fr] md:gap-10">
-              <div className="min-w-0">
-                <h3 className="text-2xl font-extrabold md:text-3xl">{f.title}</h3>
-                <p className="mt-3 text-muted-foreground">{f.text}</p>
-                <div className="mt-6"><Checklist items={f.points} /></div>
-                <a href={HISPALGYM_DEMO_URL} className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline">Verlo en la demo <ArrowRight className="size-4" aria-hidden /></a>
-              </div>
-              <div className="flex min-w-0 flex-wrap items-start justify-center gap-6">{f.visual}</div>
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
-      <p className="mx-auto mt-8 max-w-xl text-center text-xs text-muted-foreground">Pantallas con datos ficticios. El nombre, el logo y los colores se adaptan a tu centro bajo proyecto.</p>
-    </section>
-  );
-}
-
-function Profiles() {
-  const roles = [
-    [Smartphone, "Socio", ["Alta y pago desde el móvil, a cualquier hora", "Su QR de acceso, y lo recupera en un móvil nuevo", "Rutinas, clases, tienda y avisos", "Solo ve sus propios datos"]],
-    [IdCard, "Empleado", ["Clientes con buscador y estado de membresía", "Cobro y venta en el mostrador", "Entrega de pedidos con el QR del socio", "Abre la puerta, pero no ve los ingresos"]],
-    [LayoutDashboard, "Propietario", ["Todo lo del empleado", "Ingresos por día, mes o año, online y presencial", "Cada cobro y venta, con quién la registró", "Altas y roles de tu equipo"]],
-  ] as const;
-  return (
-    <section className="bg-muted/60 py-14 md:py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="Tres perfiles" title="Cada persona ve exactamente lo que necesita" />
-        <div className="mt-10 grid gap-5 md:grid-cols-3 md:gap-6">
-          {roles.map(([Icon, t, pts]) => (
-            <div key={t} className="reveal rounded-2xl border bg-card p-6 shadow-soft">
-              <span className="grid size-11 place-items-center rounded-xl bg-accent text-accent-foreground"><Icon className="size-5" aria-hidden /></span>
-              <h3 className="mt-4 text-xl font-bold">{t}</h3>
-              <div className="mt-4"><Checklist items={[...pts]} /></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function IconCard({ icon: Icon, title, text, children }: { icon: typeof CreditCard; title: string; text: string; children?: ReactNode }) {
-  return (
-    <div className="reveal group rounded-2xl border bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/40">
-      <span className="grid size-11 place-items-center rounded-xl bg-accent text-accent-foreground transition group-hover:bg-primary group-hover:text-primary-foreground"><Icon className="size-5" aria-hidden /></span>
-      <h3 className="mt-5 text-lg font-bold">{title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{text}</p>
-      {children}
+    <div className={cn("hg-float absolute z-20 flex items-center gap-3 rounded-2xl border border-white/10 bg-hg-deep/80 py-2.5 pl-2.5 pr-4 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8)] backdrop-blur-md", className)}>
+      <span className="grid size-10 place-items-center rounded-xl bg-hg-accent text-hg-ink"><Icon className="size-5" aria-hidden /></span>
+      <span className="leading-tight">
+        <span className="block text-sm font-bold text-hg-fg">{title}</span>
+        <span className="block text-xs text-hg-muted">{sub}</span>
+      </span>
     </div>
   );
 }
 
-function Checklist({ items }: { items: string[] }) {
+function HeroDevices() {
+  const c = useGymCopy();
   return (
-    <ul className="space-y-3">
-      {items.map((i) => <li key={i} className="flex gap-3 text-sm"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />{i}</li>)}
-    </ul>
+    <div className="relative mx-auto h-[440px] w-full max-w-[560px] sm:h-[560px] lg:h-[640px] lg:max-w-none">
+      <TabletShot
+        src={appShot("tableta-admin-pagos")}
+        alt={c.hero.tabletAlt}
+        eager
+        className="absolute right-0 top-2 w-[300px] rotate-[3deg] sm:w-[400px] lg:right-2 lg:top-6 lg:w-[420px] xl:w-[460px]"
+      />
+      <PhoneShot
+        src={appShot("socio-mi-cuenta-tab-inicio")}
+        alt={c.hero.phoneAlt}
+        eager
+        className="absolute bottom-0 left-[2%] w-[190px] -rotate-[4deg] sm:left-[6%] sm:w-[250px] lg:bottom-4 lg:left-0 lg:w-[268px] xl:left-6"
+      />
+      <HeroChip icon={DoorOpen} title={c.hero.chipOpen} sub={c.hero.chipOpenSub} className="right-[4%] top-0 hidden sm:flex lg:-top-2 lg:right-auto lg:left-[30%]" />
+      <HeroChip icon={Palette} title={c.hero.chipBrand} sub={c.hero.chipBrandSub} className="hg-float-delay bottom-[38%] right-0 hidden sm:flex lg:-right-2" />
+      <HeroChip icon={MapPin} title={c.hero.chipVisit} sub={c.hero.chipVisitSub} className="bottom-2 right-[6%] hidden md:flex lg:bottom-10 lg:right-[10%]" />
+    </div>
   );
 }
 
-function CostBand() {
+/* -------------------------------------------------------------- Included */
+
+function Included() {
+  const c = useGymCopy();
+  const icons = [Ruler, Globe, Palette, Headset];
   return (
-    <section className="bg-primary py-20 text-[#1a120b]">
-      <div className="reveal mx-auto grid max-w-6xl items-center gap-8 px-4 md:grid-cols-[1.3fr_1fr]">
-        <h2 className="text-5xl font-extrabold leading-[0.98] tracking-tight md:text-7xl">¿Cuánto cuesta cada hora <span className="text-white">cerrada</span>?</h2>
-        <div>
-          <p className="text-lg font-semibold">Horas de recepción que dejas de cubrir × lo que te cuesta cada hora = lo que ahorras cada mes. Hacemos la cuenta contigo, sin compromiso.</p>
-          <Button asChild size="lg" className="mt-6 bg-[#1a120b] font-semibold text-white hover:bg-black"><a href="#contacto">Reserva una llamada</a></Button>
+    <section id="incluido" className="relative py-20 md:py-28">
+      <Container>
+        <SectionHead eyebrow={c.included.eyebrow} title={c.included.title} sub={c.included.sub} />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-5">
+          {c.included.items.map((it, i) => {
+            const Icon = icons[i];
+            return (
+              <article key={it.title} className="hg-card reveal group relative flex flex-col overflow-hidden p-6 lg:p-7" style={{ transitionDelay: `${i * 70}ms` }}>
+                <div className="absolute -right-10 -top-10 size-32 rounded-full bg-hg-accent/10 blur-2xl transition-opacity group-hover:opacity-100" aria-hidden />
+                <Icon className="size-6 text-hg-accent" aria-hidden />
+                <p className="hg-display mt-6 text-[2.9rem] text-hg-fg">
+                  {it.value}
+                  {i === 1 && <sup className="ml-0.5 align-super text-xl text-hg-accent">*</sup>}
+                </p>
+                <h3 className="mt-3 text-lg font-bold">{it.title}</h3>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-hg-muted">{it.text}</p>
+              </article>
+            );
+          })}
         </div>
-      </div>
+        <p className="reveal mt-6 text-sm text-hg-muted">* {c.included.note}</p>
+      </Container>
     </section>
   );
 }
 
-function Comparison() {
-  const rows: [string, string, string, string][] = [
-    ["Se puede prestar a otra persona", "Sí: se pasan de mano en mano", "Si el código es fijo, sí", "No: el código QR cambia cada 4 s y la cara confirma al titular"],
-    ["Confirma quién entra de verdad", "No", "No", "Sí, con verificación facial"],
-    ["Sabe cuántas personas cruzan", "No", "No", "Sí, con el sensor de conteo"],
-    ["Sabe quién abrió si entra un acompañante", "No", "No", "Sí: queda registrado quién abrió y cuántos pasaron"],
-    ["Necesita torno", "Suele necesitarlo", "Suele necesitarlo", "No: se instala sobre tu puerta"],
-  ];
+/* ------------------------------------------------------------ Difference */
+
+function Difference() {
+  const c = useGymCopy();
   return (
-    <section id="comparativa" className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-      <SectionHead eyebrow="Por qué ya no basta una tarjeta" title="Una tarjeta se presta. Tu cara, no." sub="Las tarjetas, pulseras, llaveros y códigos fijos identifican un objeto, no a una persona. Hispal GYM comprueba a la persona y cuenta quién pasa." />
-      <ul className="mt-10 space-y-4 md:hidden">
-        {rows.map(([a, b, c, d]) => (
-          <li key={a} className="reveal overflow-hidden rounded-2xl border bg-card shadow-soft">
-            <h3 className="px-4 pb-3 pt-4 text-base font-bold leading-snug">{a}</h3>
-            <div className="border-y border-primary/20 bg-accent/50 px-4 py-3">
-              <p className="text-[11px] font-bold uppercase tracking-widest text-primary">Hispal GYM</p>
-              <p className="mt-1 flex items-start gap-2 text-sm font-semibold"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />{d}</p>
-            </div>
-            <dl className="grid grid-cols-2 divide-x text-sm">
-              <div className="px-4 py-3"><dt className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Tarjeta, pulsera o llavero</dt><dd className="mt-1 font-medium">{b}</dd></div>
-              <div className="px-4 py-3"><dt className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Solo QR o código en el móvil</dt><dd className="mt-1 font-medium">{c}</dd></div>
-            </dl>
-          </li>
-        ))}
-      </ul>
-      <div className="reveal mt-12 hidden overflow-x-auto rounded-2xl border shadow-soft md:block">
-        <table className="w-full min-w-[720px] text-left text-sm">
-          <thead>
-            <tr className="bg-ink text-ink-foreground">
-              <th scope="col" className="p-4 font-semibold"><span className="sr-only">Característica</span></th>
-              <th scope="col" className="p-4 font-semibold">Tarjeta, pulsera o llavero</th>
-              <th scope="col" className="p-4 font-semibold">Solo QR o código en el móvil</th>
-              <th scope="col" className="bg-primary p-4 font-bold text-primary-foreground">Hispal GYM</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map(([a, b, c, d]) => (
-              <tr key={a} className="border-t">
-                <th scope="row" className="p-4 font-semibold">{a}</th>
-                <td className="p-4 text-muted-foreground">{b}</td>
-                <td className="p-4 text-muted-foreground">{c}</td>
-                <td className="bg-accent/40 p-4 font-semibold">{d}</td>
+    <section id="diferencia" className="hg-grain relative isolate overflow-hidden border-y border-hg-line bg-hg-deep py-20 md:py-28">
+      <img src={`${GYM_MEDIA}/estiramientos.webp`} alt="" aria-hidden loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-[0.16]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-hg-deep via-hg-deep/80 to-hg-deep" aria-hidden />
+      <Container>
+        <SectionHead eyebrow={c.difference.eyebrow} title={c.difference.title} sub={c.difference.sub} />
+
+        {/* Mobile: one card per topic. */}
+        <ul className="mt-12 space-y-4 md:hidden">
+          {c.difference.rows.map(([topic, generic, us]) => (
+            <li key={topic} className="hg-card reveal overflow-hidden">
+              <p className="px-5 pt-5 text-xs font-bold uppercase tracking-[0.14em] text-hg-muted">{topic}</p>
+              <div className="mx-3 mt-3 rounded-xl border border-hg-accent/40 bg-hg-accent/10 p-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-hg-accent">{c.difference.colUs}</p>
+                <p className="mt-1.5 flex gap-2 font-semibold leading-snug"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-hg-accent" aria-hidden />{us}</p>
+              </div>
+              <div className="px-5 pb-5 pt-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-hg-muted">{c.difference.colGeneric}</p>
+                <p className="mt-1.5 text-sm leading-snug text-hg-muted">{generic}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        {/* Tablet and desktop: a comparison table. */}
+        <div className="hg-card reveal mt-14 hidden overflow-hidden md:block">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="border-b border-hg-line">
+                <th scope="col" className="w-[19%] p-5 text-xs font-bold uppercase tracking-[0.14em] text-hg-muted"><span className="sr-only">{c.difference.colTopic}</span></th>
+                <th scope="col" className="w-[37%] p-5 text-xs font-bold uppercase tracking-[0.14em] text-hg-muted">{c.difference.colGeneric}</th>
+                <th scope="col" className="w-[44%] bg-hg-accent/10 p-5">
+                  <span className="hg-display text-2xl text-hg-accent">{c.difference.colUs}</span>
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p className="mx-auto mt-4 max-w-2xl text-center text-xs text-muted-foreground">Comparativa por tipo de sistema de acceso. Las funciones de verificación facial y conteo de personas se incluyen en los packs Seguro y Total.</p>
+            </thead>
+            <tbody>
+              {c.difference.rows.map(([topic, generic, us]) => (
+                <tr key={topic} className="border-b border-hg-line last:border-0">
+                  <th scope="row" className="p-5 align-top text-sm font-bold uppercase tracking-[0.08em] text-hg-fg">{topic}</th>
+                  <td className="p-5 align-top text-[0.95rem] leading-relaxed text-hg-muted">{generic}</td>
+                  <td className="bg-hg-accent/[0.06] p-5 align-top">
+                    <span className="flex gap-3 font-semibold leading-relaxed"><CheckCircle2 className="mt-1 size-5 shrink-0 text-hg-accent" aria-hidden />{us}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="reveal mt-5 text-sm text-hg-muted">{c.difference.note}</p>
+      </Container>
     </section>
   );
 }
 
-function CaseStudy() {
-  const points = ["Altas y pagos online, sin pasar por recepción", "Acceso autónomo en la puerta con código QR, cada día", "Rutinas, clases y tienda desde la app del socio", "Panel de gestión para el equipo del centro", "Estamos instalando el sensor de conteo de personas en su puerta"];
+/* ----------------------------------------------------------------- Brand */
+
+const BRANDS = [
+  { key: "nortebox", name: "Norte Box", accent: "230 57 70" },
+  { key: "distritofit", name: "Distrito Fit", accent: "43 182 115" },
+  { key: "atlasclub", name: "Atlas Club", accent: "217 164 65" },
+  { key: "socio", name: "Hispal GYM", accent: "240 104 0" },
+] as const;
+
+function Brand() {
+  const c = useGymCopy();
+  const [brand, setBrand] = useState<(typeof BRANDS)[number]>(BRANDS[0]);
+  const home = brand.key === "socio" ? "socio-mi-cuenta-tab-inicio" : `${brand.key}-mi-cuenta-tab-inicio`;
+  const access = `${brand.key}-acceso`;
   return (
-    <section id="caso-real" className="bg-muted/60 py-20">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
+    <section id="tu-marca" className="relative overflow-hidden py-20 md:py-28" style={{ "--hg-accent": brand.accent } as CSSProperties}>
+      <div className="absolute left-1/2 top-1/3 -z-0 size-[40rem] -translate-x-1/2 rounded-full bg-hg-accent/10 blur-[150px] transition-colors duration-700" aria-hidden />
+      <Container className="relative grid items-center gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+        <div>
+          <SectionHead eyebrow={c.brand.eyebrow} title={c.brand.title} sub={c.brand.sub} />
+          <ul className="reveal mt-8 space-y-3.5">
+            {c.brand.points.map((p) => (
+              <li key={p} className="flex gap-3 text-[1.02rem] font-medium leading-snug">
+                <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-hg-accent/15 text-hg-accent transition-colors duration-500"><Check className="size-4" strokeWidth={3} aria-hidden /></span>
+                {p}
+              </li>
+            ))}
+          </ul>
+          <div className="hg-card reveal mt-10 p-6">
+            <p className="flex items-center gap-2.5 text-lg font-bold"><Globe className="size-5 text-hg-accent" aria-hidden /> {c.brand.webTitle}</p>
+            <p className="mt-2 leading-relaxed text-hg-muted">{c.brand.webText}</p>
+          </div>
+        </div>
+
         <div className="reveal">
-          <Eyebrow>Caso real</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">Pruébalo donde ya funciona</h2>
-          <p className="mt-4 text-muted-foreground">Hispal GYM nació en Premium GYM Health & Beauty, en Huétor Tájar (Granada), calle Ancha, 88. Abre todos los días del año, en un pueblo de 10.000 habitantes y con competencia activa. Allí los socios se dan de alta, pagan, entran, reservan clases, compran en la tienda y entrenan con la app cada día, y el equipo lo gestiona todo desde el panel.</p>
-          <div className="mt-6 rounded-2xl border bg-card p-5"><OpeningHours /></div>
-          <div className="mt-6"><Checklist items={points} /></div>
-          <Button asChild size="lg" className="mt-8 font-semibold shadow-glow"><a href="#contacto">Pedir una visita</a></Button>
+          <p className="text-center text-sm font-semibold text-hg-muted">{c.brand.pick}</p>
+          <div role="tablist" aria-label={c.brand.pick} className="mx-auto mt-3 flex max-w-xl flex-wrap justify-center gap-2">
+            {BRANDS.map((b) => (
+              <button
+                key={b.key}
+                type="button"
+                role="tab"
+                aria-selected={brand.key === b.key}
+                onClick={() => setBrand(b)}
+                className={cn(
+                  "flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-bold transition-colors",
+                  brand.key === b.key ? "border-hg-fg bg-hg-fg text-hg-ink" : "border-hg-fg/15 text-hg-fg/75 hover:border-hg-fg/40",
+                )}
+              >
+                <span className="size-2.5 rounded-full" style={{ background: `rgb(${b.accent})` }} aria-hidden />
+                {b.name}
+              </button>
+            ))}
+          </div>
+          <div className="relative mx-auto mt-10 flex max-w-[560px] items-start justify-center gap-4 sm:gap-6">
+            <figure className="w-[46%] max-w-[250px]">
+              <PhoneShot key={home} src={appShot(home)} alt={`${c.brand.phoneHome} · ${brand.name}`} className="w-full animate-in fade-in duration-500" />
+              <figcaption className="mt-3 text-center text-xs font-semibold text-hg-muted">{c.brand.phoneHome}</figcaption>
+            </figure>
+            <figure className="mt-12 w-[46%] max-w-[250px]">
+              <PhoneShot key={access} src={appShot(access)} alt={`${c.brand.phoneAccess} · ${brand.name}`} className="w-full animate-in fade-in duration-500" />
+              <figcaption className="mt-3 text-center text-xs font-semibold text-hg-muted">{c.brand.phoneAccess}</figcaption>
+            </figure>
+          </div>
+          <p className="mt-5 text-center text-xs text-hg-muted">{c.brand.examplesNote}</p>
         </div>
-        <div className="reveal rounded-3xl bg-ink p-8 text-ink-foreground md:p-10">
-          <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">Visítalo</span>
-          <h3 className="mt-4 text-2xl font-extrabold">Ve el sistema funcionando</h3>
-          <p className="mt-3 text-sm opacity-80">Te enseñamos Premium GYM en Huétor Tájar y resolvemos tus dudas sobre el acceso, los cobros y la puesta en marcha en tu centro. Coordinamos la visita contigo desde el formulario.</p>
-        </div>
-      </div>
+      </Container>
     </section>
   );
 }
+
+/* --------------------------------------------------------------- Process */
+
+function Process() {
+  const c = useGymCopy();
+  return (
+    <section id="como-trabajamos" className="border-y border-hg-line bg-hg-deep py-20 md:py-28">
+      <Container>
+        <SectionHead eyebrow={c.process.eyebrow} title={c.process.title} sub={c.process.sub} />
+        <ol className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-hg-line bg-hg-line sm:grid-cols-2 lg:grid-cols-3">
+          {c.process.steps.map((s, i) => (
+            <li key={s.title} className="reveal relative bg-hg-deep p-7 lg:p-8" style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+              <span className="hg-display text-[3.4rem] text-transparent [-webkit-text-stroke:1.5px_rgb(var(--hg-accent))]">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-3 text-xl font-bold">{s.title}</h3>
+              <p className="mt-2 leading-relaxed text-hg-muted">{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </section>
+  );
+}
+
+/* ---------------------------------------------------------------- Access */
+
+function Access() {
+  const c = useGymCopy();
+  const icons = [QrCode, ScanFace, Nfc, DoorOpen, ScanLine, BellRing];
+  return (
+    <section id="acceso" className="hg-grain relative isolate overflow-hidden py-20 md:py-28">
+      <img src={`${GYM_MEDIA}/sala.webp`} alt="" aria-hidden loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-30" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(var(--hg-bg))_0%,rgb(var(--hg-bg)/0.82)_30%,rgb(var(--hg-bg)/0.9)_70%,rgb(var(--hg-bg))_100%)]" aria-hidden />
+      <Container className="grid items-center gap-14 lg:grid-cols-[1.35fr_1fr]">
+        <div>
+          <SectionHead eyebrow={c.access.eyebrow} title={c.access.title} sub={c.access.sub} />
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:gap-4">
+            {c.access.options.map((o, i) => {
+              const Icon = icons[i];
+              return (
+                <div key={o.title} className="hg-card reveal flex gap-4 p-5" style={{ transitionDelay: `${(i % 2) * 70}ms` }}>
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-hg-accent/[0.12] text-hg-accent"><Icon className="size-5" aria-hidden /></span>
+                  <div>
+                    <h3 className="font-bold">{o.title}</h3>
+                    <p className="mt-1 text-[0.93rem] leading-relaxed text-hg-muted">{o.text}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <p className="reveal mt-6 flex gap-3 rounded-xl border border-dashed border-hg-fg/20 p-4 text-[0.95rem] leading-relaxed text-hg-fg/80">
+            <Lightbulb className="mt-0.5 size-5 shrink-0 text-hg-accent" aria-hidden /> {c.access.note}
+          </p>
+        </div>
+        <div className="reveal relative mx-auto flex w-full max-w-md justify-center gap-4">
+          <PhoneShot src={appShot("socio-acceso")} alt={c.brand.phoneAccess} className="w-[48%]" />
+          <PhoneShot src={appShot("panel-movil-admin-sensor")} alt={c.control.tabs[2].title} className="mt-16 w-[48%]" />
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------- Control */
+
+const CONTROL_SHOTS = ["tableta-admin-accesos", "tableta-admin-presencia", "tableta-admin-sensor", "tableta-admin-pagos", "tableta-admin-employees"];
+const CONTROL_ICONS = [DoorOpen, Users, ScanLine, Gauge, ShieldCheck];
+
+function Control() {
+  const c = useGymCopy();
+  const [tab, setTab] = useState(0);
+  return (
+    <section id="control" className="border-y border-hg-line bg-hg-deep py-20 md:py-28">
+      <Container>
+        <SectionHead eyebrow={c.control.eyebrow} title={c.control.title} sub={c.control.sub} />
+        <div className="mt-12 grid items-start gap-10 lg:mt-16 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          <div role="tablist" aria-label={c.control.title} className="hg-strip -mx-4 flex gap-2 overflow-x-auto px-4 lg:mx-0 lg:flex-col lg:gap-3 lg:overflow-visible lg:px-0">
+            {c.control.tabs.map((t, i) => {
+              const Icon = CONTROL_ICONS[i];
+              const active = tab === i;
+              return (
+                <button
+                  key={t.label}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setTab(i)}
+                  className={cn(
+                    "shrink-0 rounded-2xl border text-left transition-colors lg:w-full lg:p-5",
+                    "px-4 py-2.5",
+                    active ? "border-hg-accent/60 bg-hg-accent/10" : "border-hg-line bg-hg-surface/60 hover:border-hg-fg/25",
+                  )}
+                >
+                  <span className="flex items-center gap-3">
+                    <Icon className={cn("size-5 shrink-0", active ? "text-hg-accent" : "text-hg-muted")} aria-hidden />
+                    <span className="text-sm font-bold lg:hidden">{t.label}</span>
+                    <span className="hidden text-lg font-bold lg:inline">{t.title}</span>
+                  </span>
+                  <span className={cn("mt-2 hidden leading-relaxed text-hg-muted lg:block", !active && "lg:hidden")}>{t.text}</span>
+                </button>
+              );
+            })}
+          </div>
+          <div className="relative">
+            <div className="lg:hidden">
+              <h3 className="text-xl font-bold">{c.control.tabs[tab].title}</h3>
+              <p className="mt-2 leading-relaxed text-hg-muted">{c.control.tabs[tab].text}</p>
+            </div>
+            <div className="relative mx-auto mt-8 w-full max-w-[460px] lg:mt-0">
+              <div className="absolute inset-10 -z-0 rounded-full bg-hg-accent/15 blur-[90px]" aria-hidden />
+              <TabletShot key={tab} src={appShot(CONTROL_SHOTS[tab])} alt={c.control.tabs[tab].title} ratio="820 / 1000" className="relative w-full animate-in fade-in duration-500" />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------- Features */
+
+const FEATURE_SHOTS = ["socio-mi-cuenta-tab-inicio", "socio-mi-cuenta-tab-membresia", "socio-tienda", "socio-clases", "socio-actividades", "socio-mi-cuenta-tab-rutinas", "socio-ocupacion", "socio-pagos"];
+const FEATURE_ICONS = [CreditCard, ShoppingBag, CalendarDays, Dumbbell, Gauge, Users, Lightbulb, Tv];
+
+function Features() {
+  const c = useGymCopy();
+  const strip = useRef<HTMLDivElement>(null);
+  const scroll = (dir: number) => strip.current?.scrollBy({ left: dir * Math.min(strip.current.clientWidth * 0.8, 560), behavior: "smooth" });
+  return (
+    <section id="funciones" className="overflow-hidden py-20 md:py-28">
+      <Container>
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <SectionHead eyebrow={c.features.eyebrow} title={c.features.title} sub={c.features.sub} />
+          <div className="hidden shrink-0 gap-2 md:flex">
+            <button type="button" onClick={() => scroll(-1)} aria-label="‹" className="grid size-12 place-items-center rounded-full border border-hg-fg/20 transition-colors hover:border-hg-fg/50"><ChevronLeft className="size-5" /></button>
+            <button type="button" onClick={() => scroll(1)} aria-label="›" className="grid size-12 place-items-center rounded-full border border-hg-fg/20 transition-colors hover:border-hg-fg/50"><ChevronRight className="size-5" /></button>
+          </div>
+        </div>
+      </Container>
+      <div
+        ref={strip}
+        className="hg-strip mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:px-6 lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))]"
+      >
+        {FEATURE_SHOTS.map((s, i) => (
+          <figure key={s} className="w-[210px] shrink-0 snap-start sm:w-[240px] lg:w-[250px]">
+            <PhoneShot src={appShot(s)} alt={c.features.screens[i]} className="w-full" />
+            <figcaption className="mt-4 text-center text-sm font-bold uppercase tracking-[0.12em] text-hg-fg/80">{c.features.screens[i]}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <Container>
+        <div className="mt-16 grid grid-cols-2 gap-x-5 gap-y-8 sm:gap-x-8 lg:grid-cols-4">
+          {c.features.list.map((f, i) => {
+            const Icon = FEATURE_ICONS[i];
+            return (
+              <div key={f.title} className="reveal">
+                <Icon className="size-6 text-hg-accent" aria-hidden />
+                <h3 className="mt-3 text-base font-bold sm:text-lg">{f.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-hg-muted sm:text-base">{f.text}</p>
+              </div>
+            );
+          })}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ----------------------------------------------------------------- Packs */
 
 function Packs() {
-  const packs = [
-    { name: "Esencial", tag: "Acceso con QR", rec: false, points: ["Todo el software de gestión", "Acceso con QR en una puerta", "Panel con roles y registro de accesos", "Puerta remota", "Soporte por email"] },
-    { name: "Seguro", tag: "QR + cara", rec: true, points: ["Todo lo de Esencial", "Reconocimiento facial tras el QR", "Documentación de protección de datos", "Alternativa sin biometría para quien la pida", "Informe mensual de accesos", "Soporte prioritario"] },
-    { name: "Total", tag: "QR + cara + conteo", rec: false, points: ["Todo lo de Seguro", "Contador de personas con aforo en vivo", "Alerta de acompañantes", "Lector QR de salida con registro de salidas", "Respaldo 4G y SAI", "Revisión trimestral", "Torno físico opcional"] },
-  ];
+  const c = useGymCopy();
   return (
-    <section id="packs" className="mx-auto max-w-6xl px-4 py-20">
-      <SectionHead eyebrow="Packs" title="Elige la seguridad que necesita tu centro" sub="La instalación del hardware se presupuesta según tu centro, con precio cerrado tras la llamada de introducción." />
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
-        {packs.map((p) => (
-          <div key={p.name} className={`reveal relative rounded-2xl border-2 p-6 ${p.rec ? "border-primary bg-accent/40 shadow-glow" : "bg-card"}`}>
-            {p.rec && <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">Recomendado</span>}
-            <h3 className="font-display text-2xl font-extrabold">{p.name}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{p.tag}</p>
-            <div className="mt-6"><Checklist items={p.points} /></div>
-            <Button asChild className="mt-8 w-full font-semibold" variant={p.rec ? "default" : "secondary"}><a href="#contacto">Solicita una llamada</a></Button>
-          </div>
-        ))}
-      </div>
+    <section id="packs" className="border-y border-hg-line bg-hg-deep py-20 md:py-28">
+      <Container>
+        <SectionHead eyebrow={c.packs.eyebrow} title={c.packs.title} sub={c.packs.sub} center />
+        <div className="reveal mx-auto mt-10 max-w-5xl rounded-2xl border border-hg-line bg-hg-surface/60 p-5 text-sm sm:p-6">
+          <p className="text-center font-bold uppercase tracking-[0.14em] text-hg-accent">{c.packs.allInclude}</p>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {c.packs.allIncludeItems.map((it) => (
+              <li key={it} className="flex items-start gap-2 font-semibold leading-snug text-hg-fg/85"><Check className="mt-0.5 size-4 shrink-0 text-hg-accent" strokeWidth={3} aria-hidden />{it}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-10 grid gap-5 lg:grid-cols-3 lg:items-stretch">
+          {c.packs.items.map((p, i) => {
+            const rec = i === 1;
+            return (
+              <article
+                key={p.name}
+                className={cn(
+                  "reveal relative flex flex-col rounded-2xl border p-7 lg:p-8",
+                  rec ? "border-hg-accent bg-gradient-to-b from-hg-accent/[0.14] to-hg-surface shadow-[0_30px_70px_-35px_rgb(var(--hg-accent)/0.7)]" : "hg-card",
+                )}
+              >
+                {rec && <span className="absolute -top-3.5 left-7 rounded-full bg-hg-accent px-3.5 py-1 text-xs font-bold uppercase tracking-[0.12em] text-hg-ink">{c.packs.recommended}</span>}
+                <h3 className="hg-display text-[2.6rem]">{p.name}</h3>
+                <p className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-hg-muted">{p.tag}</p>
+                <ul className="mt-7 flex-1 space-y-3">
+                  {p.points.map((pt) => (
+                    <li key={pt} className="flex gap-3 text-[0.97rem] leading-snug"><CheckCircle2 className="mt-0.5 size-[1.1rem] shrink-0 text-hg-accent" aria-hidden />{pt}</li>
+                  ))}
+                </ul>
+                <a href="#contacto" className={cn("hg-btn mt-8 w-full", rec ? "hg-btn--primary" : "hg-btn--ghost")}>{c.packs.cta}</a>
+              </article>
+            );
+          })}
+        </div>
+        <p className="reveal mx-auto mt-8 max-w-2xl text-center leading-relaxed text-hg-fg/80">{c.packs.note}</p>
+      </Container>
     </section>
   );
 }
 
-function Custom() {
-  const items = [[Wrench, "Cambiamos lo que no encaja", "Si una función no hace lo que necesitas, la modificamos para que lo haga."], [CheckCircle2, "Añadimos lo que te falta", "Funcionalidades nuevas, desarrolladas para tu centro sobre la misma plataforma."], [Layers, "Integramos con tu sistema", "Con tu hardware y tu software actuales. Si ya tienes torno o controladoras, trabajamos con ellos."], [IdCard, "Tu marca, tus centros", "Nombre, logo y colores de tu gimnasio, y varios centros en el mismo sistema."]] as const;
+/* ------------------------------------------------------------ Case study */
+
+function CaseStudy() {
+  const c = useGymCopy();
   return (
-    <section id="a-medida" className="bg-ink py-20 text-ink-foreground">
-      <div className="mx-auto max-w-6xl px-4">
-        <SectionHead eyebrow="A tu medida" title="Es un producto, pero no una caja cerrada" sub="Cada gimnasio funciona a su manera. Hispal GYM llega ya hecho y probado, y nosotros lo adaptamos a tu forma de trabajar, no al revés." />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map(([Icon, t, d]) => (
-            <div key={t} className="reveal rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-6">
-              <Icon className="size-7 text-primary" aria-hidden />
-              <h3 className="mt-4 text-lg font-bold">{t}</h3>
-              <p className="mt-2 text-sm opacity-80">{d}</p>
-            </div>
-          ))}
+    <section id="caso-real" className="py-20 md:py-28">
+      <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <SectionHead eyebrow={c.caseStudy.eyebrow} title={c.caseStudy.title} />
+          <p className="reveal mt-6 text-lg leading-relaxed text-hg-muted">{c.caseStudy.text}</p>
+          <ul className="reveal mt-8 space-y-3">
+            {c.caseStudy.points.map((p) => (
+              <li key={p} className="flex gap-3 font-medium"><CheckCircle2 className="mt-0.5 size-5 shrink-0 text-hg-accent" aria-hidden />{p}</li>
+            ))}
+          </ul>
         </div>
-        <p className="reveal mx-auto mt-8 max-w-3xl text-center text-sm opacity-80">Ya lo hemos hecho: lector QR, controladora y torno Kimaldi, cobros con tarjeta y Bizum por Redsys, sensor de conteo, domótica del local y migración de socios desde el programa anterior.</p>
-      </div>
+        <div className="reveal relative isolate overflow-hidden rounded-3xl border border-hg-line">
+          <img src={`${GYM_MEDIA}/neon.webp`} alt="" aria-hidden loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-45" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-hg-deep via-hg-deep/85 to-hg-deep/40" aria-hidden />
+          <div className="flex min-h-[420px] flex-col justify-end p-7 sm:p-10">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-hg-accent px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-hg-ink">
+              <span className="size-2 animate-pulse rounded-full bg-hg-ink" aria-hidden /> {c.caseStudy.badge}
+            </span>
+            <p className="hg-display mt-5 text-4xl sm:text-5xl">{c.caseStudy.place}</p>
+            <p className="mt-3 flex items-center gap-2 text-hg-fg/80"><MapPin className="size-4 text-hg-accent" aria-hidden /> {c.caseStudy.address}</p>
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="text-lg font-bold">{c.caseStudy.visitTitle}</p>
+              <p className="mt-2 leading-relaxed text-hg-fg/75">{c.caseStudy.visitText}</p>
+              <a href="#contacto" className="hg-btn hg-btn--primary mt-6">{c.caseStudy.cta} <ArrowRight className="size-5" aria-hidden /></a>
+            </div>
+          </div>
+        </div>
+      </Container>
     </section>
   );
 }
+
+/* ----------------------------------------------------------------- Trust */
 
 function Trust() {
-  const items = [[Lock, "Datos protegidos", "Acceso por roles y conexión cifrada. El socio solo ve sus propios datos."], [Landmark, "Pago con Redsys", "Los pagos con tarjeta se hacen en la pasarela bancaria Redsys: los datos de tu tarjeta no pasan por el gimnasio."], [QrCode, "Código QR antifraude", "Un solo dispositivo por socio y un código que cambia cada 4 segundos."], [DatabaseBackup, "Copias de seguridad", "Copias automáticas y cifradas cada 6 horas."]] as const;
+  const c = useGymCopy();
+  const icons = [Landmark, Lock, ShieldCheck, Headset];
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20">
-      <SectionHead eyebrow="Confianza" title="Seguro para ti y para tus socios" />
-      <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 md:mt-12 lg:grid-cols-4">
-        {items.map(([Icon, t, d]) => (
-          <div key={t} className="reveal text-center">
-            <span className="mx-auto grid size-12 place-items-center rounded-full bg-accent text-accent-foreground"><Icon className="size-5" aria-hidden /></span>
-            <h3 className="mt-4 font-bold">{t}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{d}</p>
+    <section className="border-y border-hg-line bg-hg-deep py-16 md:py-20">
+      <Container>
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_2fr] lg:items-center">
+          <div className="reveal">
+            <p className="hg-eyebrow">{c.trust.eyebrow}</p>
+            <h2 className="mt-4 text-4xl sm:text-5xl">{c.trust.title}</h2>
           </div>
-        ))}
-      </div>
+          <div className="grid gap-8 sm:grid-cols-2">
+            {c.trust.items.map((it, i) => {
+              const Icon = icons[i];
+              return (
+                <div key={it.title} className="reveal flex gap-4">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-full border border-hg-line bg-hg-surface text-hg-accent"><Icon className="size-5" aria-hidden /></span>
+                  <div>
+                    <h3 className="font-bold">{it.title}</h3>
+                    <p className="mt-1 text-[0.95rem] leading-relaxed text-hg-muted">{it.text}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </Container>
     </section>
   );
 }
+
+/* ------------------------------------------------------------------- FAQ */
+
+function Faq() {
+  const c = useGymCopy();
+  return (
+    <section id="preguntas" className="py-20 md:py-28">
+      <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <SectionHead eyebrow={c.faq.eyebrow} title={c.faq.title} className="lg:sticky lg:top-28 lg:self-start" />
+        <Accordion type="single" collapsible className="reveal">
+          {c.faq.items.map(([q, a], i) => (
+            <AccordionItem key={q} value={`q${i}`} className="border-hg-line">
+              <AccordionTrigger className="py-5 text-left text-[1.05rem] font-bold hover:text-hg-accent hover:no-underline">{q}</AccordionTrigger>
+              <AccordionContent className="pb-5 text-[0.98rem] leading-relaxed text-hg-muted">{a}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Container>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------- Contact */
 
 type Errors = Partial<Record<"nombre" | "gimnasio" | "email" | "telefono", string>>;
 
 function Contact() {
+  const c = useGymCopy();
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     const v = (k: string) => String(f.get(k) ?? "").trim();
     const err: Errors = {};
-    if (v("nombre").length < 2) err.nombre = "Indica tu nombre.";
-    if (v("gimnasio").length < 2) err.gimnasio = "Indica el nombre de tu gimnasio.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("email"))) err.email = "Introduce un email válido.";
-    if (!/^[+\d\s]{9,15}$/.test(v("telefono"))) err.telefono = "Introduce un teléfono válido.";
+    if (v("nombre").length < 2) err.nombre = c.contact.errName;
+    if (v("gimnasio").length < 2) err.gimnasio = c.contact.errGym;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("email"))) err.email = c.contact.errEmail;
+    if (!/^[+\d\s]{9,15}$/.test(v("telefono"))) err.telefono = c.contact.errPhone;
     setErrors(err);
     if (Object.keys(err).length > 0) return;
     setSending(true);
@@ -444,88 +671,74 @@ function Contact() {
       email: v("email"),
       phone: v("telefono"),
       company: v("gimnasio"),
-      project: "Hispal GYM (demo)",
+      project: "Hispal GYM (visita)",
       budget: "",
       timeline: "",
-      description: v("mensaje") || "Solicitud de demo de Hispal GYM",
+      description: v("mensaje") || c.contact.defaultMessage,
       newsletter: false,
     });
     setSending(false);
     if (ok) setSent(true);
     else setFailed(true);
   };
+
   const field = (id: keyof Errors, label: string, type = "text", auto?: string) => (
     <div>
-      <Label htmlFor={id}>{label}</Label>
-      <Input id={id} name={id} type={type} autoComplete={auto} aria-invalid={!!errors[id]} aria-describedby={errors[id] ? `${id}-err` : undefined} className="mt-1.5 h-11 bg-background" />
-      {errors[id] && <p id={`${id}-err`} className="mt-1 text-xs text-destructive">{errors[id]}</p>}
+      <Label htmlFor={id} className="text-sm font-semibold text-hg-fg/85">{label}</Label>
+      <Input
+        id={id}
+        name={id}
+        type={type}
+        autoComplete={auto}
+        aria-invalid={!!errors[id]}
+        aria-describedby={errors[id] ? `${id}-err` : undefined}
+        className="mt-1.5 h-12 rounded-xl border-hg-line bg-hg-bg text-base text-hg-fg placeholder:text-hg-muted focus-visible:ring-hg-accent"
+      />
+      {errors[id] && <p id={`${id}-err`} className="mt-1.5 text-xs text-destructive">{errors[id]}</p>}
     </div>
   );
+
   return (
-    <section id="contacto" className="bg-ink py-20 text-ink-foreground">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2">
+    <section id="contacto" className="hg-grain relative isolate overflow-hidden border-t border-hg-line py-20 md:py-28">
+      <img src={`${GYM_MEDIA}/poleas.webp`} alt="" aria-hidden loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(var(--hg-deep))_0%,rgb(var(--hg-deep)/0.9)_50%,rgb(var(--hg-deep)/0.75)_100%)]" aria-hidden />
+      <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="reveal">
-          <Eyebrow>Contacto</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">Reserva una llamada de introducción sin compromiso</h2>
-          <p className="mt-4 opacity-80">Te enseñamos Hispal GYM con tu caso concreto y resolvemos tus dudas sobre puesta en marcha, hardware de acceso y migración de clientes.</p>
+          <p className="hg-eyebrow">{c.contact.eyebrow}</p>
+          <h2 className="mt-4 text-[2.8rem] sm:text-6xl lg:text-7xl">{c.contact.title}</h2>
+          <p className="mt-5 max-w-lg text-lg leading-relaxed text-hg-fg/80">{c.contact.sub}</p>
+          <ul className="mt-8 space-y-3.5">
+            {c.contact.points.map((p) => (
+              <li key={p} className="flex items-center gap-3 font-semibold">
+                <span className="grid size-6 place-items-center rounded-full bg-hg-accent text-hg-ink"><Check className="size-4" strokeWidth={3} aria-hidden /></span>
+                {p}
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="reveal rounded-2xl bg-card p-6 text-card-foreground shadow-soft md:p-8">
+        <div className="hg-card reveal p-6 sm:p-8">
           {sent ? (
-            <div role="status" className="py-10 text-center">
-              <CheckCircle2 className="mx-auto size-12 text-success" aria-hidden />
-              <h3 className="mt-4 text-xl font-bold">Solicitud recibida</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Gracias. Te contactaremos en breve para concretar la llamada.</p>
+            <div role="status" className="py-12 text-center">
+              <CheckCircle2 className="mx-auto size-14 text-hg-accent" aria-hidden />
+              <h3 className="mt-5 text-2xl font-bold">{c.contact.sentTitle}</h3>
+              <p className="mt-2 text-hg-muted">{c.contact.sentText}</p>
             </div>
           ) : (
             <form noValidate onSubmit={onSubmit} className="space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">{field("nombre", "Nombre", "text", "name")}{field("gimnasio", "Gimnasio", "text", "organization")}</div>
-              <div className="grid gap-4 sm:grid-cols-2">{field("email", "Email", "email", "email")}{field("telefono", "Teléfono", "tel", "tel")}</div>
-              <div><Label htmlFor="mensaje">Mensaje (opcional)</Label><Textarea id="mensaje" name="mensaje" rows={4} className="mt-1.5 bg-background" /></div>
-              {failed && <p role="alert" className="text-sm text-destructive">No se pudo enviar la solicitud. Inténtalo de nuevo.</p>}
-              <Button type="submit" size="lg" disabled={sending} className="w-full font-semibold">{sending ? "Enviando..." : "Solicita una llamada"}</Button>
+              <div className="grid gap-4 sm:grid-cols-2">{field("nombre", c.contact.name, "text", "name")}{field("gimnasio", c.contact.gym, "text", "organization")}</div>
+              <div className="grid gap-4 sm:grid-cols-2">{field("email", c.contact.email, "email", "email")}{field("telefono", c.contact.phone, "tel", "tel")}</div>
+              <div>
+                <Label htmlFor="mensaje" className="text-sm font-semibold text-hg-fg/85">{c.contact.message}</Label>
+                <Textarea id="mensaje" name="mensaje" rows={4} className="mt-1.5 rounded-xl border-hg-line bg-hg-bg text-base text-hg-fg focus-visible:ring-hg-accent" />
+              </div>
+              {failed && <p role="alert" className="text-sm text-destructive">{c.contact.failed}</p>}
+              <button type="submit" disabled={sending} className="hg-btn hg-btn--primary w-full disabled:opacity-60">
+                {sending ? c.contact.sending : c.contact.send}
+              </button>
             </form>
           )}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function Faq() {
-  const qa = [
-    ["¿Cómo se instala la app del socio?", "Es una app web instalable. El socio abre el enlace de tu gimnasio en el navegador del móvil y la añade a su pantalla de inicio en un par de toques."],
-    ["¿Hace falta publicarla en tiendas de apps?", "No. Al ser una app web instalable, no pasa por tiendas de apps ni necesita actualizaciones manuales."],
-    ["¿Qué hardware de acceso es compatible?", "Trabajamos con controladoras y lectores QR de Kimaldi, terminales de reconocimiento facial y sensores de conteo de personas, con una puerta o torno por instalación. Otros equipos son posibles bajo proyecto. Revisamos contigo tu instalación durante la llamada de introducción."],
-    ["¿Hace falta un torno?", "No. Hispal GYM se instala sobre la puerta que ya tienes: código QR, verificación facial y sensor de conteo de personas. El sensor es la alternativa más económica a un torno: no impide el paso, pero registra quién abrió y cuántas personas pasaron. Si prefieres un torno físico, también te lo suministramos e integramos."],
-    ["¿Cómo funciona el reconocimiento facial y qué pasa con la protección de datos?", "El terminal confirma que quien presenta el QR es su titular. Incluimos la documentación de protección de datos y una alternativa sin biometría: el socio que no quiera usar su cara entra con QR y validación en recepción. Tu gimnasio es el responsable del tratamiento y te damos la documentación y la configuración para cumplir."],
-    ["¿Qué pasa si alguien entra acompañado?", "Un sensor sobre la puerta cuenta las personas que cruzan. Si pasan más personas que accesos concedidos, salta una alarma y el sistema lo marca en rojo en la pantalla del sensor. Queda constancia de quién abrió la puerta y a qué hora, y el gimnasio puede hablar con ese socio."],
-    ["¿Puedo vender productos desde la app?", "Sí. La tienda incluye catálogo con fotos y precios, carrito y pago con tarjeta desde el móvil. El socio recoge su pedido en el mostrador enseñando un código QR, y el personal solo puede marcarlo como entregado escaneándolo. También puedes vender en el mostrador, en efectivo o con datáfono. Cada compra tiene su factura en PDF."],
-    ["¿Cómo funcionan las clases y los eventos?", "Tu equipo crea clases y eventos con su horario, su sala y sus plazas. El socio con la membresía en vigor reserva y cancela su plaza desde la app, y recibe avisos. Las sesiones pueden ser con reserva o de entrada libre."],
-    ["¿Puedo elegir cómo entran mis socios?", "Sí. Cada centro elige: solo QR, solo cara o QR y cara juntos. Lo recomendado para la máxima seguridad es QR + reconocimiento facial + sensor de conteo. Según el centro, también se puede ofrecer un PIN o una tarjeta como opción."],
-    ["¿Qué muestra el control de empleados?", "Cada cobro, cada venta de la tienda y cada ficha nueva queda a nombre de quien la registró. Sabes qué ha cobrado y vendido cada empleado, con trazabilidad completa. El empleado no ve los ingresos del negocio."],
-    ["¿Qué incluye la domótica?", "Luces y portones del gimnasio controlados desde el panel con dispositivos Shelly, y música con Spotify y alarmas por los altavoces del local."],
-    ["¿Se adapta a mi gimnasio?", "Sí. Es un producto, pero nos adaptamos: modificamos funciones, añadimos nuevas e integramos con tu sistema actual, con presupuesto cerrado."],
-    ["¿Se cobra automáticamente a los socios?", "No. No hay cobros automáticos. Cada pago compra un periodo de acceso y termina. El socio renueva cuando quiere, pagando de nuevo."],
-    ["¿Cómo se pagan las membresías?", "Online con tarjeta desde la app, en la pasarela bancaria Redsys, o en el mostrador en efectivo o con tarjeta en datáfono."],
-    ["¿Puedo abrir 24 horas sin personal?", "El flujo no necesita a nadie: alta online, pago, código QR, verificación facial y conteo de personas. Con el pack Total tienes aforo en vivo y salida registrada. No hay control de franjas horarias, y por seguridad no se valida ninguna entrada sin conexión. Lo valoramos contigo según tu centro."],
-    ["¿Qué pasa si falla la conexión?", "Por seguridad, no se valida ninguna entrada sin conexión: la puerta no abre y la pantalla indica que pases por recepción. Con el pack Total, un respaldo 4G y un SAI mantienen la puerta funcionando si cae la fibra o la luz. En los demás packs definimos contigo un plan de contingencia."],
-    ["¿Se puede personalizar con la marca de mi gimnasio?", "Sí, bajo proyecto. Nombre, logo y colores se adaptan a tu centro durante la puesta en marcha; no es un ajuste que cambies tú mismo desde el panel."],
-    ["¿Quién ve los datos de los socios?", "Solo las personas autorizadas de tu gimnasio, según su rol. El socio ve únicamente sus propios datos."],
-    ["¿Cuánto tarda la puesta en marcha?", "Depende del tamaño del centro y del hardware de acceso. Te damos un plan concreto tras la llamada de introducción."],
-    ["¿Puedo migrar mi base de clientes actual?", "Sí, como servicio de puesta en marcha: preparamos la migración a medida desde tu sistema actual para que no tengas que dar de alta a nadie a mano."],
-    ["¿Las pantallas que se ven son reales?", "Reproducen fielmente las pantallas de la app que ya usa Premium GYM, el gimnasio sobre el que se ha construido Hispal GYM, con la marca de Hispal GYM y datos ficticios."],
-  ];
-  return (
-    <section id="preguntas" className="mx-auto max-w-3xl px-4 py-20">
-      <SectionHead eyebrow="Preguntas frecuentes" title="Resolvemos tus dudas" />
-      <Accordion type="single" collapsible className="reveal mt-10">
-        {qa.map(([q, a], i) => (
-          <AccordionItem key={q} value={`q${i}`}>
-            <AccordionTrigger className="text-left font-display text-base font-semibold">{q}</AccordionTrigger>
-            <AccordionContent className="text-muted-foreground">{a}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      </Container>
     </section>
   );
 }

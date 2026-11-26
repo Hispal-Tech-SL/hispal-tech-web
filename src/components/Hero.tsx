@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Headset, Layers, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Phone, QrScreen } from "@/components/hispalgym/Mockups";
+import { PhoneShot } from "@/components/hispalgym/Devices";
+import { appShot } from "@/components/hispalgym/copy";
 import { GymMark } from "@/components/hispalgym/Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect } from "react";
@@ -139,7 +140,7 @@ const Hero = () => {
               </p>
             </div>
             <div className="pointer-events-none absolute right-4 top-5 origin-top-right rotate-6 scale-[0.42] transition-transform duration-500 will-change-transform group-hover:-translate-y-1 group-hover:rotate-3">
-              <Phone label="App de Hispal GYM"><QrScreen /></Phone>
+              <PhoneShot src={appShot("socio-acceso")} alt={t("hero.teaser.title")} className="w-[260px]" />
             </div>
           </Link>
         </div>
@@ -153,7 +154,7 @@ const Hero = () => {
       >
         <div className="relative h-[360px] w-[250px]">
           <div className="pointer-events-none absolute -right-16 top-0 origin-top-right -rotate-6 scale-[0.7] transition-transform duration-500 will-change-transform group-hover:-translate-x-4 group-hover:-rotate-2">
-            <Phone label="App de Hispal GYM"><QrScreen /></Phone>
+            <PhoneShot src={appShot("socio-acceso")} alt={t("hero.teaser.title")} className="w-[260px]" />
           </div>
           <div className="absolute -left-10 bottom-6 flex items-center gap-3 rounded-2xl border border-white/20 bg-black/40 px-4 py-3 text-left text-white shadow-xl backdrop-blur-md transition-colors group-hover:bg-black/55">
             <GymMark className="size-10" />
