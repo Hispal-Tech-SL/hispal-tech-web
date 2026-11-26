@@ -1,1 +1,0 @@
-import{j as a}from"./vendor-react-CYD0sM6G.js";import{aD as i}from"./index-J7pMAkWu.js";function m({value:s,label:t,accent:e=!1,bare:r=!1,className:l,...c}){return a.jsxs("div",{className:i("hg-stat",r&&"hg-stat--bare",e&&"hg-stat--accent",l),...c,children:[a.jsx("div",{className:"hg-stat__value",children:s}),a.jsx("div",{className:"hg-stat__label",children:t})]})}export{m as H};
