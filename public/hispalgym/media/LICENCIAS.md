@@ -1,6 +1,6 @@
 # Imágenes y vídeo de la página de Hispal GYM
 
-## Vídeo y fotos de fondo (`hero.mp4`, `hero-poster.webp`, `sala.webp`, `neon.webp`, `estiramientos.webp`, `banca.webp`, `poleas.webp`, `cinta.webp`)
+## Vídeo y fotos de fondo (`hero.mp4`, `hero-poster.webp`, `sala.webp`, `neon.webp`, `estiramientos.webp`, `banca.webp`, `poleas.webp`, `cinta.webp`, `prensa.webp`)
 
 Tramos y fotogramas de vídeos de Mixkit (Mixkit Stock Video Free License: uso comercial y no comercial sin atribución,
 <https://mixkit.co/license/#videoFree>). Son los mismos clips que ya usa la demo pública (ver `../demo/media/LICENCIAS.md`),
@@ -16,6 +16,13 @@ descargados el 25-11-2026 en 720p:
 | `banca.webp` | Fotograma (3 s) de [100545](https://mixkit.co/free-stock-video/man-in-a-weightlifting-session-100545/) |
 | `poleas.webp` | Fotograma (5 s) de 100546 |
 | `cinta.webp` | Fotograma (8 s) de [100528](https://mixkit.co/free-stock-video/woman-running-on-treadmill-in-gym-fitness-session-100528/) |
+| `prensa.webp` | Fotograma (8 s) de 100520 |
+
+Las fotos son fotogramas de 1280x720 en WebP de calidad 82, con un afilado suave.
+
+## Logos de ejemplo (`marcas/*.png`)
+
+Logos inventados para los gimnasios ficticios «Norte Box», «Distrito Fit» y «Atlas Club», dibujados para esta página.
 
 ## Capturas de la app (`app/*.webp`)
 
