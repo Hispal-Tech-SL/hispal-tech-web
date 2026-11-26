@@ -54,8 +54,8 @@ const Products = () => {
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(110deg,rgb(var(--hg-deep))_0%,rgb(var(--hg-deep)/0.92)_45%,rgb(var(--hg-deep)/0.7)_100%)]" aria-hidden />
           <div className="absolute -right-32 top-10 -z-10 size-[30rem] rounded-full bg-hg-accent/20 blur-[120px]" aria-hidden />
 
-          <div className="grid items-center gap-8 p-5 sm:p-8 md:p-10 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:p-14">
-            <div>
+          <div className="grid grid-cols-1 items-center gap-8 p-5 sm:p-8 md:p-10 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:p-14">
+            <div className="min-w-0">
               <span className="inline-flex items-center gap-2 rounded-full border border-hg-accent/40 bg-hg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-hg-accent">
                 <span className="size-1.5 rounded-full bg-hg-accent" aria-hidden />
                 {t("products.badge")}
@@ -92,7 +92,7 @@ const Products = () => {
             </div>
 
             {/* Phones: swipeable real screens. */}
-            <div className="-mx-5 sm:hidden">
+            <div className="-mx-5 min-w-0 sm:hidden">
               <div className="hg-strip flex snap-x snap-mandatory gap-4 overflow-x-auto px-[calc(50%-95px)] pb-2">
                 {screens.map(({ key, shot }) => (
                   <figure key={key} className="w-[190px] shrink-0 snap-center">

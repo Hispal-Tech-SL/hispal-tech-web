@@ -73,18 +73,11 @@
 .hg-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgb(var(--hg-accent));
-}
-.hg-eyebrow::before {
-  content: "";
-  width: 1.6rem;
-  height: 2px;
-  background: currentColor;
 }
 
 /* Buttons (links styled as buttons). */
