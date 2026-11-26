@@ -32,6 +32,19 @@ export default {
         'theme-lime': "hsl(var(--gym-theme-lime))",
         'theme-sky': "hsl(var(--gym-theme-sky))",
 
+        /* Hispal GYM redesign (values only defined inside .hg, see src/components/hispalgym/theme.css) */
+        hg: {
+          bg: "rgb(var(--hg-bg) / <alpha-value>)",
+          deep: "rgb(var(--hg-deep) / <alpha-value>)",
+          surface: "rgb(var(--hg-surface) / <alpha-value>)",
+          surface2: "rgb(var(--hg-surface-2) / <alpha-value>)",
+          line: "rgb(var(--hg-line) / <alpha-value>)",
+          fg: "rgb(var(--hg-fg) / <alpha-value>)",
+          muted: "rgb(var(--hg-muted) / <alpha-value>)",
+          accent: "rgb(var(--hg-accent) / <alpha-value>)",
+          ink: "rgb(var(--hg-ink) / <alpha-value>)",
+        },
+
         /* Core Design System */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

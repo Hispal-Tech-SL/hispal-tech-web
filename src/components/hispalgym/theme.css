@@ -1,0 +1,146 @@
+/*
+  Hispal GYM: the look of the redesigned app (the public demo), scoped to `.hg` so nothing leaks into the
+  Hispal Network pages. Barlow for text, Barlow Condensed italic in capitals for headings, charcoal surfaces
+  and the Hispal GYM orange as the only accent. Colours are RGB triplets so Tailwind opacity modifiers work
+  (`bg-hg-accent/15`); the `hg-*` colours are declared in tailwind.config.ts.
+*/
+@import "@fontsource/barlow/latin-400.css";
+@import "@fontsource/barlow/latin-500.css";
+@import "@fontsource/barlow/latin-600.css";
+@import "@fontsource/barlow/latin-700.css";
+@import "@fontsource/barlow-condensed/latin-700-italic.css";
+@import "@fontsource/barlow-condensed/latin-800-italic.css";
+
+.hg {
+  --hg-bg: 19 20 22;
+  --hg-deep: 12 12 14;
+  --hg-surface: 30 31 34;
+  --hg-surface-2: 42 43 47;
+  --hg-line: 46 47 52;
+  --hg-fg: 244 244 245;
+  --hg-muted: 154 155 161;
+  --hg-accent: 240 104 0;
+  /* Text on the accent: dark, readable on the orange and on the example brands' colours. */
+  --hg-ink: 16 17 20;
+
+  /* shadcn variables (HSL), so the Accordion, Input and Label used here follow the same palette. */
+  --background: 220 6% 8%;
+  --foreground: 240 5% 96%;
+  --card: 225 6% 13%;
+  --card-foreground: 240 5% 96%;
+  --popover: 225 6% 13%;
+  --popover-foreground: 240 5% 96%;
+  --primary: 26 100% 47%;
+  --primary-foreground: 225 11% 7%;
+  --muted: 228 6% 17%;
+  --muted-foreground: 231 4% 62%;
+  --accent: 228 6% 17%;
+  --accent-foreground: 240 5% 96%;
+  --border: 230 6% 19%;
+  --input: 230 6% 22%;
+  --ring: 26 100% 47%;
+  --destructive: 5 100% 68%;
+  --radius: 12px;
+
+  font-family: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: rgb(var(--hg-bg));
+  color: rgb(var(--hg-fg));
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hg ::selection { background: rgb(var(--hg-accent) / 0.35); }
+
+/* Headings: Barlow Condensed italic 800, capitals, tight. */
+.hg h1,
+.hg h2,
+.hg .hg-display {
+  font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 0.95;
+}
+.hg h3,
+.hg h4 {
+  font-family: "Barlow", system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.hg section[id] { scroll-margin-top: 4.5rem; }
+
+.hg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(var(--hg-accent));
+}
+
+/* Buttons (links styled as buttons). */
+.hg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0 1.6rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.hg-btn:focus-visible { outline: 2px solid rgb(var(--hg-accent)); outline-offset: 3px; }
+.hg-btn--primary {
+  background: rgb(var(--hg-accent));
+  color: rgb(var(--hg-ink));
+  box-shadow: 0 10px 30px -10px rgb(var(--hg-accent) / 0.7);
+}
+.hg-btn--primary:hover { transform: translateY(-1px); box-shadow: 0 14px 36px -10px rgb(var(--hg-accent) / 0.85); }
+.hg-btn--ghost {
+  border: 1px solid rgb(var(--hg-fg) / 0.22);
+  background: rgb(var(--hg-fg) / 0.04);
+  color: rgb(var(--hg-fg));
+  backdrop-filter: blur(8px);
+}
+.hg-btn--ghost:hover { border-color: rgb(var(--hg-fg) / 0.5); background: rgb(var(--hg-fg) / 0.08); }
+.hg-btn--sm { min-height: 2.5rem; padding: 0 1rem; font-size: 0.9rem; border-radius: 10px; }
+
+/* Cards and the subtle relief of the redesign (light top edge, soft shadow). */
+.hg-card {
+  border: 1px solid rgb(var(--hg-line));
+  background: linear-gradient(180deg, rgb(var(--hg-surface)), rgb(var(--hg-surface) / 0.86));
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04), 0 18px 40px -28px rgb(0 0 0 / 0.8);
+}
+
+/* Fine grain over dark photo sections, so large dark areas don't band. */
+.hg-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.9'/></svg>");
+}
+
+/* Thin accent rule under section headings. */
+.hg-rule { width: 3rem; height: 3px; border-radius: 3px; background: rgb(var(--hg-accent)); }
+
+/* Horizontal scroll strips without a visible scrollbar. */
+.hg-strip { scrollbar-width: none; }
+.hg-strip::-webkit-scrollbar { display: none; }
+
+/* Floating chips in the hero. */
+@keyframes hg-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.hg-float { animation: hg-float 6s ease-in-out infinite; }
+.hg-float-delay { animation-delay: -3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hg-float { animation: none; }
+  .hg-btn { transition: none; }
+}
