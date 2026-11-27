@@ -138,15 +138,15 @@
     "requestDemo": "Request demo",
     "items": {
       "hispalGym": {
-        "title": "Gym software and self-service access, under each gym's own brand",
-        "description": "Open your gym up to 24 hours with self-service access, online payments and full real-time control. Every gym gets its own app and its own website, with its logo and colours, and a team that comes to set it up and comes back to check on it.",
+        "title": "Open your gym 24 hours with no one at the front desk",
+        "description": "Software for gyms. Members get in with their phone, pay in the app and you stay in control of everything. From now on, your gym runs itself, under your own brand.",
         "chip": "Open 24/7",
         "points": [
-          "App and website under your gym's brand, sole trader or company",
-          "Access by QR, face, wristband or turnstile, plus a 3D people counter",
-          "Sign-ups, payments, shop, classes and workouts from the phone",
-          "On-site visit and in-person follow-up included",
-          "Custom development for each gym"
+          "Access by phone, face, wristband or turnstile",
+          "Card and Bizum payments in the app",
+          "Full control from your phone, including your team",
+          "App and website under your brand, sole trader or company",
+          "On-site visit and in-person reviews included"
         ],
         "tags": {
           "open": "Open 24/7",
@@ -351,19 +351,18 @@
   },
   "hispalgymPage": {
     "meta": {
-      "title": "Hispal GYM | Gym software and access control, under your own brand",
-      "description": "Open your gym up to 24 hours with nobody at the front desk, with your own app and your own website. On-site visit, floor study and in-person reviews included."
+      "title": "Hispal GYM | Open your gym 24 hours with no one at the front desk",
+      "description": "Gym software. Members get in with their phone, pay in the app and you stay in control of everything. From now on, your gym runs itself."
     },
     "nav": {
       "home": "Home",
-      "process": "How we work",
-      "included": "What's included",
-      "features": "Features",
+      "how": "How it works",
+      "why": "Why us",
       "brand": "Your brand",
+      "process": "How we work",
       "packs": "Packs",
       "case": "Case study",
       "faq": "FAQ",
-      "contact": "Contact",
       "cta": "Book your visit",
       "demo": "See the demo",
       "back": "Hispal Network",
@@ -374,311 +373,144 @@
       "language": "Language"
     },
     "hero": {
-      "eyebrow": "Gym software and access control",
-      "title1": "Compete with anyone.",
-      "title2": "Under your brand.",
-      "lead": "Open your gym up to 24 hours a day with nobody at the front desk. Your members sign up, pay and get in with your gym's own app, and you control everything from your phone.",
+      "eyebrow": "Software for gyms",
+      "title1": "Open your gym 24 hours",
+      "title2": "with no one at the front desk.",
+      "lead": "Members get in with their phone, pay in the app and you stay in control of everything.",
+      "motto": "From now on, your gym runs itself.",
       "ctaPrimary": "Book your free visit",
       "ctaDemo": "See the demo",
-      "proof": [
-        "Free on-site visit and floor study",
-        "App and website under your brand included",
-        "In-person review every 3 months"
-      ],
-      "panelTag": "Open 24 hours",
-      "panelTagSub": "Self-service access by phone",
       "phoneAlt": "Access code in the member app",
-      "scroll": "See how we work"
+      "scroll": "See how it works"
     },
-    "promise": {
-      "quote": "More than a company, we're your best friend.",
-      "text": "Big platforms look after thousands of gyms over chat or video calls. We come to your gym, sit down with you and tailor everything to you. Support, development and supervision, side by side with you.",
-      "pillars": [
+    "compete": {
+      "title": "Compete with anyone",
+      "steps": [
         {
-          "title": "Close support",
-          "text": "You always talk to the same people. They know your gym and they pick up the phone."
+          "title": "Open longer hours",
+          "text": "You can open early mornings, weekends and holidays without hiring more staff."
         },
         {
-          "title": "Tailored development",
-          "text": "We adapt the app to the way you work. If something doesn't fit, we change it."
+          "title": "Save on staff",
+          "text": "With no one needed at the door, you'll be able to adjust your prices."
         },
         {
-          "title": "In-person supervision",
-          "text": "We come back to your gym at least every three months to review everything with you."
+          "title": "Reach more people",
+          "text": "With longer hours and better prices, you'll be able to attract more members and compete with the big chains."
         }
       ]
     },
-    "process": {
-      "eyebrow": "How we work",
-      "title": "We start at your gym, not on a video call",
-      "sub": "Every gym is different. Before installing anything, we come to see it and think it through with you.",
-      "steps": [
+    "how": {
+      "eyebrow": "How it works",
+      "title": "Your whole gym in one app",
+      "sub": "What you need to open with no one at the front desk and know what's happening at any moment.",
+      "rows": [
         {
-          "title": "We visit your gym",
-          "text": "We measure the space, study the floor plan and see how your people come in and go out today."
+          "title": "Members get in with their phone",
+          "text": "Each member gets in with the QR code in their app. If you prefer, also by face, with a wristband or through a turnstile. We help you choose at the visit.",
+          "alt": "QR access code in the member app"
         },
         {
-          "title": "We advise you on the hardware",
-          "text": "We recommend what to install at the entrance, at the exit and to count people, and where each device goes."
+          "title": "They pay in the app",
+          "text": "They sign up and pay by card or Bizum at any time, or at the desk. Each payment buys its period and members see in the app until when they can get in.",
+          "alt": "Member's membership with its end date"
         },
         {
-          "title": "We tailor it to you",
-          "text": "QR, face, wristband, turnstile or something more traditional. With more or less control depending on your area, your members and how you work."
+          "title": "You control everything",
+          "text": "From your phone you see this month's revenue, who's inside right now and what each employee has charged, and you know when your team comes in and leaves.",
+          "alt": "Owner panel with this month's revenue"
         },
         {
-          "title": "We build your app and website",
-          "text": "With your name, logo and colours, and with any changes you ask for in how it works."
-        },
-        {
-          "title": "We install and train your team",
-          "text": "We leave everything running and show your team how to use the panel."
-        },
-        {
-          "title": "We stay by your side",
-          "text": "We come back at least every three months to review every feature with you and see what can be improved."
+          "title": "Nobody sneaks in",
+          "text": "A 3D sensor counts everyone who walks through. If two people get in on a single entry, an alarm sounds in the gym and the person who opened the door is recorded.",
+          "alt": "Sensor screen with entries, exits and alarms"
         }
       ],
-      "photoAlt": "Gym floor"
-    },
-    "included": {
-      "eyebrow": "What's included",
-      "title": "All of this is included, at no cost",
-      "sub": "What other companies charge extra for, or don't offer at all, is part of your fee with us.",
-      "zero": "€0",
-      "estimate": "Estimated at",
-      "items": [
-        {
-          "title": "On-site visit and floor study",
-          "value": "€300",
-          "text": "Measuring, floor plan study and advice on all the entry, exit and counting hardware."
-        },
-        {
-          "title": "Your app under your brand",
-          "value": "€2,000",
-          "text": "Your logo, colours and name on your members' phones, sole trader or company."
-        },
-        {
-          "title": "Your custom website",
-          "value": "€1,500",
-          "text": "With your team, your equipment and your prices. Domain and hosting are on us too."
-        },
-        {
-          "title": "In-person reviews",
-          "value": "€600 a year",
-          "text": "A visit at least every three months to review everything with you."
-        }
+      "chips": [
+        "QR code",
+        "Face recognition",
+        "Wristband or card",
+        "Turnstile or door"
       ],
-      "note": "Estimates based on usual market prices."
+      "more": "Plus shop, classes, workouts, live occupancy and smart building controls."
     },
-    "difference": {
-      "eyebrow": "The difference",
+    "why": {
+      "eyebrow": "Why us",
       "title": "To us, you're not just a number",
-      "sub": "Big platforms only brand the app for gyms registered as limited companies. Many gyms in Spain aren't, and they end up with a generic app that doesn't carry their name. With us, the app is yours from day one, sole trader or company.",
+      "sub": "Big platforms only brand the app for gyms registered as limited companies. Many gyms aren't, and they end up with a generic app that doesn't carry their name. With us, the app is yours from day one, sole trader or company.",
       "colTopic": "Topic",
       "colGeneric": "Generic platform",
       "colUs": "Hispal GYM",
       "rows": [
         [
           "App under your brand",
-          "Only for registered limited companies. Otherwise, a generic app with the platform's name.",
-          "Always, sole trader or company, with your logo, colours and name."
+          "Only for registered limited companies",
+          "Always, sole trader or company"
         ],
         [
           "Setup",
-          "They guide you over a video call.",
-          "We come to your gym, measure and advise you in person."
+          "Over a video call",
+          "We come to your gym and advise you in person"
         ],
         [
           "Website",
-          "Not included.",
-          "Custom-built and included, with domain and hosting."
-        ],
-        [
-          "Features",
-          "The same for every customer.",
-          "We adapt the app to the way you work."
+          "Not included",
+          "Custom-built, with domain and hosting"
         ],
         [
           "Follow-up",
-          "A ticket or a chat.",
-          "In-person visits at least every three months."
-        ],
-        [
-          "Access hardware",
-          "Whatever the platform supports.",
-          "Whatever you need, from the most modern to the most traditional."
-        ],
-        [
-          "Relationship",
-          "One customer among thousands.",
-          "A close team that knows your gym."
+          "A ticket or a chat",
+          "In-person visits at least every 3 months"
         ]
       ],
-      "note": "Compared with how general-purpose gym management platforms usually work."
-    },
-    "features": {
-      "eyebrow": "Features",
-      "title": "A self-service gym that's safe and under control",
-      "sub": "Everything you need to open with nobody at the front desk and know what's happening in your gym at any moment.",
-      "tabs": [
-        "Security",
-        "Access",
-        "Traceability",
-        "Real time",
-        "Member app"
+      "includedTitle": "Included in your fee",
+      "included": [
+        "On-site visit and floor study",
+        "App under your brand",
+        "Custom website with domain and hosting",
+        "In-person reviews"
       ],
-      "security": {
-        "title": "Nobody sneaks in",
-        "text": "When there's nobody at the front desk is when the door needs watching most. A 3D sensor counts everyone who walks through. If two people get in on a single entry, an alarm sounds on the gym's speakers right away.",
-        "points": [
-          "Instant audible alarm if someone sneaks in",
-          "A record of who opened the door and how many people passed",
-          "With a camera, every alarm is saved on video to review later",
-          "An alert if the door is held open",
-          "Exit control too, so you know who is still inside"
-        ],
-        "shotAlt": "Sensor screen with entries, exits and alarms"
-      },
-      "access": {
-        "title": "You choose how people get in",
-        "text": "Open up to 24 hours with the system that best fits your premises. We help you decide at the visit.",
-        "options": [
-          {
-            "title": "QR on the phone",
-            "text": "Each member gets in with the code in their app, tied to their phone."
-          },
-          {
-            "title": "Face recognition",
-            "text": "Get in with your face, alone or together with the QR, with its data protection paperwork."
-          },
-          {
-            "title": "Wristband or card",
-            "text": "We install it too, although we usually recommend QR or face because wristbands get lent."
-          },
-          {
-            "title": "Turnstile or door",
-            "text": "On the door you already have or with a turnstile. If you already have hardware, we work with it."
-          },
-          {
-            "title": "3D people counter",
-            "text": "Counts everyone who walks through the door, coming in and going out."
-          },
-          {
-            "title": "Remote opening",
-            "text": "Your team opens the door from the panel whenever needed."
-          }
-        ],
-        "note": "If you'd rather have something simpler or more traditional, we install that too."
-      },
-      "trace": {
-        "title": "Full traceability of your team",
-        "text": "Each employee has their own role and everything they do is recorded under their name. You'll know who did what and when, without having to ask.",
-        "points": [
-          "When each employee comes in and leaves",
-          "What they charged, in cash, by card or by Bizum",
-          "Which products they sold and which orders they handed over",
-          "Which members they signed up",
-          "Employees can't see the business's revenue"
-        ],
-        "shotAlt": "Staff list with their roles"
-      },
-      "live": {
-        "title": "Your gym in real time",
-        "text": "From your phone, a tablet or the front-desk computer.",
-        "tabs": [
-          {
-            "label": "Entries",
-            "title": "Every entry and exit",
-            "text": "With the time, the person and how they got in, by QR, by face or from the panel."
-          },
-          {
-            "label": "Inside now",
-            "title": "Who's in your gym",
-            "text": "The people inside right now, members and staff, and when they came in."
-          },
-          {
-            "label": "Sensor",
-            "title": "How many come in and go out",
-            "text": "The 3D sensor counts entries and exits and flags every alarm."
-          },
-          {
-            "label": "Revenue",
-            "title": "What comes in each month",
-            "text": "Online and at the desk, by day, month or year."
-          }
-        ]
-      },
-      "app": {
-        "title": "The app your members use every day",
-        "text": "Modern, fast and under your brand. Your members open it every time they come to train.",
-        "screens": [
-          "Home",
-          "Membership",
-          "Shop",
-          "Classes",
-          "Events",
-          "Workouts",
-          "Occupancy",
-          "Payments"
-        ],
-        "list": [
-          {
-            "title": "Online sign-up and payments",
-            "text": "Card and Bizum from the phone, plus cash or card terminal at the desk."
-          },
-          {
-            "title": "In-app shop",
-            "text": "Your products with photo and price. Members pay and collect with their QR."
-          },
-          {
-            "title": "Classes and events",
-            "text": "With timetable, room and places. Members book from the app."
-          },
-          {
-            "title": "Workouts and exercises",
-            "text": "Workouts by goal, with a video of each exercise."
-          },
-          {
-            "title": "Live occupancy",
-            "text": "Members can see how busy it is before they come."
-          },
-          {
-            "title": "Roles for your team",
-            "text": "Member, front desk, owner and sales, each with what they need."
-          },
-          {
-            "title": "Smart building",
-            "text": "Lights, gate and music from the panel."
-          },
-          {
-            "title": "In-gym display",
-            "text": "Your products and announcements on the gym's TV."
-          }
-        ]
-      }
+      "quote": "More than a company, we're your best friend."
     },
     "brand": {
       "eyebrow": "Your brand",
-      "title": "Your brand, in your app and on your website",
-      "sub": "Your members open your gym's app, not a platform's. It looks professional and sets you apart from the competition.",
+      "title": "Under your brand, in your app and on your website",
+      "sub": "Your members open your gym's app, with your logo and colours, not a platform's.",
       "examplesTitle": "How it would look for three made-up gyms",
-      "examplesText": "We've prepared three examples with invented names, logos and colours. Pick one and see how the app changes.",
+      "examplesText": "Invented names, logos and colours. Pick one and see how the app changes.",
       "examplesBrand": "Example gym",
       "phoneHome": "Member home",
       "phoneAccess": "QR access",
       "webTitle": "No website? We'll build it",
-      "webText": "From scratch and the way you like it, so your gym looks the way it deserves.",
-      "webPoints": [
-        "Your team and your trainers",
-        "Your space and your equipment",
-        "Your classes and your prices",
-        "Online sign-up and payment"
-      ]
+      "webText": "From scratch and the way you like it, with your team, your space, your classes and your prices, plus online sign-up and payment."
+    },
+    "process": {
+      "eyebrow": "How we work",
+      "title": "We start at your gym, not on a video call",
+      "steps": [
+        {
+          "title": "We visit you",
+          "text": "We measure your premises, study the floor plan and see how your people come in and go out today."
+        },
+        {
+          "title": "We recommend the hardware",
+          "text": "What to put at the entrance, at the exit and to count people. What fits your gym, not the most expensive option."
+        },
+        {
+          "title": "We tailor it to you",
+          "text": "Your app and website under your brand, and any changes you ask for in how it works."
+        },
+        {
+          "title": "We install and stay by your side",
+          "text": "We leave it running, train your team and come back at least every three months."
+        }
+      ],
+      "photoAlt": "Gym floor"
     },
     "packs": {
       "eyebrow": "Packs",
       "title": "Choose where to start",
-      "sub": "These are the packs our customers choose most, and they're a guide. After the visit we study your gym, remove or add whatever is needed and give you a tailored price.",
+      "sub": "They're a guide. After the visit we fit the modules to your gym and give you a tailored price.",
       "popular": "Most chosen",
       "recommended": "Our recommendation",
       "cta": "Book your visit",
@@ -698,8 +530,7 @@
             "All the management software",
             "QR access on one door",
             "Panel with roles and access log",
-            "Remote door opening",
-            "Staff entries and exits"
+            "Remote door opening"
           ]
         },
         {
@@ -710,68 +541,35 @@
             "Everything in Essential",
             "Face recognition",
             "Data protection paperwork",
-            "Non-biometric option for anyone who asks",
-            "Monthly access report",
-            "Priority support"
+            "Non-biometric option"
           ]
         },
         {
           "name": "Complete",
           "tag": "QR, face and counting",
-          "text": "With a UPS and a 4G router, your door keeps working even if the power or the fibre goes down.",
+          "text": "With a UPS and a 4G router, the door keeps working even if the power or internet goes down.",
           "points": [
             "Everything in Secure",
-            "3D sensor with live occupancy",
-            "Audible alarm if someone sneaks in",
+            "3D sensor and alarm if someone sneaks in",
             "Exit reader",
-            "UPS, so you don't depend on the power grid",
-            "4G router with SIM card, so you don't depend on your internet provider",
+            "UPS and 4G router with SIM card",
             "Optional turnstile"
           ]
         }
       ],
-      "starlinkTitle": "Poor coverage? Satellite internet",
-      "starlinkText": "We also work with Starlink so your gym stays connected even where fibre and 4G don't reach. It's an extra that we quote for your case.",
-      "note": "Too much or missing something? We fit it to your gym and the price is tailored to you."
+      "starlink": "Poor coverage? We can also install Starlink satellite internet as an extra."
     },
     "caseStudy": {
       "eyebrow": "Case study",
-      "title": "Already running every day in a real gym",
-      "text": "Hispal GYM first went live at Premium GYM Health & Beauty, in Huétor Tájar (Granada, Spain). Members sign up, pay, get in, book classes and buy from the shop in the app, and the team runs everything from the panel.",
+      "title": "Already running in a real gym",
+      "text": "Premium GYM Health & Beauty, in Huétor Tájar (Granada, Spain), was the first gym with Hispal GYM. Its members sign up, pay, get in and book classes in the app, and the team runs everything from the panel.",
+      "hours": "It opens every day of the year, from 5:00 to 00:00 on weekdays and from 7:00 to 00:00 on weekends and holidays.",
       "place": "Premium GYM Health & Beauty",
       "address": "Calle Ancha, 88, Huétor Tájar (Granada)",
-      "points": [
-        "Online sign-up and payments, no front desk needed",
-        "Self-service access every day of the year",
-        "Workouts, classes and shop in the member app",
-        "Management panel for the owner and the team"
-      ],
       "badge": "Up and running",
       "visitTitle": "Come and see it",
-      "visitText": "Book a call with us and we'll show it to you in person, with the owner and the team. See how a normal day works before you decide anything.",
+      "visitText": "Book a call and we'll show it to you in person, with the owner and the team.",
       "cta": "I want to see it"
-    },
-    "trust": {
-      "eyebrow": "Peace of mind",
-      "title": "Safe for you and your members",
-      "items": [
-        {
-          "title": "Payments with Redsys",
-          "text": "The Spanish banks' payment gateway. Card details never go through your gym."
-        },
-        {
-          "title": "Everyone sees their own",
-          "text": "Role-based access and encrypted connections. Members only see their own data."
-        },
-        {
-          "title": "Data protection",
-          "text": "Paperwork included and a non-biometric option for anyone who doesn't want to use their face."
-        },
-        {
-          "title": "Always reachable",
-          "text": "A close team that knows your gym and answers when you need it."
-        }
-      ]
     },
     "faq": {
       "eyebrow": "FAQ",
@@ -779,58 +577,38 @@
       "items": [
         [
           "Do I need to be a limited company to have the app under my brand?",
-          "No. Your app carries your logo, colours and name whether you're a sole trader or a company, whatever the size of your gym."
-        ],
-        [
-          "Is the website really included?",
-          "Yes. We build you a custom website with your team, your equipment, your photos and your prices, with online sign-up and payment. Domain and hosting are included too."
+          "No. Your app carries your logo, colours and name whether you're a sole trader or a company."
         ],
         [
           "What does the visit include?",
-          "We come to your gym, measure the premises, study the floor plan and advise you on where each device goes and which access system suits you. It's free."
+          "We measure your premises, study the floor plan and advise you on what hardware to install and where. It's free."
         ],
         [
-          "How often do you come back?",
-          "Once you're live, we come back to your gym at least every three months to review every feature with you and see what can be improved."
-        ],
-        [
-          "Can I open 24 hours without staff?",
-          "Yes, if you want to. Members sign up, pay and get in on their own, and you control everything from the panel. We plan it with you based on your premises and hours."
+          "How do my members pay?",
+          "By card or Bizum in the app, through the Redsys banking gateway, or at the desk in cash or by card terminal. Each payment buys an access period."
         ],
         [
           "How do I stop people sneaking in?",
-          "With the 3D sensor, if more people pass than entries granted, an alarm sounds in the gym and the person who opened the door is recorded. With a camera, every alarm is saved on video."
-        ],
-        [
-          "Which access system suits me?",
-          "It depends on your gym. We can install QR, face recognition, wristbands or cards, a turnstile or a 3D sensor, or combine them. At the visit we recommend what makes sense for you."
+          "The 3D sensor counts everyone. If more people pass than entries granted, an alarm sounds and the person who opened the door is recorded. With a camera, every alarm is saved on video."
         ],
         [
           "What if the power or internet goes down?",
-          "With the Complete pack, a UPS and a 4G router keep the door working. If your premises have poor coverage, we also offer Starlink satellite internet as an extra."
+          "With the Complete pack, a UPS and a 4G router keep the door working."
         ],
         [
-          "Can I ask for changes to the app?",
-          "Yes. We adapt to the way you work. We change what doesn't fit and build what you're missing for your gym."
-        ],
-        [
-          "Do my members have to download anything?",
-          "No app store needed. Members open your gym's link on their phone and add it to their home screen in a couple of taps."
-        ],
-        [
-          "Can I bring my current members?",
-          "Yes. We prepare the migration from your current software so you don't have to sign anyone up by hand."
+          "Is my members' data protected?",
+          "Yes. Role-based access and encrypted connections, and each member only sees their own data. If you use face recognition, we give you the data protection paperwork and a non-biometric option."
         ],
         [
           "How much does it cost?",
-          "It depends on what your gym needs. We start from the packs and, after the visit, give you a fixed, tailored price."
+          "It depends on what your gym needs. After the visit we give you a fixed, tailored price."
         ]
       ]
     },
     "verifactu": {
       "badge": "Coming soon",
       "title": "Verifactu",
-      "text": "We're preparing the integration with Verifactu, the Spanish Tax Agency's verifiable invoicing system, so you can manage your invoicing in a legal, transparent and accurate way."
+      "text": "We're preparing the integration with Verifactu, the Spanish Tax Agency's verifiable invoicing system."
     },
     "contact": {
       "eyebrow": "Contact",
@@ -858,7 +636,7 @@
       "defaultMessage": "Hispal GYM visit request"
     },
     "footer": {
-      "tagline": "More than a company, we're your best friend. Gym software and access control, under your brand and with us by your side.",
+      "tagline": "Software for gyms. More than a company, we're your best friend.",
       "product": "Product",
       "company": "Contact",
       "maker": "Hispal GYM is a product of Hispal Network SL.",

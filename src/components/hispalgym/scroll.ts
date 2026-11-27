@@ -9,9 +9,7 @@ const prefersReducedMotion = () => typeof window !== "undefined" && window.match
 export function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
-  // The features have their own sticky sub-menu under the header: land below it too.
-  const extra = id !== "funcionalidades" && el.closest("#funcionalidades") ? 64 : 0;
-  const top = id === "inicio" ? 0 : el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET - extra;
+  const top = id === "inicio" ? 0 : el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
   window.scrollTo({ top: Math.max(0, top), behavior: prefersReducedMotion() ? "auto" : "smooth" });
   history.replaceState(null, "", `#${id}`);
 }
