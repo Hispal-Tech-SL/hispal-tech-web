@@ -406,7 +406,21 @@ function Brand() {
         </div>
 
         <div className="reveal mt-6 grid grid-cols-1 overflow-hidden rounded-3xl border border-hg-line lg:grid-cols-2">
-          <Photo name="prensa" className="aspect-[16/10] rounded-none border-0 lg:aspect-auto" position="50% 40%" />
+          <div className="relative aspect-[16/10] min-h-full overflow-hidden bg-hg-surface lg:aspect-auto">
+            <video
+              className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+              src={`${GYM_MEDIA}/prensa.mp4`}
+              poster={`${GYM_MEDIA}/prensa-poster.webp`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden
+            />
+            <img src={`${GYM_MEDIA}/prensa-poster.webp`} alt="" aria-hidden loading="lazy" className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" aria-hidden />
+          </div>
           <div className="bg-hg-surface p-6 sm:p-10">
             <Globe className="size-7 text-hg-accent" aria-hidden />
             <h3 className="mt-4 text-2xl font-bold sm:text-[1.7rem]">{c.brand.webTitle}</h3>
