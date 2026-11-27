@@ -476,10 +476,24 @@
       "title": "Con tu marca, en tu app y en tu web",
       "sub": "Tus socios abren la app de tu gimnasio, con tu logo y tus colores, no la de una plataforma.",
       "examplesTitle": "Así quedaría en tres gimnasios ficticios",
-      "examplesText": "Nombres, logos y colores inventados. Elige uno y mira cómo cambia la app.",
+      "examplesText": "Nombres, logos, colores y fotos inventados. Elige uno y mira cómo cambia su app.",
       "examplesBrand": "Gimnasio de ejemplo",
+      "gyms": [
+        {
+          "vibe": "Box de entrenamiento funcional",
+          "slogan": "Entrena como un atleta"
+        },
+        {
+          "vibe": "Gimnasio de barrio, luminoso y cercano",
+          "slogan": "Tu gimnasio, a la vuelta de la esquina"
+        },
+        {
+          "vibe": "Club de musculación",
+          "slogan": "Fuerza sin límites"
+        }
+      ],
       "phoneHome": "Inicio del socio",
-      "phoneAccess": "Acceso con QR",
+      "phoneClasses": "Clases",
       "webTitle": "¿No tienes web? Te la hacemos",
       "webText": "Desde cero y a tu gusto, con tu equipo, tu sala, tus clases y tus tarifas, y con alta y pago online."
     },

@@ -477,10 +477,24 @@
       "title": "Under your brand, in your app and on your website",
       "sub": "Your members open your gym's app, with your logo and colours, not a platform's.",
       "examplesTitle": "How it would look for three made-up gyms",
-      "examplesText": "Invented names, logos and colours. Pick one and see how the app changes.",
+      "examplesText": "Invented names, logos, colours and photos. Pick one and see how its app changes.",
       "examplesBrand": "Example gym",
+      "gyms": [
+        {
+          "vibe": "Functional training box",
+          "slogan": "Train like an athlete"
+        },
+        {
+          "vibe": "Bright, friendly neighbourhood gym",
+          "slogan": "Your gym, just around the corner"
+        },
+        {
+          "vibe": "Strength training club",
+          "slogan": "Strength without limits"
+        }
+      ],
       "phoneHome": "Member home",
-      "phoneAccess": "QR access",
+      "phoneClasses": "Classes",
       "webTitle": "No website? We'll build it",
       "webText": "From scratch and the way you like it, with your team, your space, your classes and your prices, plus online sign-up and payment."
     },
