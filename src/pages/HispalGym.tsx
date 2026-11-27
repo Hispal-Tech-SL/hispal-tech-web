@@ -333,26 +333,28 @@ const EXAMPLE_GYMS = [
 function Brand() {
   const c = useGymCopy();
   const { language } = useLanguage();
-  const [gym, setGym] = useState<(typeof EXAMPLE_GYMS)[number]>(EXAMPLE_GYMS[0]);
+  const [index, setIndex] = useState(0);
+  const gym = EXAMPLE_GYMS[index];
+  const style = c.brand.gyms[index];
   return (
     <section id="tu-marca" className="py-20 md:py-28">
       <Container>
         <SectionHead eyebrow={c.brand.eyebrow} title={c.brand.title} sub={c.brand.sub} />
 
-        <div className="hg-card reveal mt-12 grid grid-cols-1 items-center gap-10 overflow-hidden p-5 sm:p-8 lg:mt-16 lg:grid-cols-[1fr_1.1fr] lg:gap-12 lg:p-12">
+        <div className="hg-card reveal mt-12 grid grid-cols-1 items-center gap-8 overflow-hidden p-5 sm:p-8 lg:mt-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:p-10">
           <div className="min-w-0">
             <h3 className="text-2xl font-bold sm:text-[1.7rem]">{c.brand.examplesTitle}</h3>
             <p className="mt-3 leading-relaxed text-hg-muted">{c.brand.examplesText}</p>
             <div role="radiogroup" aria-label={c.brand.examplesTitle} className="mt-7 grid grid-cols-1 gap-3">
-              {EXAMPLE_GYMS.map((g) => {
-                const active = g.key === gym.key;
+              {EXAMPLE_GYMS.map((g, i) => {
+                const active = i === index;
                 return (
                   <button
                     key={g.key}
                     type="button"
                     role="radio"
                     aria-checked={active}
-                    onClick={() => setGym(g)}
+                    onClick={() => setIndex(i)}
                     className={cn(
                       "flex items-center gap-4 rounded-2xl border p-3.5 text-left transition-colors",
                       active ? "border-hg-fg/70 bg-hg-fg/[0.06]" : "border-hg-line hover:border-hg-fg/30",
@@ -361,7 +363,7 @@ function Brand() {
                     <img src={`${GYM_MEDIA}/marcas/${g.key}.png`} alt="" className="size-12 shrink-0 rounded-xl bg-hg-bg object-contain p-1" />
                     <span className="min-w-0 flex-1">
                       <span className="block font-bold">{g.name}</span>
-                      <span className="block text-sm text-hg-muted">{c.brand.examplesBrand}</span>
+                      <span className="block text-sm text-hg-muted">{c.brand.gyms[i].vibe}</span>
                     </span>
                     <span className="flex items-center gap-2 text-sm text-hg-muted">
                       <span className="size-4 rounded-full ring-2 ring-white/10" style={{ background: g.hex }} aria-hidden />
@@ -374,21 +376,51 @@ function Brand() {
                 );
               })}
             </div>
+            <p className="mt-4 text-xs text-hg-muted">{c.brand.examplesBrand}</p>
           </div>
-          <div className="flex min-w-0 items-start justify-center gap-4 sm:gap-6">
-            <figure className="w-[46%] max-w-[240px]">
-              <PhoneShot key={`h-${gym.key}`} src={appShot(`${gym.key}-mi-cuenta-tab-inicio`)} alt={`${c.brand.phoneHome}, ${gym.name}`} className="w-full animate-in fade-in duration-500" />
-              <figcaption className="mt-3 text-center text-xs font-semibold text-hg-muted">{c.brand.phoneHome}</figcaption>
-            </figure>
-            <figure className="mt-10 w-[46%] max-w-[240px]">
-              <PhoneShot key={`a-${gym.key}`} src={appShot(`${gym.key}-acceso`)} alt={`${c.brand.phoneAccess}, ${gym.name}`} className="w-full animate-in fade-in duration-500" />
-              <figcaption className="mt-3 text-center text-xs font-semibold text-hg-muted">{c.brand.phoneAccess}</figcaption>
-            </figure>
+
+          {/* Each made-up gym with its own atmosphere: its photo, its logo and slogan, and its app with its own photos. */}
+          <div className="relative isolate min-w-0 overflow-hidden rounded-3xl border border-white/10">
+            <img key={`amb-${gym.key}`} src={`${GYM_MEDIA}/marcas/${gym.key}-ambiente.webp`} alt="" aria-hidden loading="lazy" className="absolute inset-0 -z-20 h-full w-full animate-in fade-in object-cover duration-700" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/25 to-black/70" aria-hidden />
+            <div className="px-4 pb-6 pt-5 sm:px-7 sm:pt-7">
+              <div key={`id-${gym.key}`} className="flex animate-in fade-in items-center gap-3 duration-500">
+                <img src={`${GYM_MEDIA}/marcas/${gym.key}.png`} alt="" className="size-12 shrink-0 rounded-xl bg-black/40 object-contain p-1 backdrop-blur-sm" />
+                <div className="min-w-0">
+                  <p className="hg-display text-[1.7rem] text-white sm:text-[2rem]">{gym.name}</p>
+                  <p className="text-sm font-semibold text-white/80">{style.slogan}</p>
+                </div>
+              </div>
+              <div className="mt-6 flex items-start justify-center gap-3 sm:gap-5">
+                <figure className="w-[46%] max-w-[220px]">
+                  <PhoneShot key={`h-${gym.key}`} src={appShot(`${gym.key}-mi-cuenta-tab-inicio`)} alt={`${c.brand.phoneHome}, ${gym.name}`} className="w-full animate-in fade-in duration-500" />
+                  <figcaption className="mt-3 text-center text-xs font-semibold text-white/75">{c.brand.phoneHome}</figcaption>
+                </figure>
+                <figure className="mt-8 w-[46%] max-w-[220px]">
+                  <PhoneShot key={`c-${gym.key}`} src={appShot(`${gym.key}-clases`)} alt={`${c.brand.phoneClasses}, ${gym.name}`} className="w-full animate-in fade-in duration-500" />
+                  <figcaption className="mt-3 text-center text-xs font-semibold text-white/75">{c.brand.phoneClasses}</figcaption>
+                </figure>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="reveal mt-6 grid grid-cols-1 overflow-hidden rounded-3xl border border-hg-line lg:grid-cols-2">
-          <Photo name="prensa" className="aspect-[16/10] rounded-none border-0 lg:aspect-auto" position="50% 40%" />
+          <div className="relative aspect-[16/10] min-h-full overflow-hidden bg-hg-surface lg:aspect-auto">
+            <video
+              className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+              src={`${GYM_MEDIA}/prensa.mp4`}
+              poster={`${GYM_MEDIA}/prensa-poster.webp`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden
+            />
+            <img src={`${GYM_MEDIA}/prensa-poster.webp`} alt="" aria-hidden loading="lazy" className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" aria-hidden />
+          </div>
           <div className="bg-hg-surface p-6 sm:p-10">
             <Globe className="size-7 text-hg-accent" aria-hidden />
             <h3 className="mt-4 text-2xl font-bold sm:text-[1.7rem]">{c.brand.webTitle}</h3>
