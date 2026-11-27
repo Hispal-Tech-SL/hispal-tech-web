@@ -8,11 +8,11 @@ import { NAVIGATE_EVENT, useActiveSection } from "@/components/hispalgym/scroll"
 import { cn } from "@/lib/utils";
 
 /** Sections shown in the menu, in page order. */
-const SECTION_IDS = ["inicio", "como-trabajamos", "incluido", "funcionalidades", "tu-marca", "packs", "caso-real"] as const;
+const SECTION_IDS = ["inicio", "como-funciona", "por-que-nosotros", "tu-marca", "como-trabajamos", "packs", "caso-real"] as const;
 
 function useNavLinks() {
   const c = useGymCopy();
-  const labels = [c.nav.home, c.nav.process, c.nav.included, c.nav.features, c.nav.brand, c.nav.packs, c.nav.case];
+  const labels = [c.nav.home, c.nav.how, c.nav.why, c.nav.brand, c.nav.process, c.nav.packs, c.nav.case];
   return SECTION_IDS.map((id, i) => [labels[i], id] as const);
 }
 
@@ -149,9 +149,9 @@ export function GymFooter() {
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.14em] text-hg-fg">{c.footer.product}</p>
           <ul className="mt-4 space-y-2.5 text-sm text-hg-muted">
+            <li><a href="#como-funciona" className="hover:text-hg-accent">{c.nav.how}</a></li>
+            <li><a href="#por-que-nosotros" className="hover:text-hg-accent">{c.nav.why}</a></li>
             <li><a href="#como-trabajamos" className="hover:text-hg-accent">{c.nav.process}</a></li>
-            <li><a href="#incluido" className="hover:text-hg-accent">{c.nav.included}</a></li>
-            <li><a href="#funcionalidades" className="hover:text-hg-accent">{c.nav.features}</a></li>
             <li><a href="#packs" className="hover:text-hg-accent">{c.nav.packs}</a></li>
             <li><a href="#preguntas" className="hover:text-hg-accent">{c.nav.faq}</a></li>
           </ul>
